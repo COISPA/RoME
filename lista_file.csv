@@ -29,9 +29,8 @@ check_no_empty_fields.r;Walter;
 check_position.r;Walter;
 check_position_in_Med.r;Walter;
 check_quadrant.r;Isa;x
-check_quasiidentical_records.r;Isa;
+check_quasiidentical_records.r;Isa;x
 check_raising.r;Isa;
-check_raising_no.r;Isa;
 check_rubincode.r;Isa;
 check_sex_inversion.r;Isa;
 check_smallest_mature.r;Isa;
