@@ -23,7 +23,7 @@ check_quasiidentical_records(Result,wd,suffix)
 The checks execution is stopped if any quasi-identical record was found.
 }
 \value{
-The function returns TRUE if no error occurs, FALSE is at least a quasi-identical record was ofund.
+The function returns TRUE if no error occurs, FALSE is at least a quasi-identical record was found.
 }
 \references{
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
