@@ -15,8 +15,110 @@
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking serialization versions ... OK
-* checking whether package 'RoME' can be installed ... ERROR
-Installation failed.
-See 'D:/Documents and Settings/Utente/Documenti/GitHub/RoME/RoME.Rcheck/00install.out' for details.
+* checking whether package 'RoME' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+check_0_fieldsTA: no visible binding for '<<-' assignment to 'Errors'
+check_0_fieldsTA: no visible binding for global variable 'Errors'
+check_area: no visible binding for '<<-' assignment to 'Errors'
+check_area: no visible binding for global variable 'Errors'
+check_quadrant: no visible binding for '<<-' assignment to 'Errors'
+check_quadrant: no visible binding for global variable 'Errors'
+check_quasiidentical_records: no visible binding for global variable
+  'Errors'
+check_quasiidentical_records: no visible binding for global variable
+  'CATEGORY'
+check_raising: no visible binding for global variable 'Errors'
+check_raising: no visible binding for global variable 'Type_of_files'
+check_raising: no visible binding for global variable 'Format'
+check_raising: no visible global function definition for 'sqldf'
+check_raising: no visible global function definition for 'write.table'
+check_raising: no visible global function definition for 'read.csv'
+check_raising: no visible binding for global variable 'DataTC'
+Undefined global functions or variables:
+  CATEGORY DataTC Errors Format Type_of_files read.csv sqldf
+  write.table
+Consider adding
+  importFrom("utils", "read.csv", "write.table")
+to your NAMESPACE file.
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  'check_0_fieldsTA' 'check_raising'
+All user-level objects in a package should have documentation entries.
+See chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... WARNING
+Objects in \usage without \alias in documentation object 'check_0_fieldsTA':
+  'check_0_fieldsTA'
+
+Undocumented arguments in documentation object 'check_quasiidentical_records'
+  'Result'
+Documented arguments not in \usage in documentation object 'check_quasiidentical_records':
+  'ResultData'
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+* checking Rd contents ... WARNING
+Argument items with no description in Rd object 'check_area':
+  'DataTD' 'DataTT'
+
+* checking for unstated dependencies in examples ... OK
+* checking examples ... ERROR
+Running examples in 'RoME-Ex.R' failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_area
+> ### Title: Check if TX files have the same area
+> ### Aliases: check_area
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+>     wd <- tempdir()
+>     suffix="27-02-2020 18:30"
+>     DataTA = MEDITS::TA
+>     DataTB = MEDITS::TB
+>     DataTC = MEDITS::TC
+>     DataTD = NA
+>     DataTE = NA
+>     DataTT = NA
+>     DataTL = NA
+> 
+>     check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
+Warning in file(file, ifelse(append, "a", "w")) :
+  cannot open file 'C:\Users\Walter\AppData\Local\Temp\RtmpSgub9l/working_dir\RtmpIt7eVm/Logfiles/Logfile_27-02-2020 18:30.dat': No such file or directory
+Error in file(file, ifelse(append, "a", "w")) : 
+  cannot open the connection
+Calls: check_area -> write -> cat -> file
+Execution halted
+* checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR
+Status: 1 ERROR, 3 WARNINGs, 1 NOTE

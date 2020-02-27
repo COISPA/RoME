@@ -1,10 +1,11 @@
 * installing *source* package 'RoME' ...
 ** using staged installation
 ** R
-Error in parse(outFile) : 
-  D:/Documents and Settings/Utente/Documenti/GitHub/RoME/RoME.Rcheck/00_pkg_src/RoME/R/RoME.R:115:5: unexpected 'else'
-114:     }
-115:   } else
-         ^
-ERROR: unable to collate and parse R files for package 'RoME'
-* removing 'D:/DOCUME~1/Utente/DOCUME~1/GitHub/RoME/ROME~1.RCH/RoME'
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (RoME)

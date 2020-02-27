@@ -1,0 +1,6 @@
+Checks 0 fields in TA   Checks the presence of 0 fields in TA
+check_area              Check if TX files have the same area
+check_quadrant          Check start and end quadrant for each haul
+check_quasiidentical_records
+                        Function checking the presence of
+                        quasi-identical records.

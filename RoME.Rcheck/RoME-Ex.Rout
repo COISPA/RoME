@@ -1,0 +1,96 @@
+
+R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "RoME"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> options(pager = "console")
+> base::assign(".ExTimings", "RoME-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('RoME')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("check_0_fieldsTA")
+> ### * check_0_fieldsTA
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_0_fieldsTA
+> ### Title: Checks the presence of 0 fields in TA
+> ### Aliases: 'Checks 0 fields in TA'
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> ResultDataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_area")
+> ### * check_area
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_area
+> ### Title: Check if TX files have the same area
+> ### Aliases: check_area
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+>     wd <- tempdir()
+>     suffix="27-02-2020 18:30"
+>     DataTA = MEDITS::TA
+>     DataTB = MEDITS::TB
+>     DataTC = MEDITS::TC
+>     DataTD = NA
+>     DataTE = NA
+>     DataTT = NA
+>     DataTL = NA
+> 
+>     check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
+Warning in file(file, ifelse(append, "a", "w")) :
+  cannot open file 'C:\Users\Walter\AppData\Local\Temp\RtmpSgub9l/working_dir\RtmpIt7eVm/Logfiles/Logfile_27-02-2020 18:30.dat': No such file or directory
+Error in file(file, ifelse(append, "a", "w")) : 
+  cannot open the connection
+Calls: check_area -> write -> cat -> file
+Execution halted

@@ -27,7 +27,7 @@ check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataT
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <<- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
   write(paste("\n----------- check consistency of area and year TX - ", DataTA$YEAR[1]), file = Errors, append = TRUE)
 
