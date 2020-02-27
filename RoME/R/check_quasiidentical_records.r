@@ -26,7 +26,7 @@ check_quasiidentical_records<-function(Result,wd,suffix){
 
   # ------------------------------------------------------------------ TA
 
-  if (Table == "TA"){
+  if (Table == "TA" | Table == "TD" | Table == "TT"){
     write(paste("
                 ----------- check quasi identical records - ",Result$YEAR[1]), file = Errors, append = TRUE)
     write(paste("TA:"), file = Errors, append = TRUE)
@@ -127,8 +127,75 @@ check_quasiidentical_records<-function(Result,wd,suffix){
     }
 
 
-  }
+  } else if (Table=="TL"){
+    # ------------------------------------------------------------------ TC
+    write(paste("TC:"), file = Errors, append = TRUE)
 
+    # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
+    Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+
+    ResultData = Result[!is.na(Result$HAUL_NUMBER),]
+
+
+    if (nrow(Matrix)>1){
+      Max=max(Matrix$x)
+      Matrix2=Matrix[Matrix$count!=Max,]
+      for (i in 1:nrow(Matrix2)){
+
+        Err = ResultData[as.character(ResultData$TYPE_OF_FILE) == as.character(Matrix2$TYPE_OF_FILE[i]) &
+                           as.character(ResultData$AREA) == as.character(Matrix2$AREA[i]) &
+                           as.character(ResultData$VESSEL) == as.character(Matrix2$VESSEL[i]) &
+                           as.character(ResultData$YEAR) == as.character(Matrix2$YEAR[i]),]
+
+        for( k in 1:nrow(Err)){
+          if (Err$YEAR[k] == Matrix2$YEAR[i]){
+            write(paste("Haul",Err$HAUL_NUMBER[k],Err$LITTER_CATEGORY[k],Err$LITTER_SUB-CATEGORY[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+
+            }
+        }
+      }
+    } else
+    {
+      write(paste("No error occurred"), file = Errors, append = TRUE)
+      check_without_errors = TRUE
+    }
+
+
+  } else if (Table=="TE"){
+    # ------------------------------------------------------------------ TC
+    write(paste("TC:"), file = Errors, append = TRUE)
+
+    # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
+    Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+
+    ResultData = Result[!is.na(Result$HAUL_NUMBER),]
+
+
+    if (nrow(Matrix)>1){
+      Max=max(Matrix$x)
+      Matrix2=Matrix[Matrix$count!=Max,]
+      for (i in 1:nrow(Matrix2)){
+
+        Err = ResultData[as.character(ResultData$TYPE_OF_FILE) == as.character(Matrix2$TYPE_OF_FILE[i]) &
+                           as.character(ResultData$AREA) == as.character(Matrix2$AREA[i]) &
+                           as.character(ResultData$VESSEL) == as.character(Matrix2$VESSEL[i]) &
+                           as.character(ResultData$YEAR) == as.character(Matrix2$YEAR[i]),]
+
+        for( k in 1:nrow(Err)){
+          if (Err$YEAR[k] == Matrix2$YEAR[i]){
+            write(paste("Haul",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],ifelse(Err$SEX[k]=="FALSE","F", "M"),"length",Err$LENGTH_CLASS[k],Err$INDIVIDUAL_WEIGHT[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+
+          }
+        }
+      }
+    } else
+    {
+      write(paste("No error occurred"), file = Errors, append = TRUE)
+      check_without_errors = TRUE
+    }
+
+
+  }
 
 return(check_without_errors)
 }
