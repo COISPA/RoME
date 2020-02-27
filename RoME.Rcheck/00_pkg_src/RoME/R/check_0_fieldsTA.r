@@ -7,21 +7,18 @@
 ############################################################################################################################
 
 
+if (FALSE){
+  wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  ResultDataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
 
+  # check_0_fieldsTA(ResultDataTA,wd,suffix)
+
+}
 
 
 
 check_0_fieldsTA<-function(ResultDataTA,wd, suffix){
-
-  if (FALSE){
-    wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    ResultDataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-
-    # check_0_fieldsTA(ResultDataTA,wd,suffix)
-
-  }
-
   numberError = 0
 
   if (!exists("suffix")){
