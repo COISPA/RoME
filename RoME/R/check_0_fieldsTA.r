@@ -1,14 +1,33 @@
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
+#   March 2020                                                                                                             #
+############################################################################################################################
+
+
 if (FALSE){
-  Data = TA
   wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
-  Errors <<- paste(wd,"/Logfiles/Logfile_",as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),".dat",sep="")
-  ResultDataTA = TA
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  ResultDataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+
+  # check_0_fieldsTA(ResultDataTA,wd,suffix)
+
 }
 
 
 
-check_0_fieldsTA<-function(Data){
+check_0_fieldsTA<-function(ResultDataTA,wd, suffix){
   numberError = 0
+
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
+
+  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+
+
   write(paste("----------- check 0 fields TA"), file = Errors, append = TRUE)
   Matrix = ResultDataTA # read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
 
@@ -18,7 +37,7 @@ check_0_fieldsTA<-function(Data){
     i=1
     for (i in 1:length(empty_X)){
       write(paste("Haul ",Matrix$HAUL_NUMBER[empty_X[i]],"0 value for VERTICAL_OPENING in ", Matrix$TYPE_OF_FILE[1],"-", Matrix$YEAR[1] ), file = Errors, append = TRUE)
-
+      numberError = numberError +1
     }
   }
 
@@ -36,7 +55,7 @@ check_0_fieldsTA<-function(Data){
   if (length(empty3_X)!=0) {
     for (k in 1:length(empty3_X)){
       write(paste("Warning: Haul ",Matrix$HAUL_NUMBER[empty3_X[k]],"0 value for WARP_DIAMETER in", Matrix$TYPE_OF_FILE[1],"-", Matrix$YEAR[1] ), file = Errors, append = TRUE)
-      numberError = numberError +1
+
     }
   }
 
