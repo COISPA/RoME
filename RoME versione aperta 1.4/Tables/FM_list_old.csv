@@ -1,0 +1,661 @@
+MeditsCode;ScientificName;SourceReference;Reference;CATFAU;CODLON;Valid_Name_Ifremer_reference
+ABRAVER;Abralia veranyi ;F ;ENOP ;C;0;Abralia veranyi (Rüppell, 1844) 
+ABRRALB;Abra alba ;R ;RIEDL ;E;0;Abra alba (Wood W., 1802) 
+ACANEXI;Acantephyra eximia ;Z ;Z ;B;m;Acanthephyra eximia S.I. Smith, 1884 
+ACANPEL;Acanthephyra pelagica ;Z ;Z ;B;m;Acanthephyra pelagica (Risso, 1816) 
+ACATPAL;Acantholabrus palloni ;C ;145.2.1 ;A;0;Acantholabrus palloni (Risso, 1810) 
+AEQUOPE;Aequipecten opercularis ;F ;PECT Aeq 1 ;D;0;Aequipecten opercularis (Linnaeus, 1758) 
+ALCYPAL;Alcyonium palmatum ;;;D;0;Alcyonium palmatum Pallas, 1766 
+ALEPROS;Alepocephalus rostratus ;C ;30.1.1 ;A;0;Alepocephalus rostratus Risso, 1820 
+ALLOMED;Alloteuthis media ;F ;LOLIG Allot 3 ;C;0;Alloteuthis media (Linnaeus, 1758) 
+ALLOSPP;Alloteuthis spp ;F ;LOLIG Allot ;C;0;Alloteuthis Wülker, 1920 
+ALLOSUB;Alloteuthis subulata ;F ;LOLIG Allot 2 ;C;0;Alloteuthis subulata (Lamarck, 1798) 
+ALOPVUL;Alopias vulpinus ;C ;9.1.1 ;A;0;Alopias vulpinus (Bonnaterre, 1788) 
+ALOSFAL;Alosa fallax ;C ;33.6.3 ;A;0;Alosa fallax (Lacepède, 1803) 
+ALPHGLA;Alpheus glaber ;F ;ALPH Alph 5 ;B;m;Alpheus glaber (Olivi, 1792) 
+ALPHPLA;Alpheus platydactylus ;Z ;Z ;B;m;Alpheus platydactylus Coutière, 1897 
+AMYGLUT;Amygdalum luteum ;;D'Onghia ;E;0;Amygdalum politum (Verrill & Smith, 1880) 
+ANADDIL;Anadara diluvii ;F ;ARC Anad 3 ;D;0;Anadara demiri (Piani, 1981) 
+ANAMRIS;Anamathia rissoana ;Z ;Z ;B;m;Anamathia rissoana (Roux, 1828) 
+ANAPBIC;Anapagurus bicorniger ;Z ;Z ;B;m;Anapagurus bicorniger A. Milne-Edwards & Bouvier, 1892 
+ANAPLAE;Anapagurus laevis ;Z ;Z ;B;m;Anapagurus laevis (Bell, 1845) 
+ANARGRA;Anarchias euryurus (grassii) ;C ;73.3.1 ;A;0;Anarchias euryurus (Lea, 1913) 
+ANCINIC;Ancistroteuthis lichtensteini ;F ;ONYCHO ;C;0;Ancistroteuthis lichtensteinii (De Férussac & D'Orbigny, 1839) 
+ANGUANG;Anguilla anguilla ;C ;71.1.1 ;A;0;Anguilla anguilla (Linnaeus, 1758) 
+ANTHANT;Anthias anthias ;C ;124.2.1 ;A;0;Anthias anthias (Linnaeus, 1758) 
+ANTOMEG;Antonogadus megalokynodon ;C ;101.19.2 ;A;0;Gaidropsarus biscayensis (Collett, 1890) 
+ANTOSPP;Antonogadus spp. ;C ;101.19;A;0;Gaidropsarus Rafinesque, 1810 
+APHIMIN;Aphia minuta ;C ;162.2.1 ;A;0;Aphia minuta (Risso, 1810) 
+APOGIMB;Apogon imberbis ;C ;127.1.1 ;A;0;Apogon imberbis (Linnaeus, 1758) 
+APORPES;Aporrhais pespelecani ;F ;APOR Apor 1 ;E;0;Aporrhais pespelecani (Linnaeus, 1758) 
+APORSER;Aporrhais serresianus ;F ;APOR Apor 2 ;D;0;Aporrhais serresianus (Michaud, 1828) 
+APTECAE;Apterichthus caecus ;C ;86.2.1 ;A;0;Apterichtus caecus (Linnaeus, 1758) 
+ARGESPY;Argentina sphyraena ;C ;46.1.1 ;A;0;Argentina sphyraena Linnaeus, 1758 
+ARGOOLE;Argobuccinum olearium ;F ;CYM Argo 1 ;D;0;Ranella olearium (Linnaeus, 1758) 
+ARGRACU;Argyropelecus aculeatus ;C ;38.2.2 ;A;0;Argyropelecus aculeatus Valenciennes, 1850 
+ARGRHEM;Argyropelecus hemigymnus ;C ;38.2.1 ;A;0;Argyropelecus hemigymnus Cocco, 1829 
+ARGYREG;Argyrosomus regius ;C ;137.2.1 ;A;0;Argyrosomus regius (Asso, 1801) 
+ARIOBAL;Ariosoma balearicum ;C ;82.2.1 ;A;0;Ariosoma balearicum (Delaroche, 1809) 
+ARISFOL;Aristaeomorpha foliacea ;F ;ARIST Aris 1 ;B;m;Aristaeomorpha foliacea (Risso, 1827) 
+ARITANT;Aristeus antennatus ;F ;ARIST Arist 1 ;B;m;Aristeus antennatus (Risso, 1816) 
+ARMIMAC;Arminia maculata ;F ;NAT Natic 1 ;D;0;Armina maculata Rafinesque, 1814 
+ARMITIG;Armina tigrina ;R ;RIEDL ;E;0;Armina tigrina Rafinesque, 1814 
+ARNOIMP;Arnoglossus imperialis ;C ;196.2.2 ;A;0;Arnoglossus imperialis (Rafinesque, 1810) 
+ARNOLAT;Arnoglossus laterna ;C ;196.2.1 ;A;0;Arnoglossus laterna (Walbaum, 1792) 
+ARNORUP;Arnoglossus rueppelli ;C ;196.2.4 ;A;0;Arnoglossus rueppelii (Cocco, 1844) 
+ARNOTHO;Arnoglossus thori ;C ;196.2.5 ;A;0;Arnoglossus thori Kyle, 1913 
+ASPICUC;Aspitrigla cuculus ;C ;185.2.1 ;A;0;Aspitrigla cuculus (Linnaeus, 1758) 
+ASPIOBS;Aspitrigla obscura ;C ;185.2.2 ;A;0;Chelidonichthys obscurus (Bloch & Schneider, 1801) 
+ASTRSPP;Astropecten spp. ;;;E;0;Astropecten Gray, 1840 
+ATELROT;Atelecyclus rotundatus ;Z ;Z ;D;0;Atelecyclus rotundatus (Olivi, 1792) 
+ATRIFRA;Atrina fragilis (= Pinna pectinata); F ;PINN Atr 4 ;D;0;Atrina pectinata (Linnaeus, 1767) 
+AULOFIL;Aulopus filamentosus ;C ;50.1.1 ;A;0;Aulopus filamentosus (Bloch, 1792) 
+BALICAR;Balistes carolinensis ;C ;201.1.2 ;A;0;Balistes capriscus Gmelin, 1789 
+BASOPRO;Bathysolea profundicola ;C ;198.2.1 ;A;0;Bathysolea profundicola (Vaillant, 1888) 
+BATHDUB;Bathypterois dubius ;F ;CHLOR ;A;0;Bathypterois dubius Vaillant, 1888 
+BATHMED;Bathypterois mediterraneus ;C ;53.1.2 ;A;0;Bathypterois dubius Vaillant, 1888 
+BATISPO;Bathypolypus sponsalis ;F ;OCT Bath 2 ;C;0;Bathypolypus sponsalis (Fischer & Fischer, 1892) 
+BATYMAR;Bathynectes maravigna ;F ;PORT ;B;m;Bathynectes maravigna (Prestandrea, 1839) 
+BATYSUP;Bathynectes superbus ;Z ;Z ;B;m;Bathynectes maravigna (Prestandrea, 1839) 
+BELLAPO;Bellotia apoda ;C ;172.3.1 ;A;0;Bellottia apoda Giglioli, 1883 
+BENSGLA;Benthosema glaciale ;C ;58.2.1 ;A;0;Benthosema glaciale (Reinhardt, 1837) 
+BENTROB;Benthocometes robustus ;C ;172.4.1 ;A;0;Benthocometes robustus (Goode & Bean, 1886) 
+BERYDEC;Beryx decadactylus ;C ;112.1.1 ;A;0;Beryx decadactylus Cuvier, 1829 
+BERYSPL;Beryx splendens ;C ;112.1.2 ;A;0;Beryx splendens Lowe, 1834 
+BLENBAS;Lipophrys (Blennius) basiliscus ;C ;164.1.3 ;A;0;Salaria basiliscus (Valenciennes, 1836) 
+BLENCRI;Scartella (Blennius) cristata (crinitus) ;C ;164.1.6 ;A;0;Scartella cristata (Linnaeus, 1758) 
+BLENGAT;Parablennius (Blennius) gattorugine ;C ;164.1.8 ;A;0;Parablennius gattorugine (Linnaeus, 1758) 
+BLENOCE;Blennius ocellaris ;C ;164.1.1 ;A;0;Blennius ocellaris Linnaeus, 1758 
+BLENPAV;Lipophrys (Blennius) pavo ;C ;164.1.12 ;A;0;Salaria pavo (Risso, 1810) 
+BLENSPP;Blenniidae ;C ;164;A;0;Blenniidae 
+BLENSPY;Aidablennius (Blennius) sphynx ;C ;164.1.17 ;A;0;Aidablennius sphynx (Valenciennes, 1836) 
+BLENTEN;Parablennius (Blennius) tentaculari ;C ;164.1.18 ;A;0;Parablennius tentacularis (Brünnich, 1768) 
+BOOPBOO;Boops boops ;C ;139.2.1 ;A;0;Boops boops (Linnaeus, 1758) 
+BOROANT;Borostomias antarcticus ;;;C;0;Borostomias antarcticus (Lönnberg, 1905) 
+BOTHPOD;Bothus podas ;C ;196.1.1 ;A;0;Bothus podas (Delaroche, 1809) 
+BRACRII;Brachioteuthis riisei ;F ;BRACHIO Bra. 2;C;0;Brachioteuthis riisei (Steenstrup, 1882) 
+BUCCCOR;Buccinulum corneum ;F ;BUCC Buc 1 ;D;0;Buccinulum corneum (Linnaeus, 1758) 
+BUCCHUN;Buccinum humphreysianum ;F ;BUCC ;D;0;Buccinum humphreysianum Bennet, 1824 
+BUCCSPP;Buccinum spp. ;F ;BUCC ;E;0;Buccinum Linnaeus, 1758 
+BUGLLUT;Buglossidium luteum ;C ;198.3.1 ;A;0;Buglossidium luteum (Risso, 1810) 
+CALAGRA;Calappa granulata ;F ;CAL Cal 2 ;B;m;Calappa granulata (Linnaeus, 1758) 
+CALCTUB;Calcinus tubularis ;Z ;Z ;B;m;Calcinus tubularis (Linnaeus, 1767) 
+CALICHI;Calyptraea chinensis ;;D'Angelo ;E;0;Calyptraea chinensis (Linnaeus, 1758) 
+CALLRIS;Callionymus risso ;C ;163a.1.7. ;A;0;Callionymus risso Lesueur, 1814 
+CALLRUB;Callanthias ruber ;C ;124.3.1 ;A;0;Callanthias ruber (Rafinesque, 1810) 
+CALMLYR;Callionymus lyra ;C ;163a.1.1 ;A;0;Callionymus lyra Linnaeus, 1758 
+CALMMAC;Callionymus maculatus ;C ;163a.1.3 ;A;0;Callionymus maculatus Rafinesque, 1810 
+CALMPHA;Synchiropus (Callionymus) phaeton ;C ;163a.1.4 ;A;0;Synchiropus phaeton (Günther, 1861) 
+CALMRIS;Callionymus risso ;C ;163a.1.7 ;A;0;Callionymus risso Lesueur, 1814 
+CALMSPP;Callionymus ;;;A;0;Callionymus Linnaeus, 1758 
+CALOCOR;Calocarides coronatus ;;;B;m;Calocarides coronatus (Trybom, 1904) 
+CALOMAC;Calocaris macandreae ;Z ;Z ;B;m;Calocaris macandreae Bell, 1846 
+CANCCAN;Cancellaria cancellata ;F ;GASTEROPOD A F14 ;E;0;Cancellaria cancellata (Linnaeus, 1767) 
+CANIGRA;Calliostoma granulatum ;F ;TROCH ;D;0;Calliostoma granulatum (Von Born, 1778) 
+CAPOAPE;Capros aper ;C ;123.1.1 ;A;0;Capros aper (Linnaeus, 1758) 
+CARAHIP;Caranx hippos ;C ;131.1.1 ;A;0;Caranx hippos (Linnaeus, 1766) 
+CARARHO;Caranx rhonchus ;C ;131.1.5 ;A;0;Caranx rhonchus Geoffroy Saint-Hilaire, 1817 
+CARCPLU;Carcharhinus plumbeus ;C ;13.1.7 ;A;0;Carcharhinus plumbeus (Nardo, 1827) 
+CARCSPP;Carcharhinus spp ;C ;13.1;A;0;Carcharhinus Blainville, 1816 
+CARDACU;Acanthocardia aculeata ;F ;CARD Acan 1 ;E;0;Acanthocardia aculeata (Linnaeus, 1758) 
+CARDECH;Acanthocardia (Cardium) echinata ;F ;CARD Acan 2 ;D;0;Acanthocardia echinata (Linnaeus, 1758) 
+CARDSPI;Acanthocardia spinosa ;;D'Angelo ;E;0;Acanthocardia spinosa (Solander, 1786) 
+CARISPP;Cardiomya spp. ;R ;RIEDL ;E;0;Cardiomya Adams A., 1864 
+CARISTE;Caridion steveni ;F ;HIPPOL ;B;0;Caridion steveni Lebour, 1930 
+CARPACU;Carapus acus ;C ;175.1.1 ;A;0;Carapus acus (Brünnich, 1768) 
+CASSECH;Cassidaria echinophora ;F ;CASS Cass 1 ;D;0;Galeodea echinophora (Linnaeus, 1758) 
+CASSSAB;Phalium (Cassis) saburon ;F ;CAS Phal 2 ;D;0;Phalium saburon (Bruguière, 1792) 
+CASSTYR;Cassidaria tyrrhena ;F ;CASS Cass 2 ;D;0;Galeodea rugosa (Linnaeus, 1771) 
+CATAALL;Cataetyx alleni ;C ;172.6.1 ;A;0;Cataetyx alleni (Byrne, 1906) 
+CECACIR;Centracanthus cirrus ;C ;141.1.1 ;A;0;Centracanthus cirrus Rafinesque, 1810 
+CENONIG;Centrolophus niger ;C ;176.1.1 ;A;0;Centrolophus niger (Gmelin, 1789) 
+CENTGRA;Centrophorus granulosus ;C ;16.1.2 ;A;0;Centrophorus granulosus (Bloch & Schneider, 1801) 
+CENTUYA;Centrophorus uyato ;C ;16.2.4 ;A;0;Centrophorus uyato (Rafinesque, 1810) 
+CEPHVOL;Dactylopterus (Cephalacanthus) volitans ;C ;193.1.1 ;A;0;Dactylopterus volitans (Linnaeus, 1758) 
+CEPOMAC;Cepola rubescens (macrophthalma) ;C ;128.1.1 ;A;0;Cepola macrophthalma (Linnaeus, 1758) 
+CERAMAD;Cerastocopelus maderensis ;C ;58.4.1 ;A;0;Ceratoscopelus maderensis (Lowe, 1839) 
+CHAUSLO;Chauliodus sloani ;C ;40.1.1 ;A;0;Chauliodus sloani Bloch & Schneider, 1801 
+CHEOLAB;Chelon labrosus ;C ;181.2.1 ;A;0;Chelon labrosus (Risso, 1827) 
+CHIMMON;Chimaera monstrosa ;C ;26.1.1 ;A;0;Chimaera monstrosa Linnaeus, 1758 
+CHLAOPE;Chlamys opercularis ;F ;PECT Aeq 1 ;E;0;Aequipecten opercularis (Linnaeus, 1758) 
+CHLAVAR;Chlamys varia ;F ;PECT Chlam 1 ;E;0;Chlamys varia (Linnaeus, 1758) 
+CHLOGRA;Chlorotocus crassicornis (gracilipes) ;Z ;Z ;B;m;Chlorotocus crassicornis (A. Costa, 1871) 
+CHROCHR;Chromis chromis ;C ;144.1.1 ;A;0;Chromis chromis (Linnaeus, 1758) 
+CIRCCAS;Circomphalus casinus ;F ;VEN ;D;0;Venus casina Linnaeus, 1758 
+CIROBOR;Cirolana borealis ;;;E;0;Cirolana borealis Lilljeborg, 1851 
+CITHMAC;Citharus linguatula (macrolepidotus) ;C ;194.1.1 ;A;0;Citharus linguatula (Linnaeus, 1758) 
+CLOPBIC;Chlopsis bicolor ;C ;77.1.1 ;A;0;Chlopsis bicolor Rafinesque, 1810 
+CLORAGA;Chlorophthalmus agassizi ;C ;55.1.1 ;A;0;Chlorophthalmus agassizi Bonaparte, 1840 
+COBLGAL;Coryphoblennius galerita ;C ;164.2.1 ;A;0;Coryphoblennius galerita (Linnaeus, 1758) 
+COELCOE;Coelorhynchus coelorhynchus ;C ;99.12.1 ;A;0;Caelorinchus caelorhincus caelorhincus (Risso, 1810) 
+COELOCC;Coelorhynchus occa (C. labiatus); C ;99.12.2 ;A;0;Caelorinchus occa (Goode & Bean, 1885) 
+CONGCON;Conger conger ;C ;82.1.1 ;A;0;Conger conger (Linnaeus, 1758) 
+CORIJUL;Coris julis ;C ;145.4.1 ;A;0;Coris julis (Linnaeus, 1758) 
+CORYGUN;Coryphaenoides guentheri; C ;99.13.2 ;A;0;Coryphaenoides guentheri (Vaillant, 1888) 
+CRANSPP;Crangon sp ;F ;CRANG ;B;m;Crangon J.C. Fabricius, 1798 
+CRASGIG;Crassostrea gigas ;F ;OSTR Crass 1 ;E;0;Crassostrea gigas (Thunberg, 1793) 
+CRASSPP;Crassostrea spp. ;F ;OSTR ;E;0;Crassostrea Sacco, 1897 
+CUBIGRA;Cubiceps gracilis ;C ;177.2.1 ;A;0;Cubiceps gracilis (Lowe, 1843) 
+CUSPCUS;Cuspidaria cuspidata ;;;E;0;Cuspidaria cuspidata (Olivi, 1792) 
+CYCLPIG;Cyclothone pygmaea ;C ;37.4.8 ;A;0;Cyclothone pygmaea Jespersen & Tåning, 1926 
+CYCLSPP;Cyclothone spp. ;C ;37.4;A;0;Cyclothone Goode & Bean, 1882 
+CYMACOR;Cymatium corrogatum ;F ;CYM Cym 1 ;D;0;Cymatium corrugatum (Lamarck, 1816) 
+CYMBOLL;Cymbium olla ;;;E;0;Cymbium olla (Linnaeus, 1758) 
+CYNPFER;Cynoponticus ferox ;C ;79.1.1 ;A;0;Cynoponticus ferox Costa, 1846 
+DALOIMB;Dalophis imberbis ;C ;86.3.1 ;A;0;Dalophis imberbis (Delaroche, 1809) 
+DARDARR;Dardanus arrosor ;Z ;Z ;B;m;Dardanus arrosor (Herbst, 1796) 
+DARDCAL;Dardanus calidus ;Z ;Z ;B;m;Dardanus calidus (Risso, 1827) 
+DASICEN;Dasyatis centroura ;C ;22.1.2 ;A;0;Dasyatis centroura (Mitchill, 1815) 
+DASIPAS;Dasyatis pastinaca ;C ;22.1.1 ;A;0;Dasyatis pastinaca (Linnaeus, 1758) 
+DASITOR;Dasyatis tortonesi ;C ;22.1.4 ;A;0;Dasyatis pastinaca (Linnaeus, 1758) 
+DASIVIO;Dasyatis violacea ;C ;22.1.3 ;A;0;Pteroplatytrygon violacea (Bonaparte, 1832) 
+DENTDEN;Dentex dentex ;C ;139.3.1 ;A;0;Dentex dentex (Linnaeus, 1758) 
+DENTGIB;Dentex gibbosus ;C ;139.3.3 ;A;0;Dentex gibbosus (Rafinesque, 1810) 
+DENTMAC;Dentex macrophthalmus ;C ;139.3.4 ;A;0;Dentex macrophthalmus (Bloch, 1791) 
+DENTMAR;Dentex maroccanus ;C ;139.3.5 ;A;0;Dentex maroccanus Valenciennes, 1830 
+DENTSPP;Dentalium spp ;;;E;0;Dentalium Linnaeus, 1758 
+DIAPHOL;Diaphus holti ;C ;58.6.5. ;A;0;Diaphus holti Tåning, 1918 
+DIAPMET;Diaphus metopoclampus ;C ;58.6.7 ;A;0;Diaphus metopoclampus (Cocco, 1829) 
+DIAPRAF;Diaphus rafinesquei ;C ;58.6.9 ;A;0;Diaphus rafinesquii (Cocco, 1838) 
+DIAPSPP;Diaphus spp. ;C ;58.6. ;A;0;Diaphus Eigenmann & Eigenmann, 1890 
+DICAMAY;Dicranodromia mayheuxi ;Z ;Z ;B;m;Dicranodromia mayheuxii A. Milne-Edwards, 1883
+DICELAB;Dicentrarchus labrax ;C ;124.4.1 ;A;0;Dicentrarchus labrax (Linnaeus, 1758) 
+DICEPUN;Dicentrarchus punctatus ;C ;124.4.2 ;A;0;Dicentrarchus punctatus (Bloch, 1792) 
+DICOCUN;Dicologoglossa cuneata ;C ;198.4.2 ;A;0;Dicologlossa cuneata (Moreau, 1881) 
+DIODITA;Diodora italica ;;;E;0;Diodora italica (Defrance, 1820) 
+DIPGBIM;Diplacogaster bimaculata ;C ;208.2.1 ;A;0;Diplecogaster bimaculata bimaculata (Bonnaterre, 1788) 
+DIPLANN;Diplodus annularis ;C ;139.4.1 ;A;0;Diplodus annularis (Linnaeus, 1758) 
+DIPLCER;Diplodus cervinus cervinus ;C ;139.4.2. ;A;0;Diplodus cervinus cervinus (Lowe, 1838) 
+DIPLPUN;Diplodus puntazo ;C ;139.8.1 ;A;0;Diplodus puntazzo (Cetti, 1777) 
+DIPLSAR;Diplodus sargus ;C ;139.4.3 ;A;0;Diplodus sargus sargus (Linnaeus, 1758) 
+DIPLVUL;Diplodus vulgaris ;C ;139.4.4 ;A;0;Diplodus vulgaris (Geoffroy Saint-Hilaire, 1817) 
+DORHTHO;Dorhynchus thomsoni ;Z ;Z ;B;m;Dorhynchus thomsoni Wyville & Thomson, 1873 
+DORILAN;Dorippe lanata ;Z ;Z ;B;m;Medorippe lanata (Linnaeus, 1767) 
+DORITHO;Dorhynchus thomsoni ;Z ;Z ;C;m;Dorhynchus thomsoni Wyville & Thomson, 1873 
+DORSVER;Doris verrucosa ;R ;RIEDL ;E;0;Doris verrucosa Linnaeus, 1758 
+DOSISPP;Dosinia spp ;;;D;0;Dosinia Scopoli, 1777 
+DROMPER;Dromia personata ;F ;DROM Drom 1 ;B;m;Dromia personata (Linnaeus, 1758) 
+DUSSELO;Dussumieria elopsoides ;X ;X ;A;;Dussumieria elopsoides Bleeker, 1849 
+EBALCRA;Ebalia cranchi ;Z ;Z ;B;0;Ebalia cranchi Leach, 1817 
+EBALNUX;Ebalia nux ;Z ;Z ;B;m;Ebalia nux A. Milne-Edwards, 1883 
+ECHEMIR;Echelus myrus ;C ;84.1.1 ;A;0;Echelus myrus (Linnaeus, 1758) 
+ECHIDEN;Echiodon dentatus ;C ;175.2.2 ;A;0;Echiodon dentatus (Cuvier, 1829) 
+ELECRIS;Electrona rissoi ;C ;58.8.1 ;A;0;Electrona risso (Cocco, 1829) 
+ELEDCIR;Eledone cirrhosa ;F ;OCT Eled 1 ;C;0;Eledone cirrhosa (Lamarck, 1798) 
+ELEDMOS;Eledone moschata ;F ;OCT Eled 2 ;C;0;Eledone moschata (Lamarck, 1798) 
+ELEDSPP;Eledone spp ;F ;OCT ;C;0;Eledone Leach, 1817 
+ENGRENC;Engraulis encrasicolus ;C ;35.1.1 ;A;0;Engraulis encrasicolus (Linnaeus, 1758) 
+EPHIGUT;Ephippion guttiferum ;C ;204.1.1 ;A;0;Ephippion guttifer (Bennett, 1831) 
+EPIGCON;Epigonus constanciae ;C ;127.2.3 ;A;0;Epigonus constanciae (Giglioli, 1880) 
+EPIGDEN;Epigonus denticulatus ;C ;127.2.2 ;A;0;Epigonus denticulatus Dieuzeide, 1950 
+EPIGTEL;Epigonus telescopus ;C ;127.2.1 ;A;0;Epigonus telescopus (Risso, 1810) 
+EPINAEN;Epinephelus aeneus ;C ;124.5.1 ;A;0;Epinephelus aeneus (Geoffroy Saint-Hilaire, 1817)
+EPINALE;Epinephelus alexandrinus ;C ;124.5.2 ;A;0;Epinephelus costae (Steindachner, 1878) 
+EPINCAN;Epinephelus caninus ;C ;124.5.3 ;A;0;Epinephelus caninus (Valenciennes, 1843) 
+EPINGUA;Epinephelus guaza ;C ;124.5.4 ;A;0;Epinephelus marginatus (Lowe, 1834) 
+EPINSPP;Epinephelus spp ;C ;124.5;A;0;Epinephelus Bloch, 1793 
+ERETKLE;Eretmophorus kleinenbergi ;C ;103.1.1 ;A;0;Eretmophorus kleinenbergi Giglioli, 1889 
+ERGACLO;Ergasticus clouei ;Z ;Z ;B;m;Ergasticus clouei A. Milne-Edwards, 1882 
+ETHUMAS;Ethusa mascarone ;Z ;Z ;B;m;Ethusa mascarone (Herbst, 1785) 
+ETMOSPI;Etmopterus spinax ;C ;16.6.1 ;A;0;Etmopterus spinax (Linnaeus, 1758) 
+EUCHLIG;Euchirograpsus liguricus ;Z ;Z ;B;m;Euchirograpsus liguricus H. Milne-Edwards, 1853
+EUPHSPP;Euphausiidae ;;;B;m;Euphausiidae 
+EURYASP;Eurynome aspera ;Z ;Z ;B;m;Eurynome aspera (Pennant, 1777) 
+EUTRGUR;Eutrigla gurnardus ;C ;185.3.1 ;A;0;Eutrigla gurnardus (Linnaeus, 1758) 
+EVERBAL;Evermannella balboi (= balbo) ;C ;60.1.1 ;A;0;Evermannella balbo (Risso, 1820) 
+FLEXFLE;Flexopecten flexuosus ;F ;PETC Flex ;E;0;Chlamys flexuosa (Poli, 1795) 
+FUNCWOO; Funchalia woodwardi ;F ;PEN ;B;m;Funchalia woodwardi Johnson, 1867 
+FUSIROS;Fusinus rostratus ;F ;FASC Fus 1 ;E;0;Fusinus rostratus (Olivi, 1792) 
+FUSTUND;Fusituris undatiruga ;;;E;0;Fusiturris undatiruga (Bivona, 1832) 
+GADAMAR;Gadella maraldi ;C ;103.3.1 ;A;0;Gadella maraldi (Risso, 1810) 
+GADIARG;Gadiculus argenteus ;C ;101.5.1 ;A;0;Gadiculus argenteus argenteus Guichenot, 1850 
+GADUMER;Merlangius merlangus; C ;101.7.1 ;A;0;Merlangius merlangus (Linnaeus, 1758) 
+GAIDMED;Gaidropsarus mediterraneus ;C ;101.20.1 ;A;0;Gaidropsarus mediterraneus (Linnaeus, 1758) 
+GAIDVUL;Gaidropsarus vulgaris ;C ;101.20.4 ;A;0;Gaidropsarus vulgaris (Cloquet, 1824) 
+GALADIS;Galathea dispersa ;Z ;Z ;B;m;Galathea dispersa Bate, 1859 
+GALAINT;Galathea intermedia ;Z ;Z ;B;m;Galathea intermedia Liljeborg, 1851 
+GALANEX;Galathea nexa ;Z ;Z ;B;m;Galathea nexa Embleton, 1834 
+GALEGAL;Galeorhinus galeus; C ;13.3.1 ;A;0;Galeorhinus galeus (Linnaeus, 1758) 
+GALIDEC;Galeoides decadactylus ;C ;182.1.1 ;A;0;Galeoides decadactylus (Bloch, 1795) 
+GALUATL;Galeus atlanticus ;F ;SCYL Gal 11 ;A;0;Galeus atlanticus (Vaillant, 1888) 
+GALUMEL;Galeus melastomus; C ;11.3.1 ;A;0;Galeus melastomus Rafinesque, 1810 
+GENNELE;Gennadas elegans ;F ;ARIST ;B;m;Gennadas elegans S.I. Smith, 1882 
+GEPYDAR;Gephyroberyx darwini ;C ;115.1.1 ;A;0;Gephyroberyx darwinii (Johnson, 1866) 
+GERYLON;Geryon longipes ;F ;GER Ger 2 ;B;m;Geryon longipes A. Milne-Edwards, 1882 
+GIBBSPP;Gibbula sp ;;D'Angelo ;;0;Gibbula Risso, 1826 
+GLOSLEI;Glossanodon leioglossus ;C ;46.2.1 ;A;0;Glossanodon leioglossus (Valenciennes, 1848) 
+GLOSVAL;Glossodoris valenciennesi ;R ;RIEDL ;E;0;Hypselodoris picta (Schultz) 
+GLOUHUM;Glossus humanus ;F ;GLOSS Gloss 1 ;E;0;Glossus humanus (Linnaeus, 1758) 
+GNATMYS;Gnathophis mystax ;C ;82.3.1 ;A;0;Gnathophis mystax (Delaroche, 1809) 
+GOBICOL;Deltentosteus (Gobius) colonialus ;C ;162.10.2 ;A;0;Deltentosteus collonianus (Risso, 1820) 
+GOBIFRI;Leusueurigobius (Gobius) friesii ;C ;162.16.2 ;A;0;Lesueurigobius friesii (Malm, 1874) 
+GOBIGEN;Gobius geniporus ;C ;162.1.8 ;A;0;Gobius geniporus Valenciennes, 1837 
+GOBILIN;Crystallogobius (Gobius) linearis C ;C ;162.9.1 ;A;0;Crystallogobius linearis (Düben, 1845) 
+GOBINIG;Gobius niger ;C ;162.1.1 ;A;0;Gobius niger Linnaeus, 1758 
+GOBIQUA;Deltentosteus (Gobius) quadrimaculatus ;;162.10.1 ;A;0;Deltentosteus quadrimaculatus (Valenciennes, 1837) 
+GOBISAN;Lesueurigobius (Gobius) sanzoi ;C ;162.16.4 ;A;0;Lesueurigobius sanzoi (De Buen, 1918) 
+GOBISPP;Gobius spp ;C ;162;A;0;Gobius Linnaeus, 1758 
+GOBISUE;Lesueurigobius suerii ;Z ;162.16.1 ;A;0;Lesueurigobius suerii (Risso, 1810) 
+GONERHO;Goneplax rhomboides (= angulata) ;Z ;;B;m;Goneplax rhomboides (Linnaeus, 1758) 
+GONICOC;Gonichthys coccoi ;C ;58.9.1 ;A;0;Gonichthys cocco (Cocco, 1829) 
+GONODEN;Gonostoma denudatum ;C ;37.1.1 ;A;0;Gonostoma denudatum Rafinesque, 1810 
+GYMACIC;Gymnammodytes cicerellus ;C ;147.2.1 ;A;0;Gymnammodytes cicerelus (Rafinesque, 1810) 
+GYMNALT;Gymnura altavela ;C ;22.2.1 ;A;0;Gymnura altavela (Linnaeus, 1758) 
+HADRCRA;Hadriana craticuloides ;F ;MUR ;D;0;Hadriania craticuloides (Vokes, 1964) 
+HELIDAC;Helicolenus dactylopterus ;C ;184.2.1 ;A;0;Helicolenus dactylopterus dactylopterus (Delaroche, 1809) 
+HEPTPER;Heptranchias perlo ;C ;3.2.1 ;A;0;Heptranchias perlo (Bonnaterre, 1788) 
+HETEDIS;Heteroteuthis dispar ;F ;SEPIOL ;C;0;Heteroteuthis dispar (Rüppell, 1845) 
+HEXAGRI;Hexanchus griseus ;C ;3.1.1 ;A;0;Hexanchus griseus (Bonnaterre, 1788) 
+HEXAVIT;Hexanchus nakamurai (vitulus) ;C ;3.1.2 ;A;0;Hexanchus nakamurai Teng, 1962 
+HINIINC;Hinia incrassata ;F ;NASS Hin ;E;0;Nassarius incrassatus (Ström, 1768) 
+HINIRET;Hinia reticulata ;F ;NASS Hin 1 ;E;0;Nassarius reticulatus (Linnaeus, 1758) 
+HIPPHIC;Hippocampus hippocampus ;C ;97.4.1 ;A;0;Hippocampus hippocampus (Linnaeus, 1758) 
+HISTBON;Histioteuthis bonnellii ;F ;HISTIO ;C;0;Histioteuthis bonnellii (De Férussac, 1835) 
+HISTREV;Histioteuthis reversa ;F ;HISTIO ;C;0;Histioteuthis reversus (Verrill, 1880) 
+HISTSPP;Histioteuthis spp ;F ;HISTIO ;C;0;Histioteuthis D'Orbigny, 1848 
+HOMAVUL;Homarus vulgaris ;F ;NEPH Hom 1 ;B;m;Homarus gammarus (Linnaeus, 1758) 
+HOMOBAR;Homola barbata ;Z ;Z ;B;m;Homola barbata (J.C. Fabricius, 1793) 
+HOPLATL;Hoplostethus atlanticus ;C ;115.2.2 ;A;0;Hoplostethus atlanticus Collett, 1889 
+HOPLMED;Hoplostethus mediterraneus ;C ;115.2.1 ;A;0;Hoplostethus mediterraneus mediterraneus Cuvier, 1829 
+HYGOBEN;Hygophum benoiti ;C ;58.10.2 ;A;0;Hygophum benoiti (Cocco, 1838) 
+HYGOHIG;Hygophum hygomii ;C ;58.10.1 ;A;0;Hygophum hygomii (Lütken, 1892) 
+HYMEITA;Hymenocephalus italicus ;C ;99.5.1 ;A;0;Hymenocephalus italicus Giglioli, 1884 
+HYMPSPP;Hymenopenaeus sp ;Z ;Z ;B;m;Hymenopenaeus Smith, 1882 
+HYPESPP;Hyperiidae ;;;E;0;Hyperiidae 
+HYPOPIC;Hyporhamphus picarti ;C ;93.2.1 ;A;0;Hyporhamphus picarti (Valenciennes, 1847) 
+ICHTOVA;Ichthyococcus ovatus ;C ;37.6.1 ;A;0;Ichthyococcus ovatus (Cocco, 1838) 
+ILLECOI;Illex coindetii ;F ;OMMAS Ill 1 ;C;0;Illex coindetii (Verany, 1839) 
+ILLESPP;Illex ;F ;;C;0;Illex Steenstrup, 1880 
+INACCOM;Inachus communissimus ;Z ;Z ;B;m;Inachus communissimus Rizza, 1839 
+INACDOR;Inachus dorsettensis ;Z ;Z ;B;m;Inachus dorsettensis (Pennant, 1777) 
+INACTHO;Inachus thoracicus ;Z ;Z ;B;m;Inachus thoracicus P. Roux, 1830 
+JAXENOC;Jaxea nocturna ;;;B;m;Jaxea nocturna Nardo, 1847 
+LABRVIR;Labrus viridis ;C ;145.1.4 ;A;0;Labrus viridis Linnaeus, 1758 
+LABSBIM;Labrus bimaculatus ;C ;145.1.1 ;A;0;Labrus mixtus Linnaeus, 1758 
+LAEVCAR;Laevicardium oblongum ;F ;CARD Laev 1 ;E;0;Laevicardium oblongum (Gmelin, 1791) 
+LAGOLAG;Lagocephalus lagocephalus ;C ;204.2.1 ;A;0;Lagocephalus lagocephalus lagocephalus (Linnaeus, 1758) 
+LAMACRO;Lampanyctus crocodilus ;C ;58.12.1 ;A;0;Lampanyctus crocodilus (Risso, 1810) 
+LAMAPUS;Lampanyctus pusillus ;C ;58.12.10 ;A;0;Lampanyctus pusillus (Johnson, 1890) 
+LAMASPP;Lampanyctus spp ;C ;58.12;A;0;Lampanyctus Bonaparte, 1840 
+LAMPGUT;Lampris guttatus ;C ;105.1.1 ;A;0;Lampris guttatus (Brünnich, 1788) 
+LAPPFAS;Lappanella fasciata ;C ;145.7.1 ;A;0;Lappanella fasciata (Cocco, 1833) 
+LATRSPP;;;;;;Latreillia P. Roux, 1830 
+LEPALEP;Lepadogaster lepadogaster ;C ;208.4.1 ;A;0;Lepadogaster lepadogaster lepadogaster (Bonnaterre, 1788) 
+LEPICAU;Lepidopus caudatus ;C ;155.4.1 ;A;0;Lepidopus caudatus (Euphrasen, 1788) 
+LEPMBOS;Lepidorhombus boscii ;C ;195.2.2 ;A;0;Lepidorhombus boscii (Risso, 1810) 
+LEPMWHS;Lepidorhombus whiffiagonis ;C ;195.2.1 ;A;0;Lepidorhombus whiffiagonis (Walbaum, 1792) 
+LEPOLEP;Lepidion lepidion ;C ;103.6.1 ;A;0;Lepidion lepidion (Risso, 1810) 
+LEPTCAV;Lepidotrigla cavillone ;C ;185.4.1 ;A;0;Lepidotrigla cavillone (Lacepède, 1801) 
+LEPTDIE;Lepidotrigla dieuzeidei ;C ;185.4.2 ;A;0;Lepidotrigla dieuzeidei Blanc & Hureau, 1973 
+LESTSPD;Lestidiops sphyrenoides ;C ;63.2.1 ;A;0;Lestidiops sphyrenoides (Risso, 1820) 
+LESTSPP;Lestidiops spp. ;C ;63.2;A;0;Lestidiops Hubbs, 1916 
+LICHAMI;Lichia amia ;Z ;131.5.1 ;A;0;Lichia amia (Linnaeus, 1758) 
+LIGUENS;Ligur ensiferus ;Z ;Z ;B;m;Ligur ensiferus (Risso, 1816) 
+LISSCHI;Lissa chinagra ;C ;Z ;B;m;Lissa chiragra (J.C. Fabricius, 1775) 
+LITHMOR;Lithognathus mormyrus ;C ;139.5.1 ;A;0;Lithognathus mormyrus (Linnaeus, 1758) 
+LIZAAUR;Liza aurata ;C ;181.3.2 ;A;0;Liza aurata (Risso, 1810) 
+LIZARAM;Liza ramada ;C ;181.3.1 ;A;0;Liza ramado (Risso, 1810) 
+LIZASAL;Liza saliens ;C ;181.3.4 ;A;0;Liza saliens (Risso, 1810) 
+LOBIDOF;Lobianchia dofleini ;C ;58.14.12 ;A;0;Lobianchia dofleini (Zugmayer, 1911) 
+LOBIGEM;Lobianchia gemellarii ;F ;58.14.1 ;A;0;Lobianchia gemellarii (Cocco, 1838) 
+LOLIFOR;Loligo forbesi ;F ;LOLIG Lolig 2 ;C;0;Loligo forbesi Steenstrup, 1856 
+LOLISPP;Loligo ;F ;;C;0;Loligo Lamarck, 1798 
+LOLIVUL;Loligo vulgaris ;C ;LOLIG Loli 1 ;C;0;Loligo vulgaris Lamarck, 1798 
+LOPHBUD;Lophius budegassa ;C ;210.1.2 ;A;0;Lophius budegassa Spinola, 1807 
+LOPHPIS;Lophius piscatorius ;C ;210.1.1 ;A;0;Lophius piscatorius Linnaeus, 1758 
+LOPHSPP;Lophius ;;;A;0;Lophius Linnaeus, 1758 
+LOPOTYP;Lophogaster typicus ;F ;;E;0;Lophogaster typicus 
+LUNACAT;Lunatia catena ;;NAT ;D;0;Euspira catena (da Costa, 1778) 
+LUNAFUS;Lunatia fusca ;R ;D'Onghia ;E;0;Euspira fusca (De Blainville, 1825) 
+LUTRSPP;Lutraria spp. ;C ;RIEDL ;E;0;Lutraria Lamarck, 1799 
+MACOSCO;Macrorhamphosus scolopax ;Z ;96.1.1 ;A;0;Macroramphosus scolopax (Linnaeus, 1758) 
+MACRLIN;Macropodia linaresi ;Z ;Z ;B;m;Macropodia linaresi Forest & Zariquiey-Alvarez, 1964
+MACRLON;Macropodia longipes ;F ;Z ;B;m;Macropodia tenuirostris (Leach, 1814) 
+MACRROS;Macropodia rostrata ;F ;MAJI ;B;m;Macropodia rostrata (Linnaeus, 1761) 
+MAJACRI;Maja crispata ;F ;MAJI Maja ;B;m;Maja crispata Risso, 1827 
+MAJASQU;Maja squinado ;C ;MAJI Maja 1 ;B;m;Maja squinado (Herbst, 1788) 
+MAURMUE;Maurolicus muelleri ;F ;37.8.1 ;A;0;Maurolicus muelleri (Gmelin, 1789) 
+MCPIARC;Liocarcinus arcuatus ;;PORT Lioc 3 ;B;m;Liocarcinus navigator (Hebst, 1794) 
+MCPICOR;Liocarcinus corrugatus ;F ;Zariquiey ;B;m;Liocarcinus corrugatus (Pennant, 1777) 
+MCPIDEP;Liocarcinus (Macropipus) ;;PORT Lioc 4 ;B;m;Liocarcinus depurator (Linnaeus, 1758) 
+MCPIMAC;Liocarcinus maculatus ;F ;PORT Lioc ;B;m;Liocarcinus maculatus (Risso, 1827) 
+MCPIPUB;Necora (Macropipus) puber ;F ;PORT Neco 1 ;B;m;Necora puber (Linnaeus, 1767) 
+MCPITUB;Macropipus tuberculatus ;;PORT Macro 1 ;B;m;Macropipus tuberculatus (P. Roux, 1830) 
+MEGANOR;Meganyctiphanes norvegica ;C ;;B;m;Meganyctiphanes norvegica 
+MELAATL;Melanostigma atlanticum ;C ;170.6.1 ;A;0;Melanostigma atlanticum Koefoed, 1952 
+MERLMER;Merluccius merluccius ;C ;100.1.1 ;A;0;Merluccius merluccius (Linnaeus, 1758) 
+MICMPOU;Micromesistius poutassou ;F ;101.8.1 ;A;0;Micromesistius poutassou (Risso, 1827) 
+MICOSAB;Microcosmus sabatieri ;C ;PYUR Micr 2 ;D;0;Microcosmus sabatieri Roule, 1885 
+MICRMCS;Microstoma microstoma ;C ;46.1.3 ;A;0;Microstoma microstoma (Risso, 1810) 
+MICUAZE;Microchirus azevia ;;198.5.2 ;A;0;Microchirus theophila (Risso, 1810) 
+MICUBOS;Microchirus boscanion ;C ;;A;0;Microchirus boscanion (Chabanaud, 1926) 
+MICUOCE;Microchirus ocellatus ;C ;198.5.3 ;A;0;Microchirus ocellatus (Linnaeus, 1758) 
+MICUVAR;Microchirus variegatus ;C ;198.5.1 ;A;0;Microchirus variegatus (Donovan, 1808) 
+MOLAMOL;Mola mola ;C ;207.1.1 ;A;0;Mola mola (Linnaeus, 1758) 
+MOLVDYP;Molva dipterygia ;C ;101.14.2 ;A;0;Molva dypterygia (Pennant, 1784) 
+MOLVMOL;Molva molva ; C ;101.14.1 ;A;0;Molva molva (Linnaeus, 1758) 
+MONOHIS;Monochirus hispidus;;198.6.1 ;A;0;Monochirus hispidus Rafinesque, 1814 
+MORAMOR;Mora moro ;C ;103.7.1 ;A;0;Mora moro (Risso, 1810) 
+MORIRUG;Morio rugosa ;;;E;0;Galeodea rugosa (Linnaeus, 1771) 
+MUGICEP;Mugil cephalus ;C ;181.1.1 ;A;0;Mugil cephalus Linnaeus, 1758 
+MUGISPP;Mugilidae ;C ;181;A;0;Mugilidae 
+MULLBAR;Mullus barbatus ;C ;138.1.1 ;A;0;Mullus barbatus Linnaeus, 1758 
+MULLSUR;Mullus surmuletus ;C ;138.1.2 ;A;0;Mullus surmuletus Linnaeus, 1758 
+MUNICUR;Munida curvimana ;Z ;Z ;B;m;Munida curvimana A. Milne-Edwards & Bouvier, 1894 
+MUNIINT;Munida intermedia ;Z ;Z ;B;m;Munida intermedia A. Milne-Edwards et Bouvier, 1899 
+MUNIIRI;Munida iris ;Z ;Z ;B;m;Munida rutllanti Zariquiey-Alvarez, 1952 
+MUNIPER;Munida perarmata (= tenuimana) Z ;;Z ;B;m;Munida perarmata A. Milne-Edwards & Bouvier, 1894
+MUNIRUG;Munida rugosa ;Z ;Z ;B;m;Munida rugosa (J.C. Fabricius, 1775) 
+MUNISPP;Munida ;Z ;Z ;B;m;Munida Leach, 1820 
+MUNITEN;Munida tenuimana ;Z ;Z ;B;m;Munida perarmata A. Milne-Edwards & Bouvier, 1864
+MURAHEL;Muraena helena ;C ;73.1.1 ;A;0;Muraena helena Linnaeus, 1758 
+MUREBRA;Bolinus (Murex) brandaris ;F ;MUR Bol 1 ;D;0;Bolinus brandaris (Linnaeus, 1758) 
+MURETRU;Murex trunculus ;R ;RIEDL ;D;0;Hexaplex trunculus (Linnaeus, 1758) 
+MUSTAST;Mustelus asterias ;C ;13c.5.2 ;A;0;Mustelus asterias Cloquet, 1821 
+MUSTMED;Mustelus mediterraneus ;C ;13c.5.3 ;A;0;Mustelus punctulatus Risso, 1827 
+MUSTMUS;Mustelus mustelus ;C ;13c.5.1 ;A;0;Mustelus mustelus (Linnaeus, 1758) 
+MYCOPUN;Myctophum punctatum ;C ;58.1.1 ;A;0;Myctophum punctatum Rafinesque, 1810 
+MYCOSPP;Myctophidae ;C ;58;A;0;Myctophidae 
+MYCTRUB;Mycteroperca rubra ;C ;124.6.1 ;A;0;Mycteroperca rubra (Bloch, 1793) 
+MYLIAQU;Myliobatis aquila ;C ;23.1.1 ;A;0;Myliobatis aquila (Linnaeus, 1758) 
+MYTIGAL;Mytilus galloprovincialis ;F ;MYTIL Mytil 1 ;D;0;Mytilus galloprovincialis Lamarck, 1819 
+MYTISPP;Mytilidae spp. ;F ;MYTIL ;D;0;Mytilidae Rafinesque, 1815 
+NANSOBI;Nansenia oblita ;C ;46.4.2. ;A;0;Nansenia oblita (Facciolà, 1887) 
+NASSSPP;Nassariidae ;;;D;0;Nassariidae Iredale, 1916 
+NATIMIL;Naticarius millepunctatus ;;D'Angelo ;E;0;Natica stercusmuscarum (Gmelin, 1791) 
+NATISPP;Naticidae ;F ;NAT ;D;0;Naticidae Guilding, 1834 
+NAUCDUC;Naucrates ductor ;C ;131.6.1 ;A;0;Naucrates ductor (Linnaeus, 1758) 
+NEMISCO;Nemichthys scolopaceus ;C ;76.1.1 ;A;0;Nemichthys scolopaceus Richardson, 1848 
+NEORCAR;Neorossia caroli ;F ;SEPIOL ;C;0;Neorossia caroli (Joubin, 1902) 
+NEPRNOR;Nephrops norvegicus ;F ;NEPH Neph 1 ;B;m;Nephrops norvegicus (Linnaeus, 1758) 
+NEROMAC;Nerophis maculatus ;C ;97.2.1 ;A;0;Nerophis maculatus Rafinesque, 1810 
+NEROOPH;Nerophis ophidion ;C ;97.2.2 ;A;0;Nerophis ophidion (Linnaeus, 1758) 
+NETOBRE;Dysomma (Nettodarus) brevirostris ;C ;81.1.1 ;A;0;Dysomma brevirostre (Facciolà, 1887) 
+NETTMEL;Nettastoma melanurum ;C ;80.1.1 ;A;0;Nettastoma melanurum Rafinesque, 1810 
+NEZUAEQ;Nezumia aequalis ;C ;99.9.1 ;A;0;Nezumia aequalis (Günther, 1878) 
+NEZUSCL;Nezumia sclerorhynchus ;C ;99.9.2 ;A;0;Nezumia sclerorhynchus (Valenciennes, 1838) 
+NOTABON;Notacanthus bonapartei ;C ;89.1.2 ;A;0;Notacanthus bonaparte Risso, 1840 
+NOTORIS;Notolepis rissoi ;C ;63.4.1 ;A;0;Arctozenus risso (Bonaparte, 1840) 
+NOTSBOL;Notoscopelus bolini ;C ;58.17.5 ;A;0;Notoscopelus bolini Nafpaktitis, 1975 
+NOTSELO;Notoscopelus elongatus ;C ;58.17.3 ;A;0;Notoscopelus elongatus (Costa, 1844) 
+NOTSKRO;Notoscopelus kroyerii ;C ;58.17.4 ;A;0;Notoscopelus kroyeri (Malm, 1861) 
+OBLAMEL;Oblada melanura ;C ;139.6.1 ;A;0;Oblada melanura (Linnaeus, 1758) 
+OCENERI;Ocenebra erinacea ;R ;RIEDL ;E;0;Ocenebra erinaceus (Linnaeus, 1758) 
+OCTODEP;Octopus defilippi ;F ;OCT Oct 10 ;C;0;Octopus defilippi Verany, 1851 
+OCTOMAC;Octopus macropus ;F ;OCT Oct 2 ;C;0;Octopus macropus Risso, 1826 
+OCTOSAL;Octopus salutii ;F ;OCT Oct 23 ;C;0;Octopus salutii Verany, 1836 
+OCTOSPP;Octopus spp ;F ;OCT Oct ;C;0;Octopus Cuvier, 1797 
+OCTOTET;Pteroctopus tetracirrhus ;F ;OCT Pter 1 ;C;0;Pteroctopus tetracirrhus (Delle Chiaje, 1830) 
+OCTOVUL;Octopus vulgaris ;F ;OCT Oct 1 ;C;0;Octopus vulgaris Cuvier, 1797 
+OCYTTUB;Ocythoe tuberculata ;F ;OCY ocy 1 ;C;0;Ocythoe tuberculata Rafinesque, 1814 
+ODONFER;Odontaspis ferox ;C ;5.1.1 ;A;0;Odontaspis ferox (Risso, 1810) 
+ODONTAU;Eugonphodus (Odontaspis) taurus ;C ;5.1.3 ;A;0;Carcharias taurus Rafinesque, 1810 
+OEDALAB;Oedalechilus labeo ;C ;181.4.1 ;A;0;Oedalechilus labeo (Cuvier, 1829) 
+OLIGATE;Oligopus ater ;C ;172.1.1 ;A;0;Grammonus ater (Risso, 1810) 
+ONYCBAN;Onychoteuthis banksi ;F ;ONYCHO ;C;0;Onychoteuthis banksii (Leach, 1817) 
+ONYCSPP;Onychoteuthis spp ;F ;ONYCHO ;C;0;Onychoteuthis Lichtenstein, 1818 
+OPDIBAR;Ophidion barbatum ;C ;173.1.1 ;A;0;Ophidion barbatum Linnaeus, 1758 
+OPDIROC;Ophidion rochei ;C ;173.1.2+3 ;A;0;Ophidion rochei Müller, 1845 
+OPHCRUF;Ophichthus rufus ;C ;86.1.2 ;A;0;Ophichthus rufus (Rafinesque, 1810) 
+OPHISER;Ophisurus serpens ;C ;86.4.1 ;A;0;Ophisurus serpens (Linnaeus, 1758) 
+OPHOFRA;Ophiothrix fragilis ;R ;RIEDL ;E;0;Ophiothrix fragilis (Abildgaard) 
+OPISSPP;Opisthobranchia spp ;Z ;Z ;E;0;Opisthobranchia Milne-Edwards, 1848 
+OPLOSPP;Oplophoridae ;;FAUNA IBER ;B;m;Oplophoridae Dana, 1852 
+OPTOAGA;Opistoteuthis agassizii ;F ;OSTR Ostr 1 ;C;m;Opisthoteuthis agassizii Verrill, 1883 
+OSTREDU;Ostrea edulis ;R ;RIEDL ;D;0;Ostrea edulis Linnaeus, 1758 
+OSTRSPP;Ostrea spp. ;C ;15.1.1 ;E;0;Ostrea Linnaeus, 1758 
+OXYNCEN;Oxynotus centrina ;C ;139.7.2 ;A;0;Oxynotus centrina (Linnaeus, 1758) 
+PAGEACA;Pagellus acarne ;C ;139.7.3 ;A;0;Pagellus acarne (Risso, 1827) 
+PAGEBOG;Pagellus bogaraveo ;C ;139.7.1 ;A;0;Pagellus bogaraveo (Brünnich, 1768) 
+PAGEERY;Pagellus erythrinus ;;;A;0;Pagellus erythrinus (Linnaeus, 1758) 
+PAGIERE;Paguristes eremita ;Z ;Z ;B;m;Paguristes eremita (Linnaeus, 1767) 
+PAGUALA;Pagurus alatus ;;;B;m;Pagurus alatus (J.C. Fabricius, 1775) 
+PAGUCUA;Pagurus cuanensis ;Z ;Z ;B;m;Pagurus cuanensis Bell, 1845 
+PAGUEXC;Pagurus excavatus ;Z ;Z ;B;m;Pagurus excavatus (Herbst, 1791) 
+PAGUFOR;Pagurus forbesii ;Z ;Z ;B;m;Pagurus forbesii Bell, 1845 
+PAGUPRI;Pagurus prideauxi ;F ;PALIN Palin 1 ;B;m;Pagurus prideaux Leach, 1815 
+PALIELE;Palinurus elephas ;F ;PALIN Palin 3 ;B;m;Palinurus elephas (J.C. Fabricius, 1787) 
+PALIMAU;Palinurus mauritanicus ;F ;PALIN ;B;m;Palinurus mauritanicus Gruvel, 1911 
+PALISPP;Palinurus ;F ;PANDL ;B;m;Palinurus Weber, 1795 
+PANDPRO;Pandalina profonda ;F ;PANDL Parapnd B ;B;m;Pandalina profunda Holthuis, 1946 
+PAPANAR;Parapandalus narval ;F ;PEN Parap 1 ;B;m;Plesionika narval (J.C. Fabricius, 1787) 
+PAPELON;Parapenaeus longirostris ;C ;136.3.1 ;B;m;Parapenaeus longirostris (Lucas, 1846) 
+PAPOHUM;Parapristipoma humile ;C ;136.3.2 ;A;0;Parapristipoma humile (Bowdich, 1825) 
+PAPOOCT;Parapristipoma octolineatum ;C ;192.3.3 ;A;0;Parapristipoma octolineatum (Valenciennes, 1833) 
+PARALEP;Paraliparis leptochirus ;C ;63.1;A;0;Paraliparis leptochirus (Tortonese, 1959) 
+PARLCOR;Paralepis coregonoides ;F ;PARALEP ;A;0;Paralepis coregonoides Risso, 1820 
+PARLSPE;Paralepis speciosa ;F ;HOM Par 1 ;A;0;Paralepis speciosa Bellotti, 1878 
+PAROCUV;Paromola cuvieri ;Z ;Z ;B;m;Paromola cuvieri (Risso, 1816) 
+PARTANG;Partenope angulifrons ;Z ;Z ;B;m;Parthenope angulifrons Latreille, 1825 
+PARTMAC;Parthenope macrochelos ;Z ;Z ;B;m;Parthenope macrochelos (Herbst, 1790) 
+PARTMAS;Parthenope massena ;F ;PASI Pasi 1 ;B;m;Parthenope massena (P. Roux, 1830) 
+PASIMUL;Pasiphaea multidentata ;F ;PASI Pasi 2 ;B;m;Pasiphaea multidentata Esmark, 1866 
+PASISIV;Pasiphaea sivado ;F ;PECT Pect 1 ;B;m;Pasiphaea sivado (Risso, 1816) 
+PECTJAC;Pecten jacobaeus ;F ;PECT ;D;0;Pecten jacobeus (Linnaeus, 1758) 
+PECTMAX;Pecten maximus ;;;D;0;Pecten maximus (Linnaeus, 1758) 
+PECTSPP;Pecten ;F ;PECT ;D;0;Pecten Müller O.F., 1776 
+PELTATR;Peltodoris atromaculata ;R ;RIEDL ;E;0;Discodoris atromaculata (Bergh, 1880) 
+PENAKER;Penaeus kerathurus ;F ;PEN Pen 1 ;B;m;Penaeus kerathurus (Forskål, 1775) 
+PENNPHO;Pennatula phosphorea ;Z ;Z ;D;0;Pennatula phosphorea Linnaeus, 1758 
+PERCGRA;Periclimenes granulatus ;C ;186.1.1 ;B;m;Periclimenes granulatus Holthuis, 1950 
+PERICAT;Peristedion cataphractum ;F ;CASS Phal 1 ;A;0;Peristedion cataphractum (Linnaeus, 1758) 
+PHALGRA;Phallium granulatum ;F ;CRANG ;D;0;Phalium granulatum (Von Born, 1778) 
+PHILECH;Philoceras echinulatus ;C ;195.3.1 ;B;m;Philocheras echinulatus (M. Sars, 1861) 
+PHRYREG;Phrynorhombus regius ;C ;195.3.1 ;A;0;Phrynorhombus regius (Bonnaterre, 1788) 
+PHRYSPP;Phrynorhombus ;C ;101.15.2 ;A;0;Phrynorhombus Günther, 1862 
+PHYIBLE;Phycis blennoides ;C ;101.15.1 ;A;0;Phycis blennoides (Brünnich, 1768) 
+PHYIPHY;Phycis phycis ;F ;MUR Phyl 1 ;A;0;Phycis phycis (Linnaeus, 1766) 
+PHYLTRU;Phylonotus (Murex)(=Trunculariopsis) ;C ;103.8.1 ;D;0;Hexaplex trunculus (Linnaeus, 1758) 
+PHYSDAL;Physiculus dalwigki ;Z ;Z ;A;0;Physiculus dalwigki Kaup, 1858 
+PILUSPI;Pilumnus spinifer ;Z ;Z ;B;m;Pilumnus hirtellus forma spinifer H. Milne-Edwards, 1834 
+PILUVIL;Pilumnus villosissimus ;F ;PINN Pinn 1 ;B;m;Pilumnus villosissimus (Rafinesque, 1814) 
+PINNNOB;Pinna nobilis ;R ;RIEDL ;D;0;Pinna nobilis Linnaeus, 1758 
+PINNPEC;Pinna pectinata ;Z ;Z ;E;0;Atrina pectinata (Linnaeus, 1767) 
+PINOPIN;Pinnotheres pinnotheres ;Z ;Z ;B;m;Nepinnotheres pinnotheres (Linnaeus, 1758) 
+PISAARN;Pisa armata ;Z ;Z ;B;m;Pisa armata (Latreille, 1803) 
+PISANOD;Pisa nodipes ;Z ;Z ;B;m;Pisa nodipes (Leach, 1815) 
+PISILON;Pisidia longicornis ;C ;197.8.1 ;B;m;Pisidia longicornis (Linnaeus, 1767) 
+PLATFLE;Platichys flesus ;C ;136.4.1 ;A;0;Platichthys flesus (Linnaeus, 1758) 
+PLEOMED;Plectorhinchus mediterraneus ;R ;RIEDL ;A;0;Plectorhinchus mediterraneus (Guichenot, 1850) 
+PLERMEC;Pleurobranchea meckely ;Z ;Z ;E;0;Pleurobranchaea meckelii Meckel, 1813 
+PLESACA;Plesionika acanthonotus ;Z ;Z ;B;m;Plesionika acanthonotus (S.I. Smith, 1882) 
+PLESANT;Plesionika antigai ;F ;PANDL Plesio 2 B ;B;m;Plesionika antigai Zariquiey-Alvarez, 1955 
+PLESEDW;Plesionika edwardsii ;Z ;Z ;B;m;Plesionika narval (J.C. Fabricius, 1787) 
+PLESGIG;Plesionika gigliolii ;F ;PANDL Plesio 8 B ;B;m;Plesionika gigliolii (Senna, 1902) 
+PLESHET;Plesionika heterocarpus ;F ;PANDL Plesio 1 B ;B;m;Plesionika heterocarpus (A. Costa, 1871) 
+PLESMAR;Plesionika martia ;;E ;B;m;Plesionika martia martia (A. Milne-Edwards, 1883) 
+PLEUPIL;Pleurobrachia pileus ;C ;89.2.1 ;E;0;Pleurobrachia pileus 
+POLARIS;Polyacanthonotus rissoanus ;F ;PORT ;A;0;Polyacanthonotus rissoanus (De Filippi & Verany, 1857) 
+POLBHEN;Polybius henslowi ;Z ;Z ;B;m;Polybius henslowii Leach, 1820 
+POLCTYP;Polycheles typhlops ;C ;124.7.1 ;B;m;Polycheles typhlops Typhlops Heller, 1862 
+POLYAME;Polyprion americanum ;C ;136.1.1 ;A;0;Polyprion americanus (Bloch & Schneider, 1801) 
+POMABEN;Pomadasys incisus (bennetti) ;C ;162.21.4 ;A;0;Pomadasys incisus (Bowdich, 1825) 
+POMSMAR;Pomatoschistus marmoratus ;C ;162.21.5 ;A;0;Pomatoschistus marmoratus (Risso, 1810) 
+POMSMIC;Pomatoschistus microps ;C ;162.21.1 ;A;0;Pomatoschistus microps (Krøyer, 1838) 
+POMSMIN;Pomatoschistus minutus ;C ;129.1.1 ;A;0;Pomatoschistus minutus (Pallas, 1770) 
+POMTSAL;Pomatomus saltator ;C ;184.3.1 ;A;0;Pomatomus saltatrix (Linnaeus, 1766) 
+PONIKUH;Pontinus kuhlii ;Z ;Z ;A;0;Pontinus kuhlii (Bowdich, 1825) 
+PONPNOR;Pontophilus norvegicus ;F ;CRANG Pontop 1 ;B;m;Pontophilus norvegicus (M. Sars, 1861) 
+PONPSPI;Pontophilus spinosus ;Z ;Z ;B;m;Pontophilus spinosus (Leach, 1815) 
+PONTCAT;Pontocaris cataphractus ;F ;CRANG Pont 1 ;B;m;Aegaeon cataphractus (Olivi, 1792) 
+PONTLAC;Pontocaris lacazei ;C ;13.8.1 ;B;m;Aegaeon lacazei (Gourret, 1887) 
+PRIOGLA;Prionace glauca ;F ;PROC Proc 2 ;A;0;Prionace glauca (Linnaeus, 1758) 
+PROCEDU;Processa edulis ;F ;;B;m;Processa edulis crassipes Nouvel & Holthuis, 
+PROCMED;Processa canaliculata (mediterranea) ;F ;PROC Proc 1 ;B;m;Processa canaliculata Leach, 1815 
+PROCNOU;Processa nouveli ;R ;PROC ;B;m;Processa nouveli holthuisi Al-Adhub & Williamson, 1975 
+PROSSPP;Prosobranchia spp ;;;E;0;Prosobranchia Milne Edwards, 1848 
+PSAMMIC;Psamechinus microtuberculatus ;C ;RIEDL ;E;0;Psammechinus microtuberculatus 
+PSENPEL;Psenes pellucidus ;C ;177.3.2 ;A;0;Psenes pellucidus Lütken, 1880 
+PSETMAX;Psetta maxima ;X ;195.4.1 ;A;0;Psetta maxima (Linnaeus, 1758) 
+PSEVCAR;Pseudosimnia carnea ;C ;D'Angelo ;E;m;Pseudosimnia carnea (Poiret, 1789) 
+PTEAPEL;Pteragogus pelycus ;F ;X ;A;;Pteragogus pelycus Randall, 1981 
+PTEOBOV;Pteromylaeus bovinus ;C ;23.2.1 ;A;0;Pteromylaeus bovinus (Geoffroy Saint-Hilaire, 1817) 
+PTERHIR;Pteria hirundo ;C ;PTER ;D;0;Pteria hirundo (Linnaeus, 1758) 
+PUNTPUN;Diplodus (Puntazzo) puntazzo ;C ;137.8.1 ;A;0;Diplodus puntazzo (Cetti, 1777) 
+RAJAALB;Raja alba ;C ;21.1.18 ;A;0;Rostroraja alba (Lacepède, 1803) 
+RAJAAST;Raja asterias ;C ;21.1.2 ;A;0;Raja asterias Delaroche, 1809 
+RAJABAT;Raja batis ;C ;21.1.10 ;A;0;Dipturus batis (Linnaeus, 1758) 
+RAJABRA;Raja brachyura ;C ;21.1.3 ;A;0;Raja brachyura Lafont, 1873 
+RAJACIR;Raja circularis ;C ;21.1.14 ;A;0;Leucoraja circularis (Couch, 1838) 
+RAJACLA;Raja clavata ;C ;21.1.4 ;A;0;Raja clavata Linnaeus, 1758 
+RAJAFUL;Raja fullonica ;C ;21.1.13 ;A;0;Leucoraja fullonica (Linnaeus, 1758) 
+RAJAMEL;Raja melitensis ;C ;21.1.21 ;A;0;Leucoraja melitensis (Clark, 1926) 
+RAJAMIR;Raja miraletus ;C ;21.1.1 ;A;0;Raja miraletus Linnaeus, 1758 
+RAJAMON;Raja montagui ;C ;21.1.7 ;A;0;Raja montagui Fowler, 1910 
+RAJANAE;Raja naevus ;C ;21.1.15 ;A;0;Leucoraja naevus (Müller & Henle, 1841) 
+RAJAOXY;Raja oxyrinchus ;C ;21.1.12 ;A;0;Dipturus oxyrinchus (Linnaeus, 1758) 
+RAJAPOL;Raja polystigma ;C ;21.1.22 ;A;0;Raja polystigma Regan, 1923 
+RAJARDA;Raja radula ;C ;21.1.23 ;A;0;Raja radula Delaroche, 1809 
+RAJASPP;Raja ;C ;21.1.12 ;A;0;Raja Linnaeus, 1758 
+RAJAUND;Raja undulata ;C ;21.1.25 ;A;0;Raja undulata Lacepède, 1802 
+REGAGLE;Regalecus glesne ;C ;106.1.1. ;A;0;Regalecus glesne Ascanius, 1772 
+RHINCEM;Rhinobatos cemiculus ;C ;19.1.2 ;A;0;Rhinobatos cemiculus Geoffroy Saint-Hilaire, 1817
+RHINRHI;Rhinobatos rhinobatos ; C ;19.1.1 ;A;0;Rhinobatos rhinobatos (Linnaeus, 1758) 
+RHIPMAR;Rhinoptera marginata ; C ;24.1.1 ;A;0;Rhinoptera marginata (Geoffroy Saint-Hilaire, 1817) 
+RHYNHEP;Rhynchogadus hepaticus; C ;103.9.1 ;A;0;Rhynchogadus hepaticus (Facciolà, 1884) 
+RICHFRE;Richardina fredericii ;Z ;Z ;A;0;Richardina fredericii Lo Bianco, 1903 
+RISSDES;Rissoides desmaresti ;F ;SQUIL ;D;0;Rissoides desmaresti (Risso, 1816) 
+RISSPAL;Rissoides pallidus ;F ;SQUIL ;B;m;Rissoides pallidus (Giesbrecht, 1910) 
+ROCHCAR;Rochinia carpenteri ;Z ;Z ;B;m;Rochinia carpenteri (Wyville & Thomson, 1873) 
+RONDMIN;Rondeletiola minor ;F ;SEPIOL ;C;0;Rondeletiola minor (Naef, 1912) 
+ROSSMAC;Rossia macrosoma ;F ;SEPIOL Ross 1 ;C;0;Rossia macrosoma (Delle Chiaje, 1828) 
+SADASAR;Sarda sarda ;C ;158.4.1 ;A;0;Sarda sarda (Bloch, 1793) 
+SALOTRU;Salmo trutta trutta ;C ;45.1.2 ;A;0;Salmo trutta trutta Linnaeus, 1758 
+SARDPIL;Sardina pilchardus ;C ;33.3.1 ;A;0;Sardina pilchardus (Walbaum, 1792) 
+SARIAUR;Sardinella aurita ;C ;33.4.1 ;A;0;Sardinella aurita Valenciennes, 1847 
+SARIMAD;Sardinella maderensis ;C ;33.4.2 ;A;0;Sardinella maderensis (Lowe, 1838) 
+SARPSAL;Sarpa salpa ;C ;139.9.1 ;A;0;Sarpa salpa (Linnaeus, 1758) 
+SCAEUNI;Scaeurgus unicirrhus ;F ;OCT Scae 1 ;C;0;Scaeurgus unicirrhus (Delle Chiaje, 1838) 
+SCALSCA;Scalpelum scalpelum ;R ;Riedl ;B;m;Scalpellum scalpellum (Linnaeus, 1758) 
+SCAPNIG;Scaphander lignarius ;;;D;0;Scaphander lignarius (Linnaeus, 1758) 
+SCHEOVA;Schedophilus ovalis ;C ;176.3.2 ;A;0;Schedophilus ovalis (Cuvier, 1833) 
+SCIAUMB;Sciaena umbra ;C ;137.1.1 ;A;0;Sciaena umbra Linnaeus, 1758 
+SCOBSAU;Scomberesox saurus ;C ;91.1.1 ;A;0;Scomberesox saurus saurus (Walbaum, 1792) 
+SCOHRHO;Scophthalmus rhombus ;C ;195.1.1 ;A;0;Scophthalmus rhombus (Linnaeus, 1758) 
+SCOMPNE;Scomber (Pneumatophorus) japonicus ;C ;156.1.2 ;A;0;Scomber japonicus Houttuyn, 1782 
+SCOMSCO;Scomber scombrus ;C ;156.1.1 ;A;0;Scomber scombrus Linnaeus, 1758 
+SCORELO;Scorpaena elongata ;C ;184.1.3 ;A;0;Scorpaena elongata Cadenat, 1943 
+SCORLOP;Scorpaena loppei ;C ;184.1.5 ;A;0;Scorpaena loppei Cadenat, 1943 
+SCORMAD;Scorpaena maderensis ;C ;184.1.6 ;A;0;Scorpaena madurensis Valenciennes, 1833 
+SCORNOT;Scorpaena notata ;C ;184.1.7 ;A;0;Scorpaena notata Rafinesque, 1810 
+SCORPOR;Scorpaena porcus ;C ;184.1.1 ;A;0;Scorpaena porcus Linnaeus, 1758 
+SCORSCO;Scorpaena scrofa ;C ;184.1.8 ;A;0;Scorpaena scrofa Linnaeus, 1758 
+SCYLARC;Scyllarus arctus ;F ;SCYL Scylr 1 ;B;m;Scyllarus arctus (Linnaeus, 1758) 
+SCYLLAT;Scyllarides latus ;F ;SCYL Scyld 1 ;B;m;Scyllarides latus (Latreille, 1803) 
+SCYLPYG;Scyllarus pygmaeus ;F ;SCYL Scylr 2 ;B;m;Scyllarus pygmaeus (Bate, 1888) 
+SCYMLIC;Dalatias (Scymnorhinus) licha ;C ;16.4.3 ;A;0;Dalatias licha (Bonnaterre, 1788) 
+SCYOCAN;Scyliorhinus canicula ;C ;11.1.1 ;A;0;Scyliorhinus canicula (Linnaeus, 1758) 
+SCYOSTE;Scyliorhinus stellaris ;C ;11.1.2 ;A;0;Scyliorhinus stellaris (Linnaeus, 1758) 
+SEPENEG;Sepietta neglecta ;F ;SEPIOL ;C;0;Sepietta neglecta Naef, 1916 
+SEPEOBS;Sepietta obscura ;F ;SEPIOL ;C;0;Sepietta obscura Naef, 1916 
+SEPEOWE;Sepietta oweniana ;F ;SEPIOL ;C;0;Sepietta oweniana (D'Orbigny, 1839) 
+SEPESPP;Sepietta spp. ;F ;SEPIOL ;C;0;Sepietta Naef, 1912 
+SEPIELE;Sepia elegans ;F ;SEP Sep 3 ;C;0;Sepia elegans De Blainville, 1827 
+SEPIOFF;Sepia officinalis ;F ;SEP Sep 1 ;C;0;Sepia officinalis Linnaeus, 1758 
+SEPIORB;Sepia orbignyana ;F ;SEP Sep 4 ;C;0;Sepia orbignyana De Férussac, 1826 
+SEPISPP;Sepia ;F ;SEP Sep 1 ;C;0;Sepia Linnaeus, 1758 
+SEPOAFF;Sepiola affinis ;F ;SEPIOL ;C;0;Sepiola affinis Naef, 1912 
+SEPOINT;Sepiola intermedia ;F ;SEPIOL ;C;0;Sepiola intermedia Naef, 1912 
+SEPOLIG;Sepiola ligulata ;F ;SEPIOL ;C;0;Sepiola ligulata Naef, 1912 
+SEPOROB;Sepiola robusta ;F ;SEPIOL ;C;0;Sepiola robusta Naef, 1912 
+SEPORON;Sepiola rondeleti ;F ;SEPIOL ;C;0;Sepiola rondeleti Leach, 1817 
+SEPOSPP;Sepiola spp ;F ;SEP ;C;0;Sepiola Leach, 1817 
+SERAATR;Serranus atricauda; C ;124.1.2 ;A;0;Serranus atricauda Günther, 1874 
+SERACAB;Serranus cabrilla ;C ;124.1.1 ;A;0;Serranus cabrilla (Linnaeus, 1758) 
+SERAHEP;Serranus hepatus ;C ;124.1.3 ;A;0;Serranus hepatus (Linnaeus, 1758) 
+SERASCR;Serranus scriba ;C ;124.1.4 ;A;0;Serranus scriba (Linnaeus, 1758) 
+SERGARC;Sergestes arcticus ;Z ;Z ;B;m;Sergestes arcticus Krøyer, 1855 
+SERGROB;Sergestes robustus ;Z ;Z ;B;m;Sergestes robustus (S.J. Smith, 1882) 
+SERGSAR;Sergestes sargassi (= henseni) ;Z ;Z ;B;m;Sergestes sargassi Ortmann, 1893 
+SERIDUM;Seriola dumerili ;C ;131.9.1 ;A;0;Seriola dumerili (Risso, 1810) 
+SOLEIMP;Solea impar ;C ;198.1.2 ;A;0;Solea impar Bennett, 1831 
+SOLEKLE;Solea kleini ;C ;198.1.3 ;A;0;Synaptura kleinii (Risso, 1827) 
+SOLELAS;Solea lascaris ;C ;198.1.4 ;A;0;Solea lascaris (Risso, 1810) 
+SOLESEN;Solea senegalensis ;C ;198.1.6 ;A;0;Solea senegalensis Kaup, 1858 
+SOLEVUL;Solea vulgaris ;C ;198.1.1 ;A;0;Solea solea (Linnaeus, 1758) 
+SOLOMEM;Solenocera membranacea ;F ;SOLENO Soleno B ;B;m;Solenocera membranacea (Risso, 1816) 
+SPARAUR;Sparus aurata ;C ;139.1.1 ;A;0;Sparus auratus Linnaeus, 1758 
+SPARCAE;Pagrus (Sparus) coeruleostictus ;C ;139.11.2 ;A;0;Pagrus caeruleostictus (Valenciennes, 1830) 
+SPARPAG;Pagrus (Sparus) pagrus ;C ;139.11.3 ;A;0;Pagrus pagrus (Linnaeus, 1758) 
+SPHOCUT;Sphoeroides cutaneus ;C ;204.3.2 ;A;0;Sphoeroides pachygaster (Müller & Troschel, 1848)
+SPHYSPY;Sphyraena sphyraena ;C ;180.1.1 ;A;0;Sphyraena sphyraena (Linnaeus, 1758) 
+SPICFLE;Spicara flexuosa ;C ;141.2.2 ;A;0;Spicara maena (Linnaeus, 1758) 
+SPICMAE;Spicara maena ;C ;141.2.1 ;A;0;Spicara maena (Linnaeus, 1758) 
+SPICSMA;Spicara smaris ;C ;141.2.3 ;A;0;Spicara smaris (Linnaeus, 1758) 
+SPICSPP;Spicara ;C ;141.2.3 ;A;0;Spicara Rafinesque, 1810 
+SPISSPP;Spisula spp ;F ;MACTR ;E;0;Spisula Gray, 1837 
+SPISSUB;Spisula subtrucata ;F ;MACTR ;E;0;Spisula subtruncata (Da Costa, 1778) 
+SPODCAN;Spondyliosoma cantharus ;C ;139.10.1 ;A;0;Spondyliosoma cantharus (Linnaeus, 1758) 
+SPRASPR;Sprattus sprattus ;C ;33.5.1 ;A;0;Sprattus sprattus sprattus (Linnaeus, 1758) 
+SQUAACA;Squalus acanthias ;C ;16.1.1 ;A;0;Squalus acanthias Linnaeus, 1758 
+SQUABLA;Squalus blainvillei ;C ;16.1.2 ;A;0;Squalus blainville (Risso, 1827) 
+SQUIMAN;Squilla mantis ;F ;SQUIL Squil 5 ;B;m;Squilla mantis (Linnaeus, 1758) 
+SQUTACU;Squatina aculeata ;C ;17.1.2 ;A;0;Squatina aculeata Cuvier, 1829 
+SQUTOCL;Squatina oculata ;C ;17.1.3 ;A;0;Squatina oculata Bonaparte, 1840 
+SQUTSPP;Squatina spp ;C ;17.1;A;0;Squatina Duméril, 1806 
+SQUTSQU;Squatina squatina ;C ;17.1.1 ;A;0;Squatina squatina (Linnaeus, 1758) 
+STEPDIA;Stephanolepis diaspros ;C ;202.1.2 ;A;0;Stephanolepis diaspros Fraser-Brunner, 1940 
+STICREG;Stichopus regalis ;F ;STICH Stich 1 ;D;0;Eotichopus regalis 
+STOLLEU;Stoloteuthis leucoptera ;F ;SEPIOL ;C;0;Stoloteuthis leucopterus (Verrill, 1878) 
+STOMBOA;Stomias boa ;C ;41.1.1 ;A;0;Stomias boa boa (Risso, 1810) 
+STROFIA;Stromateus fiatola ;C ;179.1.1 ;A;0;Stromateus fiatola Linnaeus, 1758 
+SUBECAR;Suberites carnosus ;;;D;0;Suberites carnosus (Johnston, 1842) 
+SUBEDOM;Suberites domuncula ;;;D;0;Suberites domuncula (Olivi, 1792) 
+SUBESPP;Suberites spp. ;;;D;0;Suberites Nardo, 1833 
+SYMBVER;Symbolophorus veranyi ;C ;58.19.1 ;A;0;Symbolophorus veranyi (Moreau, 1888) 
+SYMDCIN;Symphodus cinereus ;C ;145.9.3 ;A;0;Symphodus cinereus (Bonnaterre, 1788) 
+SYMDMED;Symphodus mediterraneus; C ;145.9.6 ;A;0;Symphodus mediterraneus (Linnaeus, 1758) 
+SYMDOCE;Symphodus ocellatus ;C ;145.9.9 ;A;0;Symphodus ocellatus (Forsskål, 1775) 
+SYMDROS;Symphodus rostratus ;C ;145.9.1 ;A;0;Symphodus rostratus (Bloch, 1791) 
+SYMDTIN;Symphodus tinca ;C ;145.9.12 ;A;0;Symphodus tinca (Linnaeus, 1758) 
+SYMPLIG;Symphurus ligulatus ;C ;199.2.2 ;A;0;Symphurus ligulatus (Cocco, 1844) 
+SYMPNIG;Symphurus nigrescens ;C ;199.2.1 ;A;0;Symphurus nigrescens Rafinesque, 1810 
+SYNDSAU;Synodus saurus ;C ;51.1.2 ;A;0;Synodus saurus (Linnaeus, 1758) 
+SYNGACU;Syngnathus acus ;C ;97.1.1 ;A;0;Syngnathus acus Linnaeus, 1758 
+SYNGPHL;Syngnathus phlegon ;C ;97.1.3. ;A;0;Syngnathus phlegon Risso, 1827 
+SYNGTAE;Syngnathus taenionotus ;C ;97.1.6 ;A;0;Syngnathus taenionotus Canestrini, 1871 
+SYNGTYP;Syngnathus typhle ;C ;97.1.8 ;A;0;Syngnathus typhle Linnaeus, 1758 
+TAENGRA;Taeniura grabata ;C ;22.4.1 ;A;0;Taeniura grabata (Geoffroy Saint-Hilaire, 1817) 
+TELLSPP;Tellina spp ;F ;TELL ;E;0;Tellina Linnaeus, 1758 
+TETHFIM;Tethys fimbria ;;;C;0;Tethys fimbria Linnaeus, 1767 
+THAMPOI;Thalamita poissonii ;Y ;Y ;B;;Thalamita poissonii (Audouin, 1826) 
+TODASAG;Todarodes sagittatus ;F ;OMMAS Todarod ;C;0;Todarodes sagittatus (Lamarck, 1798) 
+TODIEBL;Todaropsis eblanae ;F ;OMMAS Todarod ;C;0;Todaropsis eblanae (Ball, 1841) 
+TORPMAR;Torpedo marmorata ;C ;20.1.2 ;A;0;Torpedo marmorata Risso, 1810 
+TORPNOB;Torpedo nobiliana ;C ;20.1.3 ;A;0;Torpedo nobiliana Bonaparte, 1835 
+TORPSPP;Torpedo ;C ;20.1.1 ;A;0;Torpedo Houttuyn, 1764 
+TORPTOR;Torpedo torpedo ;C ;20.1.1 ;A;0;Torpedo torpedo (Linnaeus, 1758) 
+TRACMED;Trachurus mediterraneus; C ;131.10.3 ;A;0;Trachurus mediterraneus (Steindachner, 1868) 
+TRACPIC;Trachurus picturatus ;C ;131.10.4 ;A;0;Trachurus picturatus (Bowdich, 1825) 
+TRACTRA;Trachurus trachurus ;C ;131.10.1 ;A;0;Trachurus trachurus (Linnaeus, 1758) 
+TRAHARA;Trachinus araneus ;C ;148.1.2 ;A;0;Trachinus araneus Cuvier, 1829 
+TRAHDRA;Trachinus draco ;C ;148.1.1 ;A;0;Trachinus draco Linnaeus, 1758 
+TRAHRAD;Trachinus radiatus ;C ;148.1.3 ;A;0;Trachinus radiatus Cuvier, 1829 
+TRARTRA;Trachyrhynchus trachyrhynchus ;C ;99.1.1 ;A;0;Trachyrincus scabrus (Rafinesque, 1810) 
+TRAYCRI;Trachyscorpia cristulata ;C ;184.7.1 ;A;0;Trachyscorpia cristulata echinata (Koehler, 1896) 
+TRIGLUC;Trigla lucerna ;C ;185.1.2 ;A;0;Chelidonichthys lucernus (Linnaeus, 1758) 
+TRIGLYR;Trigla lyra ;C ;185.1.1 ;A;0;Trigla lyra Linnaeus, 1758 
+TRIILEP;Trichiurus lepturus ;C ;155.1.1 ;A;0;Trichiurus lepturus Linnaeus, 1758 
+TRIPLAS;Trigloporus lastoviza ;C ;185.5.1 ;A;0;Chelidonichthys lastoviza (Bonnaterre, 1788) 
+TRISCAP;Trisopterus minutus capelanus ;C ;101.11.1 ;A;0;Trisopterus minutus (Linnaeus, 1758) 
+TRISLUS;Trisopterus luscus ;C ;101.11.3 ;A;0;Trisopterus luscus (Linnaeus, 1758) 
+TRITNOD;Charonia (Triton) rubicunda (nodifer) ;F ;CYM Char 1 ;D;0;Charonia lampas (Linnaeus, 1758) 
+TURRCOM;Turritella comunnis ;F ;D12 ;E;0;Turritella communis Risso, 1826 
+TURRSIM;Turris similis ;;D'Angelo ;E;0;Fusiturris similis (Bivona And., 1838) 
+TURRSPP;Turritella spp ;F ;TURR ;D;0;Turritella Lamarck, 1799 
+UMBAMED;Umbraculum mediterraneum ;;;E;0;Umbraculum umbraculum (Röding, 1798) 
+UMBRCAN;Umbrina canariensis ;C ;137.4.2 ;A;0;Umbrina canariensis Valenciennes, 1843 
+UMBRCIR;Umbrina cirrosa ;C ;137.4.1 ;A;0;Umbrina cirrosa (Linnaeus, 1758) 
+UMBRRON;Umbrina ronchus ;C ;137.4.3 ;A;0;Umbrina ronchus Valenciennes, 1843 
+UPENMOL;Upeneus moluccensis ;X ;X ;A;;Upeneus moluccensis (Bleeker, 1855) 
+URANSCA;Uranoscopus scaber ;C ;149.1.1 ;A;0;Uranoscopus scaber Linnaeus, 1758 
+VENUSPP;Venus spp. ;F ;VEN ;D;0;Venus Linnaeus, 1758 
+VENUVER;Venus verrucosa ;F ;VEN Ven 1 ;D;0;Venus verrucosa Linnaeus, 1758 
+VINCATT;Vinciguerria attenuata ;C ;37.12.1 ;A;0;Vinciguerria attenuata (Cocco, 1838) 
+VINCPOW;Vinciguerria poweriae ;C ;37.12.3 ;A;0;Vinciguerria poweriae (Cocco, 1838) 
+XANTCOU;Medaeus (Xantho) couchi ;Z ;Z ;B;m;Monodaeus couchi (Couch, 1851) 
+XENOCRI;Xenophora crispa ;F ;XENOPH ;E;m;Xenophora crispa (Koenig, 1825) 
+XENOSPP;Xenophora spp ;F ;XENOPH ;E;m;Xenophora Fischer Von Waldheim, 1807 
+XIPHGLA;Xiphias gladius ;C ;161.1.1 ;A;0;Xiphias gladius Linnaeus, 1758 
+ZEUSFAB;Zeus faber ;C ;120.1.1 ;A;0;Zeus faber Linnaeus, 1758 
+ZOSTOPH;Zostoricessor ophiocephalus ;C ;162.26.1 ;A;0;Zosterisessor ophiocephalus (Pallas, 1814) 
