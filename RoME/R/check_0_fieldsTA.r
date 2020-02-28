@@ -25,7 +25,7 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
 
   write(paste("\n----------- check 0 fields TA"), file = Errors, append = TRUE)

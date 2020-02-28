@@ -150,7 +150,7 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_quadrant(ResultDataTA,wd,suffix)
+check_quadrant(TA,wd,suffix)
 
 
 
@@ -174,9 +174,9 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_quasiidentical_records(ResultDataTA,wd,suffix)
-check_quasiidentical_records(ResultDataTB,wd,suffix)
-check_quasiidentical_records(ResultDataTC,wd,suffix)
+check_quasiidentical_records(TA,wd,suffix)
+check_quasiidentical_records(TB,wd,suffix)
+check_quasiidentical_records(TC,wd,suffix)
 
 
 
@@ -201,12 +201,38 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_raising(ResultDataTB,ResultDataTC,wd,suffix)
+check_raising(TB,TC,wd,suffix)
 
 
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_raising", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_rubincode")
+### * check_rubincode
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_rubincode
+### Title: Function checking the correctness of species MEDITS code and
+###   faunistic category according to TM reference list
+### Aliases: check_rubincode
+### Keywords: rubincode,TM list
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_rubincode(TB,wd,suffix)
+check_rubincode(TC,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_rubincode", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()

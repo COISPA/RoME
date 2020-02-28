@@ -12,3 +12,6 @@ check_quasiidentical_records
 check_raising           Function checking if, in case of sub-sampling
                         in TC, the Total number and the number per sex
                         in TB is raised correctly
+check_rubincode         Function checking the correctness of species
+                        MEDITS code and faunistic category according to
+                        TM reference list

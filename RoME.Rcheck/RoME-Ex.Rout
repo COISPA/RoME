@@ -174,7 +174,38 @@ detaching 'package:MEDITS'
 > library(RoME)
 > wd=tempdir()
 > suffix= "27-02-2020 18:30"
-> check_quadrant(ResultDataTA,wd,suffix)
-Error in check_quadrant(ResultDataTA, wd, suffix) : 
-  object 'ResultDataTA' not found
+> check_quadrant(TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quasiidentical_records")
+> ### * check_quasiidentical_records
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quasiidentical_records
+> ### Title: Function checking the presence of quasi-identical records.
+> ### Aliases: check_quasiidentical_records
+> ### Keywords: quasi-identical
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quasiidentical_records(TA,wd,suffix)
+[1] FALSE
+> check_quasiidentical_records(TB,wd,suffix)
+Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
+  argument is of length zero
+Calls: check_quasiidentical_records
 Execution halted
