@@ -17,7 +17,7 @@ check_consistencyTA_distance<-function(DataTA, wd, suffix){
     # check_consistencyTA_distance(DataTA, wd, suffix)
   }
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

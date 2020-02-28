@@ -170,7 +170,188 @@ detaching 'package:MEDITS'
 >     DataTL = NA
 > 
 >     check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
-Error in file.path(wd, "Logfiles") : 
-  argument "wd" is missing, with no default
-Calls: check_area -> dir.create -> file.path
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_area", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_associations_category_TL")
+> ### * check_associations_category_TL
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_associations_category_TL
+> ### Title: Check corretness of TL categories
+> ### Aliases: check_associations_category_TL
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_associations_category_TL", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_bridles_length")
+> ### * check_bridles_length
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_bridles_length
+> ### Title: check of bridles length correctness
+> ### Aliases: check_bridles_length
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_bridles_length(MEDITS::TA, wd, suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_bridles_length", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_consistencyTA_distance")
+> ### * check_consistencyTA_distance
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_consistencyTA_distance
+> ### Title: Consistency check of distance in TA
+> ### Aliases: check_consistencyTA_distance
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_consistencyTA_distance(MEDITS::TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_consistencyTA_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_consistencyTA_duration")
+> ### * check_consistencyTA_duration
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_consistencyTA_duration
+> ### Title: Consistency check of hauls duration in TA
+> ### Aliases: check_consistencyTA_duration
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_consistencyTA_duration(MEDITS::TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_consistencyTA_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_date_haul")
+> ### * check_date_haul
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_date_haul
+> ### Title: Check of date consistency
+> ### Aliases: check_date_haul
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(RoME)
+>     wd <- tempdir()
+>     suffix="27-02-2020 18:30"
+>     DataTA = MEDITS::TA
+>     Data = MEDITS::TB
+>     check_date_haul(DataTA, Data, wd, suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_date_haul", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_quadrant")
+> ### * check_quadrant
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quadrant
+> ### Title: Check start and end quadrant for each haul
+> ### Aliases: check_quadrant
+> ### Keywords: quadrant
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quadrant(TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quasiidentical_records")
+> ### * check_quasiidentical_records
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quasiidentical_records
+> ### Title: Function checking the presence of quasi-identical records.
+> ### Aliases: check_quasiidentical_records
+> ### Keywords: quasi-identical
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quasiidentical_records(TA,wd,suffix)
+[1] FALSE
+> check_quasiidentical_records(TB,wd,suffix)
+Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
+  missing value where TRUE/FALSE needed
+Calls: check_quasiidentical_records
 Execution halted

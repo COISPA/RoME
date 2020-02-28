@@ -18,7 +18,7 @@ if (FALSE){
 
 check_quadrant<-function(ResultDataTA,wd,suffix){
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

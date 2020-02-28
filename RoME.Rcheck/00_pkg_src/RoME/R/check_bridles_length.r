@@ -18,7 +18,7 @@ check_bridles_length<-function(DataTA, wd, suffix){
     # check_bridles_length(DataTA, wd, suffix)
   }
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

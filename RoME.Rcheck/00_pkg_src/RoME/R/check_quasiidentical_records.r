@@ -22,7 +22,7 @@ check_quasiidentical_records<-function(Result,wd,suffix){
   Table=as.character(Result[1,1])
   check_without_errors = FALSE
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

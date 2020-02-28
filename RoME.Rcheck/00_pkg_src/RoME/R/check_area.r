@@ -7,7 +7,7 @@
 ############################################################################################################################
 # Check if TA, TB and TC files have the same area and year
 
-check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix){
+check_area <- function(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix){
 
   if (FALSE){
     wd <- tempdir()
@@ -18,11 +18,11 @@ check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataT
     DataTE = NA
     DataTL = NA
 
-    # check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
+    # check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
   }
 
-  if (!file.exists("Logfiles")){
-      dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+      dir.create(file.path(wd, "Logfiles"), showWarnings = TRUE)
   }
 
   numberError = 0

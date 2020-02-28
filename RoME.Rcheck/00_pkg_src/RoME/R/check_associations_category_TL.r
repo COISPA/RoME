@@ -30,7 +30,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
 
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 
