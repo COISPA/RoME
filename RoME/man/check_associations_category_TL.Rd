@@ -22,10 +22,12 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
+\donttest{
     library(RoME)
     wd <- tempdir()
     suffix="27-02-2020 18:30"
     DataTL = TL_table
     check_associations_category_TL(DataTL, assTL, wd, suffix)
+}
 }
 \keyword{error}
