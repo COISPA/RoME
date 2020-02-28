@@ -52,12 +52,11 @@ check_quasiidentical_records: no visible binding for global variable
   'CATEGORY'
 check_raising: no visible global function definition for 'aggregate'
 check_rubincode: no visible binding for global variable 'TM_list'
-check_sex_inversion: no visible binding for global variable 'wd'
 check_smallest_mature: no visible binding for global variable
   'DataTargetSpecies'
 Undefined global functions or variables:
   CATEGORY DataTargetSpecies Errors TM_list aggregate str_extract
-  str_length timeDate wd
+  str_length timeDate
 Consider adding
   importFrom("stats", "aggregate")
 to your NAMESPACE file.
@@ -65,21 +64,16 @@ to your NAMESPACE file.
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
-* checking for missing documentation entries ... WARNING
-Undocumented code objects:
-  'check_consistencyTA_duration'
-All user-level objects in a package should have documentation entries.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
+* checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... WARNING
 Codoc mismatches from documentation object 'check_sex_inversion':
 check_sex_inversion
-  Code: function(DataTC, Maturity_parameters)
+  Code: function(DataTC, Maturity_parameters, wd, suffix)
   Docs: function(Data, Maturity_parameters, wd, suffix)
   Argument names in code not in docs:
     DataTC
   Argument names in docs not in code:
-    Data wd suffix
+    Data
   Mismatches in argument names:
     Position: 1 Code: DataTC Docs: Data
 
@@ -108,27 +102,22 @@ Running examples in 'RoME-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_quasiidentical_records
-> ### Title: Function checking the presence of quasi-identical records.
-> ### Aliases: check_quasiidentical_records
-> ### Keywords: quasi-identical
+> ### Name: check_consistencyTA_duration
+> ### Title: Consistency check of hauls duration in TA
+> ### Aliases: check_consistencyTA_duration
+> ### Keywords: error
 > 
 > ### ** Examples
 > 
 > library(MEDITS)
-> library(RoME)
-> wd=tempdir()
-> suffix= "27-02-2020 18:30"
-> check_quasiidentical_records(TA,wd,suffix)
-[1] FALSE
-> check_quasiidentical_records(TB,wd,suffix)
-[1] TRUE
-> check_quasiidentical_records(TC,wd,suffix)
-Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
-  argument is of length zero
-Calls: check_quasiidentical_records
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_consistencyTA_duration(MEDITS::TA,wd,suffix)
+Error in timeDate("01-01-2001.0000", format = "%d-%m-%Y.%H%M", zone = "GMT",  : 
+  could not find function "timeDate"
+Calls: check_consistencyTA_duration
 Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 3 WARNINGs, 1 NOTE
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE

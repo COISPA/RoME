@@ -9,7 +9,9 @@ check_associations_category_TL
                         Check corretness of TL categories
 check_bridles_length    check of bridles length correctness
 check_consistencyTA_distance
-                        Check of consistency of distance in TA
+                        Consistency check of distance in TA
+check_consistencyTA_duration
+                        Consistency check of hauls duration in TA
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
