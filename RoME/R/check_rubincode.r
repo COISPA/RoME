@@ -29,7 +29,7 @@ check_rubincode<-function(ResultData,wd,suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
 
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
 
   if (ResultData$TYPE_OF_FILE[1] == "TB") {
