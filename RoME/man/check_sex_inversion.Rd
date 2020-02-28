@@ -6,10 +6,11 @@ Function to verify the consistency of sex information about hermaphrodite specie
 \description{
 The user will be informed if information about sex-inversion size for hermaphrodite species (at the moment only for Pagellus spp. and Spicara spp.) is stored in Maturity parameters dataframe.}
 \usage{
-check_sex_inversion(DataTC,Maturity_parameters)
+check_sex_inversion(Data,Maturity_parameters,wd,suffix)
 }
 \arguments{
-\item{DataTC}{alternatively: Biological data table (TC) and Individual data table (TE).}
+\item{Data}{alternatively: Biological data table (TC) and Individual data table (TE).}
+\item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }
@@ -30,6 +31,6 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_sex_inversion(TC,Maturity_parameters)
+check_sex_inversion(TC,Maturity_parameters,wd,suffix)
 }
 \keyword{sex inversion, hermaphrodite}
