@@ -96,8 +96,8 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Ma
 
       }
 
-      Start_temp <<- maturity_sp_table$Start_reproductive_season[sex]
-      End_temp <<-   maturity_sp_table$End_reproductive_season[sex]
+      Start_temp <- maturity_sp_table$Start_reproductive_season[sex]
+      End_temp <-   maturity_sp_table$End_reproductive_season[sex]
 
       if (nrow(Error_matrix)!=0) {
         for (k in 1:nrow(Error_matrix)){

@@ -30,8 +30,21 @@ check_quasiidentical_records<-function(Result,wd,suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
 
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
+  #### CHECK TL FIELDS ####
+  if (Table=="TL"){
+    if ("LITTER_SUB.CATEGORY" %in% colnames(Result)){
+      colnames(Result)[which(colnames(Result)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+    }
+    if ("TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(Result)){
+      colnames(Result)[which(colnames(Result)=="TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_WEIGHT_IN_ THE_SUB-CATEGORY_ HAUL"
+    }
+    if ("TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(Result)){
+      colnames(Result)[which(colnames(Result)=="TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_NUMBER_IN_ THE_SUB-CATEGORY_ HAUL"
+    }
+  }
+  #### CHECK TL FIELDS - END ####
   # ------------------------------------------------------------------ TA
 
   if (Table == "TA"){
@@ -159,7 +172,7 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
         for( k in 1:nrow(Err)){
           if (Err$YEAR[k] == Matrix2$YEAR[i]){
-            write(paste("Haul",Err$HAUL_NUMBER[k],Err$LITTER_CATEGORY[k],Err$LITTER_SUB-CATEGORY[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+            write(paste("Haul",Err$HAUL_NUMBER[k],Err$LITTER_CATEGORY[k],Err[k,"LITTER_SUB-CATEGORY"],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
 
             }
         }

@@ -335,8 +335,8 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_rubincode(TB,wd,suffix)
-check_rubincode(TC,wd,suffix)
+check_rubincode(TB,TM_list,wd,suffix)
+check_rubincode(TC,TM_list,wd,suffix)
 
 
 
