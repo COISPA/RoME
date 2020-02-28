@@ -11,5 +11,5 @@ Encoding: UTF-8
 LazyData: true
 Imports: MEDITS,stringr
 NeedsCompilation: no
-Packaged: 2020-02-28 16:07:14 UTC; Walter
-Built: R 3.6.2; ; 2020-02-28 16:07:19 UTC; windows
+Packaged: 2020-02-28 16:12:23 UTC; Walter
+Built: R 3.6.2; ; 2020-02-28 16:12:26 UTC; windows

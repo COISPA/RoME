@@ -36,13 +36,8 @@
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-check_quasiidentical_records: no visible binding for '<<-' assignment
-  to 'Errors'
-check_quasiidentical_records: no visible binding for global variable
-  'Errors'
 check_quasiidentical_records: no visible binding for global variable
   'CATEGORY'
-check_raising: no visible global function definition for 'aggregate'
 check_rubincode: no visible binding for global variable 'TM_list'
 check_smallest_mature: no visible binding for global variable
   'DataTargetSpecies'
@@ -55,11 +50,7 @@ check_spawning_period: no visible binding for global variable
 check_spawning_period: no visible binding for global variable
   'End_temp'
 Undefined global functions or variables:
-  CATEGORY DataTargetSpecies End_temp Errors Start_temp TM_list
-  aggregate
-Consider adding
-  importFrom("stats", "aggregate")
-to your NAMESPACE file.
+  CATEGORY DataTargetSpecies End_temp Start_temp TM_list
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK

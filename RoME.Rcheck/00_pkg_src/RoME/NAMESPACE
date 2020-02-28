@@ -1,3 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 import(timeDate)
 import(stringr)
+importFrom("stats", "aggregate")
