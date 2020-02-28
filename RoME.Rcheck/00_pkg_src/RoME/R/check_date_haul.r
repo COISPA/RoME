@@ -21,7 +21,7 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
     # check_date_haul(DataTA, Data, wd, suffix)
   }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists("Logfiles")){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

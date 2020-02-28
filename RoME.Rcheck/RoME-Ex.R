@@ -142,12 +142,10 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
     DataTA = MEDITS::TA
     DataTB = MEDITS::TB
     DataTC = MEDITS::TC
-    DataTD = NA
     DataTE = NA
-    DataTT = NA
     DataTL = NA
 
-    check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
+    check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
 
 
 
@@ -241,6 +239,31 @@ check_consistencyTA_duration(MEDITS::TA,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_consistencyTA_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_date_haul")
+### * check_date_haul
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_date_haul
+### Title: Check of date consistency
+### Aliases: check_date_haul
+### Keywords: error
+
+### ** Examples
+
+library(RoME)
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    DataTA = MEDITS::TA
+    Data = MEDITS::TB
+    check_date_haul(DataTA, Data, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_date_haul", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
@@ -392,6 +415,31 @@ check_smallest_mature(TC,Maturity_parameters,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_smallest_mature", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_spawning_period")
+### * check_spawning_period
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_spawning_period
+### Title: Function to check the consistency of the maturity stages
+###   according to the spawning period.
+### Aliases: check_spawning_period
+### Keywords: smallest mature
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_spawning_period(TA,TC,Maturity_parameters,DataTargetSpecies,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_spawning_period", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()

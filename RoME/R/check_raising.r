@@ -22,7 +22,7 @@ ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia 
 check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
 Format="from_2012"
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

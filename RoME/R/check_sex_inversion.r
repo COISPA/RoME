@@ -20,7 +20,7 @@ check_sex_inversion<-function(Data,Maturity_parameters,wd,suffix){
   numberError = 0
 
   Format="from_2012"
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

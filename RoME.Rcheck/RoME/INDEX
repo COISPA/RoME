@@ -12,6 +12,7 @@ check_consistencyTA_distance
                         Consistency check of distance in TA
 check_consistencyTA_duration
                         Consistency check of hauls duration in TA
+check_date_haul         Check of date consistency
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
@@ -27,3 +28,6 @@ check_sex_inversion     Function to verify the consistency of sex
 check_smallest_mature   Function to verify the consistency of maturity
                         information respect to the smallest mature
                         individual observed in literature.
+check_spawning_period   Function to check the consistency of the
+                        maturity stages according to the spawning
+                        period.

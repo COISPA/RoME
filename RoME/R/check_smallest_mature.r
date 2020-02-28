@@ -20,7 +20,7 @@ if (FALSE){
 check_smallest_mature<-function(ResultData,Maturity_parameters,wd,suffix){
 
   Format="from_2012"
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

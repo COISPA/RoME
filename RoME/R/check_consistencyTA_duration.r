@@ -17,7 +17,7 @@ check_consistencyTA_duration<-function(DataTA, wd, suffix){
     # check_consistencyTA_duration(DataTA, wd, suffix)
   }
 
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

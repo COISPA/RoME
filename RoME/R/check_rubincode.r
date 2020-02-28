@@ -21,7 +21,7 @@ check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
   numberError = 0
 
   Format="from_2012"
-  if (!file.exists("Logfiles")){
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 

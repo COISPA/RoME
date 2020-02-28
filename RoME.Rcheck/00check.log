@@ -44,18 +44,23 @@ Undefined global functions or variables:
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
-* checking for missing documentation entries ... WARNING
-Undocumented code objects:
-  'check_spawning_period'
-All user-level objects in a package should have documentation entries.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
-* checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
-* checking Rd contents ... WARNING
-Argument items with no description in Rd object 'check_area':
-  'DataTD' 'DataTT'
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... WARNING
+Codoc mismatches from documentation object 'check_area':
+check_area
+  Code: function(DataTA, DataTB, DataTC, DataTD = NA, DataTT = NA,
+                 DataTE = NA, DataTL = NA, wd, suffix)
+  Docs: function(DataTA, DataTB, DataTC, DataTE = NA, DataTL = NA, wd,
+                 suffix)
+  Argument names in code not in docs:
+    DataTD DataTT
+  Mismatches in argument names (first 3):
+    Position: 4 Code: DataTD Docs: DataTE
+    Position: 5 Code: DataTT Docs: DataTL
+    Position: 6 Code: DataTE Docs: wd
 
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking contents of 'data' directory ... OK
 * checking data for non-ASCII characters ... OK
@@ -65,25 +70,27 @@ Running examples in 'RoME-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_quasiidentical_records
-> ### Title: Function checking the presence of quasi-identical records.
-> ### Aliases: check_quasiidentical_records
-> ### Keywords: quasi-identical
+> ### Name: check_area
+> ### Title: Check if TX files have the same area
+> ### Aliases: check_area
+> ### Keywords: error
 > 
 > ### ** Examples
 > 
-> library(MEDITS)
-> library(RoME)
-> wd=tempdir()
-> suffix= "27-02-2020 18:30"
-> check_quasiidentical_records(TA,wd,suffix)
-[1] FALSE
-> check_quasiidentical_records(TB,wd,suffix)
-Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
-  missing value where TRUE/FALSE needed
-Calls: check_quasiidentical_records
+>     wd <- tempdir()
+>     suffix="27-02-2020 18:30"
+>     DataTA = MEDITS::TA
+>     DataTB = MEDITS::TB
+>     DataTC = MEDITS::TC
+>     DataTE = NA
+>     DataTL = NA
+> 
+>     check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
+Error in file.path(wd, "Logfiles") : 
+  argument "wd" is missing, with no default
+Calls: check_area -> dir.create -> file.path
 Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 2 WARNINGs, 1 NOTE
+Status: 1 ERROR, 1 WARNING, 1 NOTE
