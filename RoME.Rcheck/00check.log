@@ -36,21 +36,10 @@
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-check_quasiidentical_records: no visible binding for global variable
-  'CATEGORY'
-check_rubincode: no visible binding for global variable 'TM_list'
 check_smallest_mature: no visible binding for global variable
   'DataTargetSpecies'
-check_spawning_period: no visible binding for '<<-' assignment to
-  'Start_temp'
-check_spawning_period: no visible binding for '<<-' assignment to
-  'End_temp'
-check_spawning_period: no visible binding for global variable
-  'Start_temp'
-check_spawning_period: no visible binding for global variable
-  'End_temp'
 Undefined global functions or variables:
-  CATEGORY DataTargetSpecies End_temp Start_temp TM_list
+  DataTargetSpecies
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
@@ -61,29 +50,8 @@ Undocumented code objects:
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'check_sex_inversion':
-check_sex_inversion
-  Code: function(Data, Maturity_parameters, wd, suffix)
-  Docs: function(DataTC, Maturity_parameters, wd, suffix)
-  Argument names in code not in docs:
-    Data
-  Argument names in docs not in code:
-    DataTC
-  Mismatches in argument names:
-    Position: 1 Code: Data Docs: DataTC
-
-* checking Rd \usage sections ... WARNING
-Undocumented arguments in documentation object 'check_sex_inversion'
-  'DataTC'
-Documented arguments not in \usage in documentation object 'check_sex_inversion':
-  'Data'
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
 * checking Rd contents ... WARNING
 Argument items with no description in Rd object 'check_area':
   'DataTD' 'DataTT'
@@ -118,4 +86,4 @@ Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 4 WARNINGs, 1 NOTE
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE
