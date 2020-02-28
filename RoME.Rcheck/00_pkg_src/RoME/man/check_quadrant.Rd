@@ -35,6 +35,6 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_quadrant<-function(ResultDataTA,wd,suffix)
+check_quadrant(ResultDataTA,wd,suffix)
 }
 \keyword{quadrant}

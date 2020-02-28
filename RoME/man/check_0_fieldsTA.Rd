@@ -2,7 +2,7 @@
 \alias{Checks 0 fields in TA}
 \title{Checks the presence of 0 fields in TA}
 \description{
-The function checks the presence of 0 fields in the following haul data table (TA, according to MEDITS protocol) fields: }WING_OPENING, WARP_DIAMETER  and VERTICAL_OPENING
+The function checks the presence of 0 fields in the following haul data table (TA, according to MEDITS protocol) fields: WING_OPENING, WARP_DIAMETER  and VERTICAL_OPENING}
 \usage{check_0_fieldsTA(ResultDataTA,wd,suffix)}
 \arguments{
     \item{ResultDataTA}{Haul data table according to MEDITS protocol (TA)}
@@ -18,6 +18,7 @@ library(MEDITS)
 wd <- tempdir()
 suffix <- "27-02-2020 18:30"
 ResultDataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+check_0_fieldsTA(MEDITS::TA,wd,suffix)
 }
 
 \keyword{ error }
