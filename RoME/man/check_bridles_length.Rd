@@ -1,10 +1,10 @@
 \name{check_bridles_length}
 \alias{check_bridles_length}
 \title{
-
+check of bridles length correctness
 }
 \description{
-....
+The function performs consistency checks of the values in the "BRIDLES_LENGTH" field of the hauls data table (TA).
 }
 \usage{
 check_bridles_length(DataTA, wd, suffix)
