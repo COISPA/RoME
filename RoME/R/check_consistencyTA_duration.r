@@ -14,7 +14,7 @@ check_consistencyTA_duration<-function(DataTA, wd, suffix){
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = MEDITS::TA
-    check_consistencyTA_duration(DataTA, wd, suffix)
+    # check_consistencyTA_duration(DataTA, wd, suffix)
   }
 
   if (!file.exists("Logfiles")){

@@ -19,9 +19,7 @@
 * checking package directory ... OK
 * checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... NOTE
-Non-standard file/directory found at top level:
-  'ResultTCpivotSex.csv'
+* checking top-level files ... OK
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -55,8 +53,11 @@ check_quasiidentical_records: no visible binding for global variable
 check_raising: no visible global function definition for 'aggregate'
 check_rubincode: no visible binding for global variable 'TM_list'
 check_sex_inversion: no visible binding for global variable 'wd'
+check_smallest_mature: no visible binding for global variable
+  'DataTargetSpecies'
 Undefined global functions or variables:
-  CATEGORY Errors TM_list aggregate str_extract str_length timeDate wd
+  CATEGORY DataTargetSpecies Errors TM_list aggregate str_extract
+  str_length timeDate wd
 Consider adding
   importFrom("stats", "aggregate")
 to your NAMESPACE file.
@@ -66,24 +67,34 @@ to your NAMESPACE file.
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'Maturity_parameters' 'check_consistencyTA_duration'
-Undocumented data sets:
-  'Maturity_parameters'
+  'check_consistencyTA_duration'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... WARNING
-Undocumented arguments in documentation object 'check_sex_inversion'
-  'Maturity_parameters'
-Documented arguments not in \usage in documentation object 'check_sex_inversion':
-  'wd' 'suffix'
+* checking for code/documentation mismatches ... WARNING
+Codoc mismatches from documentation object 'check_sex_inversion':
+check_sex_inversion
+  Code: function(DataTC, Maturity_parameters)
+  Docs: function(Data, Maturity_parameters, wd, suffix)
+  Argument names in code not in docs:
+    DataTC
+  Argument names in docs not in code:
+    Data wd suffix
+  Mismatches in argument names:
+    Position: 1 Code: DataTC Docs: Data
 
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
+Data codoc mismatches from documentation object 'Maturity_parameters':
+Variables in data frame 'Maturity_parameters'
+  Code: Area End_reproductive_season Reference SEX Species
+        Start_reproductive_season Type_of_hermaphroditism max_L50
+        max_length_SEX_INVERSION min_L50 min_length_SEX_INVERSION
+        smallest_mature_individual_observed
+  Docs: Area End_reproductive_season SEX Species
+        Start_reproductive_season Type_of_hermaphroditism max_L50
+        max_length_SEX_INVERSION min_L50 min_length_SEX_INVERSION
+        smallest_mature_individual_observed
+
+* checking Rd \usage sections ... OK
 * checking Rd contents ... WARNING
 Argument items with no description in Rd object 'check_area':
   'DataTD' 'DataTT'
@@ -97,21 +108,27 @@ Running examples in 'RoME-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_bridles_length
-> ### Title: check of bridles length correctness
-> ### Aliases: check_bridles_length
-> ### Keywords: error
+> ### Name: check_quasiidentical_records
+> ### Title: Function checking the presence of quasi-identical records.
+> ### Aliases: check_quasiidentical_records
+> ### Keywords: quasi-identical
 > 
 > ### ** Examples
 > 
 > library(MEDITS)
-> wd <- tempdir()
-> suffix <- "27-02-2020 18:30"
-> check_bridles_length(DataTA, wd, suffix)
-Error in check_bridles_length(DataTA, wd, suffix) : 
-  object 'DataTA' not found
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quasiidentical_records(TA,wd,suffix)
+[1] FALSE
+> check_quasiidentical_records(TB,wd,suffix)
+[1] TRUE
+> check_quasiidentical_records(TC,wd,suffix)
+Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
+  argument is of length zero
+Calls: check_quasiidentical_records
 Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 3 WARNINGs, 2 NOTEs
+Status: 1 ERROR, 3 WARNINGs, 1 NOTE

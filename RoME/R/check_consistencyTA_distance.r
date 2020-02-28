@@ -14,7 +14,7 @@ check_consistencyTA_distance<-function(DataTA, wd, suffix){
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = MEDITS::TA
-    check_consistencyTA_distance(DataTA, wd, suffix)
+    # check_consistencyTA_distance(DataTA, wd, suffix)
   }
 
   if (!file.exists("Logfiles")){

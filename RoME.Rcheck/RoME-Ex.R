@@ -19,6 +19,46 @@ library('RoME')
 base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
 cleanEx()
+nameEx("DataTargetSpecies")
+### * DataTargetSpecies
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: DataTargetSpecies
+### Title: Length and weight ranges
+### Aliases: DataTargetSpecies
+### Keywords: datasets
+
+### ** Examples
+
+data(DataTargetSpecies)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("DataTargetSpecies", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("Maturity_parameters")
+### * Maturity_parameters
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: Maturity_parameters
+### Title: Maturity parameters
+### Aliases: Maturity_parameters
+### Keywords: datasets
+
+### ** Examples
+
+data(Maturity_parameters)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("TM_list")
 ### * TM_list
 
@@ -149,7 +189,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(MEDITS)
 wd <- tempdir()
 suffix <- "27-02-2020 18:30"
-check_bridles_length(DataTA, wd, suffix)
+check_bridles_length(MEDITS::TA, wd, suffix)
 
 
 
@@ -298,12 +338,37 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_sex_inversion(TC,Maturity_parameters)
+check_sex_inversion(TC,Maturity_parameters,wd,suffix)
 
 
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_sex_inversion", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_smallest_mature")
+### * check_smallest_mature
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_smallest_mature
+### Title: Function to verify the consistency of maturity information
+###   respect to the smallest mature individual observed in literature.
+### Aliases: check_smallest_mature
+### Keywords: smallest mature
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_smallest_mature(TC,Maturity_parameters,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_smallest_mature", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()

@@ -1,3 +1,5 @@
+DataTargetSpecies       Length and weight ranges
+Maturity_parameters     Maturity parameters
 TM_list                 TM list
 assTL                   TL association between categories and
                         sub-categories
@@ -20,3 +22,6 @@ check_rubincode         Function checking the correctness of species
                         TM reference list
 check_sex_inversion     Function to verify the consistency of sex
                         information about hermaphrodite species.
+check_smallest_mature   Function to verify the consistency of maturity
+                        information respect to the smallest mature
+                        individual observed in literature.
