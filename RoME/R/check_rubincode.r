@@ -17,17 +17,11 @@ if (FALSE){
 
 # Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_rubincode<-function(DataSpecies,ResultData){
+check_rubincode<-function(ResultData){
   numberError = 0
 
-
-
-
-  #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
-
   if (ResultData$TYPE_OF_FILE[1] == "TB") {
-  #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
-    write(paste("
+     write(paste("
                 ----------- check correctness of species codes in TB - ", ResultData$YEAR[1]), file = Errors, append = TRUE)
     Result=ResultData[,which(names(ResultData)=="TYPE_OF_FILE" | names(ResultData)=="HAUL_NUMBER" | names(ResultData)=="GENUS" | names(ResultData)=="SPECIES" | names(ResultData)=="FAUNISTIC_CATEGORY")]
   }    else # TC-TE
