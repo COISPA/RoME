@@ -21,6 +21,7 @@ Maturity parameters used for the checks: check_smallest_mature, check_spawning_p
     \item{\code{Area}}{a factor with levels as the area of the relevant information}
     \item{\code{Start_reproductive_season}}{a numeric vector}
     \item{\code{End_reproductive_season}}{a numeric vector}
+    \item{\code{Reference}}{a factor with levels of the bibliografic references}
   }
 }
 \source{
