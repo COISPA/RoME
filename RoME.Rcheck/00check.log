@@ -20,8 +20,8 @@
 * checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
 * checking top-level files ... NOTE
-Non-standard files/directories found at top level:
-  'ResultTCpivotSex.csv' 'TM_list.rda'
+Non-standard file/directory found at top level:
+  'ResultTCpivotSex.csv'
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -38,6 +38,12 @@ Non-standard files/directories found at top level:
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
+check_consistencyTA_duration: no visible global function definition for
+  'timeDate'
+check_consistencyTA_duration: no visible global function definition for
+  'str_length'
+check_consistencyTA_duration: no visible global function definition for
+  'str_extract'
 check_quadrant: no visible binding for '<<-' assignment to 'Errors'
 check_quadrant: no visible binding for global variable 'Errors'
 check_quasiidentical_records: no visible binding for '<<-' assignment
@@ -46,24 +52,13 @@ check_quasiidentical_records: no visible binding for global variable
   'Errors'
 check_quasiidentical_records: no visible binding for global variable
   'CATEGORY'
-check_raising: no visible binding for '<<-' assignment to 'Errors'
-check_raising: no visible binding for global variable 'Errors'
 check_raising: no visible global function definition for 'aggregate'
-check_raising: no visible global function definition for 'write.table'
-check_rubincode: no visible binding for '<<-' assignment to 'Errors'
-check_rubincode: no visible binding for global variable 'Errors'
 check_rubincode: no visible binding for global variable 'TM_list'
 check_sex_inversion: no visible binding for global variable 'wd'
-check_sex_inversion: no visible global function definition for
-  'read.csv'
-check_sex_inversion: no visible binding for global variable
-  'working_tables'
 Undefined global functions or variables:
-  CATEGORY Errors TM_list aggregate read.csv wd working_tables
-  write.table
+  CATEGORY Errors TM_list aggregate str_extract str_length timeDate wd
 Consider adding
   importFrom("stats", "aggregate")
-  importFrom("utils", "read.csv", "write.table")
 to your NAMESPACE file.
 * checking Rd files ... OK
 * checking Rd metadata ... OK
@@ -71,12 +66,24 @@ to your NAMESPACE file.
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'check_sex_inversion'
+  'Maturity_parameters' 'check_consistencyTA_duration'
+Undocumented data sets:
+  'Maturity_parameters'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'check_sex_inversion'
+  'Maturity_parameters'
+Documented arguments not in \usage in documentation object 'check_sex_inversion':
+  'wd' 'suffix'
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
 * checking Rd contents ... WARNING
 Argument items with no description in Rd object 'check_area':
   'DataTD' 'DataTT'
@@ -107,4 +114,4 @@ Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 2 WARNINGs, 2 NOTEs
+Status: 1 ERROR, 3 WARNINGs, 2 NOTEs
