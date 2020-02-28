@@ -26,7 +26,7 @@ check_quadrant<-function(ResultDataTA,wd,suffix){
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
 
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
   numberError = 0
   ResultData = ResultDataTA #read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
