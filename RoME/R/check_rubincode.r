@@ -19,6 +19,8 @@ if (FALSE){
 
 check_rubincode<-function(ResultData){
   numberError = 0
+  Format=="from_2012"
+
 
   if (ResultData$TYPE_OF_FILE[1] == "TB") {
      write(paste("
@@ -39,7 +41,7 @@ check_rubincode<-function(ResultData){
 
 
   # data species
-  ResultSpecies = read.csv(paste(DataSpecies,".csv",sep=""), sep=";", header=TRUE)
+  ResultSpecies = TM_list #read.csv(paste(DataSpecies,".csv",sep=""), sep=";", header=TRUE)
   ResultSpecies=ResultSpecies[,c(which(names(ResultSpecies)=="MeditsCode"),which(names(ResultSpecies)=="CATFAU"))]
 
   if (nrow(ResultData)!=0){
