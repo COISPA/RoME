@@ -6,7 +6,7 @@ Function to verify the consistency of sex information about hermaphrodite specie
 \description{
 The user will be informed if information about sex-inversion size for hermaphrodite species (at the moment only for Pagellus spp. and Spicara spp.) is stored in Maturity parameters dataframe.}
 \usage{
-check_sex_inversion(Data,Maturity_parameters,wd,suffix)
+check_sex_inversion(DataTC,Maturity_parameters,wd,suffix)
 }
 \arguments{
 \item{Data}{alternatively: Biological data table (TC) and Individual data table (TE).}
