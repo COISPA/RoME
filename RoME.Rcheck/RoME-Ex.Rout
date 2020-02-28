@@ -34,6 +34,7 @@ Type 'q()' to quit R.
 > 
 > ### * </HEADER>
 > library('RoME')
+Loading required package: timeDate
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -268,7 +269,65 @@ detaching 'package:MEDITS'
 > wd <- tempdir()
 > suffix <- "27-02-2020 18:30"
 > check_consistencyTA_duration(MEDITS::TA,wd,suffix)
-Error in timeDate("01-01-2001.0000", format = "%d-%m-%Y.%H%M", zone = "GMT",  : 
-  could not find function "timeDate"
-Calls: check_consistencyTA_duration
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_consistencyTA_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quadrant")
+> ### * check_quadrant
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quadrant
+> ### Title: Check start and end quadrant for each haul
+> ### Aliases: check_quadrant
+> ### Keywords: quadrant
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quadrant(TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quasiidentical_records")
+> ### * check_quasiidentical_records
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quasiidentical_records
+> ### Title: Function checking the presence of quasi-identical records.
+> ### Aliases: check_quasiidentical_records
+> ### Keywords: quasi-identical
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quasiidentical_records(TA,wd,suffix)
+[1] FALSE
+> check_quasiidentical_records(TB,wd,suffix)
+Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
+  missing value where TRUE/FALSE needed
+Calls: check_quasiidentical_records
 Execution halted

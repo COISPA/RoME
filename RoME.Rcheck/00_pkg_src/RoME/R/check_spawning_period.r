@@ -4,10 +4,32 @@
 #   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
 #   March 2020
-################################################################################
+###########################################################################################################################
+
 # Check maturity stages using spawning season
 
-check_spawning_period<-function(ResultDataTA,ResultDataTC){
+if (FALSE){
+  ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+  ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
+
+  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
+  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
+}
+
+check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters,DataTargetSpecies,wd,suffix){
+  Format="from_2012"
+  if (!file.exists("Logfiles")){
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
+
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
+
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+
   numberError = 0
 
   #ResultDataTA = read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
@@ -17,13 +39,13 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC){
 
   ResultDataTC$Species = paste(ResultDataTC$GENUS,ResultDataTC$SPECIES)
   ResultDataTC$Maturity = paste(as.character(ResultDataTC$MATURITY),ifelse(is.na(ResultDataTC$MATSUB),"",as.character(ResultDataTC$MATSUB)), sep="")
-#   maturity_table = read.csv(file=paste(getwd(),"/Tables/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
-#   maturity_table = read.csv(file=paste(path.package("RoME"),"/extdata/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
-  maturity_table = read.csv(file=paste(working_tables,"/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
-  species_list = read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)
+
+    maturity_table = Maturity_parameters
+  species_list = DataTargetSpecies #read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)
   for (i in unique(ResultDataTC$Species)){
     ResultData_temp =ResultDataTC[ResultDataTC$Species == i,]
     cau_fau_temp =  species_list$FAUNISTIC_CATEGORY[paste(substring(species_list$SPECIES,1,4),substring(species_list$SPECIES,5,7)) == i]
+
     for (j in 1:nrow(ResultData_temp))  {
       maturity_minitable = maturity_table[(as.character(maturity_table$Species) == i) & (as.character(maturity_table$SEX) == ResultData_temp$SEX[j]),]
       month = ResultDataTA[ResultDataTA$HAUL_NUMBER == ResultData_temp$HAUL_NUMBER[j],names(ResultDataTA) == "MONTH"]
