@@ -17,7 +17,7 @@ load("C:\\Users\\Bitetto Isabella\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.
 
 # Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_rubincode<-function(ResultData,wd,suffix){
+check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
   numberError = 0
 
   Format="from_2012"
