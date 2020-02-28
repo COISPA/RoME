@@ -38,7 +38,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <<- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
 
 #### CHECK TL FIELDS ####
   {
