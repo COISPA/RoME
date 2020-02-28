@@ -32,8 +32,7 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters,Da
 
   numberError = 0
 
-  #ResultDataTA = read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
-  #ResultDataTC = read.csv(paste(DataTC,".csv",sep=""), sep=";", header=TRUE)
+
     write(paste("
               ----------- check consistency of maturity stages",ResultDataTC$TYPE_OF_FILE[1],"by means of spawning season information - ",ResultDataTA$YEAR[1]), file = Errors, append = TRUE)
 
@@ -56,10 +55,11 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters,Da
         # check if there is any immature in the spawning season greater than max L50 in bibliography
         if (Start < End){
           if (((as.character(ResultData_temp$Maturity[j])== "0" & as.character(ResultData_temp$SEX[j])!="M") | as.character(ResultData_temp$Maturity[j])== "1" |
-                 as.character(ResultData_temp$Maturity[j])== "2A") & ((month >= Start)& (month <= End)) & (ResultData_temp$LENGTH_CLASS[j] > ((maturity_minitable$max_L50[1]+0.2*maturity_minitable$max_L50[1])*10))){
-            write(paste("Warning: Haul ",ResultData_temp$HAUL_NUMBER[j],ResultData_temp$Species[j],ResultData_temp$SEX[j],"length",ResultData_temp$LENGTH_CLASS[j],": specimen immature during the spawning period (STAGE",ResultData_temp$Maturity[j],") with length quite greater (+20%) than the maximum L50 in bibliography(",(maturity_minitable$max_L50[1]*10),"). Please check correctness of maturity stage."), file = Errors, append = TRUE)} } else {
+                 as.character(ResultData_temp$Maturity[j])== "2A") & ((all(month) >= Start) & (all(month) <= End)) & (ResultData_temp$LENGTH_CLASS[j] > ((maturity_minitable$max_L50[1]+0.2*maturity_minitable$max_L50[1])*10))){
+            write(paste("Warning: Haul ",ResultData_temp$HAUL_NUMBER[j],ResultData_temp$Species[j],ResultData_temp$SEX[j],"length",ResultData_temp$LENGTH_CLASS[j],": specimen immature during the spawning period (STAGE",ResultData_temp$Maturity[j],") with length quite greater (+20%) than the maximum L50 in bibliography(",(maturity_minitable$max_L50[1]*10),"). Please check correctness of maturity stage."), file = Errors, append = TRUE)}
+          } else {
               if (((as.character(ResultData_temp$Maturity[j])== "0" & as.character(ResultData_temp$SEX[j])!="M") | as.character(ResultData_temp$MATURITY[j])== "1" |
-                     as.character(ResultData_temp$Maturity[j])== "2A") & ((month >= Start)| (month <= End))& (ResultData_temp$LENGTH_CLASS[j] > ((maturity_minitable$max_L50[1]+0.2*maturity_minitable$max_L50[1])*10))){
+                     as.character(ResultData_temp$Maturity[j])== "2A") & ((all(month) >= Start)| (all(month) <= End))& (ResultData_temp$LENGTH_CLASS[j] > ((maturity_minitable$max_L50[1]+0.2*maturity_minitable$max_L50[1])*10))){
                 write(paste("Warning: Haul ",ResultData_temp$HAUL_NUMBER[j],ResultData_temp$Species[j],ResultData_temp$SEX[j],"length",ResultData_temp$LENGTH_CLASS[j],": specimen immature during the spawning period (STAGE",ResultData_temp$Maturity[j],") with length quite greater (+20%) than the maximum L50 in bibliography(",(maturity_minitable$max_L50[1]*10),"). Please check correctness of maturity stage."), file = Errors, append = TRUE) }
             }
       }
@@ -103,9 +103,9 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters,Da
         for (k in 1:nrow(Error_matrix)){
           month_temp = ResultDataTA[ResultDataTA$HAUL_NUMBER == Error_matrix$HAUL_NUMBER[k],names(ResultDataTA) == "MONTH"]
           if (Start_temp < End_temp){
-            if ((month_temp < Start_temp)| (month_temp > End_temp)){
+            if (any(month_temp < Start_temp)| any(month_temp > End_temp)){
               write(paste("Warning: Haul ",Error_matrix$HAUL_NUMBER[k],Error_matrix$Species[k],Error_matrix$SEX[k],"length",Error_matrix$LENGTH_CLASS[k],": specimen mature (STAGE ",Error_matrix$Maturity[k],")outside the spawning period smaller than the smallest specimen reported in bibliography(",smallest,"). Please check correctness of maturity stage and length data."), file = Errors, append = TRUE)} }else {
-                if ((month_temp < Start_temp)& (month_temp > End_temp)){
+                if (any(month_temp < Start_temp)& any(month_temp > End_temp)){
                   write(paste("Warning: Haul ",Error_matrix$HAUL_NUMBER[k],Error_matrix$Species[k],Error_matrix$SEX[k],"length",Error_matrix$LENGTH_CLASS[k],"specimen mature (STAGE ",Error_matrix$Maturity[k],") outside the spawning period smaller than the smallest mature specimen reported in bibliography(",smallest,"). Please check correctness of maturity stage and length data."), file = Errors, append = TRUE) }
               }
         }
@@ -114,9 +114,9 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters,Da
         for (l in 1:nrow(Error_matrix2)){
           month_temp2 = ResultDataTA[ResultDataTA$HAUL_NUMBER == Error_matrix2$HAUL_NUMBER[l],names(ResultDataTA) == "MONTH"]
           if (Start_temp < End_temp){
-            if ((month_temp2 < Start_temp)| (month_temp2 > End_temp)){
+            if (any(month_temp2 < Start_temp)| any(month_temp2 > End_temp)){
               write(paste("Warning: Haul ",Error_matrix2$HAUL_NUMBER[l],Error_matrix2$Species[l],Error_matrix2$SEX[l],"length",Error_matrix2$LENGTH_CLASS[l],": specimen mature (STAGE ",Error_matrix2$Maturity[l],")outside the spawning period. Please check correctness of maturity stage."), file = Errors, append = TRUE)} }else {
-                if ((month_temp2 < Start_temp)& (month_temp2 > End_temp)){
+                if (any(month_temp2 < Start_temp)& any(month_temp2 > End_temp)){
                   write(paste("Warning: Haul ",Error_matrix2$HAUL_NUMBER[l],Error_matrix2$Species[l],Error_matrix2$SEX[l],"length",Error_matrix2$LENGTH_CLASS[l],"specimen mature (STAGE ",Error_matrix2$Maturity[l],") outside the spawning period. Please check correctness of maturity stage."), file = Errors, append = TRUE) }
               }
         }
