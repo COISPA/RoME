@@ -18,7 +18,7 @@ if (FALSE){
   load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
 }
 
-check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters,DataTargetSpecies,wd,suffix){
+check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
   Format="from_2012"
   if (!file.exists("Logfiles")){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
