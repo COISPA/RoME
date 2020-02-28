@@ -38,6 +38,48 @@ Type 'q()' to quit R.
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
 > cleanEx()
+> nameEx("TM_list")
+> ### * TM_list
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: TM_list
+> ### Title: TM list
+> ### Aliases: TM_list
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(TM_list)
+> ## maybe str(TM_list) ; plot(TM_list) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("TM_list", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("assTL")
+> ### * assTL
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: assTL
+> ### Title: TL association between categories and sub-categories
+> ### Aliases: assTL
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(assTL)
+> ## maybe str(assTL) ; plot(assTL) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("assTL", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
 > nameEx("check_0_fieldsTA")
 > ### * check_0_fieldsTA
 > 
@@ -46,7 +88,7 @@ Type 'q()' to quit R.
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 > ### Name: check_0_fieldsTA
 > ### Title: Checks the presence of 0 fields in TA
-> ### Aliases: 'Checks 0 fields in TA'
+> ### Aliases: check_0_fieldsTA
 > ### Keywords: error
 > 
 > ### ** Examples
@@ -54,7 +96,8 @@ Type 'q()' to quit R.
 > library(MEDITS)
 > wd <- tempdir()
 > suffix <- "27-02-2020 18:30"
-> ResultDataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+> check_0_fieldsTA(MEDITS::TA,wd,suffix)
+[1] TRUE
 > 
 > 
 > 
@@ -88,9 +131,81 @@ detaching 'package:MEDITS'
 >     DataTL = NA
 > 
 >     check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
-Warning in file(file, ifelse(append, "a", "w")) :
-  cannot open file 'C:\Users\Walter\AppData\Local\Temp\RtmpSgub9l/working_dir\RtmpIt7eVm/Logfiles/Logfile_27-02-2020 18:30.dat': No such file or directory
-Error in file(file, ifelse(append, "a", "w")) : 
-  cannot open the connection
-Calls: check_area -> write -> cat -> file
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_area", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_associations_category_TL")
+> ### * check_associations_category_TL
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_associations_category_TL
+> ### Title: Check corretness of TL categories
+> ### Aliases: check_associations_category_TL
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_associations_category_TL", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_quadrant")
+> ### * check_quadrant
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quadrant
+> ### Title: Check start and end quadrant for each haul
+> ### Aliases: check_quadrant
+> ### Keywords: quadrant
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quadrant(TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quasiidentical_records")
+> ### * check_quasiidentical_records
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quasiidentical_records
+> ### Title: Function checking the presence of quasi-identical records.
+> ### Aliases: check_quasiidentical_records
+> ### Keywords: quasi-identical
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quasiidentical_records(TA,wd,suffix)
+[1] FALSE
+> check_quasiidentical_records(TB,wd,suffix)
+Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
+  argument is of length zero
+Calls: check_quasiidentical_records
 Execution halted

@@ -22,7 +22,7 @@ check_area(DataTA, DataTB, DataTC, DataTD=NA,DataTT=NA, DataTE=NA, DataTL=NA, wd
 \details{
 TA, TB and TC tables are mandatory while TD, TT, TE and TL could be used where available.}
 \value{
-The function returns TRUE if no error occurs, while FALSE is returned  when there are differences in the AREA code among the TX tables.
+The function returns TRUE if no error occurs, while FALSE is returned when there are differences in the AREA code among the TX tables.
 }
 \references{
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm

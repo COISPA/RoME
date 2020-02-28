@@ -20,7 +20,7 @@ check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataT
     DataTT = NA
     DataTL = NA
 
-    check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
+    # check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
   }
 
   if (!file.exists("Logfiles")){
@@ -31,7 +31,7 @@ check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataT
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <<- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
 
   #### CHECK TL FIELDS ####
   {

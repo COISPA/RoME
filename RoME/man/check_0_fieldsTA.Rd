@@ -1,5 +1,5 @@
 \name{check_0_fieldsTA}
-\alias{Checks 0 fields in TA}
+\alias{check_0_fieldsTA}
 \title{Checks the presence of 0 fields in TA}
 \description{
 The function checks the presence of 0 fields in the following haul data table (TA, according to MEDITS protocol) fields: WING_OPENING, WARP_DIAMETER  and VERTICAL_OPENING}

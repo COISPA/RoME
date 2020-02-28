@@ -5,14 +5,14 @@ Function checking the presence of quasi-identical records.
 }
 \description{
 Two or more "quasi-identical records" occurred when all the fields are respectively equal, except:
-???	TYPE_OF_FILE, AREA, GEAR, VESSEL, YEAR, RIGGING, DOORS, allowed to be equals for TA table;
-???	TYPE_OF_FILE, AREA, VESSEL, YEAR for TB and TC tables.
+TYPE_OF_FILE, AREA, GEAR, VESSEL, YEAR, RIGGING, DOORS,  for TA table;
+TYPE_OF_FILE, AREA, VESSEL, YEAR for TB and TC tables.These specifc fields are allowed to be identical.
 }
 \usage{
 check_quasiidentical_records(Result,wd,suffix)
 }
 \arguments{
-   \item{ResultData}{Haul data table according to MEDITS protocol (TA), or Catch data table (TB) or Biological data table (TC).
+   \item{Result}{Haul data table according to MEDITS protocol (TA), or Catch data table (TB) or Biological data table (TC).
 }
 \item{wd}{Working directory selected by the user.
 }
@@ -36,8 +36,8 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_quasiidentical_records(ResultDataTA,wd,suffix)
-check_quasiidentical_records(ResultDataTB,wd,suffix)
-check_quasiidentical_records(ResultDataTC,wd,suffix)
+check_quasiidentical_records(TA,wd,suffix)
+check_quasiidentical_records(TB,wd,suffix)
+check_quasiidentical_records(TC,wd,suffix)
 }
 \keyword{quasi-identical}

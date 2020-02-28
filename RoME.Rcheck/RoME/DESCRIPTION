@@ -5,11 +5,11 @@ Version: 0.1.0
 Author: I. Bitetto, W. Zupa
 Maintainer: The package maintainer <bitetto@coispa.it>
 Description: In order to unify the checks that are made independently over the MEDITS data by the 18 GSAs (Geographical Sub-Area) participating to MEDITS Survey, an R code performing all the main checks on exchange MEDITS data tables was developed.The first version of RoME has been presented for the first time in the MEDITS Coordination meeting held in Nantes (March 2011). The use of RoME by experts belonging to different GSAs participating to MEDITS Programme brought to the implementation of several  adjustments of the functions. The package does not correct the data, but it detects the errors, warning the user that there is the possibility of one or more errors, specifying the type of the error and easing the data correction.The check is performed simultaneously on the files that can contain also data of more than one year. 
+Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
 Imports: MEDITS
 NeedsCompilation: no
-Packaged: 2020-02-27 17:06:36 UTC; Walter
-Built: R 3.6.2; ; 2020-02-27 17:07:42 UTC; windows
+Packaged: 2020-02-28 11:56:13 UTC; Walter
+Built: R 3.6.2; ; 2020-02-28 11:56:18 UTC; windows

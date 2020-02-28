@@ -1,4 +1,9 @@
-Checks 0 fields in TA	check_0_fieldsTA
+assTL	assTL
+check_0_fieldsTA	check_0_fieldsTA
 check_area	check_area
+check_associations_category_TL	check_associations_category_TL
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
+check_raising	check_raising
+check_rubincode	check_rubincode
+TM_list	TM_list

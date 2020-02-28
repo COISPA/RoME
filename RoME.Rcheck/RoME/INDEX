@@ -1,6 +1,17 @@
-Checks 0 fields in TA   Checks the presence of 0 fields in TA
+TM_list                 TM list
+assTL                   TL association between categories and
+                        sub-categories
+check_0_fieldsTA        Checks the presence of 0 fields in TA
 check_area              Check if TX files have the same area
+check_associations_category_TL
+                        Check corretness of TL categories
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
                         quasi-identical records.
+check_raising           Function checking if, in case of sub-sampling
+                        in TC, the Total number and the number per sex
+                        in TB is raised correctly
+check_rubincode         Function checking the correctness of species
+                        MEDITS code and faunistic category according to
+                        TM reference list
