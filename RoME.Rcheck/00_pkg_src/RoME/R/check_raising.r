@@ -30,7 +30,7 @@ Format="from_2012"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
 
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
 
   numberError = 0
@@ -104,8 +104,8 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
 
   #write.xlsx(ResultTCpivotSex,file="ResultTCpivotSex.xls",colNames=TRUE)
 #   write.csv(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
-  write.table(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
-  ResultTCpivotSexFile="ResultTCpivotSex.csv"
+ # write.table(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
+  #ResultTCpivotSexFile="ResultTCpivotSex.csv"
   #channel <- odbcConnectExcel(ResultTCpivotSexFile)
   #queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, SUM(raising) AS Sum from ResultTCpivotSex where  HAUL_NUMBER is not NULL ", "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex", sep="" )
   #ResultTCpivotSex=sqldf(queryTCpivotSex)
