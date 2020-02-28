@@ -5,8 +5,8 @@ Function checking the presence of quasi-identical records.
 }
 \description{
 Two or more "quasi-identical records" occurred when all the fields are respectively equal, except:
-???	TYPE_OF_FILE, AREA, GEAR, VESSEL, YEAR, RIGGING, DOORS, allowed to be equals for TA table;
-???	TYPE_OF_FILE, AREA, VESSEL, YEAR for TB and TC tables.
+TYPE_OF_FILE, AREA, GEAR, VESSEL, YEAR, RIGGING, DOORS,  for TA table;
+TYPE_OF_FILE, AREA, VESSEL, YEAR for TB and TC tables.These specifc fields are allowed to be identical.
 }
 \usage{
 check_quasiidentical_records(Result,wd,suffix)

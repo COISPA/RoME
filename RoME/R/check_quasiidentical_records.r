@@ -24,6 +24,16 @@ check_quasiidentical_records<-function(Result,wd,suffix){
   Table=as.character(Result[1,1])
   check_without_errors = FALSE
 
+  if (!file.exists("Logfiles")){
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
+
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
+
+  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+
   # ------------------------------------------------------------------ TA
 
   if (Table == "TA" | Table == "TD" | Table == "TT"){
