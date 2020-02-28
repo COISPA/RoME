@@ -34,17 +34,18 @@ check_quasiidentical_records<-function(Result,wd,suffix){
 
   # ------------------------------------------------------------------ TA
 
-  if (Table == "TA" | Table == "TD" | Table == "TT"){
+  if (Table == "TA"){
     write(paste("
                 ----------- check quasi identical records - ",Result$YEAR[1]), file = Errors, append = TRUE)
     write(paste("TA:"), file = Errors, append = TRUE)
 
      #Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, GEAR, RIGGING, DOORS, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, GEAR, RIGGING, DOORS, YEAR")
      Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$GEAR, Result$RIGGING, Result$DOORS, Result$YEAR),FUN="length")
+     colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "GEAR", "RIGGING", "DOORS","YEAR","x")
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)
-      Matrix2=Matrix[Matrix$count!=Max,]
+      Matrix2=Matrix[Matrix$x!=Max,]
 
       ResultData = Result[!is.na(Result$HAUL_NUMBER),]
         #sqldf("select * from Result where HAUL_NUMBER is not null")
@@ -71,14 +72,14 @@ check_quasiidentical_records<-function(Result,wd,suffix){
     }
 
 
-  } else if (Table=="TB") {
+  } else if (Table=="TB" | Table=="TT" | Table=="TD" ) {
     # ------------------------------------------------------------------ TB
     write(paste("TB:"), file = Errors, append = TRUE)
 
      # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE,  AREA, VESSEL, YEAR")
-    ResultData=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
-colnames(ResultData)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
-Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
+    Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
+ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)
@@ -108,13 +109,13 @@ Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
 
  # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
     Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
-
+colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
   ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)
-      Matrix2=Matrix[Matrix$count!=Max,]
+      Matrix2=Matrix[Matrix$x!=Max,]
       for (i in 1:nrow(Matrix2)){
 
         Err = ResultData[as.character(ResultData$TYPE_OF_FILE) == as.character(Matrix2$TYPE_OF_FILE[i]) &
@@ -141,13 +142,14 @@ Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
 
     # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
     Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+    colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
     ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)
-      Matrix2=Matrix[Matrix$count!=Max,]
+      Matrix2=Matrix[Matrix$x!=Max,]
       for (i in 1:nrow(Matrix2)){
 
         Err = ResultData[as.character(ResultData$TYPE_OF_FILE) == as.character(Matrix2$TYPE_OF_FILE[i]) &
@@ -175,13 +177,14 @@ Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
 
     # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
     Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+    colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
     ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)
-      Matrix2=Matrix[Matrix$count!=Max,]
+      Matrix2=Matrix[Matrix$x!=Max,]
       for (i in 1:nrow(Matrix2)){
 
         Err = ResultData[as.character(ResultData$TYPE_OF_FILE) == as.character(Matrix2$TYPE_OF_FILE[i]) &
