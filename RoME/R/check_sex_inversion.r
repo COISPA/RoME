@@ -1,9 +1,9 @@
 ###########################################################################################################################
 #   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, M.T. Facchini, M.T. Spedicato                                                                    #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                    #
 #   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
-#   March 2013
+#   March 2020
 ###########################################################################################################################
 # Check maturity stages using sex-inversion size
 
@@ -18,6 +18,7 @@ if (FALSE){
 check_sex_inversion<-function(DataTC,Maturity_parameters){
 
   numberError = 0
+
   Format="from_2012"
   if (!file.exists("Logfiles")){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
