@@ -14,13 +14,14 @@
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
-* checking serialization versions ... OK
 * checking whether package 'RoME' can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... OK
+* checking top-level files ... NOTE
+Non-standard files/directories found at top level:
+  'ResultTCpivotSex.csv' 'TM_list.rda'
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -41,24 +42,30 @@ check_0_fieldsTA: no visible binding for '<<-' assignment to 'Errors'
 check_0_fieldsTA: no visible binding for global variable 'Errors'
 check_area: no visible binding for '<<-' assignment to 'Errors'
 check_area: no visible binding for global variable 'Errors'
+check_associations_category_TL: no visible binding for '<<-' assignment
+  to 'Errors'
+check_associations_category_TL: no visible binding for global variable
+  'Errors'
 check_quadrant: no visible binding for '<<-' assignment to 'Errors'
 check_quadrant: no visible binding for global variable 'Errors'
+check_quasiidentical_records: no visible binding for '<<-' assignment
+  to 'Errors'
 check_quasiidentical_records: no visible binding for global variable
   'Errors'
 check_quasiidentical_records: no visible binding for global variable
   'CATEGORY'
+check_raising: no visible binding for '<<-' assignment to 'Errors'
 check_raising: no visible binding for global variable 'Errors'
-check_raising: no visible binding for global variable 'Type_of_files'
-check_raising: no visible binding for global variable 'Format'
-check_raising: no visible global function definition for 'sqldf'
+check_raising: no visible global function definition for 'aggregate'
 check_raising: no visible global function definition for 'write.table'
-check_raising: no visible global function definition for 'read.csv'
-check_raising: no visible binding for global variable 'DataTC'
+check_rubincode: no visible binding for '<<-' assignment to 'Errors'
+check_rubincode: no visible binding for global variable 'Errors'
+check_rubincode: no visible binding for global variable 'TM_list'
 Undefined global functions or variables:
-  CATEGORY DataTC Errors Format Type_of_files read.csv sqldf
-  write.table
+  CATEGORY Errors TM_list aggregate write.table
 Consider adding
-  importFrom("utils", "read.csv", "write.table")
+  importFrom("stats", "aggregate")
+  importFrom("utils", "write.table")
 to your NAMESPACE file.
 * checking Rd files ... OK
 * checking Rd metadata ... OK
@@ -66,59 +73,41 @@ to your NAMESPACE file.
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'check_0_fieldsTA' 'check_raising'
+  'check_rubincode'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
 * checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... WARNING
-Objects in \usage without \alias in documentation object 'check_0_fieldsTA':
-  'check_0_fieldsTA'
-
-Undocumented arguments in documentation object 'check_quasiidentical_records'
-  'Result'
-Documented arguments not in \usage in documentation object 'check_quasiidentical_records':
-  'ResultData'
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
+* checking Rd \usage sections ... OK
 * checking Rd contents ... WARNING
 Argument items with no description in Rd object 'check_area':
   'DataTD' 'DataTT'
 
 * checking for unstated dependencies in examples ... OK
+* checking contents of 'data' directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking data for ASCII and uncompressed saves ... OK
 * checking examples ... ERROR
 Running examples in 'RoME-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_area
-> ### Title: Check if TX files have the same area
-> ### Aliases: check_area
-> ### Keywords: error
+> ### Name: check_quadrant
+> ### Title: Check start and end quadrant for each haul
+> ### Aliases: check_quadrant
+> ### Keywords: quadrant
 > 
 > ### ** Examples
 > 
->     wd <- tempdir()
->     suffix="27-02-2020 18:30"
->     DataTA = MEDITS::TA
->     DataTB = MEDITS::TB
->     DataTC = MEDITS::TC
->     DataTD = NA
->     DataTE = NA
->     DataTT = NA
->     DataTL = NA
-> 
->     check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
-Warning in file(file, ifelse(append, "a", "w")) :
-  cannot open file 'C:\Users\Walter\AppData\Local\Temp\RtmpSgub9l/working_dir\RtmpIt7eVm/Logfiles/Logfile_27-02-2020 18:30.dat': No such file or directory
-Error in file(file, ifelse(append, "a", "w")) : 
-  cannot open the connection
-Calls: check_area -> write -> cat -> file
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quadrant(ResultDataTA,wd,suffix)
+Error in check_quadrant(ResultDataTA, wd, suffix) : 
+  object 'ResultDataTA' not found
 Execution halted
+** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 3 WARNINGs, 1 NOTE
+Status: 1 ERROR, 2 WARNINGs, 2 NOTEs

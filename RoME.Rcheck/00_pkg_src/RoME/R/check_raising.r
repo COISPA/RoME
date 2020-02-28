@@ -10,9 +10,8 @@
 # Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
 
 if (FALSE){
-  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+ResultDataTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
+ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
@@ -21,33 +20,38 @@ if (FALSE){
 
 
 check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
+Format="from_2012"
+
+  if (!file.exists("Logfiles")){
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
+
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
+
+  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+
 
   numberError = 0
-  ResultTC = ResultDataTC #read.csv(paste(DataTC,".csv",sep=""), sep=";", header=TRUE)
+  ResultTC = ResultDataTC
   write(paste("
               ----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
 
+  ResultTB = ResultDataTB
 
-  if (Type_of_files==".csv"){
-    #write.xlsx(ResultTC,file=paste(DataTC,".xls", sep = ""))
-    }
-  ResultTB = ResultDataTB #read.csv(paste(DataTB,".csv",sep=""), sep=";", header=TRUE)
-
-
-
-  #channelTC <- odbcConnectExcel(paste(DataTC,".xls", sep = ""))
-
-  if(Format=="before_2012"){
+ if(Format=="before_2012"){
   ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES" | names(ResultTB)=="TOTAL_WEIGHT_IN_HAUL" | names(ResultTB)=="TOTAL_NUMBER_IN_HAUL" | names(ResultTB)=="NUMBER_OF_FEMALES" | names(ResultTB)=="NUMBER_OF_MALES" | names(ResultTB)=="NUMBER_OF_UNDETERMINED")]
 } else {
   ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES" | names(ResultTB)=="TOTAL_WEIGHT_IN_THE_HAUL" | names(ResultTB)=="TOTAL_NUMBER_IN_THE_HAUL" | names(ResultTB)=="NB_OF_FEMALES" | names(ResultTB)=="NB_OF_MALES" | names(ResultTB)=="NB_OF_UNDETERMINED")]
 
 }
+class(ResultTC$WEIGHT_OF_THE_FRACTION)="numeric"
 
-  queryTCpivot = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, SUM(NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE) AS Sum, WEIGHT_OF_THE_FRACTION,  WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTC where  HAUL_NUMBER is not NULL ",
-                       "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
+class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
 
-  ResultTCpivot=sqldf(queryTCpivot)
+    ResultTCpivot=aggregate(ResultTC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE, by=list(ResultTC$YEAR,ResultTC$HAUL_NUMBER,ResultTC$GENUS,ResultTC$SPECIES,as.numeric(as.character(ResultTC$WEIGHT_OF_THE_FRACTION)), as.numeric(as.character(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED))),FUN="sum")
+  colnames(ResultTCpivot)=c("YEAR", "HAUL_NUMBER", "GENUS", "SPECIES","WEIGHT_OF_THE_FRACTION",  "WEIGHT_OF_THE_SAMPLE_MEASURED","Sum")
 
   # check consistency between WEIGHT_OF_THE_FRACTION in TC and TOTAL_WEIGHT_IN_HAUL in TB
 
@@ -69,25 +73,30 @@ check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
 
   # check sum per sex
 
-  queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, SEX, SUM(NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE) AS SumSex, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTC where  HAUL_NUMBER is not NULL group by YEAR, HAUL_NUMBER, GENUS, SPECIES, SEX, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
+  #queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, SEX, SUM(NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE) AS SumSex, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTC where  HAUL_NUMBER is not NULL group by YEAR, HAUL_NUMBER, GENUS, SPECIES, SEX, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
+  ResultTCpivotSex=aggregate(ResultTC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE, by=list(ResultTC$YEAR,ResultTC$HAUL_NUMBER,ResultTC$GENUS,ResultTC$SPECIES,ResultTC$SEX,as.numeric(as.character(ResultTC$WEIGHT_OF_THE_FRACTION)), as.numeric(as.character(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED))),FUN="sum")
+  colnames(ResultTCpivotSex)=c("YEAR", "HAUL_NUMBER", "GENUS", "SPECIES","SEX","WEIGHT_OF_THE_FRACTION",  "WEIGHT_OF_THE_SAMPLE_MEASURED","SumSex")
 
-  ResultTCpivotSex=sqldf(queryTCpivotSex)
+  #ResultTCpivotSex=sqldf(queryTCpivotSex)
   #odbcClose(channelTC)
 
   ResultTCpivotSex$codedsex = ifelse(((as.character(ResultTCpivotSex$SEX)=="I") | (as.character(ResultTCpivotSex$SEX)=="N")), "I", as.character(ResultTCpivotSex$SEX))
 
-  #write.xlsx(ResultTCpivotSex,file="ResultTCpivotSex.xls",colNames=TRUE)
-#   write.csv(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
-  write.table(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
-  ResultTCpivotSexFile=read.csv("ResultTCpivotSex.csv", header=TRUE)
 
-  #channel <- odbcConnectExcel(ResultTCpivotSexFile)
+  #write.table(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
+  #ResultTCpivotSexFile=read.csv("ResultTCpivotSex.csv", header=TRUE)
 
-  queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, SUM(SumSex) AS SumSexTotal, WEIGHT_OF_THE_FRACTION,  WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTCpivotSex where  HAUL_NUMBER is not NULL ", "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
 
-  ResultTCpivotSex=sqldf(queryTCpivotSex)
+  #queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, SUM(SumSex) AS SumSexTotal, WEIGHT_OF_THE_FRACTION,  WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTCpivotSex where  HAUL_NUMBER is not NULL ", "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
+
+  #ResultTCpivotSex=sqldf(queryTCpivotSex)
+
+  ResultTCpivotSex=aggregate(ResultTCpivotSex$SumSex, by=list(ResultTCpivotSex$YEAR,ResultTCpivotSex$HAUL_NUMBER,ResultTCpivotSex$GENUS,ResultTCpivotSex$SPECIES,ResultTCpivotSex$codedsex,as.numeric(as.character(ResultTCpivotSex$WEIGHT_OF_THE_FRACTION)), as.numeric(as.character(ResultTCpivotSex$WEIGHT_OF_THE_SAMPLE_MEASURED))),FUN="sum")
+  colnames(ResultTCpivotSex)=c("YEAR", "HAUL_NUMBER", "GENUS", "SPECIES","SEX","WEIGHT_OF_THE_FRACTION",  "WEIGHT_OF_THE_SAMPLE_MEASURED","SumSexTotal")
+
+
   #odbcClose(channel)
-  unlink(ResultTCpivotSexFile)
+  #unlink(ResultTCpivotSexFile)
 
   molt= as.numeric(as.character(ResultTCpivotSex$WEIGHT_OF_THE_FRACTION))/ as.numeric(as.character(ResultTCpivotSex$WEIGHT_OF_THE_SAMPLE_MEASURED))
 
@@ -98,10 +107,15 @@ check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
   write.table(ResultTCpivotSex,file="ResultTCpivotSex.csv",col.names=TRUE)
   ResultTCpivotSexFile="ResultTCpivotSex.csv"
   #channel <- odbcConnectExcel(ResultTCpivotSexFile)
-  queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, SUM(raising) AS Sum from ResultTCpivotSex where  HAUL_NUMBER is not NULL ", "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex", sep="" )
-  ResultTCpivotSex=sqldf(queryTCpivotSex)
+  #queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, SUM(raising) AS Sum from ResultTCpivotSex where  HAUL_NUMBER is not NULL ", "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex", sep="" )
+  #ResultTCpivotSex=sqldf(queryTCpivotSex)
+
+  ResultTCpivotSex=aggregate(ResultTCpivotSex$raising, by=list(ResultTCpivotSex$YEAR,ResultTCpivotSex$HAUL_NUMBER,ResultTCpivotSex$GENUS,ResultTCpivotSex$SPECIES,ResultTCpivotSex$codedsex),FUN="sum")
+  colnames(ResultTCpivotSex)=c("YEAR", "HAUL_NUMBER", "GENUS", "SPECIES","SEX","Sum")
+
+
   #odbcClose(channel)
-  unlink(ResultTCpivotSexFile)
+  #unlink(ResultTCpivotSexFile)
 
   if ( (nrow(ResultTCpivotSex)!=0) & (numberError== 0)){
     for (j in 1:nrow(ResultTCpivotSex)){
@@ -138,8 +152,7 @@ check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
-  if (Type_of_files==".csv"){
-    unlink(paste(DataTC,".xls", sep = ""))}
+
 
   if (numberError ==0) {
     return(TRUE)

@@ -20,7 +20,7 @@ check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataT
     DataTT = NA
     DataTL = NA
 
-    check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
+    # check_area(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataTL=NA, wd, suffix)
   }
 
   if (!file.exists("Logfiles")){

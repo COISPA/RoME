@@ -1,2 +1,6 @@
 name	user	system	elapsed
-check_0_fieldsTA	1.48	0.19	1.68	
+TM_list	0.02	0.00	0.01	
+assTL	0	0	0	
+check_0_fieldsTA	1.37	0.26	1.64	
+check_area	0	0	0	
+check_associations_category_TL	0	0	0	

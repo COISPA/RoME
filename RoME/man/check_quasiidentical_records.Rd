@@ -12,7 +12,7 @@ TYPE_OF_FILE, AREA, VESSEL, YEAR for TB and TC tables.These specifc fields are a
 check_quasiidentical_records(Result,wd,suffix)
 }
 \arguments{
-   \item{ResultData}{Haul data table according to MEDITS protocol (TA), or Catch data table (TB) or Biological data table (TC).
+   \item{Result}{Haul data table according to MEDITS protocol (TA), or Catch data table (TB) or Biological data table (TC).
 }
 \item{wd}{Working directory selected by the user.
 }
