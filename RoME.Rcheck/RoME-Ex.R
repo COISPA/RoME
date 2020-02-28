@@ -203,7 +203,7 @@ flush(stderr()); flush(stdout())
 
 base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### Name: check_consistencyTA_distance
-### Title: Check of consistency of distance in TA
+### Title: Consistency check of distance in TA
 ### Aliases: check_consistencyTA_distance
 ### Keywords: error
 
@@ -218,6 +218,29 @@ check_consistencyTA_distance(MEDITS::TA,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_consistencyTA_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_consistencyTA_duration")
+### * check_consistencyTA_duration
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_consistencyTA_duration
+### Title: Consistency check of hauls duration in TA
+### Aliases: check_consistencyTA_duration
+### Keywords: error
+
+### ** Examples
+
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_consistencyTA_duration(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_consistencyTA_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant

@@ -1,6 +1,6 @@
 \name{check_consistencyTA_distance}
 \alias{check_consistencyTA_distance}
-\title{Check of consistency of distance in TA}
+\title{Consistency check of distance in TA}
 \description{The function checks whether the distances reported in the haul data (TA) are consistent with the hauls duration.}
 \usage{
 check_consistencyTA_distance(DataTA, wd, suffix)
