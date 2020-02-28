@@ -40,17 +40,19 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
   }
   Errors <<- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
 
-  if (colnames(DataTL) %in% "LITTER_SUB.CATEGORY"){
-    colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+#### CHECK TL FIELDS ####
+  {
+    if ("LITTER_SUB.CATEGORY" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+    }
+    if ("TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_WEIGHT_IN_ THE_SUB-CATEGORY_ HAUL"
+    }
+    if ("TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_NUMBER_IN_ THE_SUB-CATEGORY_ HAUL"
+    }
   }
-  if (colnames(DataTL) %in% "TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL"){
-    colnames(DataTL)[which(colnames(DataTL)=="TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_WEIGHT_IN_ THE_SUB-CATEGORY_ HAUL"
-  }
-  if (colnames(DataTL) %in% "TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL"){
-    colnames(DataTL)[which(colnames(DataTL)=="TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_NUMBER_IN_ THE_SUB-CATEGORY_ HAUL"
-  }
-
-
+#### CHECK TL FIELDS - END ####
 
 
   ResultData = DataTL
@@ -78,7 +80,3 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
     return(TRUE)
 }
-
-
-
-################################################################################
