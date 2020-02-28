@@ -38,6 +38,46 @@ Type 'q()' to quit R.
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
 > cleanEx()
+> nameEx("DataTargetSpecies")
+> ### * DataTargetSpecies
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DataTargetSpecies
+> ### Title: Length and weight ranges
+> ### Aliases: DataTargetSpecies
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(DataTargetSpecies)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DataTargetSpecies", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("Maturity_parameters")
+> ### * Maturity_parameters
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: Maturity_parameters
+> ### Title: Maturity parameters
+> ### Aliases: Maturity_parameters
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(Maturity_parameters)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
 > nameEx("TM_list")
 > ### * TM_list
 > 
@@ -173,7 +213,95 @@ detaching 'package:MEDITS'
 > library(MEDITS)
 > wd <- tempdir()
 > suffix <- "27-02-2020 18:30"
-> check_bridles_length(DataTA, wd, suffix)
-Error in check_bridles_length(DataTA, wd, suffix) : 
-  object 'DataTA' not found
+> check_bridles_length(MEDITS::TA, wd, suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_bridles_length", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_consistencyTA_distance")
+> ### * check_consistencyTA_distance
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_consistencyTA_distance
+> ### Title: Check of consistency of distance in TA
+> ### Aliases: check_consistencyTA_distance
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_consistencyTA_distance(MEDITS::TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_consistencyTA_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quadrant")
+> ### * check_quadrant
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quadrant
+> ### Title: Check start and end quadrant for each haul
+> ### Aliases: check_quadrant
+> ### Keywords: quadrant
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quadrant(TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_quasiidentical_records")
+> ### * check_quasiidentical_records
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_quasiidentical_records
+> ### Title: Function checking the presence of quasi-identical records.
+> ### Aliases: check_quasiidentical_records
+> ### Keywords: quasi-identical
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_quasiidentical_records(TA,wd,suffix)
+[1] FALSE
+> check_quasiidentical_records(TB,wd,suffix)
+[1] TRUE
+> check_quasiidentical_records(TC,wd,suffix)
+Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
+  argument is of length zero
+Calls: check_quasiidentical_records
 Execution halted

@@ -9,4 +9,7 @@ check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising
 check_rubincode	check_rubincode
 check_sex_inversion	check_sex_inversion
+check_smallest_mature	check_smallest_mature
+DataTargetSpecies	DataTargetSpecies
+Maturity_parameters	Maturity_parameters
 TM_list	TM_list
