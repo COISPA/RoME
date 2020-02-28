@@ -7,10 +7,7 @@
 ###########################################################################################################################
 
 # Check quasi-identical records
-
-check_quasiidentical_records<-function(Result,wd,suffix){
-
-  if (FALSE){
+if (FALSE){
     Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
     Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
     Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
@@ -18,9 +15,9 @@ check_quasiidentical_records<-function(Result,wd,suffix){
     wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
 
-  }
+}
 
-
+check_quasiidentical_records<-function(Result,wd,suffix){
 
   Table=as.character(Result[1,1])
   check_without_errors = FALSE
@@ -110,7 +107,7 @@ Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
     write(paste("TC:"), file = Errors, append = TRUE)
 
  # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
-  Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+    Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
 
   ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
@@ -140,7 +137,7 @@ Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
 
   } else if (Table=="TL"){
     # ------------------------------------------------------------------ TC
-    write(paste("TC:"), file = Errors, append = TRUE)
+    write(paste("TL:"), file = Errors, append = TRUE)
 
     # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
     Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
@@ -174,7 +171,7 @@ Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
 
   } else if (Table=="TE"){
     # ------------------------------------------------------------------ TC
-    write(paste("TC:"), file = Errors, append = TRUE)
+    write(paste("TE:"), file = Errors, append = TRUE)
 
     # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE, AREA, VESSEL, YEAR")
     Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
