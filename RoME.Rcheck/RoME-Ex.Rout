@@ -34,6 +34,7 @@ Type 'q()' to quit R.
 > 
 > ### * </HEADER>
 > library('RoME')
+Loading required package: timeDate
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
