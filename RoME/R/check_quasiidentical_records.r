@@ -78,9 +78,9 @@ check_quasiidentical_records<-function(Result,wd,suffix){
     write(paste("TB:"), file = Errors, append = TRUE)
 
      # Matrix=sqldf("select count(*) as count, TYPE_OF_FILE, AREA, VESSEL, YEAR from Result Group by TYPE_OF_FILE,  AREA, VESSEL, YEAR")
-      Matrix=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
-
-      ResultData = Result[!is.na(Result$HAUL_NUMBER),]
+    ResultData=stats::aggregate(Result$TYPE_OF_FILE,by=list(Result$TYPE_OF_FILE, Result$AREA, Result$VESSEL, Result$YEAR),FUN="length")
+colnames(ResultData)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
+Matrix = ResultData[!is.na(ResultData$HAUL_NUMBER),]
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)

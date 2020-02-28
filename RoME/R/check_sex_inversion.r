@@ -18,10 +18,19 @@ if (FALSE){
 check_sex_inversion<-function(DataTC){
 
   numberError = 0
+  Format="from_2012"
+  if (!file.exists("Logfiles")){
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
+
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
+
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+
   write(paste("
 ----------- check consistency of sex data TC by means of sex-inversion size"), file = Errors, append = TRUE)
-#   maturity_table = read.csv(file=paste(getwd(),"/Tables/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
-#   maturity_table = read.csv(file=paste(path.package("RoME"),"/extdata/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
   maturity_table = read.csv(file=paste(working_tables,"/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
   mat_check = maturity_table[maturity_table$Type_of_hermaphroditism!="",]
   herma_species = unique(mat_check$Species)
