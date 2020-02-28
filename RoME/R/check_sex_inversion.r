@@ -15,7 +15,7 @@ if (FALSE){
   }
 
 
-check_sex_inversion<-function(DataTC){
+check_sex_inversion<-function(DataTC,Maturity_parameters){
 
   numberError = 0
   Format="from_2012"
@@ -31,7 +31,8 @@ check_sex_inversion<-function(DataTC){
 
   write(paste("
 ----------- check consistency of sex data TC by means of sex-inversion size"), file = Errors, append = TRUE)
-  maturity_table = read.csv(file=paste(working_tables,"/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
+
+  maturity_table = Maturity_parameters #read.csv(file=paste(working_tables,"/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
   mat_check = maturity_table[maturity_table$Type_of_hermaphroditism!="",]
   herma_species = unique(mat_check$Species)
   write(paste("In Maturity_parameters.csv table, in Tables folder, information about the sex-inversion size of the following hermaphrodite species is present: "), file = Errors, append = TRUE)

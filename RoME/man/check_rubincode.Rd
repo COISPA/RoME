@@ -8,7 +8,7 @@ The TM list contained in the INSTRUCTION MANUAL VERSION 9 MEDITS 2017 is taken a
 check_rubincode(ResultData,wd,suffix)
 }
 \arguments{
-  \item{ResultData}{alternatively: Catch data table (TB), Biological data table (TC) and Individual data table (TE).}
+\item{ResultData}{alternatively: Catch data table (TB), Biological data table (TC) and Individual data table (TE).}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }

@@ -21,7 +21,7 @@ check_quadrant(ResultDataTA,wd,suffix)
 The function returns a warning if shooting and hauling quadrant are not the same.
 }
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that doesnot lock the execution of the RoME checks.
+The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the RoME checks.
 }
 \references{
 For the definition of the quadrants, please refer to:
