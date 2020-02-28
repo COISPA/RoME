@@ -1,0 +1,2 @@
+  assTL <- read.csv("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\RoME versione aperta 1.4\\Tables\\Associations_cat_TL.csv", sep=";")
+  save(assTL, file="data/assTL.rda")

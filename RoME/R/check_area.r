@@ -33,6 +33,20 @@ check_area <- function(DataTA, DataTB,DataTC,DataTD=NA,DataTT=NA,DataTE=NA,DataT
   }
   Errors <<- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
 
+  #### CHECK TL FIELDS ####
+  {
+    if ("LITTER_SUB.CATEGORY" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+    }
+    if ("TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_WEIGHT_IN_ THE_SUB-CATEGORY_ HAUL"
+    }
+    if ("TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_NUMBER_IN_ THE_SUB-CATEGORY_ HAUL"
+    }
+  }
+  #### CHECK TL FIELDS - END ####
+
   write(paste("\n----------- check consistency of area and year TX - ", DataTA$YEAR[1]), file = Errors, append = TRUE)
 
   GSA_TA=unique(DataTA$AREA)
