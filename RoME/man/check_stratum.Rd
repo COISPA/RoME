@@ -1,14 +1,13 @@
 \name{check_stratum}
 \alias{check_stratum}
-\title{
-Function that checks the consistency between start and end depth according to the stratum.}
+\title{Function that checks the consistency between start and end depth according to the stratum.}
 \description{
 Start depth and end depth of each haul should be in the same stratum. }
 \usage{
 check_stratum(ResultData,wd,suffix)
 }
 \arguments{
-\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
+\item{ResultData}{Haul data table according to MEDITS protocol (TA).
 }
 \item{wd}{Working directory selected by the user.
 }
