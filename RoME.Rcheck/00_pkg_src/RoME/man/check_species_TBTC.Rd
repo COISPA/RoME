@@ -12,7 +12,7 @@ check_species_TBTC(ResultTB,ResultTC,DataSpecies,wd,suffix)
 \arguments{
 \item{ResultDataTB}{Catch data table(TB).}
 \item{ResultDataTC}{Biological data table (TC).}
-\item{DataTargetSpecies}{Information related to target species.}
+\item{DataSpecies}{Information related to target species.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }

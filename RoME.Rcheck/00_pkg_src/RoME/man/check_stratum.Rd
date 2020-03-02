@@ -5,7 +5,7 @@ Function that checks the consistency between start and end depth according to th
 \description{
 Start depth and end depth of each haul should be in the same stratum. }
 \usage{
-check_stratum(ResultDataTA,wd,suffix)
+check_stratum(ResultData,wd,suffix)
 }
 \arguments{
 \item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
