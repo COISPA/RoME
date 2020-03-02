@@ -1,9 +1,9 @@
 \name{check_species_TBTC}
 \alias{check_species_TBTC}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Function checking if all the target species in the catch data table (TB) are in Biological data table (TC)}
+Function checking if all the target species in the catch data table (TB) are in Biological data table (TC)
 }
+
 \description{
 This function verifies the presence of the target species (that is a subset of the all the species caught, reported in TB), in the TC table, where additional information (apart from number and weight) are collected.}
 \usage{
@@ -15,7 +15,6 @@ check_species_TBTC(ResultTB,ResultTC,DataTargetSpecies,wd,suffix)
 \item{DataTargetSpecies}{Information related to target species.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
-}
 }
 \details{
 This function gives a warning message, thus the execution is not stopped when some target species are lacking in TC; the user is informed in the Logfile.
