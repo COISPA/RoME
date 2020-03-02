@@ -10,7 +10,6 @@ In the check check_raising the comparison between the number in TB and the raise
 \usage{
 check_raising(ResultDataTB,ResultDataTC,wd,suffix)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
 \item{ResultDataTB}{Catch data table (TB) .
 }\item{ResultDataTC}{Biological data table (TC).
@@ -21,6 +20,7 @@ check_raising(ResultDataTB,ResultDataTC,wd,suffix)
 }
 }
 \details{
+The check must be executed year by year.
 The checks execution is stopped if any mismatching record was found.
 }
 \value{

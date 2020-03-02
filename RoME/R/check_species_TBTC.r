@@ -24,7 +24,7 @@ if (FALSE){
 
 
 
-check_species_TBTC<-function(DataSpecies=DataTargetSpecies,ResultTB,ResultTC,wd,suffix){
+check_species_TBTC<-function(ResultTB,ResultTC,DataSpecies=DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
