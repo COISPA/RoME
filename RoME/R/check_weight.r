@@ -7,6 +7,11 @@
 ################################################################################
 
 # Check if weights and numbers in TB are consistent
+mod<-function(x,m)
+{
+  t1<-floor(x/m)
+  return(x-t1*m)
+}
 
 
 if (FALSE){
@@ -91,7 +96,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
         if (length(X)>=10) {
           if ( nb_graphs<20) {
             if(.Platform$OS.type=="windows") {
-              dev.new(width=60, height=60)
+              windows(width=60, height=60)
             } #else if(.Platform$OS.type=="unix")
 #            {
 #              X11(width=60, height=60)
@@ -117,14 +122,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
   if (nb_graphs!=0){
     present_true = present[present$present == TRUE, ]
 
-
-
-    x=nb_graphs_to_be_printed
-    m=6
-    t1<-floor(x/m)
-    mod=x-t1*m
-
-    if (mod ==0){
+    if (.mod(nb_graphs_to_be_printed,6) ==0){
       nb_sheets= as.integer(nb_graphs_to_be_printed/6)
     }  else {
       nb_sheets= as.integer(nb_graphs_to_be_printed/6)+1
