@@ -34,6 +34,8 @@ check_G1_G2 <- function (DataTC, wd, suffix){
 
 ResultDataTC$Species = paste  (ResultDataTC$GENUS,ResultDataTC$SPECIES)
 
+list_g1_g2 <- data(list_g1_g2)
+
 G1 =  data.frame(as.character(list_g1_g2$CODE[!is.na(list_g1_g2$MEDITS_G1)]))
 G2 =  data.frame(as.character(list_g1_g2$CODE[!is.na(list_g1_g2$MEDITS_G2)]) )
 

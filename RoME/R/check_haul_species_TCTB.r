@@ -1,11 +1,11 @@
-###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, M.T. Facchini, M.T. Spedicato                                                                    #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
-#   March 2013                                                                                                            #
-###########################################################################################################################
-# Check if all the species in TC are listed in TB
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
+#   March 2020                                                                                                             #
+############################################################################################################################
+#  Check if all the species in TC are listed in TB
 
 check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
 

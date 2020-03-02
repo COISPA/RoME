@@ -29,5 +29,6 @@ check_TE_TC	check_TE_TC
 check_unique_valid_haul	check_unique_valid_haul
 check_weight	check_weight
 DataTargetSpecies	DataTargetSpecies
+list_g1_g2	list_g1_g2
 Maturity_parameters	Maturity_parameters
 TM_list	TM_list

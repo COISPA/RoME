@@ -11,14 +11,14 @@
 
 if (FALSE){
   ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA=ResultDataTA[ResultDataTA$YEAR==2017,]
+  ResultDataTA=MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
 
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_temperature(ResultDataTA,wd,suffix)
+  check_temperature(MEDITS::TA,wd,suffix)
 }
 
 check_temperature <- function (ResultDataTA,wd,suffix){
@@ -49,10 +49,10 @@ check_temperature <- function (ResultDataTA,wd,suffix){
               ----------- check temperature - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
 
 if (!all(is.na(Dataset$BOTTOM_TEMPERATURE_BEGINNING))){
-start_temp<<-cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_BEGINNING)
+start_temp <- cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_BEGINNING)
 }
 if (!all(is.na(Dataset$BOTTOM_TEMPERATURE_END))){
-end_temp<<-cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_END)
+end_temp <- cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_END)
 }
 
 
@@ -60,8 +60,8 @@ end_temp<<-cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_END)
 # if (!is.na(start_temp)){
 if (length(start_temp[,2]) > 0){
 indices = which(!is.na(start_temp[,2]) & !is.na(end_temp[,2]))
-start_temp  <<- start_temp[indices,]
-end_temp <<- end_temp[indices,]
+start_temp  <- start_temp[indices,]
+end_temp <- end_temp[indices,]
 
 for (i in 1:nrow(start_temp)){
   # check beginning temperature
@@ -91,10 +91,7 @@ if (length(end_temp) > 0) {
 
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]],Dataset$HAULING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]]))
 
-
-
-
-  tiff(file=paste(wd,"/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tif",sep=""), width=21, height=29.7, bg="white", units="cm", compression="none",res=200)
+  tiff(file=paste(wd,"/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tif",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
   X=mean_depth
   Y=mean_temp
