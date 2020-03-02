@@ -5,16 +5,21 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
 #   March 2013                                                                                                            #
 ###########################################################################################################################
-# Check about the presence of lengths for G1 and G2 species
+# Check if all the species in TC are listed in TB
 
-check_G1_G2 <- function (DataTC, wd, suffix){
+check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
+
+  #library(RODBC)
   if (FALSE){
     library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    DataTB = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    DataTB <- DataTB[DataTB$YEAR == 2018, ]
+    DataTC <- DataTC[DataTC$YEAR == 2018, ]
 
-    # check_G1_G2(DataTC,wd,suffix)
+    # check_haul_species_TCTB(DataTB,DataTC,wd,suffix)
   }
 
 
@@ -29,38 +34,37 @@ check_G1_G2 <- function (DataTC, wd, suffix){
   Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
 
-  ResultDataTC = DataTC
-  write(paste("\n----------- check presence of lengths for G1 and G2 species in TC - ",ResultDataTC$YEAR[1]), file = Errors, append = TRUE)
+  ResultTC = DataTC
+  write(paste("\n----------- check presence in TB of TC species - ", ResultTC$YEAR[1]), file = Errors, append = TRUE)
 
-ResultDataTC$Species = paste  (ResultDataTC$GENUS,ResultDataTC$SPECIES)
+  ResultTB = DataTB #read.csv(paste(DataTB,".csv",sep=""), sep=";", header=TRUE)
 
-G1 =  data.frame(as.character(list_g1_g2$CODE[!is.na(list_g1_g2$MEDITS_G1)]))
-G2 =  data.frame(as.character(list_g1_g2$CODE[!is.na(list_g1_g2$MEDITS_G2)]) )
+  ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES")]
 
-colnames(G1)="Species"
-colnames(G2)="Species"
 
-G1_G2 = rbind(G1,G2)
-spe=1
-for (spe in 1:length(G1_G2)){
-ResultDataTC_temp = ResultDataTC[ResultDataTC$Species == G1_G2[spe,],]
-       haul= unique(ResultDataTC_temp$HAUL_NUMBER)[1] # counter
-       for (haul in unique(ResultDataTC_temp$HAUL_NUMBER))  {
-       Lengths=ResultDataTC_temp$LENGTH_CLASS[ResultDataTC_temp$HAUL_NUMBER == haul]
-       if (length(Lengths)==0){
-       write(paste("Haul",haul,": for MEDITS species G1 and G2 the collection of the length is mandatory. No length data for", G1_G2[spe,]), file = Errors, append = TRUE)
-       numberError = numberError +1
-       }
-       }
-}
+  ResultTC=aggregate(ResultTC$YEAR, by=list(ResultTC$YEAR,ResultTC$HAUL_NUMBER,ResultTC$GENUS,ResultTC$SPECIES),FUN="length")
+  colnames(ResultTC)=c("YEAR", "HAUL_NUMBER", "GENUS", "SPECIES","length")
 
-if (numberError ==0) {
+  if ( (nrow(ResultTC)!=0)){
+    j=1
+    for (j in 1:nrow(ResultTC)){
+      StrSpecies= paste(ResultTC$GENUS[j], ResultTC$SPECIES[j], sep="" )
+      FoundInTB=ResultTB[as.character(ResultTB$GENUS)==as.character(ResultTC$GENUS[j]) & as.character(ResultTB$SPECIES)==as.character(ResultTC$SPECIES[j]) & ResultTB$HAUL_NUMBER==ResultTC$HAUL_NUMBER[j],]
+      if (nrow(FoundInTB) == 0) {
+        numberError = numberError+1
+        write(paste("Haul",ResultTC$HAUL_NUMBER[j],ResultTC$GENUS[j], ResultTC$SPECIES[j], "not found in TB"), file = Errors, append = TRUE)
+      }
+
+    }
+  }
+
+  if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
-  #if (numberError ==0) {
+  if (numberError ==0) {
     return(TRUE)
-  #} else { return(FALSE) }
+  } else { return(FALSE) }
+
 
 }
-
