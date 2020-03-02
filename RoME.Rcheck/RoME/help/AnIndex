@@ -8,6 +8,7 @@ check_consistencyTA_duration	check_consistencyTA_duration
 check_date_haul	check_date_haul
 check_depth	check_depth
 check_dictionary	check_dictionary
+check_distance	check_distance
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising
@@ -15,6 +16,8 @@ check_rubincode	check_rubincode
 check_sex_inversion	check_sex_inversion
 check_smallest_mature	check_smallest_mature
 check_spawning_period	check_spawning_period
+check_species_TBTC	check_species_TBTC
+check_step_length_distr	check_step_length_distr
 DataTargetSpecies	DataTargetSpecies
 Maturity_parameters	Maturity_parameters
 TM_list	TM_list

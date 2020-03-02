@@ -314,6 +314,30 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_dictionary", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_distance")
+### * check_distance
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_distance
+### Title: Check of distance consistency
+### Aliases: check_distance
+### Keywords: warning
+
+### ** Examples
+
+library(RoME)
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_distance(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
 
@@ -458,7 +482,7 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_smallest_mature(TC,Maturity_parameters,wd,suffix)
+check_smallest_mature(TC,Maturity_parameters,DataTargetSpecieswd,suffix)
 
 
 
@@ -489,6 +513,56 @@ check_spawning_period(TA,TC,Maturity_parameters,DataTargetSpecies,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_spawning_period", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_species_TBTC")
+### * check_species_TBTC
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_species_TBTC
+### Title: Function checking if all the target species in the catch data
+###   table (TB) are in Biological data table (TC)
+### Aliases: check_species_TBTC
+### Keywords: cross-check TBTC
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_species_TBTC(TB,TC,DataTargetSpecies,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_species_TBTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_step_length_distr")
+### * check_step_length_distr
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_step_length_distr
+### Title: Function the verifies that in TC the length measures are
+###   repoerted with the correct precision.
+### Aliases: check_step_length_distr
+### Keywords: length, step
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_step_length_distr(TC,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_step_length_distr", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()

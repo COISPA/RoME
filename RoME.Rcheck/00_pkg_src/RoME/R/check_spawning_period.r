@@ -19,6 +19,7 @@ if (FALSE){
 }
 
 check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)

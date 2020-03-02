@@ -12,10 +12,13 @@
 if (FALSE){
 ResultDataTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
 ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+ResultDataTB[ResultDataTB$YEAR==1994,]
+ResultDataTC[ResultDataTC$YEAR==1994,]
+
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-
+  #check_raising(ResultDataTB,ResultDataTC,wd,suffix)
 }
 
 
@@ -110,7 +113,7 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
   #queryTCpivotSex = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex, SUM(raising) AS Sum from ResultTCpivotSex where  HAUL_NUMBER is not NULL ", "group by YEAR, HAUL_NUMBER, GENUS, SPECIES, codedsex", sep="" )
   #ResultTCpivotSex=sqldf(queryTCpivotSex)
 
-  ResultTCpivotSex=aggregate(ResultTCpivotSex$raising, by=list(ResultTCpivotSex$YEAR,ResultTCpivotSex$HAUL_NUMBER,ResultTCpivotSex$GENUS,ResultTCpivotSex$SPECIES,ResultTCpivotSex$codedsex),FUN="sum")
+  ResultTCpivotSex=aggregate(ResultTCpivotSex$raising, by=list(ResultTCpivotSex$YEAR,ResultTCpivotSex$HAUL_NUMBER,ResultTCpivotSex$GENUS,ResultTCpivotSex$SPECIES,ResultTCpivotSex$SEX),FUN="sum")
   colnames(ResultTCpivotSex)=c("YEAR", "HAUL_NUMBER", "GENUS", "SPECIES","SEX","Sum")
 
 

@@ -17,7 +17,7 @@ if (FALSE){
 
 
 
-check_smallest_mature<-function(ResultData,Maturity_parameters,wd,suffix){
+check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
