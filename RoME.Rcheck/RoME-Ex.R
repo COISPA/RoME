@@ -265,6 +265,30 @@ library(RoME)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_date_haul", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_depth")
+### * check_depth
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_depth
+### Title: Check between start depth and end depth
+### Aliases: check_depth
+### Keywords: warning
+
+### ** Examples
+
+library(RoME)
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_depth(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_depth", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
 
