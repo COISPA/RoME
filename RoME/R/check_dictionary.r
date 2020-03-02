@@ -13,12 +13,13 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
 
-    Field = "COURSE"
-    Values = c("R","N")
+    Field = "SEX"
+    Values = c("M", "F", "I", "N")
 
-    ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    ResultData = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
 
     # check_dictionary(ResultData,Field,Values, wd, suffix)
   }
@@ -64,11 +65,13 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
           }
           } else if (Result$TYPE_OF_FILE[1] == "TB") {
                 write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-                numberError = numberError +1} else  #TC
-                {
+                numberError = numberError +1
+                } else if (Result$TYPE_OF_FILE[1] == "TC") {
                   write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                   numberError = numberError +1
-
+                } else if (Result$TYPE_OF_FILE[1] == "TE") {
+                  write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+                  numberError = numberError +1
                 }
       } else {
 
@@ -83,7 +86,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
             write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
             numberError = numberError +1
 
-          } else { # TC
+          } else if (Result$TYPE_OF_FILE[1] == "TC") {
           if ((Field!="SEX")) {
             write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k],  ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1] ), file = Errors, append = TRUE)
             numberError = numberError +1
@@ -94,9 +97,21 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
              }
           }
 
-
-
+          } else if (Result$TYPE_OF_FILE[1] == "TE") {
+            if ((Field!="SEX")) {
+              write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k],  ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1] ), file = Errors, append = TRUE)
+              numberError = numberError +1
+            } else {
+              if ((as.character(Result[k,indexcol])!="FALSE")) {
+                write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k],  ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1] ), file = Errors, append = TRUE)
+                numberError = numberError +1
+              }
+            }
           }
+
+
+
+
         }
       }}
   }
