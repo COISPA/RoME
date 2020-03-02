@@ -42,31 +42,40 @@
 * checking R code for possible problems ... NOTE
 check_distance: warning in tiff(file = paste(wd, "/Graphs/haul ",
   ResultData$HAUL_NUMBER[j], " AREA ", ResultData$AREA[1], "_",
-  ResultData$YEAR[1], ".tif", sep = ""), width = 11.7, height = 8.27,
-  bg = "white", units = "in", res = 300, compression = "lzw", pointsize
-  = 1/300): partial argument match of 'file' to 'filename'
+  ResultData$YEAR[1], ".tiff", sep = ""), width = 12, height = 8, bg =
+  "white", units = "in", res = 300, compression = "lzw", pointsize =
+  1/300): partial argument match of 'file' to 'filename'
 check_dm: no visible binding for global variable 'Errors'
 check_species_TBTC: no visible binding for global variable
   'DataTargetSpecies'
-check_stratum_code: no visible binding for global variable 'wd'
 check_stratum_code: no visible binding for global variable
-  'ResultDataTA'
-check_stratum_code: no visible binding for global variable
-  'Stratification'
-check_stratum_code: no visible binding for global variable 'ResultData'
+  'stratification_scheme'
 Undefined global functions or variables:
-  DataTargetSpecies Errors ResultData ResultDataTA Stratification wd
-* checking Rd files ... OK
+  DataTargetSpecies Errors stratification_scheme
+* checking Rd files ... WARNING
+prepare_Rd: check_stratum_code.Rd:5-7: Dropping empty section \description
+checkRd: (5) check_stratum_code.Rd:0-42: Must have a \description
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'check_dm' 'check_stratum_code'
+  'check_dm'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... OK
+* checking for code/documentation mismatches ... WARNING
+Codoc mismatches from documentation object 'check_subsampling':
+check_subsampling
+  Code: function(ResultTC, wd, suffix)
+  Docs: function(ResultDataTC, wd, suffix)
+  Argument names in code not in docs:
+    ResultTC
+  Argument names in docs not in code:
+    ResultDataTC
+  Mismatches in argument names:
+    Position: 1 Code: ResultTC Docs: ResultDataTC
+
 * checking Rd \usage sections ... WARNING
 Undocumented arguments in documentation object 'check_species_TBTC'
   'ResultTB' 'ResultTC'
@@ -91,9 +100,10 @@ Extensions' manual.
 * checking examples ... OK
 Examples with CPU or elapsed time > 5s
                              user system elapsed
-check_quasiidentical_records 2.01   3.84   32.30
-check_spawning_period        1.55   1.03   10.97
+check_quasiidentical_records 1.53   2.61   23.58
+check_spawning_period        1.37   0.83    8.32
+check_stratum_code           0.29   0.45    5.16
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 3 WARNINGs, 1 NOTE
+Status: 5 WARNINGs, 1 NOTE

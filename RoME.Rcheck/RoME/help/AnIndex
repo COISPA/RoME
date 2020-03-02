@@ -19,6 +19,8 @@ check_spawning_period	check_spawning_period
 check_species_TBTC	check_species_TBTC
 check_step_length_distr	check_step_length_distr
 check_stratum	check_stratum
+check_stratum_code	check_stratum_code
+check_subsampling	check_subsampling
 DataTargetSpecies	DataTargetSpecies
 Maturity_parameters	Maturity_parameters
 TM_list	TM_list

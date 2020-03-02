@@ -588,6 +588,56 @@ check_stratum(TA,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_stratum", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_stratum_code")
+### * check_stratum_code
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_stratum_code
+### Title: Function to check the correct codification of the strata in haul
+###   data table (TA).
+### Aliases: check_stratum_code
+### Keywords: stratum code
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_stratum_code(TA,stratification_scheme,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_stratum_code", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_subsampling")
+### * check_subsampling
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_subsampling
+### Title: Function to warng the user about the presence of subsamples <0.1
+###   of the total catch.
+### Aliases: check_subsampling
+### Keywords: sub-sampling
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_subsampling(TC,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_subsampling", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()
