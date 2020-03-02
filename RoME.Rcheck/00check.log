@@ -57,10 +57,11 @@ Running examples in 'RoME-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_quasiidentical_records
-> ### Title: Function checking the presence of quasi-identical records.
-> ### Aliases: check_quasiidentical_records
-> ### Keywords: quasi-identical
+> ### Name: check_raising
+> ### Title: Function checking if, in case of sub-sampling in TC, the Total
+> ###   number and the number per sex in TB is raised correctly
+> ### Aliases: check_raising
+> ### Keywords: raising, sub-sampling
 > 
 > ### ** Examples
 > 
@@ -68,12 +69,10 @@ The error most likely occurred in:
 > library(RoME)
 > wd=tempdir()
 > suffix= "27-02-2020 18:30"
-> check_quasiidentical_records(TA,wd,suffix)
-[1] FALSE
-> check_quasiidentical_records(TB,wd,suffix)
-Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
-  missing value where TRUE/FALSE needed
-Calls: check_quasiidentical_records
+> check_raising(TB,TC,wd,suffix)
+Error in aggregate.data.frame(as.data.frame(x), ...) : 
+  arguments must have same length
+Calls: check_raising ... aggregate -> aggregate.default -> aggregate.data.frame
 Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK

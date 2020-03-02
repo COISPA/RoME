@@ -331,6 +331,32 @@ detaching 'package:MEDITS'
 
 detaching 'package:MEDITS'
 
+> nameEx("check_dictionary")
+> ### * check_dictionary
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_dictionary
+> ### Title: Check of the dictionary of specific fields
+> ### Aliases: check_dictionary
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+>     wd <- tempdir()
+>     suffix="27-02-2020 18:30"
+>     Field = "COURSE"
+>     Values = c("R","N")
+>     DataTA = MEDITS::TA
+>     check_dictionary(ResultData = DataTA, Field, Values, wd, suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_dictionary", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
 > nameEx("check_quadrant")
 > ### * check_quadrant
 > 
@@ -379,7 +405,38 @@ detaching 'package:MEDITS'
 > check_quasiidentical_records(TA,wd,suffix)
 [1] FALSE
 > check_quasiidentical_records(TB,wd,suffix)
-Error in if (Err$YEAR[k] == Matrix2$YEAR[i]) { : 
-  missing value where TRUE/FALSE needed
-Calls: check_quasiidentical_records
+[1] FALSE
+> check_quasiidentical_records(TC,wd,suffix)
+[1] FALSE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_quasiidentical_records", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_raising")
+> ### * check_raising
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_raising
+> ### Title: Function checking if, in case of sub-sampling in TC, the Total
+> ###   number and the number per sex in TB is raised correctly
+> ### Aliases: check_raising
+> ### Keywords: raising, sub-sampling
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_raising(TB,TC,wd,suffix)
+Error in aggregate.data.frame(as.data.frame(x), ...) : 
+  arguments must have same length
+Calls: check_raising ... aggregate -> aggregate.default -> aggregate.data.frame
 Execution halted
