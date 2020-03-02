@@ -43,3 +43,7 @@ check_step_length_distr
                         precision.
 check_stratum           Function that checks the consistency between
                         start and end depth according to the stratum.
+check_stratum_code      Function to check the correct codification of
+                        the strata in haul data table (TA).
+check_subsampling       Function to warng the user about the presence
+                        of subsamples <0.1 of the total catch.
