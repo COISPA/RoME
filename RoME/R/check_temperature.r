@@ -49,10 +49,10 @@ check_temperature <- function (ResultDataTA,wd,suffix){
               ----------- check temperature - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
 
 if (!all(is.na(Dataset$BOTTOM_TEMPERATURE_BEGINNING))){
-start_temp<<-cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_BEGINNING)
+start_temp <- cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_BEGINNING)
 }
 if (!all(is.na(Dataset$BOTTOM_TEMPERATURE_END))){
-end_temp<<-cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_END)
+end_temp <- cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_END)
 }
 
 
@@ -60,8 +60,8 @@ end_temp<<-cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_END)
 # if (!is.na(start_temp)){
 if (length(start_temp[,2]) > 0){
 indices = which(!is.na(start_temp[,2]) & !is.na(end_temp[,2]))
-start_temp  <<- start_temp[indices,]
-end_temp <<- end_temp[indices,]
+start_temp  <- start_temp[indices,]
+end_temp <- end_temp[indices,]
 
 for (i in 1:nrow(start_temp)){
   # check beginning temperature
