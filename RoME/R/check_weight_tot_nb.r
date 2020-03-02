@@ -6,23 +6,22 @@
 #   March 2020
 ################################################################################
 
-# Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
+# Check consistency between not null weight and not null total number
 
 if (FALSE){
-  ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultTC=ResultDataTC[ResultDataTC$YEAR==1994,]
-  #ResultTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
+  ResultDataTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
+  #ResultDataTB=ResultDataTB[ResultDataTB$YEAR==2017,]
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_subsampling(ResultDataTC,wd,suffix)
+  check_weight_tot_nb(ResultDataTB,wd,suffix)
+
 }
 
-
-check_subsampling<-function(ResultDataTC,wd,suffix){
+check_weight_tot_nb<-function(ResultDataTB,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
@@ -33,49 +32,48 @@ check_subsampling<-function(ResultDataTC,wd,suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
 
+  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+  }
+
+
   Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
 
   numberError = 0
-
+  ResultData = ResultDataTB
   write(paste("
-              ----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
+              ----------- check consistency between not null weight and not null total number in TB - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
-  #queryTCpivot = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, SUM(NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE) AS Sum, WEIGHT_OF_THE_FRACTION,  WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTC where  HAUL_NUMBER is not NULL ","group by YEAR, HAUL_NUMBER, GENUS, SPECIES, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
+  for (i in 1:nrow(ResultData)){
 
-  ResultTCpivot=aggregate(ResultTC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE,by=list(ResultTC$YEAR,ResultTC$HAUL_NUMBER,ResultTC$GENUS,ResultTC$SPECIES,ResultTC$WEIGHT_OF_THE_FRACTION,ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED),FUN="sum")
-   colnames(ResultTCpivot)=c("YEAR","HAUL_NUMBER","GENUS","SPECIES","WEIGHT_OF_THE_FRACTION","WEIGHT_OF_THE_SAMPLE_MEASURED","Sum") #sqldf(queryTCpivot)
+      if ((ResultData$TOTAL_WEIGHT_IN_THE_HAUL[i]==0) & (ResultData$TOTAL_NUMBER_IN_THE_HAUL[i]!=0)){
 
-  # check if sub-sampling in TC are greater than 10%
-
-for (ii in (1:nrow(ResultTCpivot))){
-if ((ResultTCpivot$WEIGHT_OF_THE_SAMPLE_MEASURED[ii]/ResultTCpivot$WEIGHT_OF_THE_FRACTION[ii])<0.1 ){
-write(paste("Warning: Year", ResultTCpivot$YEAR[ii], "Haul",ResultTCpivot$HAUL_NUMBER[ii],ResultTCpivot$GENUS[ii], ResultTCpivot$SPECIES[ii], "the sub-sample is less than 10%. Please verify and run the check again"), file = Errors, append = TRUE)
-}
-
-}
+        write(paste("Warning: Haul ",ResultData$HAUL_NUMBER[i]," species ",ResultData$GENUS[i],ResultData$SPECIES[i]," Total weight equals 0, but total number is not null ", sep=""), file = Errors, append = TRUE)
+      }
 
 
 
+    if ((ResultData$TOTAL_NUMBER_IN_THE_HAUL[i]==0) & (ResultData$TOTAL_WEIGHT_IN_THE_HAUL[i]!=0) &
+          (   ((str_extract(as.character(ResultData$FAUNISTIC_CATEGORY[i]),"[A-Z]"))!="E") &
+                (  (str_extract(as.character(ResultData$FAUNISTIC_CATEGORY[i]),"[A-Z]"))!="D") &
+                (  (str_extract(as.character(ResultData$FAUNISTIC_CATEGORY[i]),"[A-Z]"))!="V") &
+                (  (str_extract(as.character(ResultData$FAUNISTIC_CATEGORY[i]),"[A-Z]"))!="G") &
+                (  (str_extract(as.character(ResultData$FAUNISTIC_CATEGORY[i]),"[A-Z]"))!="H")  )){
 
+      write(paste("Warning: Haul ",ResultData$HAUL_NUMBER[i]," species ",ResultData$GENUS[i],ResultData$SPECIES[i]," Total number equals 0, but total weight is not null", sep=""), file = Errors, append = TRUE)
+    }
 
-
-
-
-  # check sum per sex
-
+  }
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
-
-
 
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
 
 }
-
 
 ################################################################################
