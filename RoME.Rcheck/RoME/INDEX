@@ -4,6 +4,8 @@ TM_list                 TM list
 assTL                   TL association between categories and
                         sub-categories
 check_0_fieldsTA        Checks the presence of 0 fields in TA
+check_G1_G2             Check of length measurements for G1 and G2
+                        species
 check_TE_TC             Function to verify the onsistency between
                         individual data table (TE) and biological data
                         table (TC) respect to numbe rof individuals.
@@ -21,6 +23,8 @@ check_dictionary        Check of the dictionary of specific fields
 check_distance          Check of distance consistency
 check_dm                Check of "WING_OPENING" and "VERTICAL_OPENING"
                         fields
+check_haul_species_TCTB
+                        Check species of TC in TB
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of

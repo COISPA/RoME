@@ -47,9 +47,9 @@ Found the platform-specific device:
 dev.new() is the preferred way to open a new device, in the unlikely
 event one is needed.
 check_distance: warning in tiff(file = paste(wd, "/Graphs/haul ",
-  ResultData$HAUL_NUMBER[j], " AREA ", ResultData$AREA[1], "_",
-  ResultData$YEAR[1], ".tiff", sep = ""), width = 12, height = 8, bg =
-  "white", units = "in", res = 300, compression = "lzw", pointsize =
+  ResultData[j, "HAUL_NUMBER"], " AREA ", ResultData[1, "AREA"], "_",
+  ResultData[1, "YEAR"], ".tiff", sep = ""), width = 12, height = 8, bg
+  = "white", units = "in", res = 300, compression = "lzw", pointsize =
   1/300): partial argument match of 'file' to 'filename'
 check_temperature: warning in tiff(file = paste(wd,
   "/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",
@@ -61,6 +61,7 @@ check_weight: warning in tiff(file = paste(wd,
   "_", i, ".tif", sep = ""), width = 21, height = 29.7, bg = "white",
   units = "cm", compression = "none", res = 200): partial argument
   match of 'file' to 'filename'
+check_G1_G2: no visible binding for global variable 'list_g1_g2'
 check_TE_TC: no visible binding for global variable 'ResultData'
 check_species_TBTC: no visible binding for global variable
   'DataTargetSpecies'
@@ -83,8 +84,8 @@ check_weight: no visible global function definition for 'text'
 check_weight: no visible global function definition for '.mod'
 check_weight: no visible global function definition for 'par'
 Undefined global functions or variables:
-  .mod DataTargetSpecies ResultData channelTA end_temp par sqlQuery
-  start_temp stratification_scheme text windows
+  .mod DataTargetSpecies ResultData channelTA end_temp list_g1_g2 par
+  sqlQuery start_temp stratification_scheme text windows
 Consider adding
   importFrom("grDevices", "windows")
   importFrom("graphics", "par", "text")
@@ -99,9 +100,9 @@ checkRd: (5) check_unique_valid_haul.Rd:0-39: Must have a \description
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'ResultDataTE' 'mod'
+  'ResultDataTE' 'list_g1_g2' 'mod'
 Undocumented data sets:
-  'ResultDataTE'
+  'ResultDataTE' 'list_g1_g2'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.

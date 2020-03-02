@@ -124,6 +124,30 @@ check_0_fieldsTA(MEDITS::TA,wd,suffix)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_G1_G2")
+### * check_G1_G2
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_G1_G2
+### Title: Check of length measurements for G1 and G2 species
+### Aliases: check_G1_G2
+### Keywords: warning
+
+### ** Examples
+
+library(RoME)
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_G1_G2(MEDITS::TC,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_G1_G2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_TE_TC")
 ### * check_TE_TC
 
@@ -385,6 +409,30 @@ check_dm(MEDITS::TA,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_dm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_haul_species_TCTB")
+### * check_haul_species_TCTB
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_haul_species_TCTB
+### Title: Check species of TC in TB
+### Aliases: check_haul_species_TCTB
+### Keywords: warning
+
+### ** Examples
+
+library(RoME)
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_haul_species_TCTB(MEDITS::TB, MEDITS::TC, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_haul_species_TCTB", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant

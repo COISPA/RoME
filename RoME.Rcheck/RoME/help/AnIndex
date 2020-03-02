@@ -10,6 +10,8 @@ check_depth	check_depth
 check_dictionary	check_dictionary
 check_distance	check_distance
 check_dm	check_dm
+check_G1_G2	check_G1_G2
+check_haul_species_TCTB	check_haul_species_TCTB
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising

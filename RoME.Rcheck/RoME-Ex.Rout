@@ -148,6 +148,34 @@ Loading required package: timeDate
 
 detaching 'package:MEDITS'
 
+> nameEx("check_G1_G2")
+> ### * check_G1_G2
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_G1_G2
+> ### Title: Check of length measurements for G1 and G2 species
+> ### Aliases: check_G1_G2
+> ### Keywords: warning
+> 
+> ### ** Examples
+> 
+> library(RoME)
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_G1_G2(MEDITS::TC,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_G1_G2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_TE_TC")
 > ### * check_TE_TC
 > 
