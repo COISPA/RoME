@@ -122,7 +122,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
   if (nb_graphs!=0){
     present_true = present[present$present == TRUE, ]
 
-    if (.mod(nb_graphs_to_be_printed,6) ==0){
+    if (mod(nb_graphs_to_be_printed,6) ==0){
       nb_sheets= as.integer(nb_graphs_to_be_printed/6)
     }  else {
       nb_sheets= as.integer(nb_graphs_to_be_printed/6)+1
