@@ -15,6 +15,7 @@ check_consistencyTA_duration
 check_date_haul         Check of date consistency
 check_depth             Check between start depth and end depth
 check_dictionary        Check of the dictionary of specific fields
+check_distance          Check of distance consistency
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
@@ -33,3 +34,10 @@ check_smallest_mature   Function to verify the consistency of maturity
 check_spawning_period   Function to check the consistency of the
                         maturity stages according to the spawning
                         period.
+check_species_TBTC      Function checking if all the target species in
+                        the catch data table (TB) are in Biological
+                        data table (TC)
+check_step_length_distr
+                        Function the verifies that in TC the length
+                        measures are repoerted with the correct
+                        precision.

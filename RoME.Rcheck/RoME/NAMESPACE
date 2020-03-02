@@ -2,3 +2,6 @@ exportPattern("^[[:alpha:]]+")
 import(timeDate)
 import(stringr)
 importFrom("stats", "aggregate")
+importFrom("grDevices", "dev.off", "tiff")
+importFrom("graphics", "legend")
+

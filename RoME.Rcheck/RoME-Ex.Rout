@@ -35,6 +35,7 @@ Type 'q()' to quit R.
 > ### * </HEADER>
 > library('RoME')
 Loading required package: timeDate
+Loading required package: MEDITS
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -145,9 +146,6 @@ Loading required package: timeDate
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_area")
 > ### * check_area
 > 
@@ -220,9 +218,6 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_bridles_length", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_consistencyTA_distance")
 > ### * check_consistencyTA_distance
 > 
@@ -247,9 +242,6 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_consistencyTA_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_consistencyTA_duration")
 > ### * check_consistencyTA_duration
 > 
@@ -274,9 +266,6 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_consistencyTA_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_date_haul")
 > ### * check_date_haul
 > 
@@ -328,9 +317,6 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_depth", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_dictionary")
 > ### * check_dictionary
 > 
@@ -357,6 +343,31 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_dictionary", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+> nameEx("check_distance")
+> ### * check_distance
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_distance
+> ### Title: Check of distance consistency
+> ### Aliases: check_distance
+> ### Keywords: warning
+> 
+> ### ** Examples
+> 
+> library(RoME)
+> library(MEDITS)
+> wd <- tempdir()
+> suffix <- "27-02-2020 18:30"
+> check_distance(MEDITS::TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
 > nameEx("check_quadrant")
 > ### * check_quadrant
 > 
@@ -382,9 +393,6 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_quasiidentical_records")
 > ### * check_quasiidentical_records
 > 
@@ -414,9 +422,6 @@ detaching 'package:MEDITS'
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_quasiidentical_records", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-
-detaching 'package:MEDITS'
-
 > nameEx("check_raising")
 > ### * check_raising
 > 
@@ -436,7 +441,87 @@ detaching 'package:MEDITS'
 > wd=tempdir()
 > suffix= "27-02-2020 18:30"
 > check_raising(TB,TC,wd,suffix)
-Error in aggregate.data.frame(as.data.frame(x), ...) : 
-  arguments must have same length
-Calls: check_raising ... aggregate -> aggregate.default -> aggregate.data.frame
+[1] FALSE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_raising", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_rubincode")
+> ### * check_rubincode
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_rubincode
+> ### Title: Function checking the correctness of species MEDITS code and
+> ###   faunistic category according to TM reference list
+> ### Aliases: check_rubincode
+> ### Keywords: rubincode,TM list
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_rubincode(TB,TM_list,wd,suffix)
+[1] TRUE
+> check_rubincode(TC,TM_list,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_rubincode", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_sex_inversion")
+> ### * check_sex_inversion
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_sex_inversion
+> ### Title: Function to verify the consistency of sex information about
+> ###   hermaphrodite species.
+> ### Aliases: check_sex_inversion
+> ### Keywords: sex inversion, hermaphrodite
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_sex_inversion(TC,Maturity_parameters,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_sex_inversion", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_smallest_mature")
+> ### * check_smallest_mature
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_smallest_mature
+> ### Title: Function to verify the consistency of maturity information
+> ###   respect to the smallest mature individual observed in literature.
+> ### Aliases: check_smallest_mature
+> ### Keywords: smallest mature
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_smallest_mature(TC,Maturity_parameters,DataTargetSpecieswd,suffix)
+Error in paste(wd, "/Logfiles/Logfile_", suffix, ".dat", sep = "") : 
+  argument "suffix" is missing, with no default
+Calls: check_smallest_mature -> paste
 Execution halted
