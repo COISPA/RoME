@@ -9,6 +9,7 @@ check_date_haul	check_date_haul
 check_depth	check_depth
 check_dictionary	check_dictionary
 check_distance	check_distance
+check_dm	check_dm
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising
@@ -21,6 +22,10 @@ check_step_length_distr	check_step_length_distr
 check_stratum	check_stratum
 check_stratum_code	check_stratum_code
 check_subsampling	check_subsampling
+check_temperature	check_temperature
+check_TE_TC	check_TE_TC
+check_unique_valid_haul	check_unique_valid_haul
+check_weight	check_weight
 DataTargetSpecies	DataTargetSpecies
 Maturity_parameters	Maturity_parameters
 TM_list	TM_list

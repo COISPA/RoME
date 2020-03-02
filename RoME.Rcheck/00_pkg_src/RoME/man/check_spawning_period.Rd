@@ -12,7 +12,7 @@ Maturity_parameters,DataTargetSpecies,wd,suffix)
   \item{ResultDataTA}{Haul data table(TA).}
   \item{ResultDataTC}{alternatively: Biological data table (TC) and Individual data table (TE).}
   \item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
-  \item{DataTargetSpecies}{Information related to target species.}
+  \item{DataTargetSpecies}{Information related to reference species.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }
