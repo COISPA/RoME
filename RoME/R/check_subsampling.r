@@ -22,7 +22,7 @@ if (FALSE){
 }
 
 
-check_subsampling<-function(ResultTC,wd,suffix){
+check_subsampling<-function(ResultDataTC,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
