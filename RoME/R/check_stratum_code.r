@@ -18,10 +18,10 @@ if (FALSE){
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_stratum(ResultDataTA,wd,suffix)
+  check_stratum_code(ResultDataTA,stratification_scheme,wd,suffix)
 }
 
-check_stratum_code <- function (){
+check_stratum_code <- function (ResultDataTA,Stratification=stratification_scheme,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
@@ -42,58 +42,10 @@ check_stratum_code <- function (){
    write(paste("
               ----------- check correctness of stratum code - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
 
-  Strat_table = read.csv(paste(Stratification,".csv",sep=""), sep=";",header=TRUE)
+  Strat_table = Stratification #read.csv(paste(Stratification,".csv",sep=""), sep=";",header=TRUE)
 
   Strat_table = Strat_table[Strat_table$GSA== Dataset$AREA[1],] # selection of the area
 
-  if (Format=="before_2012"){
-    mean_depth = rowMeans(cbind(ResultData$SHOOTING_DEPTH,ResultData$HAULING_DEPTH))
-
-    for (i in 1:nrow(Dataset))
-    {
-      # check if the stratum code in TT is one of the codes in the Stratification table
-
-      if (!(Dataset$STRATUM[i] %in%  Strat_table$STRATUM)) {
-        numberError = numberError+1
-        write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"wrong stratum code"), file = Errors, append = TRUE)
-
-      }
-
-
-      if ((mean_depth[i] >=10) & (mean_depth[i] <=50)) {
-        Strat_table_temp = Strat_table[Strat_table$CODE==1,]
-        if (!(Dataset$STRATUM[i] %in% Strat_table_temp$STRATUM)){
-          write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean depth of the haul"), file = Errors, append = TRUE)
-          numberError ==numberError +1
-        }
-      }  else if ((mean_depth[i] >50) & (mean_depth[i] <=100)){
-        Strat_table_temp = Strat_table[Strat_table$CODE==2,]
-        if (!(Dataset$STRATUM[i] %in% Strat_table_temp$STRATUM)){
-          write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-          numberError ==numberError +1
-        }
-      } else if ((mean_depth[i] >100) & (mean_depth[i] <=200)){
-        Strat_table_temp = Strat_table[Strat_table$CODE==3,]
-        if (!(Dataset$STRATUM[i] %in% Strat_table_temp$STRATUM)){
-          write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-          numberError ==numberError +1
-        }
-      } else if ((mean_depth[i] >200) & (mean_depth[i] <=500)){
-        Strat_table_temp = Strat_table[Strat_table$CODE==4,]
-        if (!(Dataset$STRATUM[i] %in% Strat_table_temp$STRATUM)){
-          write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-          numberError ==numberError +1
-        }
-      } else if ((mean_depth[i] >500) & (mean_depth[i] <=800)){
-        Strat_table_temp = Strat_table[Strat_table$CODE==5,]
-        if (!(Dataset$STRATUM[i] %in% Strat_table_temp$STRATUM)){
-          write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-          numberError ==numberError +1
-        }
-      }
-
-    }
-  }else {
     mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH,Dataset$HAULING_DEPTH))
 
   for (i in 1:nrow(Dataset))
@@ -140,7 +92,7 @@ check_stratum_code <- function (){
   }
 
   }
-  }
+
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
