@@ -14,6 +14,7 @@ check_consistencyTA_duration
                         Consistency check of hauls duration in TA
 check_date_haul         Check of date consistency
 check_depth             Check between start depth and end depth
+check_dictionary        Check of the dictionary of specific fields
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of

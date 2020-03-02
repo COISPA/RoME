@@ -14,7 +14,6 @@ check_step_length_distr(ResultDataTC,wd,suffix)
 }
 \details{
 According to the MEDITS proptocol, Fishes and cephalopods length measurement must collected full or half step and all the measures , must be integer numbers.}
-}
 \value{
 The function returns TRUE if no error occurs, while FALSE is returned when the step is not correctly used. In the logfile is reported the list of all the records in which the inconsistency is detected.}
 \references{

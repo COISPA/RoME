@@ -289,6 +289,31 @@ check_depth(MEDITS::TA,wd,suffix)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_depth", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_dictionary")
+### * check_dictionary
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_dictionary
+### Title: Check of the dictionary of specific fields
+### Aliases: check_dictionary
+### Keywords: error
+
+### ** Examples
+
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    Field = "COURSE"
+    Values = c("R","N")
+    DataTA = MEDITS::TA
+    check_dictionary(ResultData = DataTA, Field, Values, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_dictionary", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
 

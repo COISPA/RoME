@@ -14,7 +14,7 @@ if (FALSE){
 
     wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-
+    check_quasiidentical_records(Result,wd,suffix)
 }
 
 check_quasiidentical_records<-function(Result,wd,suffix){
@@ -96,7 +96,7 @@ ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
     if (nrow(Matrix)>1){
       Max=max(Matrix$x)
-      Matrix2=Matrix[Matrix$count!=Max,]
+      Matrix2=Matrix[Matrix$x!=Max,]
       for (i in 1:nrow(Matrix2)){
 
         Err = ResultData[as.character(ResultData$TYPE_OF_FILE) == as.character(Matrix2$TYPE_OF_FILE[i]) &
