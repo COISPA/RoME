@@ -6,11 +6,12 @@ Function to verify the consistency of maturity information respect to the smalle
 \description{
 In this check mature individuals with length smaller than size of the smallest mature individuals reported in literature are detected}
 \usage{
-check_smallest_mature(ResultData,Maturity_parameters,wd,suffix)
+check_smallest_mature(ResultData,Maturity_parameters,DataTargetSpecieswd,suffix)
 }
 \arguments{
 \item{ResultData}{alternatively: Biological data table (TC) and Individual data table (TE).}
 \item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
+\item{DataTargetSpecies}{Information related to target species.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }
@@ -30,6 +31,6 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_smallest_mature(TC,Maturity_parameters,wd,suffix)
+check_smallest_mature(TC,Maturity_parameters,DataTargetSpecieswd,suffix)
 }
 \keyword{smallest mature}
