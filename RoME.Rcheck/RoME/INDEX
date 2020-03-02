@@ -41,3 +41,5 @@ check_step_length_distr
                         Function the verifies that in TC the length
                         measures are repoerted with the correct
                         precision.
+check_stratum           Function that checks the consistency between
+                        start and end depth according to the stratum.

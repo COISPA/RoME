@@ -520,8 +520,86 @@ Loading required package: MEDITS
 > library(RoME)
 > wd=tempdir()
 > suffix= "27-02-2020 18:30"
-> check_smallest_mature(TC,Maturity_parameters,DataTargetSpecieswd,suffix)
-Error in paste(wd, "/Logfiles/Logfile_", suffix, ".dat", sep = "") : 
-  argument "suffix" is missing, with no default
-Calls: check_smallest_mature -> paste
+> check_smallest_mature(TC,Maturity_parameters,DataTargetSpecies,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_smallest_mature", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_spawning_period")
+> ### * check_spawning_period
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_spawning_period
+> ### Title: Function to check the consistency of the maturity stages
+> ###   according to the spawning period.
+> ### Aliases: check_spawning_period
+> ### Keywords: smallest mature
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_spawning_period(TA,TC,Maturity_parameters,DataTargetSpecies,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_spawning_period", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_species_TBTC")
+> ### * check_species_TBTC
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_species_TBTC
+> ### Title: Function checking if all the target species in the catch data
+> ###   table (TB) are in Biological data table (TC)
+> ### Aliases: check_species_TBTC
+> ### Keywords: cross-check TBTC
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_species_TBTC(TB,TC,DataTargetSpecies,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_species_TBTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("check_step_length_distr")
+> ### * check_step_length_distr
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_step_length_distr
+> ### Title: Function the verifies that in TC the length measures are
+> ###   repoerted with the correct precision.
+> ### Aliases: check_step_length_distr
+> ### Keywords: length, step
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_step_length_distr(TC,wd,suffix)
+Error in if (as.character(fishes_cefalopods$LENGTH_CLASSES_CODE[j]) ==  : 
+  missing value where TRUE/FALSE needed
+Calls: check_step_length_distr
 Execution halted

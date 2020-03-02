@@ -7,7 +7,7 @@ Function checking if all the target species in the catch data table (TB) are in 
 \description{
 This function verifies the presence of the target species (that is a subset of the all the species caught, reported in TB), in the TC table, where additional information (apart from number and weight) are collected.}
 \usage{
-check_species_TBTC(ResultTB,ResultTC,DataTargetSpecies,wd,suffix)
+check_species_TBTC(ResultTB,ResultTC,DataSpecies,wd,suffix)
 }
 \arguments{
 \item{ResultDataTB}{Catch data table(TB).}
