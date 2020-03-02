@@ -5,7 +5,7 @@ Function the verifies that in TC the length measures are repoerted with the corr
 \description{
 Fishes and cephalopods length classes must have full or half step (in case of LENGTH_CLASSES_CODE=1 only full). All the measures , must be integer numbers.}
 \usage{
-check_step_length_distr(ResultDataTC,wd,suffix)
+check_step_length_distr(ResultData,wd,suffix)
 }
 \arguments{
 \item{ResultDataTC}{alternatively: Biological data table (TC) and Individual data table (TE).}

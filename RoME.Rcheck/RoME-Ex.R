@@ -482,7 +482,7 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_smallest_mature(TC,Maturity_parameters,DataTargetSpecieswd,suffix)
+check_smallest_mature(TC,Maturity_parameters,DataTargetSpecies,wd,suffix)
 
 
 
@@ -563,6 +563,31 @@ check_step_length_distr(TC,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_step_length_distr", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_stratum")
+### * check_stratum
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_stratum
+### Title: Function that checks the consistency between start and end depth
+###   according to the stratum.
+### Aliases: check_stratum
+### Keywords: stratum
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_stratum(TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_stratum", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()

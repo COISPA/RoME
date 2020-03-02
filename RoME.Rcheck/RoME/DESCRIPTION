@@ -11,5 +11,5 @@ Encoding: UTF-8
 LazyData: true
 Imports: stringr
 NeedsCompilation: no
-Packaged: 2020-03-02 11:32:22 UTC; Walter
-Built: R 3.6.2; ; 2020-03-02 11:33:27 UTC; windows
+Packaged: 2020-03-02 11:45:50 UTC; Walter
+Built: R 3.6.2; ; 2020-03-02 11:46:56 UTC; windows
