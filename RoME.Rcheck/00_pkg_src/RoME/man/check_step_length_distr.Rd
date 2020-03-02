@@ -8,7 +8,7 @@ Fishes and cephalopods length classes must have full or half step (in case of LE
 check_step_length_distr(ResultData,wd,suffix)
 }
 \arguments{
-\item{ResultDataTC}{alternatively: Biological data table (TC) and Individual data table (TE).}
+\item{ResultData}{alternatively: Biological data table (TC) and Individual data table (TE).}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }

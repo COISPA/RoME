@@ -35,10 +35,10 @@ check_distance<-function(DataTA, wd, suffix){
 
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
-  ResultData=MEDITS.to.dd(ResultData)
+  ResultData=MEDITS::MEDITS.to.dd(ResultData)
   i=1
   for (i in 1:nrow(ResultData)){
-    ResultData$computed_distance[i]= dd.distance(ResultData[i,], unit = "m", verbose=FALSE)
+    ResultData$computed_distance[i]= MEDITS::dd.distance(ResultData[i,], unit = "m", verbose=FALSE)
   }
   if (nrow(ResultData)!=0){
     j=8
@@ -48,7 +48,7 @@ check_distance<-function(DataTA, wd, suffix){
         tiff(file=paste(wd,"/Graphs/haul ", ResultData$HAUL_NUMBER[j], " AREA ",ResultData$AREA[1],"_",ResultData$YEAR[1],".tif",sep=""),
              width=11.7, height=8.27, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
         plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Haul",ResultData$HAUL_NUMBER[j],"-",ResultData$YEAR[j]))
-        map("world", fill=T, col="yellow",add=T)
+        maps::map("world", fill=T, col="yellow",add=T)
         points(ResultData$SHOOTING_LONGITUDE[j],ResultData$SHOOTING_LATITUDE[j],col="blue",pch=16)
         points(ResultData$HAULING_LONGITUDE[j],ResultData$HAULING_LATITUDE[j],col="green",pch=16)
         legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )

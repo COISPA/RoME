@@ -9,4 +9,4 @@ Depends: R (>= 3.5.0),timeDate
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: stringr,MEDITS
+Imports: stringr,MEDITS,maps

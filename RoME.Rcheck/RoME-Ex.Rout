@@ -35,7 +35,6 @@ Type 'q()' to quit R.
 > ### * </HEADER>
 > library('RoME')
 Loading required package: timeDate
-Loading required package: MEDITS
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -146,6 +145,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_area")
 > ### * check_area
 > 
@@ -218,6 +220,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_bridles_length", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_consistencyTA_distance")
 > ### * check_consistencyTA_distance
 > 
@@ -242,6 +247,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_consistencyTA_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_consistencyTA_duration")
 > ### * check_consistencyTA_duration
 > 
@@ -266,6 +274,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_consistencyTA_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_date_haul")
 > ### * check_date_haul
 > 
@@ -317,6 +328,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_depth", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_dictionary")
 > ### * check_dictionary
 > 
@@ -368,6 +382,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_quadrant")
 > ### * check_quadrant
 > 
@@ -393,6 +410,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_quadrant", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_quasiidentical_records")
 > ### * check_quasiidentical_records
 > 
@@ -422,6 +442,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_quasiidentical_records", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_raising")
 > ### * check_raising
 > 
@@ -448,6 +471,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_raising", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_rubincode")
 > ### * check_rubincode
 > 
@@ -476,6 +502,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_rubincode", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_sex_inversion")
 > ### * check_sex_inversion
 > 
@@ -502,6 +531,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_sex_inversion", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_smallest_mature")
 > ### * check_smallest_mature
 > 
@@ -528,6 +560,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_smallest_mature", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_spawning_period")
 > ### * check_spawning_period
 > 
@@ -554,6 +589,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_spawning_period", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_species_TBTC")
 > ### * check_species_TBTC
 > 
@@ -580,6 +618,9 @@ Loading required package: MEDITS
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("check_species_TBTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("check_step_length_distr")
 > ### * check_step_length_distr
 > 
@@ -599,7 +640,56 @@ Loading required package: MEDITS
 > wd=tempdir()
 > suffix= "27-02-2020 18:30"
 > check_step_length_distr(TC,wd,suffix)
-Error in if (as.character(fishes_cefalopods$LENGTH_CLASSES_CODE[j]) ==  : 
-  missing value where TRUE/FALSE needed
-Calls: check_step_length_distr
-Execution halted
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_step_length_distr", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_stratum")
+> ### * check_stratum
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_stratum
+> ### Title: Function that checks the consistency between start and end depth
+> ###   according to the stratum.
+> ### Aliases: check_stratum
+> ### Keywords: stratum
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_stratum(TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_stratum", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  10.11 5.49 51.22 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

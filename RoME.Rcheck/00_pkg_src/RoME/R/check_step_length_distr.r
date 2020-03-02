@@ -57,6 +57,8 @@ check_step_length_distr<-function(ResultData,wd,suffix){
 
   }
 
+  if (nrow(fishes_cefalopods)>0){
+
   for (j in 1:nrow(fishes_cefalopods)){
     if (as.character(fishes_cefalopods$LENGTH_CLASSES_CODE[j])=="1"){
       if ((fishes_cefalopods$LENGTH_CLASS[j]/10)!=round((fishes_cefalopods$LENGTH_CLASS[j]/10),0))
@@ -70,6 +72,8 @@ check_step_length_distr<-function(ResultData,wd,suffix){
         numberError = numberError +1
       }
     }
+  }
+
   }
 
   if (numberError ==0) {
