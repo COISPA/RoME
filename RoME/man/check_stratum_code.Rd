@@ -3,8 +3,7 @@
 \title{
 Function to check the correct codification of the strata in haul data table (TA).}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+This function verifies the correctness of the stratum code, following the stratification scheme table in the MEDITS protocol.}
 \usage{
 check_stratum_code(ResultDataTA,Stratification,wd,suffix)
 }
