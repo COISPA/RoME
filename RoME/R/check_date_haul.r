@@ -25,6 +25,22 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 
+
+  #### CHECK TL FIELDS ####
+  {
+    if ("LITTER_SUB.CATEGORY" %in% colnames(Data)){
+      colnames(Data)[which(colnames(Data)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+    }
+    if ("TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(Data)){
+      colnames(Data)[which(colnames(Data)=="TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_WEIGHT_IN_THE_SUB-CATEGORY_HAUL"
+    }
+    if ("TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(Data)){
+      colnames(Data)[which(colnames(Data)=="TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
+    }
+  }
+  #### CHECK TL FIELDS - END ####
+
+
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
