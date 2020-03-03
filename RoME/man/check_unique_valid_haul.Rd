@@ -18,7 +18,7 @@ check_unique_valid_haul(ResultDataTA,wd,suffix)
 }
 }
 \details{
-This function produce an error, stopping the chec kprocedure to avoid cascade errors.
+This function produce an error, stopping the check procedure to avoid cascade errors.
 }
 \value{
 The function returns TRUE if no error occurs, while FALSE is returned when there is more than one valide hauls. In the logfile is reported the list of all the records in which the inconsistency is detected.}
