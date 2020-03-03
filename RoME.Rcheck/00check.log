@@ -53,15 +53,14 @@ check_distance: warning in tiff(file = paste(wd, "/Graphs/haul ",
   1/300): partial argument match of 'file' to 'filename'
 check_temperature: warning in tiff(file = paste(wd,
   "/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",
-  Dataset$AREA[1], ".tif", sep = ""), width = 12, height = 8, bg =
+  Dataset$AREA[1], ".tiff", sep = ""), width = 12, height = 8, bg =
   "white", units = "in", res = 300, compression = "lzw", pointsize =
   1/300): partial argument match of 'file' to 'filename'
 check_weight: warning in tiff(file = paste(wd,
   "/Graphs/check_mean_weight_", Result$AREA[1], "_", Result$YEAR[1],
-  "_", i, ".tif", sep = ""), width = 21, height = 29.7, bg = "white",
-  units = "cm", compression = "none", res = 200): partial argument
-  match of 'file' to 'filename'
-check_G1_G2: no visible binding for global variable 'list_g1_g2'
+  "_", i, ".tif", sep = ""), width = 12, height = 8, bg = "white",
+  units = "in", res = 300, compression = "lzw", pointsize = 1/300):
+  partial argument match of 'file' to 'filename'
 check_TE_TC: no visible binding for global variable 'ResultData'
 check_species_TBTC: no visible binding for global variable
   'DataTargetSpecies'
@@ -77,12 +76,29 @@ check_weight: no visible global function definition for 'windows'
 check_weight: no visible global function definition for 'text'
 check_weight: no visible global function definition for '.mod'
 check_weight: no visible global function definition for 'par'
+copyTables: no visible binding for '<<-' assignment to 'working_tables'
+create_catch: no visible binding for global variable 'Format'
+create_catch: no visible global function definition for 'write.table'
+create_haul: no visible global function definition for
+  'convert_coordinates'
+create_haul: no visible global function definition for 'write.table'
+create_length: no visible binding for global variable 'Format'
+create_length: no visible binding for global variable
+  'DataTargetSpecies'
+create_length: no visible binding for global variable 'DataSpecies'
+create_length: no visible binding for global variable 'DataTE'
+create_length: no visible global function definition for 'write.table'
+create_length: no visible global function definition for 'sqldf'
+create_strata: no visible global function definition for 'sqldf'
+create_strata: no visible global function definition for 'write.table'
 Undefined global functions or variables:
-  .mod DataTargetSpecies ResultData channelTA list_g1_g2 par sqlQuery
-  stratification_scheme text windows
+  .mod DataSpecies DataTE DataTargetSpecies Format ResultData channelTA
+  convert_coordinates par sqlQuery sqldf stratification_scheme text
+  windows write.table
 Consider adding
   importFrom("grDevices", "windows")
   importFrom("graphics", "par", "text")
+  importFrom("utils", "write.table")
 to your NAMESPACE file.
 * checking Rd files ... WARNING
 prepare_Rd: check_stratum_code.Rd:5-7: Dropping empty section \description
@@ -94,13 +110,17 @@ checkRd: (5) check_unique_valid_haul.Rd:0-39: Must have a \description
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'ResultDataTE' 'mod'
+  'ResultDataTE' 'check_hauls_TBTA' 'copyPDFmanual' 'copyTables'
+  'create_catch' 'create_haul' 'create_length' 'create_strata' 'mod'
 Undocumented data sets:
   'ResultDataTE'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
 * checking for code/documentation mismatches ... WARNING
+Data with usage in documentation object 'templateTL' but not in code:
+  'templateTL'
+
 Codoc mismatches from documentation object 'check_subsampling':
 check_subsampling
   Code: function(ResultTC, wd, suffix)
@@ -112,12 +132,80 @@ check_subsampling
   Mismatches in argument names:
     Position: 1 Code: ResultTC Docs: ResultDataTC
 
+Data codoc mismatches from documentation object 'templateTB':
+Variables in data frame 'templateTB'
+  Code: AREA CODEND_CLOSING COUNTRY DAY FAUNISTIC_CATEGORY GENUS
+        HAUL_NUMBER MONTH NAME_OF_THE_REFERENCE_LIST NB_OF_FEMALES
+        NB_OF_MALES NB_OF_UNDETERMINED PART_OF_THE_CODEND SPECIES
+        TOTAL_NUMBER_IN_THE_HAUL TOTAL_WEIGHT_IN_THE_HAUL TYPE_OF_FILE
+        VESSEL YEAR
+  Docs: AREA BOTTOM_SALINITY_BEGINNING BOTTOM_SALINITY_END
+        BOTTOM_TEMPERATURE_BEGINNING BOTTOM_TEMPERATURE_END
+        BRIDLES_LENGTH CODEND_CLOSING COUNTRY COURSE DAY DISTANCE DOORS
+        GEAR GEOMETRICAL_PRECISION HAULING_DEPTH HAULING_LATITUDE
+        HAULING_LONGITUDE HAULING_QUADRANT HAULING_TIME HAUL_DURATION
+        HAUL_NUMBER HYDROLOGICAL_STATION MEASURING_SYSTEM
+        MEASURING_SYSTEM_SALINITY MONTH NUMBER_OF_THE_STRATUM
+        OBSERVATIONS PART_OF_THE_CODEND RECORDED_SPECIES RIGGING
+        SHOOTING_DEPTH SHOOTING_LATITUDE SHOOTING_LONGITUDE
+        SHOOTING_QUADRANT SHOOTING_TIME TYPE_OF_FILE VALIDITY
+        VERTICAL_OPENING VESSEL WARP_DIAMETER WARP_LENGTH WING_OPENING
+        YEAR
+
+Data codoc mismatches from documentation object 'templateTC':
+Variables in data frame 'templateTC'
+  Code: AREA CODEND_CLOSING COUNTRY GENUS HAUL_NUMBER LENGTH_CLASS
+        LENGTH_CLASSES_CODE MATSUB MATURITY
+        NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED
+        NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE
+        PART_OF_THE_CODEND SEX SPECIES TYPE_OF_FILE VESSEL
+        WEIGHT_OF_THE_FRACTION WEIGHT_OF_THE_SAMPLE_MEASURED YEAR
+  Docs: AREA BOTTOM_SALINITY_BEGINNING BOTTOM_SALINITY_END
+        BOTTOM_TEMPERATURE_BEGINNING BOTTOM_TEMPERATURE_END
+        BRIDLES_LENGTH CODEND_CLOSING COUNTRY COURSE DAY DISTANCE DOORS
+        GEAR GEOMETRICAL_PRECISION HAULING_DEPTH HAULING_LATITUDE
+        HAULING_LONGITUDE HAULING_QUADRANT HAULING_TIME HAUL_DURATION
+        HAUL_NUMBER HYDROLOGICAL_STATION MEASURING_SYSTEM
+        MEASURING_SYSTEM_SALINITY MONTH NUMBER_OF_THE_STRATUM
+        OBSERVATIONS PART_OF_THE_CODEND RECORDED_SPECIES RIGGING
+        SHOOTING_DEPTH SHOOTING_LATITUDE SHOOTING_LONGITUDE
+        SHOOTING_QUADRANT SHOOTING_TIME TYPE_OF_FILE VALIDITY
+        VERTICAL_OPENING VESSEL WARP_DIAMETER WARP_LENGTH WING_OPENING
+        YEAR
+
+Data codoc mismatches from documentation object 'templateTE':
+Variables in data frame 'templateTE'
+  Code: AGE AREA COUNTRY DAY FAUNISTIC_CATEGORY GENUS HAUL_NUMBER
+        INDIVIDUAL_WEIGHT LENGTH_CLASS LENGTH_CLASSES_CODE MATSUB
+        MATURITY MONTH NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_AGEING
+        NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_OTOLITH
+        NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT OTOLITH_CODE
+        OTOLITH_READ OTOLITH_SAMPLED RECORD_NUMBER SEX SPECIES
+        TYPE_OF_FILE VESSEL YEAR
+  Docs: AREA BOTTOM_SALINITY_BEGINNING BOTTOM_SALINITY_END
+        BOTTOM_TEMPERATURE_BEGINNING BOTTOM_TEMPERATURE_END
+        BRIDLES_LENGTH CODEND_CLOSING COUNTRY COURSE DAY DISTANCE DOORS
+        GEAR GEOMETRICAL_PRECISION HAULING_DEPTH HAULING_LATITUDE
+        HAULING_LONGITUDE HAULING_QUADRANT HAULING_TIME HAUL_DURATION
+        HAUL_NUMBER HYDROLOGICAL_STATION MEASURING_SYSTEM
+        MEASURING_SYSTEM_SALINITY MONTH NUMBER_OF_THE_STRATUM
+        OBSERVATIONS PART_OF_THE_CODEND RECORDED_SPECIES RIGGING
+        SHOOTING_DEPTH SHOOTING_LATITUDE SHOOTING_LONGITUDE
+        SHOOTING_QUADRANT SHOOTING_TIME TYPE_OF_FILE VALIDITY
+        VERTICAL_OPENING VESSEL WARP_DIAMETER WARP_LENGTH WING_OPENING
+        YEAR
+
 * checking Rd \usage sections ... OK
 * checking Rd contents ... WARNING
 Error in sub(re, "", x, perl = TRUE) : input string 1 is invalid UTF-8
 Calls: <Anonymous> ... .Rd_get_offending_autogenerated_content -> trimws -> mysub -> sub -> mysub -> sub
 Esecuzione interrotta
-* checking for unstated dependencies in examples ... OK
+* checking for unstated dependencies in examples ... WARNING
+Warning: parse error in file 'lines':
+7: unexpected symbol
+811: data(templateTA)
+812: maybe str
+           ^
 * checking contents of 'data' directory ... OK
 * checking data for non-ASCII characters ... OK
 * checking data for ASCII and uncompressed saves ... OK
@@ -146,4 +234,4 @@ Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 5 WARNINGs, 1 NOTE
+Status: 1 ERROR, 6 WARNINGs, 1 NOTE
