@@ -643,6 +643,26 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_individual_weightTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_individual_weightTE")
+### * check_individual_weightTE
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_individual_weightTE
+### Title: Consistency of individual weights (according to length-weight
+###   relationship)
+### Aliases: check_individual_weightTE
+### Keywords: warning
+
+### ** Examples
+
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_individual_weightTE", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
 
@@ -1077,7 +1097,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 data(templateTA)
-maybe str(templateTA)
 
 
 
@@ -1098,7 +1117,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 data(templateTB)
-maybe str(templateTB)
 
 
 
@@ -1119,7 +1137,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 data(templateTC)
-maybe str(templateTC)
 
 
 
@@ -1140,7 +1157,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 data(templateTE)
-maybe str(templateTE)
 
 
 
@@ -1161,7 +1177,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 data(templateTL)
-## maybe str(templateTL) ; plot(templateTL) ...
 
 
 

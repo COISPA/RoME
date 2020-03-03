@@ -38,6 +38,9 @@ check_identical_records
 check_individual_weightTC
                         Check of observed and estimated total weight in
                         the haul
+check_individual_weightTE
+                        Consistency of individual weights (according to
+                        length-weight relationship)
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of

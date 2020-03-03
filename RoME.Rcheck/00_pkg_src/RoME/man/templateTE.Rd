@@ -65,6 +65,5 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 }
 \examples{
 data(templateTE)
-maybe str(templateTE)
 }
 \keyword{datasets}
