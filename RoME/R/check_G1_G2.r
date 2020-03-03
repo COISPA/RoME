@@ -9,6 +9,7 @@
 
 check_G1_G2 <- function (DataTC, wd, suffix){
   if (FALSE){
+    library(RoME)
     library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
@@ -34,10 +35,10 @@ check_G1_G2 <- function (DataTC, wd, suffix){
 
 ResultDataTC$Species = paste  (ResultDataTC$GENUS,ResultDataTC$SPECIES)
 
-list_g1_g2 <- data(list_g1_g2)
+list_g1_g2 <- RoME::list_g1_g2
 
-G1 =  data.frame(as.character(list_g1_g2$CODE[!is.na(list_g1_g2$MEDITS_G1)]))
-G2 =  data.frame(as.character(list_g1_g2$CODE[!is.na(list_g1_g2$MEDITS_G2)]) )
+G1 =  data.frame(as.character(list_g1_g2[!is.na(list_g1_g2$MEDITS_G1),"CODE"]))
+G2 =  data.frame(as.character(list_g1_g2[!is.na(list_g1_g2$MEDITS_G2),"CODE"]) )
 
 colnames(G1)="Species"
 colnames(G2)="Species"

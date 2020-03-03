@@ -18,7 +18,8 @@ if (FALSE){
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_temperature(MEDITS::TA,wd,suffix)
+
+  # check_temperature(MEDITS::TA,wd,suffix)
 }
 
 check_temperature <- function (ResultDataTA,wd,suffix){
@@ -91,7 +92,7 @@ if (length(end_temp) > 0) {
 
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]],Dataset$HAULING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]]))
 
-  tiff(file=paste(wd,"/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tif",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(file=paste(wd,"/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
   X=mean_depth
   Y=mean_temp

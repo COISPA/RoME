@@ -16,9 +16,9 @@ mod<-function(x,m)
 
 if (FALSE){
   ResultDataTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-  #ResultDataTB=ResultDataTB[ResultDataTB$YEAR==2017,]
+  #ResultDataTB= MEDITS::TB # ResultDataTB[ResultDataTB$YEAR==2017,]
 
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
@@ -138,7 +138,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
       }
 
       if (i<=20){
-        tiff(file=paste(wd,"/Graphs/check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep=""), width=21, height=29.7, bg="white", units="cm", compression="none",res=200)
+        tiff(file=paste(wd,"/Graphs/check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
         par(mfrow=c(3,2), mai=c(0.6,0.6,0.6,0.6), omi=c(0.8,0.8,1,0.8))
         for (m in (6*i-5):(nb_loops)) {
           X=ResultData[ResultData$species==present_true$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER

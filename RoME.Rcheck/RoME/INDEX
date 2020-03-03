@@ -3,6 +3,8 @@ Maturity_parameters     Maturity parameters
 TM_list                 TM list
 assTL                   TL association between categories and
                         sub-categories
+checkHeader             Function to check the correctness of the
+                        headers.
 check_0_fieldsTA        Checks the presence of 0 fields in TA
 check_G1_G2             Check of length measurements for G1 and G2
                         species
@@ -25,6 +27,8 @@ check_dm                Check of "WING_OPENING" and "VERTICAL_OPENING"
                         fields
 check_haul_species_TCTB
                         Check species of TC in TB
+check_hauls_TATB        Check of TB hauls in TA
+check_hauls_TATL        Check presence of TA hauls in TL
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
@@ -66,3 +70,8 @@ check_weight            Function that checks if number of individuals
                         and total weight collected in the haul are
                         consistent.
 list_g1_g2              List of G1 and G2 species
+templateTA              Template haul data table (TA).
+templateTB              Template catch data table (TB).
+templateTC              Template biological data table (TC).
+templateTE              Template individual data table (TE).
+templateTL              Template litter data table (TL).
