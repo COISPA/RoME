@@ -124,6 +124,55 @@ check_0_fieldsTA(MEDITS::TA,wd,suffix)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_G1_G2")
+### * check_G1_G2
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_G1_G2
+### Title: Check of length measurements for G1 and G2 species
+### Aliases: check_G1_G2
+### Keywords: warning
+
+### ** Examples
+
+library(RoME)
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_G1_G2(MEDITS::TC,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_G1_G2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_TE_TC")
+### * check_TE_TC
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_TE_TC
+### Title: Function to verify the onsistency between individual data table
+###   (TE) and biological data table (TC) respect to numbe rof individuals.
+### Aliases: check_TE_TC
+### Keywords: cross-check TETC
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_TE_TC(TC,ResultDataTE,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_TE_TC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_area")
 ### * check_area
 
@@ -337,6 +386,53 @@ check_distance(MEDITS::TA,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_distance", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_dm")
+### * check_dm
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_dm
+### Title: Check of "WING_OPENING" and "VERTICAL_OPENING" fields
+### Aliases: check_dm
+### Keywords: error
+
+### ** Examples
+
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_dm(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_dm", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_haul_species_TCTB")
+### * check_haul_species_TCTB
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_haul_species_TCTB
+### Title: Check species of TC in TB
+### Aliases: check_haul_species_TCTB
+### Keywords: warning
+
+### ** Examples
+
+library(RoME)
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_haul_species_TCTB(MEDITS::TB, MEDITS::TC, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_haul_species_TCTB", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
@@ -638,6 +734,101 @@ check_subsampling(TC,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_subsampling", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_temperature")
+### * check_temperature
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_temperature
+### Title: Function to check the consistency of the temperature data stored
+###   in haul data table (TA).
+### Aliases: check_temperature
+### Keywords: temperature
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_temperature(TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_temperature", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_unique_valid_haul")
+### * check_unique_valid_haul
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_unique_valid_haul
+### Title: Function checking that smong hauls with the same code, only one
+###   must be valid.
+### Aliases: check_unique_valid_haul
+### Keywords: valid hauls
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_unique_valid_haul(TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_unique_valid_haul", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_weight")
+### * check_weight
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_weight
+### Title: Function that checks if number of individuals and total weight
+###   collected in the haul are consistent.
+### Aliases: check_weight
+### Keywords: weight
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_weight(TB,DataTargetSpecies,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_weight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("list_g1_g2")
+### * list_g1_g2
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: list_g1_g2
+### Title: List of G1 and G2 species
+### Aliases: list_g1_g2
+### Keywords: datasets
+
+### ** Examples
+
+data(list_g1_g2)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("list_g1_g2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 ### * <FOOTER>
 ###
 cleanEx()

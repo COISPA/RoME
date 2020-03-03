@@ -10,8 +10,8 @@ This function verifies the presence of the target species (that is a subset of t
 check_species_TBTC(ResultTB,ResultTC,DataSpecies,wd,suffix)
 }
 \arguments{
-\item{ResultDataTB}{Catch data table(TB).}
-\item{ResultDataTC}{Biological data table (TC).}
+\item{ResultTB}{Catch data table(TB).}
+\item{ResultTC}{Biological data table (TC).}
 \item{DataSpecies}{Information related to target species.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}

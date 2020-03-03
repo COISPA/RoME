@@ -22,12 +22,8 @@ check_area(DataTA, DataTB, DataTC, DataTE=NA, DataTL=NA, wd, suffix)
 \value{
 The function returns TRUE if no error occurs, while FALSE is returned when there are differences in the AREA code among the TX tables.
 }
-\references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
-}
-\author{
-I. Bitetto, W. Zupa
-}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()
     suffix="27-02-2020 18:30"

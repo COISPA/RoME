@@ -5,16 +5,32 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
 #   March 2020                                                                                                             #
 ############################################################################################################################
-# Check consistency of wing ad vertical opening in TA according to INSTRUCTION MANUAL VERSION 5 MEDITS 2007
+# Check consistency of wing ad vertical opening in TA according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_dm<-  function(ResultDataTA){
+check_dm<-  function(DataTA,wd,suffix){
+  if (FALSE){
+    wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+
+    # check_dm(DataTA,wd,suffix)
+  }
+
+
+  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
   numberError = 0
-  Matrix = ResultDataTA #read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
-  write(paste("
------------ check dm TA - ", Matrix$YEAR[1]), file = Errors, append = TRUE)
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
+  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
-  wing=which(Matrix$WING_OPENING<=50 | Matrix$WING_OPENING>=250)
-  vertical=which(Matrix$VERTICAL_OPENING<=10 | Matrix$VERTICAL_OPENING>=99)
+  Matrix = DataTA
+  write(paste("\n----------- check dm TA - ", Matrix$YEAR[1]), file = Errors, append = TRUE)
+
+  wing=which(Matrix$WING_OPENING < 50 | Matrix$WING_OPENING > 250)
+  vertical=which(Matrix$VERTICAL_OPENING < 10 | Matrix$VERTICAL_OPENING > 100)
   if (length(wing)!=0){
     for (i in 1:length(wing)){
       write(paste("Haul ",Matrix$HAUL_NUMBER[wing[i]],"WING_OPENING out of boundaries (50,250) in", Matrix$TYPE_OF_FILE[1],". Please check if the measure unit is dm"), file = Errors, append = TRUE)
@@ -23,7 +39,7 @@ check_dm<-  function(ResultDataTA){
   }
   if (length(vertical)!=0){
     for (j in 1:length(vertical)){
-      write(paste("Haul ",Matrix$HAUL_NUMBER[vertical[j]],"VERTICAL_OPENING out of boundaries (10,99)in", Matrix$TYPE_OF_FILE[1],". Please check if the measure unit is dm"), file = Errors, append = TRUE)
+      write(paste("Haul ",Matrix$HAUL_NUMBER[vertical[j]],"VERTICAL_OPENING out of boundaries (10,100)in", Matrix$TYPE_OF_FILE[1],". Please check if the measure unit is dm"), file = Errors, append = TRUE)
     }
   }
 
@@ -35,5 +51,3 @@ check_dm<-  function(ResultDataTA){
     return(TRUE)
   } else { return(FALSE) }
 }
-
-################################################################################
