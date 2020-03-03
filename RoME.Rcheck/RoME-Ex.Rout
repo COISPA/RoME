@@ -79,153 +79,42 @@ Loading required package: timeDate
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-> nameEx("TM_list")
-> ### * TM_list
+> nameEx("ResultDataTE")
+> ### * ResultDataTE
 > 
 > flush(stderr()); flush(stdout())
 > 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: TM_list
-> ### Title: TM list
-> ### Aliases: TM_list
+> ### Name: ResultDataTE
+> ### Title: Provisional!
+> ### Aliases: ResultDataTE
 > ### Keywords: datasets
 > 
 > ### ** Examples
 > 
-> data(TM_list)
-> ## maybe str(TM_list) ; plot(TM_list) ...
+> data(ResultDataTE)
+Warning in data(ResultDataTE) : data set 'ResultDataTE' not found
+> ## maybe str(ResultDataTE) ; plot(ResultDataTE) ...
 > 
 > 
 > 
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("TM_list", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> base::cat("ResultDataTE", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-> nameEx("assTL")
-> ### * assTL
+> nameEx("TE_provisional")
+> ### * TE_provisional
 > 
 > flush(stderr()); flush(stdout())
 > 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: assTL
-> ### Title: TL association between categories and sub-categories
-> ### Aliases: assTL
+> ### Name: TE_provisional
+> ### Title: Provisional example of TE table!!!!
+> ### Aliases: TE_provisional
 > ### Keywords: datasets
 > 
 > ### ** Examples
 > 
-> data(assTL)
-> ## maybe str(assTL) ; plot(assTL) ...
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("assTL", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
-> nameEx("checkHeader")
-> ### * checkHeader
-> 
-> flush(stderr()); flush(stdout())
-> 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: checkHeader
-> ### Title: Function to check the correctness of the headers.
-> ### Aliases: checkHeader
-> ### Keywords: headers
-> 
-> ### ** Examples
-> 
-> library(MEDITS)
-> library(RoME)
-> wd=tempdir()
-> suffix= "27-02-2020 18:30"
-> checkHeader(TA,"TA")
-> checkHeader(TB,"TB")
-> checkHeader(TC,"TC")
-> 
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("checkHeader", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
-
-detaching 'package:MEDITS'
-
-> nameEx("check_0_fieldsTA")
-> ### * check_0_fieldsTA
-> 
-> flush(stderr()); flush(stdout())
-> 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_0_fieldsTA
-> ### Title: Checks the presence of 0 fields in TA
-> ### Aliases: check_0_fieldsTA
-> ### Keywords: error
-> 
-> ### ** Examples
-> 
-> library(MEDITS)
-> wd <- tempdir()
-> suffix <- "27-02-2020 18:30"
-> check_0_fieldsTA(MEDITS::TA,wd,suffix)
-[1] TRUE
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
-
-detaching 'package:MEDITS'
-
-> nameEx("check_G1_G2")
-> ### * check_G1_G2
-> 
-> flush(stderr()); flush(stdout())
-> 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_G1_G2
-> ### Title: Check of length measurements for G1 and G2 species
-> ### Aliases: check_G1_G2
-> ### Keywords: warning
-> 
-> ### ** Examples
-> 
-> library(RoME)
-> library(MEDITS)
-> wd <- tempdir()
-> suffix <- "27-02-2020 18:30"
-> check_G1_G2(MEDITS::TC,wd,suffix)
-[1] TRUE
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("check_G1_G2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
-
-detaching 'package:MEDITS'
-
-> nameEx("check_TE_TC")
-> ### * check_TE_TC
-> 
-> flush(stderr()); flush(stdout())
-> 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: check_TE_TC
-> ### Title: Function to verify the onsistency between individual data table
-> ###   (TE) and biological data table (TC) respect to numbe rof individuals.
-> ### Aliases: check_TE_TC
-> ### Keywords: cross-check TETC
-> 
-> ### ** Examples
-> 
-> library(MEDITS)
-> library(RoME)
-> wd=tempdir()
-> suffix= "27-02-2020 18:30"
-> check_TE_TC(TC,ResultDataTE,wd,suffix)
-Error in paste("\n              ----------- check start depth and end depth in the same stratum TA - ",  : 
-  object 'ResultData' not found
-Calls: check_TE_TC -> write -> cat -> paste
+> data(TE_provisional)
+> str(TE_provisional)
+Error in str(TE_provisional) : object 'TE_provisional' not found
 Execution halted

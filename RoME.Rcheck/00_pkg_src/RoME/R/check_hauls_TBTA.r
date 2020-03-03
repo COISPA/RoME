@@ -38,6 +38,7 @@ check_hauls_TBTA<-function(DataTA,DataTB,wd,suffix){
 
   ResultTB=unique(ResultTB$HAUL_NUMBER)
   if (length(ResultTB)!=0){
+    j=1
     for (j in 1:length(ResultTB)){
 
       ResultTA_temp=ResultTA[which(ResultTA$HAUL_NUMBER==ResultTB[j]),]
@@ -55,5 +56,3 @@ check_hauls_TBTA<-function(DataTA,DataTB,wd,suffix){
     return(TRUE)
   } else { return(FALSE) }
 }
-
-################################################################################

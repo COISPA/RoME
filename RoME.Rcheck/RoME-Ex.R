@@ -59,6 +59,48 @@ data(Maturity_parameters)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("ResultDataTE")
+### * ResultDataTE
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: ResultDataTE
+### Title: Provisional!
+### Aliases: ResultDataTE
+### Keywords: datasets
+
+### ** Examples
+
+data(ResultDataTE)
+## maybe str(ResultDataTE) ; plot(ResultDataTE) ...
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("ResultDataTE", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("TE_provisional")
+### * TE_provisional
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: TE_provisional
+### Title: Provisional example of TE table!!!!
+### Aliases: TE_provisional
+### Keywords: datasets
+
+### ** Examples
+
+data(TE_provisional)
+str(TE_provisional)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("TE_provisional", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("TM_list")
 ### * TM_list
 
@@ -468,7 +510,7 @@ flush(stderr()); flush(stdout())
 
 base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### Name: check_hauls_TATB
-### Title: Check of TB hauls in TA
+### Title: Check of TA hauls in TB
 ### Aliases: check_hauls_TATB
 ### Keywords: error
 
@@ -507,6 +549,53 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_hauls_TATL", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_hauls_TBTA")
+### * check_hauls_TBTA
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_hauls_TBTA
+### Title: Check of TB hauls in TA
+### Aliases: check_hauls_TBTA
+### Keywords: error
+
+### ** Examples
+
+    library(RoME)
+    library(MEDITS)
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    DataTA <- MEDITS::TA
+    DataTA <- DataTA[DataTA$YEAR ==2018 , ]
+    DataTB <- MEDITS::TB
+    DataTB <- DataTB[DataTB$YEAR ==2018 , ]
+    check_hauls_TBTA(DataTA,DataTB,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_hauls_TBTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_hauls_TLTA")
+### * check_hauls_TLTA
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_hauls_TLTA
+### Title: Check presence of TL hauls in TA
+### Aliases: check_hauls_TLTA
+### Keywords: error
+
+### ** Examples
+
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_hauls_TLTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
@@ -883,6 +972,30 @@ check_weight(TB,DataTargetSpecies,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_weight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("create_haul")
+### * create_haul
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: create_haul
+### Title: Function to create R-sufi file containing haul data.
+### Aliases: create_haul
+### Keywords: R-sufi,traits
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd <- tempdir()
+suffix="27-02-2020 18:30"
+create_haul(TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("create_haul", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("list_g1_g2")
 ### * list_g1_g2

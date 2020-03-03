@@ -14,6 +14,8 @@ check_dm	check_dm
 check_G1_G2	check_G1_G2
 check_hauls_TATB	check_hauls_TATB
 check_hauls_TATL	check_hauls_TATL
+check_hauls_TBTA	check_hauls_TBTA
+check_hauls_TLTA	check_hauls_TLTA
 check_haul_species_TCTB	check_haul_species_TCTB
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
@@ -31,12 +33,15 @@ check_temperature	check_temperature
 check_TE_TC	check_TE_TC
 check_unique_valid_haul	check_unique_valid_haul
 check_weight	check_weight
+create_haul	create_haul
 DataTargetSpecies	DataTargetSpecies
 list_g1_g2	list_g1_g2
 Maturity_parameters	Maturity_parameters
+ResultDataTE	ResultDataTE
 templateTA	templateTA
 templateTB	templateTB
 templateTC	templateTC
 templateTE	templateTE
 templateTL	templateTL
+TE_provisional	TE_provisional
 TM_list	TM_list

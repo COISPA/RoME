@@ -9,8 +9,7 @@
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
-\details{
-The function checks whether all the hauls peresent in hauls data table (TA) are included in the litter data table (TL). }
+\details{The function checks whether all the hauls peresent in hauls data table (TA) are included in the litter data table (TL). }
 \value{
 The function returns always TRUE because the outcome of the function is a warning that does not lock the execution of the RoME checks. The list of the hauls not present in the TL table is reported in the logfile stored in the "Logfiles"" subdirectory of the "wd" user-defined directory.
 }
