@@ -1,11 +1,11 @@
-###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, M.T. Facchini, M.T. Spedicato                                                                    #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
-#   March 2013                                                                                                            #
-###########################################################################################################################
-# Check about the presence of lengths for G1 and G2 species
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
+#   March 2020                                                                                                             #
+############################################################################################################################
+#  Check about the presence of lengths for G1 and G2 species
 
 check_G1_G2 <- function (DataTC, wd, suffix){
   if (FALSE){

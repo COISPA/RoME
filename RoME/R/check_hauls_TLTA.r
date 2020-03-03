@@ -5,9 +5,9 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
 #   March 2020                                                                                                             #
 ############################################################################################################################
-#  Check if all the hauls in TA are in TL
+#  Check if all the hauls in TL are in TA
 
-check_hauls_TATL<-function(DataTA,DataTL,wd,suffix){
+check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix){
 
   if (FALSE){
     library(RoME)
@@ -15,7 +15,7 @@ check_hauls_TATL<-function(DataTA,DataTL,wd,suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTL = read.table("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";", header=T)
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-
+    # check_hauls_TLTA(DataTA,DataTL,wd,suffix)
   }
 
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
@@ -42,30 +42,26 @@ check_hauls_TATL<-function(DataTA,DataTL,wd,suffix){
   }
   #### CHECK TL FIELDS - END ####
 
-  ResultTA = DataTA
-  write(paste("\n----------- check presence in TL of TA hauls - ",ResultTA$YEAR[1]), file = Errors, append = TRUE)
-
-  ResultTA=ResultTA[,which(names(ResultTA)=="HAUL_NUMBER" | names(ResultTA)=="VALIDITY")]
-  ResultTA=ResultTA[ResultTA$VALIDITY=="V",]
   ResultTL = DataTL
+  write(paste("\n----------- check presence in TA of TL hauls - ", ResultTL$YEAR[1]), file = Errors, append = TRUE)
+  ResultTA = DataTA
 
-  if (nrow(ResultTA)!=0){
-    j=1
-    for (j in 1:nrow(ResultTA)){
-      ResultTL_temp=ResultTL[which(ResultTL$HAUL_NUMBER==ResultTA$HAUL_NUMBER[j]),]
-      if (nrow(ResultTL_temp)==0)   {
-        write(paste("No haul",ResultTA$HAUL_NUMBER[j],"in TL"), file = Errors, append = TRUE)
+  ResultTL=unique(ResultTL$HAUL_NUMBER)
+  if (length(ResultTL)!=0){
+    for (j in 1:length(ResultTL)){
+
+      ResultTA_temp=ResultTA[which(ResultTA$HAUL_NUMBER==ResultTL[j]),]
+      if (nrow(ResultTA_temp)==0)   {
+        write(paste("No haul",ResultTL[j],"in TA"), file = Errors, append = TRUE)
         numberError = numberError +1
       }
     }
   }
-
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
- # if (numberError ==0) {
+  if (numberError ==0) {
     return(TRUE)
-  #} else { return(FALSE) }
-
+  } else { return(FALSE) }
 }
