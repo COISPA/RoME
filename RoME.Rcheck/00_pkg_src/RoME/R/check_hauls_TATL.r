@@ -33,11 +33,11 @@ check_hauls_TATL<-function(DataTA,DataTL,wd,suffix){
     if ("LITTER_SUB.CATEGORY" %in% colnames(DataTL)){
       colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
     }
-    if ("TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(DataTL)){
-      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_WEIGHT_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_WEIGHT_IN_ THE_SUB-CATEGORY_ HAUL"
+    if ("TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_WEIGHT_IN_THE_SUB-CATEGORY_HAUL"
     }
-    if ("TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL" %in% colnames(DataTL)){
-      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_NUMBER_IN_ THE_SUB.CATEGORY_ HAUL")] <- "TOTAL_NUMBER_IN_ THE_SUB-CATEGORY_ HAUL"
+    if ("TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(DataTL)){
+      colnames(DataTL)[which(colnames(DataTL)=="TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
     }
   }
   #### CHECK TL FIELDS - END ####

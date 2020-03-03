@@ -39,6 +39,27 @@ data(DataTargetSpecies)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("DataTargetSpecies", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("LW")
+### * LW
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: LW
+### Title: Table of the Length-Weight parameters
+### Aliases: LW
+### Keywords: datasets
+
+### ** Examples
+
+data(LW)
+## maybe str(LW) ; plot(LW) ...
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("LW", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("Maturity_parameters")
 ### * Maturity_parameters
 
@@ -597,6 +618,52 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_hauls_TLTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_identical_records")
+### * check_identical_records
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_identical_records
+### Title: Check of identical records in TX tables
+### Aliases: check_identical_records
+### Keywords: error
+
+### ** Examples
+
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    Data = MEDITS::TA
+    check_identical_records(Data, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_identical_records", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_individual_weightTC")
+### * check_individual_weightTC
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_individual_weightTC
+### Title: Check of observed and estimated total weight in the haul
+### Aliases: check_individual_weightTC
+### Keywords: warning
+
+### ** Examples
+
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    TC = MEDITS::TC
+    check_individual_weightTC(DataTC=TC, wd=wd, suffix=suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_individual_weightTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
 
@@ -1108,14 +1175,14 @@ flush(stderr()); flush(stdout())
 
 base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### Name: templateTL
-### Title: Template litter data table (TL).
+### Title: TL table template
 ### Aliases: templateTL
 ### Keywords: datasets
 
 ### ** Examples
 
 data(templateTL)
-maybe str(templateTL)
+## maybe str(templateTL) ; plot(templateTL) ...
 
 
 

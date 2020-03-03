@@ -1,4 +1,5 @@
 name	user	system	elapsed
-DataTargetSpecies	0.00	0.01	0.02	
-Maturity_parameters	0	0	0	
+DataTargetSpecies	0	0	0	
+LW	0	0	0	
+Maturity_parameters	0.01	0.00	0.02	
 ResultDataTE	0.00	0.02	0.01	

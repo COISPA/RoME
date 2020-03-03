@@ -17,6 +17,8 @@ check_hauls_TATL	check_hauls_TATL
 check_hauls_TBTA	check_hauls_TBTA
 check_hauls_TLTA	check_hauls_TLTA
 check_haul_species_TCTB	check_haul_species_TCTB
+check_identical_records	check_identical_records
+check_individual_weightTC	check_individual_weightTC
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising
@@ -36,6 +38,7 @@ check_weight	check_weight
 create_haul	create_haul
 DataTargetSpecies	DataTargetSpecies
 list_g1_g2	list_g1_g2
+LW	LW
 Maturity_parameters	Maturity_parameters
 ResultDataTE	ResultDataTE
 templateTA	templateTA

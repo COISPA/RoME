@@ -5,7 +5,7 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
 #   March 2020                                                                                                             #
 ############################################################################################################################
-# Check if the values in several fields belong to the allowed ranges according to INSTRUCTION MANUAL VERSION 5 MEDITS 2007
+# Check if the values in several fields belong to the allowed ranges according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 check_dictionary<-function(ResultData,Field,Values, wd, suffix){
 

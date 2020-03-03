@@ -20,7 +20,8 @@
 * checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
 * checking top-level files ... NOTE
-Non-standard file/directory found at top level:
+Non-standard files/directories found at top level:
+  'Comparison_estimated_observed_weight_in_TC_2007.csv'
   'TE_provisional.rda'
 * checking for left-over files ... OK
 * checking index information ... OK
@@ -90,7 +91,12 @@ prepare_Rd: ResultDataTE.Rd:45-47: Dropping empty section \references
 prepare_Rd: check_unique_valid_haul.Rd:6-8: Dropping empty section \description
 checkRd: (5) check_unique_valid_haul.Rd:0-39: Must have a \description
 * checking Rd metadata ... OK
-* checking Rd line widths ... OK
+* checking Rd line widths ... NOTE
+Rd file 'check_individual_weightTC.Rd':
+  \usage lines wider than 90 characters:
+     check_individual_weightTC(DataTC, SPECIES = NA, SEX = NA, AREA = NA, a = NA, b = NA, wd, suffix, verbose = FALSE)
+
+These lines will be truncated in the PDF manual.
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
@@ -101,9 +107,6 @@ Extensions' manual.
 * checking for code/documentation mismatches ... WARNING
 Data with usage in documentation object 'ResultDataTE' but not in code:
   'ResultDataTE'
-
-Data with usage in documentation object 'templateTL' but not in code:
-  'templateTL'
 
 Codoc mismatches from documentation object 'check_subsampling':
 check_subsampling
@@ -197,8 +200,8 @@ Esecuzione interrotta
 * checking for unstated dependencies in examples ... WARNING
 Warning: parse error in file 'lines':
 7: unexpected symbol
-917: data(templateTA)
-918: maybe str
+975: data(templateTA)
+976: maybe str
            ^
 * checking contents of 'data' directory ... OK
 * checking data for non-ASCII characters ... OK
@@ -222,4 +225,4 @@ Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 7 WARNINGs, 2 NOTEs
+Status: 1 ERROR, 7 WARNINGs, 3 NOTEs
