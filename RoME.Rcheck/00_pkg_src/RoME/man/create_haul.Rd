@@ -10,7 +10,7 @@ create_haul(ResultDataTA,wd,suffix)
 }
 
 \arguments{
-\item{DataTA}{Haul data table according to MEDITS protocol (TA)}
+\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA)}
 \item{wd}{working directory path defined by the user}
 \item{suffix}{Suffix string of the Logfile}
 }

@@ -7,20 +7,15 @@
 ############################################################################################################################
 # Check if weight of the sample in TC is consistent with length-weight relationship
 
-check_individual_weightTC<- function (DataTC,SPECIES=NA,SEX=NA,AREA=NA,a=NA,b=NA,wd,suffix, verbose=FALSE){
+check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTC = MEDITS::TC
-    SPECIES=NA
-    SEX=NA
-    AREA=NA
-    a=NA
-    b=NA
-    verbose=FALSE
-    # check_individual_weightTC(DataTC=DataTC, wd=wd, suffix=suffix)
+    verbose=TRUE
+    # check_individual_weightTC(DataTC=DataTC, wd=wd, suffix=suffix, verbose=TRUE)
   }
 
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
@@ -38,13 +33,11 @@ check_individual_weightTC<- function (DataTC,SPECIES=NA,SEX=NA,AREA=NA,a=NA,b=NA
 
   write(paste("\n----------- check consistency total weight in the haul in TC - ",TC$YEAR[1]), file = Errors, append = TRUE)
 
-  if (is.na(SPECIES) | is.na(SEX) | is.na(AREA) | is.na(a) | is.na(b) ){
+  if (is.na(LW) ){
     if (verbose){
-    message("a and b parameters extracted from LW table")
+    message("a and b parameters extracted from RoME LW table")
     }
     LW <- RoME::LW
-  } else {
-    LW <- data.frame(AREA=AREA, SPECIES=SPECIES, SEX=SEX,a=a,b=b)
   }
 
   TC$mean_weight = NA

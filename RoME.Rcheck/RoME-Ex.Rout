@@ -100,28 +100,6 @@ Loading required package: timeDate
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
-> nameEx("ResultDataTE")
-> ### * ResultDataTE
-> 
-> flush(stderr()); flush(stdout())
-> 
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: ResultDataTE
-> ### Title: Provisional!
-> ### Aliases: ResultDataTE
-> ### Keywords: datasets
-> 
-> ### ** Examples
-> 
-> data(ResultDataTE)
-Warning in data(ResultDataTE) : data set 'ResultDataTE' not found
-> ## maybe str(ResultDataTE) ; plot(ResultDataTE) ...
-> 
-> 
-> 
-> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-> base::cat("ResultDataTE", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-> cleanEx()
 > nameEx("TE_provisional")
 > ### * TE_provisional
 > 
