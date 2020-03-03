@@ -66,40 +66,25 @@ check_species_TBTC: no visible binding for global variable
   'DataTargetSpecies'
 check_stratum_code: no visible binding for global variable
   'stratification_scheme'
-check_temperature: no visible global function definition for 'par'
-check_temperature: no visible global function definition for 'text'
 check_unique_valid_haul: no visible global function definition for
   'sqlQuery'
 check_unique_valid_haul: no visible binding for global variable
   'channelTA'
-check_weight: no visible global function definition for 'windows'
-check_weight: no visible global function definition for 'text'
 check_weight: no visible global function definition for '.mod'
-check_weight: no visible global function definition for 'par'
 copyTables: no visible binding for '<<-' assignment to 'working_tables'
 create_catch: no visible binding for global variable 'Format'
-create_catch: no visible global function definition for 'write.table'
 create_haul: no visible global function definition for
   'convert_coordinates'
-create_haul: no visible global function definition for 'write.table'
 create_length: no visible binding for global variable 'Format'
 create_length: no visible binding for global variable
   'DataTargetSpecies'
 create_length: no visible binding for global variable 'DataSpecies'
 create_length: no visible binding for global variable 'DataTE'
-create_length: no visible global function definition for 'write.table'
 create_length: no visible global function definition for 'sqldf'
 create_strata: no visible global function definition for 'sqldf'
-create_strata: no visible global function definition for 'write.table'
 Undefined global functions or variables:
   .mod DataSpecies DataTE DataTargetSpecies Format ResultData channelTA
-  convert_coordinates par sqlQuery sqldf stratification_scheme text
-  windows write.table
-Consider adding
-  importFrom("grDevices", "windows")
-  importFrom("graphics", "par", "text")
-  importFrom("utils", "write.table")
-to your NAMESPACE file.
+  convert_coordinates sqlQuery sqldf stratification_scheme
 * checking Rd files ... WARNING
 prepare_Rd: check_stratum_code.Rd:5-7: Dropping empty section \description
 checkRd: (5) check_stratum_code.Rd:0-42: Must have a \description
