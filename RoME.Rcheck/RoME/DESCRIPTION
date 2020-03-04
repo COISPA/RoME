@@ -11,5 +11,5 @@ Encoding: UTF-8
 LazyData: true
 Imports: stringr,MEDITS,maps
 NeedsCompilation: no
-Packaged: 2020-03-03 17:28:24 UTC; Walter
-Built: R 3.6.2; ; 2020-03-03 17:29:31 UTC; windows
+Packaged: 2020-03-04 08:55:43 UTC; Walter
+Built: R 3.6.2; ; 2020-03-04 08:55:52 UTC; windows

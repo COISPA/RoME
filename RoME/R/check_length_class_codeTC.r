@@ -5,19 +5,18 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
 #   March 2020                                                                                                             #
 ############################################################################################################################
-#  Check about the consistency of length classes in TC
+#  Check if LENGTH_CLASSES_CODE is correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
-
+check_length_class_codeTC<-function(DataTC,Specieslist=NA, wd,suffix){
   if (FALSE){
     library(MEDITS)
     wd <- tempdir()
-    DataSpecies=NA
+    Specieslist=NA
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     DataTC <- DataTC[DataTC$YEAR == 2018, ]
 
-    # check_length(DataTB,DataTC,wd,suffix)
+    # check_length_class_codeTC(DataTC,Specieslist=NA,wd,suffix)
   }
 
 
@@ -31,42 +30,38 @@ check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
   }
   Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
-  Result = DataTC
-  write(paste("\n----------- check consistency of length classes TC - ",Result$YEAR[1]), file = Errors, append = TRUE)
+  ResultData = DataTC
+  write(paste("\n----------- check correctness of LENGTH_CLASSES_CODE in TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
-  if(is.na(DataSpecies)){
-    Target <- RoME::DataTargetSpecies
+  if(is.na(Specieslist)){
+    ResultSpecies <- RoME::TM_list
   } else {
-    Target <- DataSpecies
+    ResultSpecies <- Specieslist
   }
 
-  Target=Target[which(!is.na(Target$MIN_LEN)),]
-
-
-  ResultData= Result[,which(names(Result)=="TYPE_OF_FILE" | names(Result)=="HAUL_NUMBER" | names(Result)=="GENUS" | names(Result)=="SPECIES" | names(Result)=="SEX" | names(Result)=="LENGTH_CLASS")]
-
-  ResultData$species=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
-
-  i=1
-  for (i in 1:nrow(ResultData)){
-    FoundInTable=Target[as.character(Target$SPECIES)==as.character(ResultData$species[i]),]
-    FoundInTable=FoundInTable[is.na(FoundInTable$MIN_LEN[1])==FALSE,]
-    if (nrow(FoundInTable)!=0){
-      if (((ResultData$LENGTH_CLASS[i]<FoundInTable$MIN_LEN[1]) | (ResultData$LENGTH_CLASS[i]>FoundInTable$MAX_LEN[1]))==TRUE)
-      {
-        write(paste("Warning: Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," sex ",ResultData$SEX[i]," length ",ResultData$LENGTH_CLASS[i]," : LENGTH_CLASS out of boundaries (",FoundInTable$MIN_LEN[1],",",FoundInTable$MAX_LEN[1],") in ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
+  if (nrow(ResultData)!=0){
+    j=1
+    for (j in 1:nrow(ResultData)){
+      FoundSpecies=ResultSpecies[as.character(ResultSpecies$MeditsCode)==paste(as.character(ResultData$GENUS[j]),as.character(ResultData$SPECIES[j]),sep=""),]
+      if (length(FoundSpecies$CODLON[1])!=0){
+        if (as.character(FoundSpecies$CODLON[1])!=as.character(ResultData$LENGTH_CLASSES_CODE[j]))   {
+          write(paste("Haul",ResultData$HAUL_NUMBER[j],": code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ,"wrong LENGTH_CLASSES_CODE according to MEDITS FM list in Tables directory"), file = Errors, append = TRUE)
+          numberError = numberError+1
+        }
+      } else {
+        write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ," species not present in TM list: LENGTH_CLASSES_CODE not verified."), file = Errors, append = TRUE)
       }
+
+
     }
-
   }
-
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
-    unlink("length.csv")
   }
 
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
+
 
 }
