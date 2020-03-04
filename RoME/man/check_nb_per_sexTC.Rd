@@ -1,24 +1,15 @@
 \name{check_nb_per_sexTC}
 \alias{check_nb_per_sexTC}
-\title{
-Consistency check between sum of NB_LON and NB_SEX}
+\title{Consistency check of number of individuals}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+The function checks the consistency of the number of individuals by sex measured (NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED field in the biological data table, TC) with the sum of the individuals by sex, length class and maturity stage (NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE field in TC)}
 \usage{
 check_nb_per_sexTC(DataTC, wd, suffix)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{DataTC}{
-%%     ~~Describe \code{DataTC} here~~
-}
-  \item{wd}{
-%%     ~~Describe \code{wd} here~~
-}
-  \item{suffix}{
-%%     ~~Describe \code{suffix} here~~
-}
+    \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
+    \item{wd}{working directory path defined by the user}
+    \item{suffix}{Suffix string of the Logfile}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
