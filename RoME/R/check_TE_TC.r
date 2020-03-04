@@ -35,10 +35,6 @@ check_TE_TC <- function (ResultDataTC,ResultDataTE,wd,suffix){
 
   Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
-  numberError = 0
-  #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
-  write(paste("
-              ----------- check start depth and end depth in the same stratum TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
 
   numberError = 0
