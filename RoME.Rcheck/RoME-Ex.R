@@ -713,6 +713,55 @@ check_length_class_codeTC(DataTC,Specieslist=NA,wd,suffix)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_length_class_codeTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_mat_stages")
+### * check_mat_stages
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_mat_stages
+### Title: Consistency of maturity stages
+### Aliases: check_mat_stages
+### Keywords: error warning
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+DataTC <- MEDITS::TC
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_mat_stages(Result, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_mat_stages", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_nb_per_sexTC")
+### * check_nb_per_sexTC
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_nb_per_sexTC
+### Title: Consistency check of number of individuals
+### Aliases: check_nb_per_sexTC
+### Keywords: error
+
+### ** Examples
+
+    library(RoME)
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    DataTC = MEDITS::TC
+    check_nb_per_sexTC(DataTC,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_nb_per_sexTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
 
@@ -1089,6 +1138,30 @@ check_weight(TB,DataTargetSpecies,wd,suffix)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_weight", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("create_catch")
+### * create_catch
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: create_catch
+### Title: Function to create the R-sufi file capt.
+### Aliases: create_catch
+### Keywords: R-sufi,capt
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd <- tempdir()
+suffix="27-02-2020 18:30"
+create_catch(TB,wd)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("create_catch", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("create_haul")
 ### * create_haul
 
@@ -1106,12 +1179,60 @@ library(MEDITS)
 library(RoME)
 wd <- tempdir()
 suffix="27-02-2020 18:30"
-create_haul(TA,wd,suffix)
+create_haul(TA,wd)
 
 
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("create_haul", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("create_length")
+### * create_length
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: create_length
+### Title: Function to create the R-sufi file taille.
+### Aliases: create_length
+### Keywords: R-sufi,taille
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd <- tempdir()
+suffix="27-02-2020 18:30"
+create_length(TC,TM_list,wd)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("create_length", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("create_strata")
+### * create_strata
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: create_strata
+### Title: Function to create R-sufi file containing strata surface data.
+### Aliases: create_strata
+### Keywords: R-sufi,strata
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+wd <- tempdir()
+suffix="27-02-2020 18:30"
+create_strata(stratification_scheme,"18",wd)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("create_strata", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("list_g1_g2")
 ### * list_g1_g2
@@ -1132,6 +1253,46 @@ data(list_g1_g2)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("list_g1_g2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("mat_stages")
+### * mat_stages
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: mat_stages
+### Title: Table of maturity stages
+### Aliases: mat_stages
+### Keywords: datasets
+
+### ** Examples
+
+data(mat_stages)
+## maybe str(mat_stages) ; plot(mat_stages) ...
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("mat_stages", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("printError")
+### * printError
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: printError
+### Title: Management of the error in logfile.
+### Aliases: printError
+### Keywords: error
+
+### ** Examples
+
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("printError", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("templateTA")
 ### * templateTA

@@ -16,7 +16,7 @@ if (FALSE){
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #DataTC = MEDITS::TC
 
-  check_mat_stages(Result, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
+  check_mat_stages(Result, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
 }
 
 

@@ -44,6 +44,8 @@ check_individual_weightTE
 check_length            Check of length classes in TC
 check_length_class_codeTC
                         Consistency check of LENGTH_CLASS
+check_mat_stages        Consistency of maturity stages
+check_nb_per_sexTC      Consistency check of number of individuals
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
@@ -84,9 +86,15 @@ check_unique_valid_haul
 check_weight            Function that checks if number of individuals
                         and total weight collected in the haul are
                         consistent.
+create_catch            Function to create the R-sufi file capt.
 create_haul             Function to create R-sufi file containing haul
                         data.
+create_length           Function to create the R-sufi file taille.
+create_strata           Function to create R-sufi file containing
+                        strata surface data.
 list_g1_g2              List of G1 and G2 species
+mat_stages              Table of maturity stages
+printError              Management of the error in logfile.
 templateTA              Template haul data table (TA).
 templateTB              Template catch data table (TB).
 templateTC              Template biological data table (TC).

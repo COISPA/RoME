@@ -22,6 +22,8 @@ check_individual_weightTC	check_individual_weightTC
 check_individual_weightTE	check_individual_weightTE
 check_length	check_length
 check_length_class_codeTC	check_length_class_codeTC
+check_mat_stages	check_mat_stages
+check_nb_per_sexTC	check_nb_per_sexTC
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising
@@ -38,11 +40,16 @@ check_temperature	check_temperature
 check_TE_TC	check_TE_TC
 check_unique_valid_haul	check_unique_valid_haul
 check_weight	check_weight
+create_catch	create_catch
 create_haul	create_haul
+create_length	create_length
+create_strata	create_strata
 DataTargetSpecies	DataTargetSpecies
 list_g1_g2	list_g1_g2
 LW	LW
 Maturity_parameters	Maturity_parameters
+mat_stages	mat_stages
+printError	printError
 templateTA	templateTA
 templateTB	templateTB
 templateTC	templateTC

@@ -3,9 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Function checking that smong hauls with the same code, only one must be valid.}
-\description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+\description{Check the presence of unique valid haul codes.}
 \usage{
 check_unique_valid_haul(ResultDataTA,wd,suffix)
 }
