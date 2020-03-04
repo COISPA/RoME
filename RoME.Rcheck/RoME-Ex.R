@@ -679,6 +679,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(MEDITS)
 library(RoME)
 wd=tempdir()
+DataTC <- MEDITS::TC
 suffix= "27-02-2020 18:30"
 check_length(DataTC,DataSpecies,wd,suffix)
 
@@ -686,6 +687,31 @@ check_length(DataTC,DataSpecies,wd,suffix)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_length", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_length_class_codeTC")
+### * check_length_class_codeTC
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_length_class_codeTC
+### Title: Consistency check of LENGTH_CLASS
+### Aliases: check_length_class_codeTC
+### Keywords: error warning
+
+### ** Examples
+
+library(MEDITS)
+library(RoME)
+DataTC <- MEDITS::TC
+wd=tempdir()
+suffix= "27-02-2020 18:30"
+check_length_class_codeTC(DataTC,Specieslist=NA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_length_class_codeTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant

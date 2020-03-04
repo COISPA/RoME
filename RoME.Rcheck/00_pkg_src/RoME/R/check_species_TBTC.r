@@ -25,6 +25,7 @@ if (FALSE){
 
 
 check_species_TBTC<-function(ResultTB,ResultTC,DataSpecies=DataTargetSpecies,wd,suffix){
+DataTargetSpecies=RoME::DataTargetSpecies
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){

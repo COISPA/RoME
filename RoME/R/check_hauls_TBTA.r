@@ -10,7 +10,7 @@
 check_hauls_TBTA<-function(DataTA,DataTB,wd,suffix){
 
   if (FALSE){
-    library(MEDITS)
+    #library(MEDITS)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA <- read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # DataTA[DataTA$YEAR == 2018, ]

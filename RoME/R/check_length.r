@@ -10,7 +10,7 @@
 check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
 
   if (FALSE){
-    library(MEDITS)
+    #library(MEDITS)
     wd <- tempdir()
     DataSpecies=NA
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")

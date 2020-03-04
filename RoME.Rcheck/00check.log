@@ -31,11 +31,7 @@
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
 * checking loading without being on the library search path ... OK
-* checking dependencies in R code ... WARNING
-'library' or 'require' call not declared from: 'MEDITS'
-'library' or 'require' call to 'MEDITS' in package code.
-  Please use :: or requireNamespace() instead.
-  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+* checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
@@ -66,16 +62,11 @@ check_weight: warning in tiff(file = paste(wd,
   "_", i, ".tif", sep = ""), width = 12, height = 8, bg = "white",
   units = "in", res = 300, compression = "lzw", pointsize = 1/300):
   partial argument match of 'file' to 'filename'
-check_TE_TC: no visible binding for global variable 'ResultData'
-check_species_TBTC: no visible binding for global variable
-  'DataTargetSpecies'
-check_stratum_code: no visible binding for global variable
-  'stratification_scheme'
-check_unique_valid_haul: no visible global function definition for
-  'sqlQuery'
-check_unique_valid_haul: no visible binding for global variable
-  'channelTA'
-check_weight: no visible global function definition for '.mod'
+check_mat_stages: no visible binding for global variable 'Errors'
+check_mat_stages: no visible binding for global variable 'Format'
+check_mat_stages: no visible binding for global variable 'DataSpecies'
+check_mat_stages: no visible binding for global variable
+  'DataMatStages'
 create_length: no visible binding for global variable 'Format'
 create_length: no visible binding for global variable
   'DataTargetSpecies'
@@ -84,8 +75,8 @@ create_length: no visible binding for global variable 'DataTE'
 create_length: no visible global function definition for 'sqldf'
 create_strata: no visible global function definition for 'sqldf'
 Undefined global functions or variables:
-  .mod DataSpecies DataTE DataTargetSpecies Format ResultData channelTA
-  sqlQuery sqldf stratification_scheme
+  DataMatStages DataSpecies DataTE DataTargetSpecies Errors Format
+  sqldf
 * checking Rd files ... WARNING
 prepare_Rd: check_unique_valid_haul.Rd:6-8: Dropping empty section \description
 checkRd: (5) check_unique_valid_haul.Rd:0-39: Must have a \description
@@ -94,24 +85,14 @@ checkRd: (5) check_unique_valid_haul.Rd:0-39: Must have a \description
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'ResultDataTE' 'create_catch' 'create_length' 'create_strata' 'mod'
+  'ResultDataTE' 'check_mat_stages' 'create_catch' 'create_length'
+  'create_strata'
 Undocumented data sets:
   'ResultDataTE'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
 * checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'check_individual_weightTE':
-check_individual_weightTE
-  Code: function(DataTE, LW = NA, wd, suffix, verbose = FALSE)
-  Docs: function(DataTE, wd, suffix, verbose = FALSE)
-  Argument names in code not in docs:
-    LW
-  Mismatches in argument names:
-    Position: 2 Code: LW Docs: wd
-    Position: 3 Code: wd Docs: suffix
-    Position: 4 Code: suffix Docs: verbose
-
 Codoc mismatches from documentation object 'check_subsampling':
 check_subsampling
   Code: function(ResultTC, wd, suffix)
@@ -123,78 +104,7 @@ check_subsampling
   Mismatches in argument names:
     Position: 1 Code: ResultTC Docs: ResultDataTC
 
-Data codoc mismatches from documentation object 'templateTB':
-Variables in data frame 'templateTB'
-  Code: AREA CODEND_CLOSING COUNTRY DAY FAUNISTIC_CATEGORY GENUS
-        HAUL_NUMBER MONTH NAME_OF_THE_REFERENCE_LIST NB_OF_FEMALES
-        NB_OF_MALES NB_OF_UNDETERMINED PART_OF_THE_CODEND SPECIES
-        TOTAL_NUMBER_IN_THE_HAUL TOTAL_WEIGHT_IN_THE_HAUL TYPE_OF_FILE
-        VESSEL YEAR
-  Docs: AREA BOTTOM_SALINITY_BEGINNING BOTTOM_SALINITY_END
-        BOTTOM_TEMPERATURE_BEGINNING BOTTOM_TEMPERATURE_END
-        BRIDLES_LENGTH CODEND_CLOSING COUNTRY COURSE DAY DISTANCE DOORS
-        GEAR GEOMETRICAL_PRECISION HAULING_DEPTH HAULING_LATITUDE
-        HAULING_LONGITUDE HAULING_QUADRANT HAULING_TIME HAUL_DURATION
-        HAUL_NUMBER HYDROLOGICAL_STATION MEASURING_SYSTEM
-        MEASURING_SYSTEM_SALINITY MONTH NUMBER_OF_THE_STRATUM
-        OBSERVATIONS PART_OF_THE_CODEND RECORDED_SPECIES RIGGING
-        SHOOTING_DEPTH SHOOTING_LATITUDE SHOOTING_LONGITUDE
-        SHOOTING_QUADRANT SHOOTING_TIME TYPE_OF_FILE VALIDITY
-        VERTICAL_OPENING VESSEL WARP_DIAMETER WARP_LENGTH WING_OPENING
-        YEAR
-
-Data codoc mismatches from documentation object 'templateTC':
-Variables in data frame 'templateTC'
-  Code: AREA CODEND_CLOSING COUNTRY GENUS HAUL_NUMBER LENGTH_CLASS
-        LENGTH_CLASSES_CODE MATSUB MATURITY
-        NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED
-        NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE
-        PART_OF_THE_CODEND SEX SPECIES TYPE_OF_FILE VESSEL
-        WEIGHT_OF_THE_FRACTION WEIGHT_OF_THE_SAMPLE_MEASURED YEAR
-  Docs: AREA BOTTOM_SALINITY_BEGINNING BOTTOM_SALINITY_END
-        BOTTOM_TEMPERATURE_BEGINNING BOTTOM_TEMPERATURE_END
-        BRIDLES_LENGTH CODEND_CLOSING COUNTRY COURSE DAY DISTANCE DOORS
-        GEAR GEOMETRICAL_PRECISION HAULING_DEPTH HAULING_LATITUDE
-        HAULING_LONGITUDE HAULING_QUADRANT HAULING_TIME HAUL_DURATION
-        HAUL_NUMBER HYDROLOGICAL_STATION MEASURING_SYSTEM
-        MEASURING_SYSTEM_SALINITY MONTH NUMBER_OF_THE_STRATUM
-        OBSERVATIONS PART_OF_THE_CODEND RECORDED_SPECIES RIGGING
-        SHOOTING_DEPTH SHOOTING_LATITUDE SHOOTING_LONGITUDE
-        SHOOTING_QUADRANT SHOOTING_TIME TYPE_OF_FILE VALIDITY
-        VERTICAL_OPENING VESSEL WARP_DIAMETER WARP_LENGTH WING_OPENING
-        YEAR
-
-Data codoc mismatches from documentation object 'templateTE':
-Variables in data frame 'templateTE'
-  Code: AGE AREA COUNTRY DAY FAUNISTIC_CATEGORY GENUS HAUL_NUMBER
-        INDIVIDUAL_WEIGHT LENGTH_CLASS LENGTH_CLASSES_CODE MATSUB
-        MATURITY MONTH NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_AGEING
-        NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_OTOLITH
-        NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT OTOLITH_CODE
-        OTOLITH_READ OTOLITH_SAMPLED RECORD_NUMBER SEX SPECIES
-        TYPE_OF_FILE VESSEL YEAR
-  Docs: AREA BOTTOM_SALINITY_BEGINNING BOTTOM_SALINITY_END
-        BOTTOM_TEMPERATURE_BEGINNING BOTTOM_TEMPERATURE_END
-        BRIDLES_LENGTH CODEND_CLOSING COUNTRY COURSE DAY DISTANCE DOORS
-        GEAR GEOMETRICAL_PRECISION HAULING_DEPTH HAULING_LATITUDE
-        HAULING_LONGITUDE HAULING_QUADRANT HAULING_TIME HAUL_DURATION
-        HAUL_NUMBER HYDROLOGICAL_STATION MEASURING_SYSTEM
-        MEASURING_SYSTEM_SALINITY MONTH NUMBER_OF_THE_STRATUM
-        OBSERVATIONS PART_OF_THE_CODEND RECORDED_SPECIES RIGGING
-        SHOOTING_DEPTH SHOOTING_LATITUDE SHOOTING_LONGITUDE
-        SHOOTING_QUADRANT SHOOTING_TIME TYPE_OF_FILE VALIDITY
-        VERTICAL_OPENING VESSEL WARP_DIAMETER WARP_LENGTH WING_OPENING
-        YEAR
-
-* checking Rd \usage sections ... WARNING
-Documented arguments not in \usage in documentation object 'check_individual_weightTE':
-  'LW'
-
-Functions with \usage entries need to have the appropriate \alias
-entries, and all their arguments documented.
-The \usage entries must correspond to syntactically valid R code.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
+* checking Rd \usage sections ... OK
 * checking Rd contents ... WARNING
 Error in sub(re, "", x, perl = TRUE) : input string 1 is invalid UTF-8
 Calls: <Anonymous> ... .Rd_get_offending_autogenerated_content -> trimws -> mysub -> sub -> mysub -> sub
@@ -222,4 +132,4 @@ Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 6 WARNINGs, 1 NOTE
+Status: 1 ERROR, 4 WARNINGs, 1 NOTE
