@@ -7,22 +7,28 @@
 ###########################################################################################################################
 if (FALSE){
   Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-
+  Result =Result[Result$YEAR==1994,]
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  create_catch(Result,wd,suffix)
+  #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  #DataTE=""
+  create_length(Result,TM_list,wd)
 }
 
 
 # Creation of R-SUFI files:
 # tailles.csv
-create_length<-function(ResultData){
+
+create_length<-function(ResultData,DataSpecies=RoME::TM_list,wd){
+
+  #if (is.na(DataSpecies)){
+   # DataSpecies=RoME::TM_list
+  #}
 
   if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
 
-  ResultData= ResultData[as.character(ResultData$MATURITY)!="ND",]
+  ResultData= ResultData[as.character(ResultData$MATURITY)!="ND" & as.character(ResultData$MATURITY)!="",]
 
   if (any(!is.na(ResultData$MATSUB)) & (any(as.character(ResultData$MATSUB)=="A" )| any(as.character(ResultData$MATSUB)=="B")| any(as.character(ResultData$MATSUB)=="C")| any(as.character(ResultData$MATSUB)=="D")| any(as.character(ResultData$MATSUB)=="E"))) {
   mat_scale="new"
@@ -35,7 +41,7 @@ create_length<-function(ResultData){
   ResultData$species=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
 
 
-  cat_fau=read.csv(file=paste(DataSpecies,".csv",sep=""),sep=";",header=TRUE, stringsAsFactors=FALSE)
+  cat_fau=DataSpecies #read.csv(file=paste(,".csv",sep=""),sep=";",header=TRUE, stringsAsFactors=FALSE)
   cat_fau=cat_fau[cat_fau$CATFAU!="",]
 
 
@@ -115,49 +121,67 @@ create_length<-function(ResultData){
       }
   }
   taille[,7]=ResultData$LENGTH_CLASS/10
- if (DataTE!=""){
+ if (as.character(ResultData[1,1])=="TE"){
   taille[,8]=1
-  }
- if (DataTE!=""){
-  taille[,9] =ResultData$INDIVIDUAL_WEIGHT
+   taille[,9] =ResultData$INDIVIDUAL_WEIGHT
 
   ResultData$AGE[which(is.na(ResultData$AGE) | as.character(ResultData$AGE)=="UR" | as.character(ResultData$AGE)=="NR" | as.character(ResultData$AGE) == "-1") | as.character(ResultData$AGE) == "" ] <- NA
 
   taille[,10] <- ResultData$AGE
-  }
-  if ((DataTE=="")){
+  } else {
 
-  write.table(taille,file="length.csv",sep=";", col.names=TRUE, row.names=FALSE)
+  taille[,8]=ResultData$NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED
+}
+
+  if (as.character(ResultData[1,1])=="TC"){
+
+  #write.table(taille,file="length.csv",sep=";", col.names=TRUE, row.names=FALSE)
 
 
   # eliminate duplicated records
-  TableT <-taille # read.csv("length.csv",sep=";", header=TRUE, stringsAsFactors=FALSE)
+  TableT <-data.frame(taille) # read.csv("length.csv",sep=";", header=TRUE, stringsAsFactors=FALSE)
+  class(TableT$Age) ="character"
+  TableT$Age= "NA"
+  class(TableT$Weight) ="character"
+  TableT$Weight = "NA"
   #channel <- odbcConnectExcel(Table)
   #query="select Survey,	Year,	Haul,	Species,	Sex, Maturity, Longeur,	sum(Nb), Weight, Age  from Table Group by Survey,	Year,	Haul,	Species,	Sex, Maturity, Longeur,	Weight, Age"
   #query="select Survey,	Year,	Haul,	Species,	Sex, Maturity, Longeur,	Nb, Weight, Age  from Table Group by Survey,	Year,	Haul,	Species,	Sex, Maturity, Longeur, Weight, Age"
-  query="select Survey, Year, Haul, Species, Sex, Maturity, Longeur, Nb, Weight, Age  from TableT Group by Survey, Year, Haul, Species, Sex, Maturity, Longeur, Nb, Weight, Age"
+  #query="select Survey, Year, Haul, Species, Sex, Maturity, Longeur, Nb, Weight, Age  from TableT Group by Survey, Year, Haul, Species, Sex, Maturity, Longeur, Nb, Weight, Age"
 
-  Matrix= aggregate(TableT$Nb,by=list(TableT$Survey, TableT$Year, TableT$Haul, TableT$Species, TableT$Sex, TableT$Maturity, TableT$Longeur, TableT$Weight, TableT$Age),FUN="sum") #sqldf(query)
+  Matrix= aggregate(as.numeric(TableT$Nb),by=list(TableT$Survey, TableT$Year, TableT$Haul, TableT$Species, TableT$Sex, TableT$Maturity, TableT$Longeur, TableT$Weight, TableT$Age),FUN="sum") #sqldf(query)
+  colnames(Matrix)=c("Survey", "Year", "Haul", "Species", "Sex", "Maturity", "Longeur", "Weight", "Age","Nb")
   #odbcClose(channel)
   # unlink("length.xls")
-  unlink("length.csv")
-   } else {
+  #unlink("length.csv")
+  Matrix=Matrix[,c(1:7,10,8:9)]
+   } else if(ResultData[1,1]=="TE") {
 
 
   #write.csv(taille,file="length.csv",sep=";", col.names=TRUE, row.names=FALSE)
-  write.table(taille, file="length.csv" ,row.names=FALSE, col.names=TRUE, sep=";")
+  #write.table(taille, file="length.csv" ,row.names=FALSE, col.names=TRUE, sep=";")
   # eliminate duplicated records
   #channel <- odbcConnectExcel(Table)
 
 
 
-  TableT <- read.csv("length.csv" ,sep=";", header=TRUE, stringsAsFactors=FALSE)
+  TableT <- data.frame(taille) #read.csv("length.csv" ,sep=";", header=TRUE, stringsAsFactors=FALSE)
+  TableT <-data.frame(taille) # read.csv("length.csv",sep=";", header=TRUE, stringsAsFactors=FALSE)
+  class(TableT$Age) ="character"
+  TableT$Age= "NA"
+  class(TableT$Weight) ="character"
+  TableT$Weight = "NA"
+
   #Table <- read.xlsx("length.xls", sheetName="Sheet1")
-  query="select Survey, Year, Haul, Species, Sex, Maturity, Longeur, Nb, Weight, Age from TableT"
-  Matrix=sqldf(query)
+  #query="select Survey, Year, Haul, Species, Sex, Maturity, Longeur, Nb, Weight, Age from TableT"
+  #Matrix=sqldf(query)
+
+  Matrix= aggregate(as.numeric(TableT$Nb),by=list(TableT$Survey, TableT$Year, TableT$Haul, TableT$Species, TableT$Sex, TableT$Maturity, TableT$Longeur, TableT$Weight, TableT$Age),FUN="sum") #sqldf(query)
+  colnames(Matrix)=c("Survey", "Year", "Haul", "Species", "Sex", "Maturity", "Longeur", "Weight", "Age","Nb")
+  Matrix=Matrix[,c(1:7,10,8:9)]
   #odbcClose(channel)
   # unlink("length.xls")
-  unlink("length.csv")
+  #unlink("length.csv")
 
   #######
   #  write.xlsx(taille,file="length.xls",colNames=TRUE)
@@ -171,13 +195,14 @@ create_length<-function(ResultData){
   #######
 
    }
+
   colnames(Matrix)=(c("Survey",	"Year",	"Haul",	"Species",	"Sex", "Maturity", "Length",	"Number",	"Weight", "Age") )
 
 
-  rSufiString <- paste("files R-Sufi/taille_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")
+  rSufiString <- paste(wd,"/files R-Sufi/taille_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")
 #   rSufiString <- paste("taille_",Year,"_GSA",ResultData$AREA[1],".csv",sep="")
 
-  if(file.exists(paste(getwd(),rSufiString,sep=""))) file.remove(paste(getwd(),rSufiString,sep=""))
+  if(file.exists(paste(rSufiString,sep=""))) file.remove(paste(rSufiString,sep=""))
 
 
   write.table(Matrix,file=rSufiString, col.names=TRUE, row.names=FALSE, quote=FALSE, sep=";", append=FALSE)

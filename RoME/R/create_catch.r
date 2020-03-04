@@ -13,11 +13,11 @@ if (FALSE){
   Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  create_catch(Result,wd,suffix)
+  #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  create_catch(Result,wd)
 }
 
-create_catch<-function(ResultDataTB,wd,suffix){
+create_catch<-function(ResultDataTB,wd){
 
   if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
@@ -37,6 +37,6 @@ create_catch<-function(ResultDataTB,wd,suffix){
 
   capt[,6]=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/1000,3)
 
-write.table(capt,file=paste("files R-Sufi/captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
+write.table(capt,file=paste(wd,"/files R-Sufi/captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
 }
 ###########################################################################################################################

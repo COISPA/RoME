@@ -14,11 +14,11 @@ if (FALSE){
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  create_haul(Result,wd,suffix)
+  create_haul(Result,wd)
 }
 
 
-create_haul<-function(ResultDataTA,wd,suffix){
+create_haul<-function(ResultDataTA,wd){
 
    Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
