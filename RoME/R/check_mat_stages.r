@@ -7,19 +7,33 @@
 ############################################################################################################################
 # Check if maturity stages in TC are consistent according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages){
 
-  if (FALSE){
+if (FALSE){
+  #library(RoME)
+  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+  Result[Result$YEAR==1994,]
+  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  DataTC = MEDITS::TC
+
+  check_mat_stages(Result, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=mat_stages)
+}
+
+if (FALSE){
     #library(MEDITS)
     wd <- tempdir()
     DataTargetSpecies=RoME::DataTargetSpecies
     DataSpecies=RoME::TM_list
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    Data <- Data[Data$YEAR == 1994, ]
+    Data = MEDITS::TC #read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    #Data <- Data[Data$YEAR == 1994, ]
 
     # check_mat_stages(Data, wd, suffix)
   }
+
+
+check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages){
+
 
 
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
@@ -75,8 +89,8 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
       # }  else
 
         if ((ResultData$YEAR[i] <= 2006)) {
-        cat_fau_one = ifelse (cat_fau_one=="Ae","S",cat_fau_one)
-        stages_err = stages[as.character(stages$FAUNISTIC_CATEGORY)==substring(cat_fau_one ,1,1) & as.character(stages$SEX)== as.character(ResultData$SEX[i]) & as.character(stages$MEDITS_STAGE_up_to_2006)== as.character(ResultData$MATURITY[i]),]
+        #cat_fau_one = ifelse (cat_fau_one=="Ae","S",cat_fau_one)
+        stages_err = stages[as.character(stages$FAUNISTIC_CATEGORY)==cat_fau_one & as.character(stages$SEX)== as.character(ResultData$SEX[i]) & as.character(stages$MEDITS_STAGE_up_to_2006)== as.character(ResultData$MATURITY[i]),]
       } else {
         stages_err = stages[as.character(stages$FAUNISTIC_CATEGORY)==cat_fau_one & as.character(stages$SEX)== as.character(ResultData$SEX[i])  & as.character(stages$MEDITS_STAGE_from_2012)== as.character(ResultData$maturity[i]),]
       }
