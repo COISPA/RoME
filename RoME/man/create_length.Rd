@@ -4,7 +4,7 @@
 Function to create the R-sufi file taille.
 }
 \description{
-This function report the information contained in the biological data table (TC) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).
+This function reports the information contained in the biological data table (TC) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).
 }
 \usage{
  create_length(Result,TM_list,wd)
