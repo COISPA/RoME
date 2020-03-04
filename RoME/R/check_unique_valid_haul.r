@@ -58,8 +58,9 @@ check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
   if (length(moreThanOneHaul)>1){
     for (j in 1:length(moreThanOneHaul)){
       index= moreThanOneHaul[j]
-      queryCheck = paste("SELECT * from Result where HAUL_NUMBER=", ResultTA$HAUL_NUMBER[index], " and VALIDITY='V'", sep="" )
-      ResultCheck=sqlQuery(channelTA, queryCheck)
+
+      ResultCheck=ResultTA[ResultTA$HAUL_NUMBER==ResultTA$HAUL_NUMBER[index] & ResultTA$VALIDITY=="V",]
+
       if (nrow(ResultCheck)>1)   {
         write(paste("Haul",ResultTA$HAUL_NUMBER[index],": only one row for the haul is allowed to be VALID"), file = Errors, append = TRUE)
         numberError = numberError +1

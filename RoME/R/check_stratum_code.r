@@ -22,6 +22,7 @@ if (FALSE){
 }
 
 check_stratum_code <- function (ResultDataTA,Stratification=stratification_scheme,wd,suffix){
+  stratification_scheme=MEDITS::stratification_scheme
 
   Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
