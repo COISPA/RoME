@@ -4,7 +4,7 @@
 \description{
 The finction checks the difference between observed and estimated individual weight in percentage.}
 \usage{
-check_individual_weightTE(DataTE, wd, suffix,verbose=FALSE)
+check_individual_weightTE(DataTE,LW, wd, suffix,verbose=FALSE)
 }
 \arguments{
   \item{DataTE}{Individual biological data table according to MEDITS protocol (TE)}

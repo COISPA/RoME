@@ -41,6 +41,7 @@ check_individual_weightTC
 check_individual_weightTE
                         Consistency of individual weights (according to
                         length-weight relationship)
+check_length            Check of length classes in TC
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
