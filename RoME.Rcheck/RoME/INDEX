@@ -101,6 +101,7 @@ create_haul             Function to create R-sufi file containing haul
 create_length           Function to create the R-sufi file taille.
 create_strata           Function to create R-sufi file containing
                         strata surface data.
+graphs_TA               Quality control by graphs
 haul_at_sea             Check of haul position on sea area
 list_g1_g2              List of G1 and G2 species
 mat_stages              Table of maturity stages

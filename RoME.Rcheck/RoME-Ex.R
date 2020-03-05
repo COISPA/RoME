@@ -1390,6 +1390,29 @@ create_strata(stratification_scheme,"18",wd)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("create_strata", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("graphs_TA")
+### * graphs_TA
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: graphs_TA
+### Title: Quality control by graphs
+### Aliases: graphs_TA
+### Keywords: graph
+
+### ** Examples
+
+library(MEDITS)
+wd <- tempdir()
+suffix="2020-03-05_time h17m44s55"
+graphs_TA(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("graphs_TA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("haul_at_sea")
 ### * haul_at_sea
 
