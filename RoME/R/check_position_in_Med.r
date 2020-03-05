@@ -14,7 +14,11 @@ check_position_in_Med<-function(DataTA,wd,suffix){
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
-    DataTA[DataTA$YEAR ==2008 , ]
+    DataTA = DataTA[DataTA$YEAR ==2008 , ]
+    DataTA[1,"SHOOTING_LONGITUDE"] <- 2300
+    DataTA[1,"SHOOTING_LATITUDE"] <- 4700
+    DataTA[1,"HAULING_LONGITUDE"] <- 2300
+    DataTA[1,"HAULING_LATITUDE"] <- 4700
 
     # check_position_in_Med(DataTA, wd, suffix)
   }
@@ -36,15 +40,35 @@ check_position_in_Med<-function(DataTA,wd,suffix){
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
 
-  k=1
-  for (k in 1:nrow(ResultData)){
-    df <- ResultData[k,]
-    haul_on_land <- MEDITS::land.points(df, land=MEDITS::countries, verbose=FALSE)
-    if (length(haul_on_land)>1){
-      numberError = numberError +1
-      write(paste("Haul ",haul_on_land$HAUL_NUMBER[1]," coordinates could likely fall on land", sep=""), file = Errors, append = TRUE)
-    }
-    }
+  haul_on_land <- haul_at_sea(ResultData, seas=MedSea, verbose=FALSE)
+  if (length(haul_on_land)>1){
+    res_class <- class(haul_on_land)
+
+    if (res_class=="data.frame"){
+    k=1
+    for (k in 1:nrow(haul_on_land)){
+        if (any(colnames(haul_on_land)=="SHOOTING_LONGITUDE")){kind="shooting"}
+        if (any(colnames(haul_on_land)=="HAULING_LONGITUDE")){kind="hauling"}
+        numberError = numberError +1
+        write(paste("Haul ",haul_on_land$HAUL_NUMBER[k]," ",kind," coordinates could likely fall on land", sep=""), file = Errors, append = TRUE)
+      } # close for cicle
+    } else if (res_class=="list") { # close if "data.frame"
+
+      l=2 # open (res_class=="list")
+    for (l in 1:length(haul_on_land)){
+      k=1
+      for(k in 1:nrow(haul_on_land[[l]])){
+        numberError = numberError +1
+          if (l==1){
+            write(paste("Haul ",haul_on_land[[l]]$HAUL_NUMBER[k]," shooting coordinates could likely fall on land", sep=""), file = Errors, append = TRUE)
+          } else if (l==2){
+            write(paste("Haul ",haul_on_land[[l]]$HAUL_NUMBER[k]," hauling coordinates could likely fall on land", sep=""), file = Errors, append = TRUE)
+          }
+      } # close for in element in sigle list
+      } # close for in list elements
+      } # close if "list
+    } # close if (length(haul_on_land)>1)
+
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
