@@ -1,6 +1,7 @@
 DataTargetSpecies       Length and weight ranges
 LW                      Table of the Length-Weight parameters
 Maturity_parameters     Maturity parameters
+MedSea                  Shapefile of Mediterranean and Black Sea area
 TE_provisional          Provisional example of TE table!!!!
 TM_list                 TM list
 assTL                   TL association between categories and
@@ -45,7 +46,12 @@ check_length            Check of length classes in TC
 check_length_class_codeTC
                         Consistency check of LENGTH_CLASS
 check_mat_stages        Consistency of maturity stages
+check_nb_TE             Consistency of number of individuals sampled
+                        for weight and ageing in TE
 check_nb_per_sexTC      Consistency check of number of individuals
+check_nbtotTB           Check total number of individuals in TB
+check_position          Plot of haul positions
+check_position_in_Med   Check of haul position in Mediterranean Sea
 check_quadrant          Check start and end quadrant for each haul
 check_quasiidentical_records
                         Function checking the presence of
@@ -92,6 +98,7 @@ create_haul             Function to create R-sufi file containing haul
 create_length           Function to create the R-sufi file taille.
 create_strata           Function to create R-sufi file containing
                         strata surface data.
+haul_at_sea             Check of haul position on sea area
 list_g1_g2              List of G1 and G2 species
 mat_stages              Table of maturity stages
 printError              Management of the error in logfile.

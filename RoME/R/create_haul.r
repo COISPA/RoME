@@ -18,7 +18,7 @@ if (FALSE){
 }
 
 
-create_haul<-function(ResultDataTA,wd){
+create_haul<-function(ResultDataTA,wd,suffix){
 
    Format="from_2012"
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){

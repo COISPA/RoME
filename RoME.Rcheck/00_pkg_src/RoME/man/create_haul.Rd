@@ -6,7 +6,7 @@ Function to create R-sufi file containing haul data.
 \description{
 This function reports the information contained in the hauld data table (TA) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).}
 \usage{
-create_haul(ResultDataTA,wd)
+create_haul(ResultDataTA,wd,suffix)
 }
 
 \arguments{

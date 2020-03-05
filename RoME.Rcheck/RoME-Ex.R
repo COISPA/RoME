@@ -80,6 +80,27 @@ data(Maturity_parameters)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("MedSea")
+### * MedSea
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: MedSea
+### Title: Shapefile of Mediterranean and Black Sea area
+### Aliases: MedSea
+### Keywords: datasets
+
+### ** Examples
+
+data(MedSea)
+## maybe str(MedSea) ; plot(MedSea) ...
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("MedSea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("TE_provisional")
 ### * TE_provisional
 
@@ -738,6 +759,26 @@ check_mat_stages(Result, wd, suffix)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_mat_stages", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("check_nb_TE")
+### * check_nb_TE
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_nb_TE
+### Title: Consistency of number of individuals sampled for weight and
+###   ageing in TE
+### Aliases: check_nb_TE
+### Keywords: error
+
+### ** Examples
+
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_nb_TE", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("check_nb_per_sexTC")
 ### * check_nb_per_sexTC
 
@@ -761,6 +802,75 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_nb_per_sexTC", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_nbtotTB")
+### * check_nbtotTB
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_nbtotTB
+### Title: Check total number of individuals in TB
+### Aliases: check_nbtotTB
+### Keywords: error
+
+### ** Examples
+
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    DataTB = MEDITS::TB
+    check_nbtotTB(DataTB, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_nbtotTB", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_position")
+### * check_position
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_position
+### Title: Plot of haul positions
+### Aliases: check_position
+### Keywords: warning plot
+
+### ** Examples
+
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_position(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_position", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_position_in_Med")
+### * check_position_in_Med
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_position_in_Med
+### Title: Check of haul position in Mediterranean Sea
+### Aliases: check_position_in_Med
+### Keywords: error
+
+### ** Examples
+
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+check_position_in_Med(MEDITS::TA,wd,suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_position_in_Med", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_quadrant")
 ### * check_quadrant
@@ -1233,6 +1343,29 @@ create_strata(stratification_scheme,"18",wd)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("create_strata", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("haul_at_sea")
+### * haul_at_sea
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: haul_at_sea
+### Title: Check of haul position on sea area
+### Aliases: haul_at_sea
+### Keywords: list
+
+### ** Examples
+
+library(MEDITS)
+wd <- tempdir()
+suffix <- "27-02-2020 18:30"
+haul_at_sea(MEDITS::TA, seas = MedSea, verbose = TRUE)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("haul_at_sea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("list_g1_g2")
 ### * list_g1_g2

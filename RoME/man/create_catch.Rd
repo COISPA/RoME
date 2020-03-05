@@ -6,10 +6,10 @@ Function to create the R-sufi file capt.}
 This function report the information contained in the biological data table (TB) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).
 }
 \usage{
-create_catch(Result,wd)
+create_catch(ResultDataTB,wd)
 }
 \arguments{
-\item{Result}{Catch data table according to MEDITS protocol (TB)}
+\item{ResultDataTB}{Catch data table according to MEDITS protocol (TB)}
 \item{wd}{working directory path defined by the user}
 }
 \value{

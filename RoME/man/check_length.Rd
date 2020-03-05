@@ -2,7 +2,7 @@
 \alias{check_length}
 \title{Check of length classes in TC}
 \description{The function checks the consistency of length classes in TC.}
-\usage{check_length(DataTC, DataSpecies = NA, wd, suffix)}
+\usage{check_length(DataTC,DataSpecies=NA,wd,suffix)}
 \arguments{
     \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
     \item{DataSpecies}{Information related to target species}

@@ -7,10 +7,10 @@ Function to warng the user about the presence of subsamples <0.1 of the total ca
 Check if the sub-sample is smaller than the 10 percent of the total weight in the haul.
 }
 \usage{
- check_subsampling(ResultDataTC,wd,suffix)
+ check_subsampling(ResultTC,wd,suffix)
 }
 \arguments{
-\item{ResultDataTC}{Biological data table (TC).}
+\item{ResultTC}{Biological data table (TC).}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }

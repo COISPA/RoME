@@ -23,7 +23,11 @@ check_individual_weightTE	check_individual_weightTE
 check_length	check_length
 check_length_class_codeTC	check_length_class_codeTC
 check_mat_stages	check_mat_stages
+check_nbtotTB	check_nbtotTB
 check_nb_per_sexTC	check_nb_per_sexTC
+check_nb_TE	check_nb_TE
+check_position	check_position
+check_position_in_Med	check_position_in_Med
 check_quadrant	check_quadrant
 check_quasiidentical_records	check_quasiidentical_records
 check_raising	check_raising
@@ -45,10 +49,12 @@ create_haul	create_haul
 create_length	create_length
 create_strata	create_strata
 DataTargetSpecies	DataTargetSpecies
+haul_at_sea	haul_at_sea
 list_g1_g2	list_g1_g2
 LW	LW
 Maturity_parameters	Maturity_parameters
 mat_stages	mat_stages
+MedSea	MedSea
 printError	printError
 templateTA	templateTA
 templateTB	templateTB

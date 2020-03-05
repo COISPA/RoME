@@ -7,11 +7,11 @@ Function to create the R-sufi file taille.
 This function reports the information contained in the biological data table (TC) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).
 }
 \usage{
- create_length(Result,TM_list,wd)
+ create_length(ResultData,DataSpecies=RoME::TM_list,wd)
 }
 \arguments{
-\item{Result}{Biological data table according to MEDITS protocol (TC)}
-\item{TM_list}{TM_list reference list}
+\item{ResultData}{Biological data table according to MEDITS protocol (TC)}
+\item{DataSpecies}{TM_list reference list}
 \item{wd}{working directory path defined by the user}
 }
 \value{
