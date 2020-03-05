@@ -7,19 +7,23 @@
 ############################################################################################################################
 # Visual check of the haul positions
 
-check_position<-function(ResultDataTA){
+check_position<-function(DataTA,wd,suffix){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    DataTA = MEDITS::TA
+    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
+    DataTA = DataTA[DataTA$YEAR == 2007 , ]
     # check_position(DataTA, wd, suffix)
   }
 
 
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
+  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
 
   numberError = 0
@@ -28,39 +32,60 @@ check_position<-function(ResultDataTA){
   }
   Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
-
-  ResultData = ResultDataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
+  ResultData = DataTA
   ResultData=ResultData[ResultData$VALIDITY=="V",]
-  tiff(file=paste(getwd(),"/Graphs/hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tif",sep=""), width=21, height=29.7, bg="white", units="cm", compression="none",res=200)
-  ResultData=convert_coordinates(ResultData)
-  for (i in 1:nrow(ResultData)){
-    if (ResultData$HAULING_QUADRANT[i]=="7"){
-      ResultData$lon_start[i]=(-1)* ResultData$lon_start[i]
-      ResultData$lon_end[i]=(-1)* ResultData$lon_end[i] }
-  }
-  par(mfrow=c(3,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-  plot(1,1,type="p",xlim=c(min(ResultData$lon_start)-0.1, max(ResultData$lon_start)+0.1), ylim=c(min(ResultData$lat_start)-0.1, max(ResultData$lat_start)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
-  #plot(1,1,type="p",xlim=c(-5.6,35), ylim=c(34,46), xlab="Longitude", ylab="Latitude",main="Mediterranea Sea")
-  map("world", fill=T, col="yellow",add=T)
-  points(ResultData$lon_start,ResultData$lat_start,col="blue",pch=16)
-  points(ResultData$lon_end,ResultData$lat_end,col="green",pch=16)
-  legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )
+  ResultData=MEDITS::MEDITS.to.dd(ResultData)
 
-  plot(1,1,type="p",xlim=c(min(ResultData$lon_start)-0.1, max(ResultData$lon_start)+0.1), ylim=c(min(ResultData$lat_start)-0.1, max(ResultData$lat_start)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls start position- ",ResultData$YEAR[1]))
-  map("world", fill=T, col="yellow",add=T)
-  points(ResultData$lon_start,ResultData$lat_start,col="blue",pch=16)
-  text(ResultData$lon_start+0.1,ResultData$lat_start,labels=ResultData$HAUL_NUMBER)
+  lx = (max(ResultData$SHOOTING_LONGITUDE)+0.1) - (min(ResultData$SHOOTING_LONGITUDE)-0.1)
+  ly = (max(ResultData$SHOOTING_LATITUDE)+0.1) - (min(ResultData$SHOOTING_LATITUDE)-0.1)
+  ratio <- ly/lx*1.1
+
+  img_width <- 12
+  img_height <- img_width * ratio
+  oldoptions <- options()$warn
+  old_par <- list()
+  old_par$mfrow <- par()$mfrow
+  old_par$mar <-par()$mar
+  old_par$fin <-par()$fin
+  old_par$mai <- par()$mai
+  old_par$omi <- par()$omi
 
 
-  plot(1,1,type="p",xlim=c(min(ResultData$lon_start)-0.1, max(ResultData$lon_start)+0.1), ylim=c(min(ResultData$lat_start)-0.1, max(ResultData$lat_start)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls end position - ",ResultData$YEAR[1]))
-  map("world", fill=T, col="yellow",add=T)
-  points(ResultData$lon_end,ResultData$lat_end,col="green",pch=16)
-  text(ResultData$lon_end+0.1,ResultData$lat_end,labels=ResultData$HAUL_NUMBER)
+  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
+  options(warn=-1)
 
+  ### HAUL POSITIONS ###
+
+  tiff(file=paste(wd,"/Graphs/hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep=""),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+      par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
+      plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
+      maps::map("world", fill=T, col="yellow",add=T)
+      points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
+      points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
+      legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )
   dev.off()
-  write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
-  if (Type_of_files==".csv"){
 
-  }
+  ### STARTING POSITIONS ###
+
+  tiff(file=paste(wd,"/Graphs/Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep=""),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+      par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
+      plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls start position- ",ResultData$YEAR[1]))
+      maps::map("world", fill=T, col="yellow",add=T)
+      points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
+      text(ResultData$SHOOTING_LONGITUDE+0.1,ResultData$SHOOTING_LATITUDE,labels=ResultData$HAUL_NUMBER)
+  dev.off()
+
+  ### END POSITIONS ###
+
+  tiff(file=paste(wd,"/Graphs/End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep=""),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+      par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
+      plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls end position - ",ResultData$YEAR[1]))
+      maps::map("world", fill=T, col="yellow",add=T)
+      points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
+      text(ResultData$HAULING_LONGITUDE+0.1,ResultData$HAULING_LATITUDE,labels=ResultData$HAUL_NUMBER)
+  dev.off()
+
+  write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
+
+
 }
-################################################################################
