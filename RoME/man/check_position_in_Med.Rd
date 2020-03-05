@@ -17,7 +17,7 @@ check_position_in_Med(DataTA, wd, suffix)
 \examples{
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_position_in_Med(MEDITS::TA,wd,suffix)
 }
 \keyword{ error }

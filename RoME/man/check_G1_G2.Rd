@@ -17,7 +17,7 @@ This check uses a new support table (list_g1_g2) containing the list of MEDITS G
 library(RoME)
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_G1_G2(MEDITS::TC,wd,suffix)
 }
 \keyword{ warning }
