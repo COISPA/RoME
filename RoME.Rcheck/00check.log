@@ -1,5 +1,5 @@
-* using log directory 'D:/Documents and Settings/Utente/Documenti/GitHub/RoME/RoME.Rcheck'
-* using R version 3.6.2 (2019-12-12)
+* using log directory 'C:/Users/walte/Documents/GitHub/RoME/RoME.Rcheck'
+* using R version 3.6.1 (2019-07-05)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
 * using options '--no-manual --as-cran'
@@ -14,7 +14,10 @@
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
-* checking whether package 'RoME' can be installed ... OK
+* checking whether package 'RoME' can be installed ... WARNING
+Found the following significant warnings:
+  Warning: package 'timeDate' was built under R version 3.6.2
+See 'C:/Users/walte/Documents/GitHub/RoME/RoME.Rcheck/00install.out' for details.
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking for future file timestamps ... OK
@@ -115,6 +118,5 @@ The error most likely occurred in:
 Error in str(TE_provisional) : object 'TE_provisional' not found
 Execution halted
 ** found \donttest examples: check also with --run-donttest
-* checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 1 WARNING, 1 NOTE
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE

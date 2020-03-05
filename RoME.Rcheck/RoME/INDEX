@@ -50,6 +50,9 @@ check_nb_TE             Consistency of number of individuals sampled
                         for weight and ageing in TE
 check_nb_per_sexTC      Consistency check of number of individuals
 check_nbtotTB           Check total number of individuals in TB
+check_nm_TB             Check of consistency in number per sex set "not
+                        mandatory" in TB
+check_no_empty_fields   Check empty fields in TA,TB,TC
 check_position          Plot of haul positions
 check_position_in_Med   Check of haul position in Mediterranean Sea
 check_quadrant          Check start and end quadrant for each haul

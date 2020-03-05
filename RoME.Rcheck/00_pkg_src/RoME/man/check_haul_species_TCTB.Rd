@@ -23,7 +23,7 @@ The function returns always TRUE because the outcome of the function is a warnin
 library(RoME)
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_haul_species_TCTB(MEDITS::TB, MEDITS::TC, wd, suffix)
 }
 \keyword{ warning }

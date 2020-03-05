@@ -26,6 +26,8 @@ check_mat_stages	check_mat_stages
 check_nbtotTB	check_nbtotTB
 check_nb_per_sexTC	check_nb_per_sexTC
 check_nb_TE	check_nb_TE
+check_nm_TB	check_nm_TB
+check_no_empty_fields	check_no_empty_fields
 check_position	check_position
 check_position_in_Med	check_position_in_Med
 check_quadrant	check_quadrant

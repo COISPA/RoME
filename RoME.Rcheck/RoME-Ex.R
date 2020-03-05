@@ -206,7 +206,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_0_fieldsTA(MEDITS::TA,wd,suffix)
 
 
@@ -230,7 +230,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(RoME)
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_G1_G2(MEDITS::TC,wd,suffix)
 
 
@@ -277,7 +277,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time h17m44s55"
     DataTA = MEDITS::TA
     DataTB = MEDITS::TB
     DataTC = MEDITS::TC
@@ -325,7 +325,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_bridles_length(MEDITS::TA, wd, suffix)
 
 
@@ -347,8 +347,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
 library(MEDITS)
-wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_consistencyTA_distance(MEDITS::TA,wd,suffix)
 
 
@@ -371,7 +370,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_consistencyTA_duration(MEDITS::TA,wd,suffix)
 
 
@@ -420,7 +419,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(RoME)
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_depth(MEDITS::TA,wd,suffix)
 
 
@@ -469,7 +468,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(RoME)
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_distance(MEDITS::TA,wd,suffix)
 
 
@@ -492,7 +491,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_dm(MEDITS::TA,wd,suffix)
 
 
@@ -516,7 +515,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(RoME)
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_haul_species_TCTB(MEDITS::TB, MEDITS::TC, wd, suffix)
 
 
@@ -817,7 +816,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### ** Examples
 
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time h17m44s55"
     DataTB = MEDITS::TB
     check_nbtotTB(DataTB, wd, suffix)
 
@@ -825,6 +824,53 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("check_nbtotTB", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_nm_TB")
+### * check_nm_TB
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_nm_TB
+### Title: Check of consistency in number per sex set "not mandatory" in TB
+### Aliases: check_nm_TB
+### Keywords: error
+
+### ** Examples
+
+    wd <- tempdir()
+    suffix="2020-03-05_time h17m44s55"
+    DataTB = MEDITS::TB
+    DataTC = MEDITS::TC
+    check_nm_TB(DataTB,DataTC, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_nm_TB", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("check_no_empty_fields")
+### * check_no_empty_fields
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: check_no_empty_fields
+### Title: Check empty fields in TA,TB,TC
+### Aliases: check_no_empty_fields
+### Keywords: error
+
+### ** Examples
+
+    wd <- tempdir()
+    suffix="27-02-2020 18:30"
+    Data = MEDITS::TA
+    check_no_empty_fields(Data, wd, suffix)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("check_no_empty_fields", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("check_position")
 ### * check_position
@@ -841,7 +887,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_position(MEDITS::TA,wd,suffix)
 
 
@@ -864,7 +910,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 check_position_in_Med(MEDITS::TA,wd,suffix)
 
 
@@ -1190,7 +1236,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(MEDITS)
 library(RoME)
 wd=tempdir()
-suffix= "27-02-2020 18:30"
+    suffix="2020-03-05_time h17m44s55"
 check_temperature(TA,wd,suffix)
 
 
@@ -1359,7 +1405,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(MEDITS)
 wd <- tempdir()
-suffix <- "27-02-2020 18:30"
+suffix="2020-03-05_time h17m44s55"
 haul_at_sea(MEDITS::TA, seas = MedSea, verbose = TRUE)
 
 
