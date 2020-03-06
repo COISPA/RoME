@@ -21,7 +21,7 @@
 
 # VAR END --------------------------------------------------------
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix)
+RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA)
 {
   stringsAsFactors=FALSE
   assign("Format",value="from_2012",envir=.GlobalEnv)
@@ -38,8 +38,9 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix)
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
 
-
-  suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  if (is.na(suffix)){
+    suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
   Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
   write(paste("\n ",date(),sep=""), file = Errors, append = TRUE)
 
