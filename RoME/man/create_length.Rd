@@ -14,6 +14,10 @@ This function reports the information contained in the biological data table (TC
 \item{DataSpecies}{TM_list reference list}
 \item{wd}{working directory path defined by the user}
 }
+\details{
+For the file taille the change in maturity scale in 2006 has been taken into account: from 1994 to 2005 the males of crustaceans have stage NA, because they were not staged until 2005. From 2006 they are considered mature for the stages strictly greater than 2A as well as for females of crustaceans. Before 2006 the females of crustaceans are considered mature for stages strictly greater than 1.
+Bony fish and cephalopods are considered mature from stage 3 until 2005 and then they are considered mature from stage 2B.
+For selachians, the immature are always stage 1 and 2.}
 \value{
 The function saves automatically in the files R-Sufi folder the table taille in.csv format, with suffix of the year and GSA.}
 \references{

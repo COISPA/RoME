@@ -1,7 +1,6 @@
 \name{graphs_TA}
 \alias{graphs_TA}
 \title{
-<<<<<<< HEAD
 Function for qualitative checks of shooting depth, warp length and wing opening in Haul data table (TA).}
 \description{
 Check consistency between shooting depth and warp length and between warp length and wing opening}
@@ -60,5 +59,3 @@ suffix="2020-03-05_time h17m44s55"
 graphs_TA(MEDITS::TA,wd,suffix)
 }
 \keyword{ graph }
-
->>>>>>> 4c9ea4b9c339f66f106239da8677ac763001ae2f
