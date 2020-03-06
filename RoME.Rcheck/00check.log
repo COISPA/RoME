@@ -1,5 +1,5 @@
-* using log directory 'D:/Documents and Settings/Utente/Documenti/GitHub/RoME/RoME.Rcheck'
-* using R version 3.6.2 (2019-12-12)
+* using log directory 'C:/Users/walte/Documents/GitHub/RoME/RoME.Rcheck'
+* using R version 3.6.1 (2019-07-05)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
 * using options '--no-manual --as-cran'
@@ -14,7 +14,10 @@
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
-* checking whether package 'RoME' can be installed ... OK
+* checking whether package 'RoME' can be installed ... WARNING
+Found the following significant warnings:
+  Warning: package 'timeDate' was built under R version 3.6.2
+See 'C:/Users/walte/Documents/GitHub/RoME/RoME.Rcheck/00install.out' for details.
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking for future file timestamps ... OK
@@ -52,6 +55,23 @@ check_individual_weightTE: warning in tiff(file = paste(wd,
   TE$YEAR[1], ".tif", sep = ""), width = 8, height = 8, bg = "white",
   units = "in", res = 300, compression = "lzw", pointsize = 1/300):
   partial argument match of 'file' to 'filename'
+check_position: warning in tiff(file = paste(wd,
+  "/Graphs/hauls_position ", ResultData$YEAR[1], " AREA ",
+  ResultData$AREA[1], ".tiff", sep = ""), width = img_width, height =
+  img_height, bg = "white", units = "in", res = 300, compression =
+  "lzw", pointsize = 1/300): partial argument match of 'file' to
+  'filename'
+check_position: warning in tiff(file = paste(wd,
+  "/Graphs/Start_position ", ResultData$YEAR[1], " AREA ",
+  ResultData$AREA[1], ".tiff", sep = ""), width = img_width, height =
+  img_height, bg = "white", units = "in", res = 300, compression =
+  "lzw", pointsize = 1/300): partial argument match of 'file' to
+  'filename'
+check_position: warning in tiff(file = paste(wd, "/Graphs/End_position
+  ", ResultData$YEAR[1], " AREA ", ResultData$AREA[1], ".tiff", sep =
+  ""), width = img_width, height = img_height, bg = "white", units =
+  "in", res = 300, compression = "lzw", pointsize = 1/300): partial
+  argument match of 'file' to 'filename'
 check_temperature: warning in tiff(file = paste(wd,
   "/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",
   Dataset$AREA[1], ".tiff", sep = ""), width = 12, height = 8, bg =
@@ -62,53 +82,32 @@ check_weight: warning in tiff(file = paste(wd,
   "_", i, ".tif", sep = ""), width = 12, height = 8, bg = "white",
   units = "in", res = 300, compression = "lzw", pointsize = 1/300):
   partial argument match of 'file' to 'filename'
-check_mat_stages: no visible binding for global variable 'Errors'
-check_mat_stages: no visible binding for global variable 'Format'
-check_mat_stages: no visible binding for global variable 'DataSpecies'
-check_mat_stages: no visible binding for global variable
-  'DataMatStages'
-create_length: no visible binding for global variable 'Format'
-create_length: no visible binding for global variable
-  'DataTargetSpecies'
-create_length: no visible binding for global variable 'DataSpecies'
-create_length: no visible binding for global variable 'DataTE'
-create_length: no visible global function definition for 'sqldf'
-create_strata: no visible global function definition for 'sqldf'
+graphs_TA: warning in tiff(file = paste(wd,
+  "/Graphs/qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",
+  ResultData$AREA[1], ".tif", sep = ""), width = 8, height = 12, bg =
+  "white", units = "in", res = 300, compression = "lzw", pointsize =
+  1/300): partial argument match of 'file' to 'filename'
+graphs_TA: no visible global function definition for 'mtext'
 Undefined global functions or variables:
-  DataMatStages DataSpecies DataTE DataTargetSpecies Errors Format
-  sqldf
-* checking Rd files ... WARNING
-prepare_Rd: check_unique_valid_haul.Rd:6-8: Dropping empty section \description
-checkRd: (5) check_unique_valid_haul.Rd:0-39: Must have a \description
+  mtext
+Consider adding
+  importFrom("graphics", "mtext")
+to your NAMESPACE file.
+* checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'ResultDataTE' 'check_mat_stages' 'create_catch' 'create_length'
-  'create_strata'
+  'ResultDataTE'
 Undocumented data sets:
   'ResultDataTE'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'check_subsampling':
-check_subsampling
-  Code: function(ResultTC, wd, suffix)
-  Docs: function(ResultDataTC, wd, suffix)
-  Argument names in code not in docs:
-    ResultTC
-  Argument names in docs not in code:
-    ResultDataTC
-  Mismatches in argument names:
-    Position: 1 Code: ResultTC Docs: ResultDataTC
-
+* checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... OK
-* checking Rd contents ... WARNING
-Error in sub(re, "", x, perl = TRUE) : input string 1 is invalid UTF-8
-Calls: <Anonymous> ... .Rd_get_offending_autogenerated_content -> trimws -> mysub -> sub -> mysub -> sub
-Esecuzione interrotta
+* checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
 * checking contents of 'data' directory ... OK
 * checking data for non-ASCII characters ... OK
@@ -130,6 +129,5 @@ The error most likely occurred in:
 Error in str(TE_provisional) : object 'TE_provisional' not found
 Execution halted
 ** found \donttest examples: check also with --run-donttest
-* checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 4 WARNINGs, 1 NOTE
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE

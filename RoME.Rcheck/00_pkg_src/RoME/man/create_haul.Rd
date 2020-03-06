@@ -4,7 +4,7 @@
 Function to create R-sufi file containing haul data.
 }
 \description{
-This function report the information contained in the hauld data table (TA) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).}
+This function reports the information contained in the hauld data table (TA) from the MEDITS protocol to the format required by R-sufi (Rochet et al., 2004).}
 \usage{
 create_haul(ResultDataTA,wd,suffix)
 }
@@ -15,7 +15,7 @@ create_haul(ResultDataTA,wd,suffix)
 \item{suffix}{Suffix string of the Logfile}
 }
 \value{
-The function saves automatically in the files R-Sufi folder the table "traits" in.csv format, with suffix of the year and GSA.}
+The function saves automatically in the files R-Sufi folder the table traits in.csv format, with suffix of the year and GSA.}
 \references{
 Rochet M. J., V. M. Trenkel, J. A. Bertrand & J.-C. Poulard, 2004. R routines for survey based fisheries population and community indicators (R-SUFI). Ifremer, Nantes. Limited distribution.
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
@@ -25,7 +25,7 @@ library(MEDITS)
 library(RoME)
 wd <- tempdir()
 suffix="27-02-2020 18:30"
-create_haul(TA,wd,suffix)
+create_haul(TA,wd)
 }
 
 \keyword{R-sufi,traits}

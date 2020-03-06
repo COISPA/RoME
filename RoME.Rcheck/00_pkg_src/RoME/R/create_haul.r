@@ -14,7 +14,7 @@ if (FALSE){
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  create_haul(Result,wd,suffix)
+  create_haul(Result,wd)
 }
 
 

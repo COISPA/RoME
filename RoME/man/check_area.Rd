@@ -26,7 +26,7 @@ The function returns TRUE if no error occurs, while FALSE is returned when there
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time h17m44s55"
     DataTA = MEDITS::TA
     DataTB = MEDITS::TB
     DataTC = MEDITS::TC

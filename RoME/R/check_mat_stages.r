@@ -10,20 +10,20 @@
 
 if (FALSE){
   #library(RoME)
-  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  Result=Result[Result$YEAR==2015,]
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  Result = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+  Result = Result[Result$YEAR==1994,]
+  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #DataTC = MEDITS::TC
 
-  check_mat_stages(Result, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=mat_stages)
+  check_mat_stages(Result, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
 }
 
 
 
 check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages){
 
-  Format=="from_2012"
+  Format="from_2012"
 
   if (!file.exists(paste(wd,"Logfiles",sep="/"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
