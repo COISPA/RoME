@@ -1,9 +1,10 @@
 ###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)  #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                          #
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC, TT, TD and TE files                        #
+#   - old and new MEDITS formats)                                                                                         #
+#   Authors: I. Bitetto, M.T. Facchini, M.T. Spedicato                                                                    #
 #   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
-#   March 2020                                                                                                            #
+#   March 2013                                                                                                            #
 ###########################################################################################################################
 
 # IMPORTANT: set the name of your TA, TB, TC, TD, TT, TE (that have to be in your working directory)
@@ -13,98 +14,446 @@
 
 
 
-# TA <- RoME::TA
-# TB <- RoME::TB
-# TC <- RoME::TC
-# TE <- RoME::TE
-# TL <- RoME::TL
+
 
 # VAR END --------------------------------------------------------
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix)
+RoME_open <- function()
 {
   stringsAsFactors=FALSE
-  assign("Format",value="from_2012",envir=.GlobalEnv)
 
-  # wd <- tempdir()
+  assign("AREA",value=NA,envir=.GlobalEnv)
+  assign("Format",value=NA,envir=.GlobalEnv)
+  assign("Errors",value=NA,envir=.GlobalEnv)
+  assign("DataTA",value=NA,envir=.GlobalEnv)
+  assign("DataTB",value=NA,envir=.GlobalEnv)
+  assign("DataTC",value=NA,envir=.GlobalEnv)
+  assign("DataTD",value=NA,envir=.GlobalEnv)
+  assign("DataTE",value=NA,envir=.GlobalEnv)
+  assign("DataTT",value=NA,envir=.GlobalEnv)
+  assign("DataTL",value=NA,envir=.GlobalEnv)
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+#   assign("Type_of_files",value=NA,envir=.GlobalEnv)
+  assign("Type_of_files",value=".csv",envir=.GlobalEnv)
+  assign("Length_weight",value=NA,envir=.GlobalEnv)
+  assign("DataTargetSpecies",value=NA,envir=.GlobalEnv)
+  assign("Year",value=NA,envir=.GlobalEnv)
+  assign("DataSpecies",value=NA,envir=.GlobalEnv)
+  assign("channelTA",value=NA,envir=.GlobalEnv)
+  assign("sqlQuery",value=NA,envir=.GlobalEnv)
+  assign("Stratification",value=NA,envir=.GlobalEnv)
+  assign("DataMatStages",value=NA,envir=.GlobalEnv)
+  assign("start_temp",value=NA,envir=.GlobalEnv)
+  assign("end_temp",value=NA,envir=.GlobalEnv)
+  assign("Year_start",value=NA,envir=.GlobalEnv)
+  assign("Year_end",value=NA,envir=.GlobalEnv)
+  assign("working_tables",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTA",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTB",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTC",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTT",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTD",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTE",value=NA,envir=.GlobalEnv)
+  assign("ResultDataTL",value=NA,envir=.GlobalEnv)
+  assign("AssociationsTL",value=NA,envir=.GlobalEnv)
+
+
+
+
+#   if(!is.na(Format)){ #exists("DataTA") & exists("DataTB") & exists("DataTC") &
+  if(!is.na(Format) & !is.na(DataTA) & !is.na(DataTB) & !is.na(DataTC)){ #exists("DataTA") & exists("DataTB") & exists("DataTC") &
+    print("Are the names of the files and format changed respect to the following settings:? ",quote=F)
+    print(DataTA)
+    print(DataTB)
+    print(DataTC)
+
+    if (Format=="before_2012") {
+      print(DataTT)
+      print(DataTD)
+    } else {
+      print(DataTE)
+      print(DataTL)
+    }
+    response <<- readline("Y/N --> ")
+
+    if (as.character(response)=="Y"){
+      DataTA <<- as.character(readline(prompt="Enter name of TA file, without extention: ")) #"TA"
+      DataTB <<- as.character(readline(prompt="Enter name of TB file, without extention: ")) #"TB"
+      DataTC <<- as.character(readline(prompt="Enter name of TC file, without extention: ")) #"TC"
+      DataTT <<- ""
+      DataTD <<- ""
+      DataTE <<- ""
+      DataTL <<- ""
+      if (Format=="before_2012") {
+
+        DataTT <<- as.character(readline(prompt="Enter name of TT file, without extention: ")) # ""
+        DataTD <<- as.character(readline(prompt="Enter name of TD file, without extention: ")) # ""
+      } else {
+        DataTE <<- as.character(readline(prompt="Enter name of TE file, without extention: ")) #"TE"
+        DataTL <<- as.character(readline(prompt="Enter name of TL file, without extention: ")) #"TL"
+      }
+
+     # Type_of_files <<- as.character(readline(prompt="Enter the extention of the selected files ('.csv' or '.xls'): ") ) #".csv" #or ".xls"
+
+    }
+  } else {
+    Format <<- as.character(readline(prompt="Enter the format to be checked ('from_2012' or 'before_2012'): ") ) #"from_2012"   #or "before_2012"
+    #Year= as.character(readline(prompt="Enter the year: " ) )
+    DataTA <<- as.character(readline(prompt="Enter name of TA file, without extention: ")) #"TA"
+    DataTB <<- as.character(readline(prompt="Enter name of TB file, without extention: ")) #"TB"
+    DataTC <<- as.character(readline(prompt="Enter name of TC file, without extention: ")) #"TC"
+    DataTT <<- ""
+    DataTD <<- ""
+    DataTE <<- ""
+    DataTL <<- ""
+    if (Format=="before_2012") {
+      DataTT <<- as.character(readline(prompt="Enter name of TT file, without extention: ")) # ""
+      DataTD <<- as.character(readline(prompt="Enter name of TD file, without extention: ")) # ""
+    } else {
+      DataTE <<- as.character(readline(prompt="Enter name of TE file, without extention: ")) #"TE"
+      DataTL <<- as.character(readline(prompt="Enter name of TL file, without extention: ")) #"TL"
+    }
+
+#     Type_of_files <<- as.character(readline(prompt="Enter the extention of the selected files ('.csv' or '.xls'): ") ) #".csv" #or ".xls"
+
+    ## Convert xls files to csv
+#     if(Type_of_files==".xls") {
+# #
+# #       source("convertToCsv.R")
+# #
+#       convertToCsv(DataTA)
+#       convertToCsv(DataTB)
+#       convertToCsv(DataTC)
+#       #convertToCsv(DataTT)
+#       #convertToCsv(DataTD)
+#       convertToCsv(DataTE)
+#
+#       Type_of_files <<- ".csv"
+#     }
+
   }
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
-    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+
+  #-------------------------------------------------------------------------------
+  # Creation of singles RSufi files
+
+  # IMPORTANT: set "create_RSufi_files" variable to 1 and "AREA" variable for creating RSufi files at
+  # the end of multiple checks procedure
+
+  create_RSufi_files = as.character(readline(prompt= "Do you want create R-Sufi files for this year of data ('Y', 'N')?  ") )#1
+  if(as.character(create_RSufi_files)=="Y"){
+    AREA<<- as.character(readline(prompt="Enter the GSA: " )) #10
+    # Year<<- as.character(readline(prompt="Enter the year: " ) ) #2012       #***************************+
   }
-  if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
-    dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
+
+
+
+  #-------------------------------------------------------------------------------
+  # Creation of RSufi files for all the years that you need.
+  # ATTENTION: set this variable to 1 only if all the R-Sufi files have been created from Year_start to Year_end and if they are ALL in the files R-Sufi directory!!!
+
+  print("ATTENTION: insert 'Y'if all the R-Sufi files have been created from Year_start to Year_end ",quote=F) # 0
+  print("and they are ALL in the files R-Sufi directory!!! Otherwise, insert 'N'",quote=F)
+  create_global_RSufi_files = as.character(readline(prompt= "Do you want create R-Sufi files for more than one year ('Y', 'N')?  "))
+  if (as.character(create_global_RSufi_files)=="Y") {
+    AREA<<- as.character(readline(prompt="Enter the GSA: " ))
+    Year_start<<-as.character(readline(prompt= "Enter the start year ")) #1994
+    Year_end<<-as.character(readline(prompt= "Enter the end year ") )#2012
   }
 
+# IMPORTANT: Don't change this part of the code ----------
+  require(stringr)
+   require(RODBC)
+   require(timeDate)
+   require(graphics)
+   require(mapdata)
+   require(maps)
 
-  suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-  write(paste("\n ",date(),sep=""), file = Errors, append = TRUE)
+   require(xlsx)
+   require(sqldf)
+require(time)
+source("load_functions.r")
 
+
+  ## Verifico la presenza della cartella Logfiles e Graphs
+  if(!file.exists(paste(getwd(),"/Logfiles",sep="")))
+  {
+    dir.create("Logfiles")
+  }
+
+  if(!file.exists(paste(getwd(),"/Graphs",sep="")))
+  {
+    dir.create("Graphs")
+  }
+
+if(!file.exists(paste(getwd(),"/files R-Sufi",sep="")))
+  {
+    dir.create("files R-Sufi")
+  }
+
+  # Copio le tabelle nella working directory
+if(!file.exists(paste(getwd(),"/Tables",sep="")))
+{
+#   copyTables()
+  dir.create(paste(getwd(),"/Tables",sep=""))
+flist <- list.files(paste(path.package("RoME"),"/extdata/Tables",sep=""), "*.csv", full.names = TRUE)
+  file.copy(flist, paste(getwd(),"/Tables/",sep=""))
+}
+
+working_tables <<- paste(getwd(),"/Tables",sep="")
+
+if(!file.exists(paste(getwd(),"/templates",sep="")))
+{
+  #   copyTables()
+  dir.create(paste(getwd(),"/templates",sep=""))
+  flist <- list.files(paste(path.package("RoME"),"/extdata/templates",sep=""), "*.csv", full.names = TRUE)
+  file.copy(flist, paste(getwd(),"/templates/",sep=""))
+
+}
+
+  # Copio il manuale pdf
+ # copyPDFmanual()
+
+
+
+  Errors <<- paste("Logfiles/Logfile_",as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),".dat",sep="")
+  write(paste("
+              ",date(),sep=""), file = Errors, append = TRUE)
+
+#   DataSpecies <<- ifelse (Format=="before_2012",paste(path.package("RoME"),"/extdata/FM_list_old",sep=""),
+#                           paste(path.package("RoME"),"/extdata/FM_list",sep=""))
+#   DataTargetSpecies <<- paste(path.package("RoME"),"/extdata/Species_LEN_WEIGHT",sep="")
+#   Stratification <<- paste(path.package("RoME"),"/extdata/Stratification_Scheme",sep="")
+
+  DataSpecies <<- ifelse (Format=="before_2012",paste(working_tables,"/FM_list_old",sep=""),
+                          paste(working_tables,"/TM_list",sep=""))
+  DataTargetSpecies <<- paste(working_tables,"/Species_LEN_WEIGHT",sep="")
+  Stratification <<- paste(working_tables,"/Stratification_Scheme",sep="")
+
+
+  if (Type_of_files == ".xls"){
+
+#     ResultDataTA<<-read.xlsx(normalizePath(paste(DataTA,".xls",sep="")) ,colClasses="character",sheetIndex=1)
+#     ResultDataTB<<-read.xlsx(normalizePath(paste(DataTB,".xls",sep="")),colClasses="character",sheetIndex=1)
+#     ResultDataTC<<-read.xlsx(normalizePath(paste(DataTC,".xls",sep="")),colClasses="character",sheetIndex=1)
+
+    ResultDataTA<<-read.xlsx2(normalizePath(paste(DataTA,".xls",sep="")) ,colClasses="character",sheetIndex=1)
+    ResultDataTB<<-read.xlsx2(normalizePath(paste(DataTB,".xls",sep="")),colClasses="character",sheetIndex=1)
+    ResultDataTC<<-read.xlsx2(normalizePath(paste(DataTC,".xls",sep="")),colClasses="character",sheetIndex=1)
+
+
+    if (Format=="before_2012"){
+      ResultDataTC[which(is.na(ResultDataTC[,11])),11]="m"
+      ResultDataTC[which(is.na(ResultDataTC[,18])),18]=""
+    } else {
+      ResultDataTC[which(is.na(ResultDataTC[,14])),14]="m"
+      ResultDataTC[which(is.na(ResultDataTC[,20])),20]="ND"
+    }
+    if (as.character(DataTT)!=""){
+#       ResultDataTT<<-read.xlsx(normalizePath(paste(DataTT,".xls",sep="")),sheetIndex=1)
+      ResultDataTT<<-read.xlsx2(normalizePath(paste(DataTT,".xls",sep="")),sheetIndex=1)
+      write.table(ResultDataTT,file=paste(DataTT,".csv",sep=""),quote=FALSE,sep=";",row.names=FALSE)
+    }
+
+    if (as.character(DataTD)!=""){
+#       ResultDataTD<<-read.xlsx(normalizePath(paste(DataTD,".xls",sep="")),sheetIndex=1)
+      ResultDataTD<<-read.xlsx2(normalizePath(paste(DataTD,".xls",sep="")),sheetIndex=1)
+      write.table(ResultDataTD,file=paste(DataTD,".csv",sep=""),quote=FALSE,sep=";",row.names=FALSE)
+    }
+    if (Format=="from_2012"){
+      if (as.character(DataTE)!=""){
+#         ResultDataTE<<-read.xlsx(normalizePath(paste(DataTE,".xls",sep="")),sheetIndex=1)
+        ResultDataTE<<-read.xlsx2(normalizePath(paste(DataTE,".xls",sep="")),sheetIndex=1)
+        ResultDataTE[which(is.na(ResultDataTE[,12])),12]="m"
+        ResultDataTE$INDIVIDUAL_WEIGHT[which(is.na(ResultDataTE$INDIVIDUAL_WEIGHT))] ="ND"
+        write.table(ResultDataTE,file=paste(DataTE,".csv",sep=""),quote=FALSE,sep=";",row.names=FALSE)
+      }
+    }
+    write.table(ResultDataTA,file=paste(DataTA,".csv",sep=""),quote=FALSE,sep=";",row.names=FALSE)
+    write.table(ResultDataTB,file=paste(DataTB,".csv",sep=""),quote=FALSE,sep=";",row.names=FALSE)
+    write.table(ResultDataTC,file=paste(DataTC,".csv",sep=""),quote=FALSE,sep=";",row.names=FALSE)
+
+  }else{
+    ## apro i file CSV
+    if(Format=="before_2012")
+    {
+      ResultDataTA <<- read.table(paste(DataTA,".csv",sep=""),sep=";",header=T)
+      ResultDataTB <<- read.table(paste(DataTB,".csv",sep=""),sep=";",header=T)
+      ResultDataTC <<- read.table(paste(DataTC,".csv",sep=""),sep=";",header=T)
+	    ResultDataTA_bkp <<- ResultDataTA
+      ResultDataTB_bkp <<- ResultDataTB
+      ResultDataTC_bkp <<- ResultDataTC
+
+      if(DataTT=="")
+      {
+        # nothing
+      }else{
+        ResultDataTT <<- read.table(paste(DataTT,".csv",sep=""),sep=";",header=T)
+		    ResultDataTT_bkp <<- ResultDataTT
+      }
+
+      if(DataTD=="")
+      {
+        # nothing
+
+      }else{
+        ResultDataTD <<- read.table(paste(DataTD,".csv",sep=""),sep=";",header=T)
+		    ResultDataTD_bkp <<- ResultDataTD
+      }
+
+    }else{
+      ResultDataTA <<- read.table(paste(DataTA,".csv",sep=""),sep=";",header=T)
+      ResultDataTB <<- read.table(paste(DataTB,".csv",sep=""),sep=";",header=T)
+      ResultDataTC <<- read.table(paste(DataTC,".csv",sep=""),sep=";",header=T)
+      ResultDataTA_bkp <<- ResultDataTA
+      ResultDataTB_bkp <<- ResultDataTB
+      ResultDataTC_bkp <<- ResultDataTC
+
+      # Il TE non è necessario per from_2012
+      if(as.character(DataTE) != "")
+      {
+        ResultDataTE <<- read.table(paste(DataTE,".csv",sep=""),sep=";",header=T)
+		    ResultDataTE_bkp <<- ResultDataTE
+      }
+
+      if(as.character(DataTL) != "")
+      {
+        ResultDataTL <<- read.table(paste(DataTL,".csv",sep=""),sep=";",header=T)
+        ResultDataTL_bkp <<- ResultDataTL
+      }
+
+
+    }
+
+  }
+
+  #ResultDataTA = read.csv(paste(DataTA,".csv",sep=""),sep=";")
+#   DataMatStages <<- ifelse (Format=="before_2012", paste(path.package("RoME"),"/extdata/MATURITY_STAGES",sep=""), paste(path.package("RoME"),"/extdata/MATURITY_STAGES_from_2012",sep=""))
+#   print(DataMatStages)
+#   Length_weight <<- paste(path.package("RoME"),"/extdata/L-W",sep="")
+
+  DataMatStages <<- ifelse (Format=="before_2012", paste(working_tables,"/MATURITY_STAGES",sep=""), paste(working_tables,"/MATURITY_STAGES_from_2012",sep=""))
+  #print(DataMatStages)
+  Length_weight <<- paste(working_tables,"/L-W",sep="")
 
   stop_ = FALSE
+#   suppressWarnings(warning(source("main.r")))
 
 
 # START -------------------------------------------------------------------
 
-  write(paste("-------------------------------------------------------------\nLIST OF ERRORS\n-------------------------------------------------------------"), file = Errors, append = TRUE)
+initializeErrors()
 
 check_without_errors = TRUE
 
 # check degli header ------------------------------------------------------
 
-  checkHeader(TA,"TA")
-  checkHeader(TB,"TB")
-  checkHeader(TC,"TC")
-
-  ResultDataTA_bkp <- TA
-  ResultDataTB_bkp <- TB
-  ResultDataTC_bkp <- TC
-
-
-
-  if (!(all(is.na(TE)) & length(TE)==1))
+if(Format=="before_2012")
+{
+  checkHeader(ResultDataTA,"TA")
+  checkHeader(ResultDataTB,"TB")
+  checkHeader(ResultDataTC,"TC")
+  if(DataTT=="")
   {
-  checkHeader(TE,"TE")
-  ResultDataTE_bkp <- TE
+  	DataTT_bkp = DataTT
+    # nothing
+  }else{
+    checkHeader(ResultDataTT,"TT")
+	DataTT_bkp = DataTT
   }
 
-  if (!(all(is.na(TL)) & length(TL)==1))
+  if(DataTD=="")
   {
-    checkHeader(TL,"TL")
-    ResultDataTL_bkp <- TL
+  	DataTD_bkp = DataTD
+    # nothing
+  }else{
+    checkHeader(ResultDataTD,"TD")
+	DataTD_bkp = DataTD
   }
 
-years = unique (TA$YEAR)
+}else{
+  checkHeader(ResultDataTA,"TA")
+  checkHeader(ResultDataTB,"TB")
+  checkHeader(ResultDataTC,"TC")
+  # Non è necessario TE per il from_2012
 
-yea <- 2012
+  if(as.character(DataTE) != "")
+  {
+    checkHeader(ResultDataTE,"TE")
+	DataTE_bkp = DataTE
+
+  }   else {
+  DataTE_bkp = DataTE
+  }
+
+  if(as.character(DataTL) != "")
+  {
+    checkHeader(ResultDataTL,"TL")
+    DataTL_bkp = DataTL
+
+  }   else {
+    DataTL_bkp = DataTL
+  }
+}
+
+years = unique (ResultDataTA_bkp$YEAR)
+
 for (yea in years) {
-
 if (check_without_errors == TRUE) {
 print(paste("Checking year ",yea ),quote=F)
 }
-
 #------------------
+if(Format=="before_2012") {
+      ResultDataTA <<-ResultDataTA_bkp[ResultDataTA_bkp$YEAR == yea,]
+      ResultDataTB <<-ResultDataTB_bkp[ResultDataTB_bkp$YEAR == yea,]
+      ResultDataTC <<-ResultDataTC_bkp[ResultDataTC_bkp$YEAR == yea,]
 
-      ResultDataTA <-ResultDataTA_bkp[ResultDataTA_bkp$YEAR == yea,]
-      ResultDataTB <-ResultDataTB_bkp[ResultDataTB_bkp$YEAR == yea,]
-      ResultDataTC <-ResultDataTC_bkp[ResultDataTC_bkp$YEAR == yea,]
 
-      if (!(all(is.na(TE)) & length(TE)==1))
+
+      if(DataTT=="")
       {
-        ResultDataTE <- ResultDataTE_bkp[ResultDataTE_bkp$YEAR==yea,]
-      } else {
-        ResultDataTE <- NA
-	    }
-
-      if (!(all(is.na(TL)) & length(TL)==1))
-      {
-        ResultDataTL <- ResultDataTL_bkp[ResultDataTL_bkp$YEAR==yea,]
-      } else {
-        ResultDataTL <- NA
+        # nothing
+      }else{
+        ResultDataTT <<- ResultDataTT_bkp[ResultDataTT_bkp$YEAR==yea,]
+		if (nrow(ResultDataTT)==0){
+		DataTT = ""
+		}
       }
+
+      if(DataTD=="")
+      {
+        # nothing
+
+      }else{
+        ResultDataTD <<- ResultDataTD_bkp[ResultDataTD_bkp$YEAR==yea,]
+		if (nrow(ResultDataTD)==0){
+		DataTD = ""
+		}
+      }
+
+    }else{
+      ResultDataTA <<-ResultDataTA_bkp[ResultDataTA_bkp$YEAR == yea,]
+      ResultDataTB <<-ResultDataTB_bkp[ResultDataTB_bkp$YEAR == yea,]
+      ResultDataTC <<-ResultDataTC_bkp[ResultDataTC_bkp$YEAR == yea,]
+
+
+      # Il TE non è necessario per from_2012
+      if(as.character(DataTE) != "")
+      {
+        ResultDataTE <<- ResultDataTE_bkp[ResultDataTE_bkp$YEAR==yea,]
+		if (nrow(ResultDataTE)==0){
+		DataTE = ""
+		}
+      }
+
+      if(as.character(DataTL) != "")
+      {
+        ResultDataTL <<- ResultDataTL_bkp[ResultDataTL_bkp$YEAR==yea,]
+        if (nrow(ResultDataTL)==0){
+          DataTL = ""
+        }
+      }
+    }
+
 
 #---------------------
 
@@ -112,114 +461,79 @@ print(paste("Checking year ",yea ),quote=F)
 checkName = "Check identical record TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_identical_records(Data=ResultDataTA, wd, suffix)
+  check_without_errors = check_identical_records(ResultDataTA,"TA")
 }
 stop_ = printError(checkName,check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
+
 
 checkName= "Check identical record TB"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_identical_records(Data=ResultDataTB,wd,suffix)
+  check_without_errors = check_identical_records(ResultDataTB,"TB")
 }
 stop_ = printError(checkName,check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check identical record TC"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_identical_records(Data=ResultDataTC,wd,suffix)
+  check_without_errors = check_identical_records(ResultDataTC,"TC")
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-
-if (!(all(is.na(TE)) & length(TE)==1))
-{
-  if (nrow(ResultDataTE)>0){
-  checkName = "Check identical record TE"
-  if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_identical_records(Data=ResultDataTE,wd,suffix)
-  }
-  stop_ = printError(checkName,check_without_errors, stop_)
-  }
-}
-
-if (!(all(is.na(TL)) & length(TL)==1))
-{
-  if (nrow(ResultDataTL)>0){
-  checkName = "Check identical record TL"
-  if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_identical_records(Data=ResultDataTL,wd,suffix)
-  }
-  stop_ = printError(checkName,check_without_errors, stop_)
-  }
-}
-
-
-# --------------------------------
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check quasi-identical record in TA"
 if (check_without_errors == TRUE) {
    print(paste(checkName, "in progress..."), quote = FALSE)
-   check_without_errors = check_quasiidentical_records(ResultDataTA,wd,suffix)
+   check_without_errors = check_quasiidentical_records(ResultDataTA,"TA")
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+unlink(paste(DataTB,".csv",sep=""))
+unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check quasi-identical record in TB"
 if (check_without_errors == TRUE) {
    print(paste(checkName,"in progress..."), quote = FALSE)
-check_without_errors = check_quasiidentical_records(ResultDataTB,wd,suffix)
+check_without_errors = check_quasiidentical_records(ResultDataTB,"TB")
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+unlink(paste(DataTB,".csv",sep=""))
+unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check quasi-identical record in TC"
 if (check_without_errors == TRUE) {
    print(paste(checkName,"in progress..."), quote = FALSE)
-check_without_errors = check_quasiidentical_records(ResultDataTC,wd,suffix)
+check_without_errors = check_quasiidentical_records(ResultDataTC,"TC")
 }
 stop_ = printError(checkName,check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+unlink(paste(DataTB,".csv",sep=""))
+unlink(paste(DataTC,".csv",sep=""))}
 
-
-if (!(all(is.na(TE)) & length(TE)==1))
-{
-  if (nrow(ResultDataTE)>0){
-    checkName = "Check quasi-identical record in TE"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_quasiidentical_records(ResultDataTE,wd,suffix)
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-      }
-}
-
-if (!(all(is.na(TL)) & length(TL)==1))
-{
-  if (nrow(ResultDataTL)>0){
-    checkName = "Check quasi-identical record in TL"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_quasiidentical_records(ResultDataTL,wd,suffix)
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-  }
-}
-
-
-# --------------------------------
-
-
-checkName = "Check consistency of area TA, TB, TC, TE, TL"
+checkName = "Check consistency of area and year TA, TB and TC"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_area(TA, TB, TC, TE, TL, wd, suffix)
+  check_without_errors = check_area_year()
 }
 stop_ = printError(checkName,check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
 
 
 #--------------------------------------------------
 # Dictionary checks
 #--------------------------------------------------
+
 
 #TA
 checkName = "Check dictionary for field:"
@@ -228,33 +542,47 @@ Field = "VALIDITY"
 Values = c("V","I")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "COURSE"
 Values = c("R","N")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                       unlink(paste(DataTB,".csv",sep=""))
+                                       unlink(paste(DataTC,".csv",sep=""))}
 
-Field = "PART_OF_THE_CODEND"
-Values = c("A","M","P","S")
-if (check_without_errors == TRUE) {
+if (Format=="from_2012"){
+  Field = "PART_OF_THE_CODEND"
+  Values = c("A","M","P","S")
+  if (check_without_errors == TRUE) {
     print(paste(checkName,Field,"in progress..."), quote = FALSE)
-    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+    check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  }
+  stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
+                                         unlink(paste(DataTB,".csv",sep=""))
+                                         unlink(paste(DataTC,".csv",sep=""))}
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
 
 Field = "GEOMETRICAL_PRECISION"
 Values = c("M","E")
