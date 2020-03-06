@@ -27,11 +27,11 @@ The function returns TRUE if no error occurs, while FALSE is returned when there
 \examples{
     wd <- tempdir()
     suffix="2020-03-05_time h17m44s55"
-    DataTA = MEDITS::TA
-    DataTB = MEDITS::TB
-    DataTC = MEDITS::TC
-    DataTE = NA
-    DataTL = NA
+    DataTA = RoME::TA
+    DataTB = RoME::TB
+    DataTC = RoME::TC
+    DataTE = RoME::TE
+    DataTL = RoME::TL
 
     check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
 }

@@ -61,40 +61,40 @@ check_area <- function(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix){
   }
 
 
-  if (!is.na(DataTE)) {
+  if (length(DataTE)>1 & any(!is.na(DataTE))) {
   GSA_TE=unique(DataTE$AREA)
   if (!(GSA_TE %in% GSAs$GSA)){
     write(paste("Warning: the AREA code used in TE file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
   }
-  if (!is.na(DataTL)) {
+  if (length(DataTL)>1 & any(!is.na(DataTL))) {
   GSA_TL=unique(DataTL$AREA)
   if (!(GSA_TL %in% GSAs$GSA)){
     write(paste("Warning: the AREA code used in TL file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
   }
 
-if (is.na(DataTE) & is.na(DataTL)){
+if (  (all(is.na(DataTE)) & length(DataTE)==1  ) & (all(is.na(DataTL)) & length(DataTL)==1  ) ){
   if ( (GSA_TA != GSA_TB) | (GSA_TB != GSA_TC) | (GSA_TA != GSA_TC)){
       write(paste("Different value for field AREA in TA, TB and TC files"), file = Errors, append = TRUE)
       numberError = numberError +1
     }
 
 
-} else if (!is.na(DataTE) & is.na(DataTL)){
+} else if (!((all(is.na(DataTE)) & length(DataTE)==1  )) & (all(is.na(DataTL)) & length(DataTL)==1  )){
  if ( (GSA_TA != GSA_TB) | (GSA_TB != GSA_TC) | (GSA_TA != GSA_TC) | (GSA_TE != GSA_TA)| (GSA_TE != GSA_TB)| (GSA_TE != GSA_TC)){
     write(paste("Different value for field AREA in TA, TB, TC, TE files"), file = Errors, append = TRUE)
     numberError = numberError +1
   }
 
 
-} else if (!is.na(DataTL) & is.na(DataTE))  {
+} else if (!((all(is.na(DataTL)) & length(DataTL)==1  )) & (all(is.na(DataTE)) & length(DataTE)==1  ))  {
   if ( (GSA_TA != GSA_TB) | (GSA_TB != GSA_TC) | (GSA_TA != GSA_TC) | (GSA_TL != GSA_TA)| (GSA_TL != GSA_TB)| (GSA_TL != GSA_TC)){
     write(paste("Different value for field AREA in TA, TB, TC and TL files"), file = Errors, append = TRUE)
     numberError = numberError +1
   }
 
-} else if (!is.na(DataTE) &  !is.na(DataTL))  {
+} else if (!((all(is.na(DataTL)) & length(DataTL)==1  )) &  !((all(is.na(DataTE)) & length(DataTE)==1  )))  {
   if ( (GSA_TA != GSA_TB) | (GSA_TB != GSA_TC) | (GSA_TA != GSA_TC) | (GSA_TL != GSA_TA)| (GSA_TE != GSA_TA)| (GSA_TE != GSA_TL) | (GSA_TL != GSA_TB)| (GSA_TE != GSA_TB)| (GSA_TL != GSA_TC)| (GSA_TE != GSA_TC)){
     write(paste("Different value for field AREA in TA, TB, TC, TE and TL files"), file = Errors, append = TRUE)
     numberError = numberError +1
