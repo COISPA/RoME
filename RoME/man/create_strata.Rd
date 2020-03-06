@@ -27,7 +27,6 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.http
 library(MEDITS)
 library(RoME)
 wd <- tempdir()
-suffix="27-02-2020 18:30"
 create_strata(stratification_scheme,"18",wd)
 }
 

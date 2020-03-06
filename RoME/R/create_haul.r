@@ -13,7 +13,7 @@ if (FALSE){
   ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   create_haul(Result,wd)
 }
 
@@ -21,13 +21,9 @@ if (FALSE){
 create_haul<-function(ResultDataTA,wd,suffix){
 
    Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
-  }
 
-  if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  }
+
+
 
   if (!file.exists(paste(wd,"Graphs",sep="/"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -37,8 +33,6 @@ create_haul<-function(ResultDataTA,wd,suffix){
      dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
    }
 
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
 
 
   ResultData = ResultDataTA
