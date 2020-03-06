@@ -106,8 +106,8 @@ print(paste("Checking year ",yea ),quote=F)
         ResultDataTL <- NA
       }
 
-#---------------------
-
+# --------------------------------
+# Check identical records
 
 checkName = "Check identical record TA"
 if (check_without_errors == TRUE) {
@@ -156,6 +156,7 @@ if (!(all(is.na(TL)) & length(TL)==1))
 
 
 # --------------------------------
+# Check quasi-identical record
 
 checkName = "Check quasi-identical record in TA"
 if (check_without_errors == TRUE) {
@@ -207,7 +208,7 @@ if (!(all(is.na(TL)) & length(TL)==1))
 
 
 # --------------------------------
-
+# Check consistency of area
 
 checkName = "Check consistency of area TA, TB, TC, TE, TL"
 if (check_without_errors == TRUE) {
@@ -222,8 +223,8 @@ stop_ = printError(checkName,check_without_errors, stop_)
 #--------------------------------------------------
 
 #TA
-checkName = "Check dictionary for field:"
 
+checkName = "Check dictionary for field:"
 Field = "VALIDITY"
 Values = c("V","I")
 if (check_without_errors == TRUE) {
@@ -248,6 +249,7 @@ if (check_without_errors == TRUE) {
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
 
+
 Field = "PART_OF_THE_CODEND"
 Values = c("A","M","P","S")
 if (check_without_errors == TRUE) {
@@ -260,121 +262,81 @@ Field = "GEOMETRICAL_PRECISION"
 Values = c("M","E")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "GEAR"
 Values = c("GOC73")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "RIGGING"
 Values = c("GC73")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "DOORS"
 Values = c("WHS8")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+
 
 Field = "SHOOTING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "HAULING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
-if (Format=="from_2012"){
+
 
   Field = "MEASURING_SYSTEM"
   Values = c("VA","SO","XA","SA","SI","CT","SB")
   if (check_without_errors == TRUE) {
     print(paste(checkName,Field,"in progress..."), quote = FALSE)
-    check_without_errors = check_dictionary(ResultDataTA, Field, Values)
+    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
   }
   stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))}
-} else {
-  if (as.character(DataTD)!=""){
-    Field = "METHOD"
-    Values = c("VA","XA","SA","CTD")
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,Field,"in progress..."), quote = FALSE)
-      check_without_errors = check_dictionary(ResultDataTD, Field, Values)
-    }
-    stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTD,".csv",sep=""))  }
 
 
 
-  }
-}
 
 #TB
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTB, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 Field = "PART_OF_THE_CODEND"
 Values = c("A", "M", "P", "S")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTB, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+
 
 
 
@@ -383,289 +345,230 @@ Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTC, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+
 
 Field = "PART_OF_THE_CODEND"
 Values = c("A", "M", "P", "S")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTC, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+
 
 Field = "SEX"
 Values = c("M", "F", "I", "N")
 if (check_without_errors == TRUE) {
   print(paste(checkName,Field,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTC, Field, Values)
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
 }
 stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 
-if(Format=="before_2012"){
-  Field = "LENGTH_CLASSES_CODE"
-  Values = c("0","1","m")
-  if (check_without_errors == TRUE) {
-    print(paste(checkName,Field,"in progress..."), quote = FALSE)
-    check_without_errors = check_dictionary(ResultDataTC, Field, Values)
-  }
-  stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))}
-} else {
   Field = "LENGTH_CLASSES_CODE"
   Values = c("0","m")
   if (check_without_errors == TRUE) {
     print(paste(checkName,Field,"in progress..."), quote = FALSE)
-    check_without_errors = check_dictionary(ResultDataTC, Field, Values)
+    check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
   }
   stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))}
 
-  if (DataTE!=""){
+#TE
+
+  if (!(all(is.na(TE)) & length(TE)==1)){
+  if (nrow(ResultDataTE)>0){
     Field = "LENGTH_CLASSES_CODE"
     Values = c("0","m")
     if (check_without_errors == TRUE) {
       print(paste(checkName,Field,"in progress..."), quote = FALSE)
-      check_without_errors = check_dictionary(ResultDataTE, Field, Values)
+      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
     }
     stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
 
-
+    ResultDataTE[is.na(ResultDataTE$LENGTH_CLASSES_CODE),]
 
     Field = "SEX"
     Values = c("M", "F", "I", "N")
     if (check_without_errors == TRUE) {
       print(paste(checkName,Field,"in progress..."), quote = FALSE)
-      check_without_errors = check_dictionary(ResultDataTE, Field, Values)
+      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
     }
     stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
   }
 }
 # End dictionary checks
-#--------------------------------------------------
+#-------------------------------------
+
+#-------------------------------------
+# Check no empty fields TA
 
 checkName = "Check no empty fields TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_no_empty_fields(ResultDataTA, "TA")
+  check_without_errors = check_no_empty_fields(ResultDataTA, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName =  "Check no empty fields TB"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_no_empty_fields(ResultDataTB, "TB")
+  check_without_errors = check_no_empty_fields(ResultDataTB, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check no empty fields TC"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_no_empty_fields(ResultDataTC, "TC")
+  check_without_errors = check_no_empty_fields(ResultDataTC, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
-if ((Format=="from_2012")& (DataTE!="")){
 
+if (!(all(is.na(TE)) & length(TE)==1)) {
+   if (nrow(ResultDataTE)>0){
   checkName = "Check no empty fields TE"
   if (check_without_errors == TRUE) {
     print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_no_empty_fields(ResultDataTE, "TE")
+    check_without_errors = check_no_empty_fields(ResultDataTE, wd, suffix)
   }
   stop_ = printError(checkName,check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))
-                                         unlink(paste(DataTE,".csv",sep=""))}
+  }
 }
+
+if (!(all(is.na(TL)) & length(TL)==1)) {
+  if (nrow(ResultDataTL)>0){
+    checkName = "Check no empty fields TL"
+    if (check_without_errors == TRUE) {
+      print(paste(checkName,"in progress..."), quote = FALSE)
+      check_without_errors = check_no_empty_fields(ResultDataTL, wd, suffix)
+    }
+    stop_ = printError(checkName,check_without_errors, stop_)
+  }
+}
+
+#-------------------------------------
 # checks on TA
 
 checkName = "Check 0 fields TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_0_fieldsTA(ResultDataTA)
+  check_without_errors = check_0_fieldsTA(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check dm TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_dm(ResultDataTA)
+  check_without_errors = check_dm(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check consistency between duration and time TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_consistencyTA_duration(ResultDataTA)
+  check_without_errors = check_consistencyTA_duration(ResultDataTA, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check consistency between distance and duration of the haul TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_consistencyTA_distance(ResultDataTA)
+  check_without_errors = check_consistencyTA_distance(ResultDataTA, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check consistency of the hauls coordinates with the distance(difference not greater than 30%)"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_distance(ResultDataTA)
+  check_without_errors = check_distance(ResultDataTA, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check consistency of bridles length TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_bridles_length(ResultDataTA)
+  check_without_errors = check_bridles_length(ResultDataTA, wd, suffix)
 }
 stop_ =printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check difference between start depth and end depth (not greater than 20%) in TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_depth(ResultDataTA)
+  check_without_errors = check_depth(ResultDataTA, wd, suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check start depth and end depth in the same stratum TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_stratum(ResultDataTA)
+  check_without_errors = check_stratum(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
-if ((as.character(DataTT)!="" )| (Format=="from_2012")){
-  checkName = "Check consistency of stratum code in TA or TT"
+checkName = "Check consistency of stratum code in TA"
   if (check_without_errors == TRUE) {
     print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_stratum_code()
+    check_without_errors = check_stratum_code(ResultDataTA,Stratification=MEDITS::stratification_scheme,wd,suffix)
   }
   stop_ = printError(checkName,check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))}
 
-}
 checkName = "Check start quadrant and end quadrant TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_quadrant(ResultDataTA)
+  check_without_errors = check_quadrant(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check uniqueness of valid hauls TA"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_unique_valid_haul(ResultDataTA)
+  check_without_errors = check_unique_valid_haul(ResultDataTA,wd,suffix)
 }
 stop_ =printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Visual check of the haul positions"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-check_position(ResultDataTA)
+  check_position(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-
 
 checkName = "Relation between shooting depth e warp length and between warp length e wing opening"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  graphs_TA(ResultDataTA)
+  graphs_TA(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
 
 checkName = "Check if the coordinates are in the Mediterranean Sea"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_position_in_Med(ResultDataTA)
+  check_without_errors = check_position_in_Med(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-
 
 checkName = "Check on temperature by haul"
 if (check_without_errors == TRUE) {
   print(paste(checkName,"in progress..."), quote = FALSE)
-#   if((Format=="before_2012")){if (DataTD != ""){.check_without_errors = .check_temperature(ResultDataTD)}} else {check_without_errors = .check_temperature(ResultDataTA)}
-  if((Format=="before_2012")){if (DataTD != ""){check_without_errors = check_temperature()}} else {check_without_errors = check_temperature()}
+  check_without_errors = check_temperature(ResultDataTA,wd,suffix)
 }
 stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+
+
+
+
+
+
+###########################
+#### Riprendere da qui ####
+###########################
+
+
+
+
 
 
 # checks on TB
