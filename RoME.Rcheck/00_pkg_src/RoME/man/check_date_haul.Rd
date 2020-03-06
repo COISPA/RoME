@@ -20,7 +20,7 @@ I. Bitetto, W. Zupa
 \examples{
 library(RoME)
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time h17m44s55"
     DataTA = MEDITS::TA
     Data = MEDITS::TB
     check_date_haul(DataTA, Data, wd, suffix)

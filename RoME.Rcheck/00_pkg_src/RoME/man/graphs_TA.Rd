@@ -1,7 +1,7 @@
 \name{graphs_TA}
 \alias{graphs_TA}
 \title{
-Quality control by graphs}
+Function for qualitative checks of shooting depth, warp length and wing opening in Haul data table (TA).}
 \description{
 Qualitative control (by means of 2 graphs) of relation between shooting depth e warp opening and between warp length e wing opening
 }

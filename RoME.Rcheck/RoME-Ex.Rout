@@ -1,5 +1,5 @@
 
-R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
 Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
@@ -35,7 +35,6 @@ Type 'q()' to quit R.
 > ### * </HEADER>
 > library('RoME')
 Loading required package: timeDate
-Warning: package 'timeDate' was built under R version 3.6.2
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -122,6 +121,38 @@ Warning: package 'timeDate' was built under R version 3.6.2
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("MedSea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+> nameEx("Rsufi_files")
+> ### * Rsufi_files
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: Rsufi_files
+> ### Title: Function to concatenate the R-sufi files of the different years.
+> ### Aliases: Rsufi_files
+> ### Keywords: R-sufi,global files
+> 
+> ### ** Examples
+> 
+> 
+> library(MEDITS)
+> library(RoME)
+> wd <- tempdir()
+> 
+> create_haul(TA,wd)
+> create_catch(TB,wd)
+> create_length(TC,TM_list,wd)
+> create_strata(stratification_scheme,"10",wd)
+> RSufi_files(2007,2007,"10",wd)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("Rsufi_files", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("TE_provisional")
 > ### * TE_provisional
 > 

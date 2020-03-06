@@ -1,5 +1,5 @@
-* using log directory 'C:/Users/walte/Documents/GitHub/RoME/RoME.Rcheck'
-* using R version 3.6.1 (2019-07-05)
+* using log directory 'D:/Documents and Settings/Utente/Documenti/GitHub/RoME/RoME.Rcheck'
+* using R version 3.6.2 (2019-12-12)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
 * using options '--no-manual --as-cran'
@@ -13,16 +13,19 @@
 * checking if there is a namespace ... OK
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
-* checking for portable file names ... OK
-* checking whether package 'RoME' can be installed ... WARNING
-Found the following significant warnings:
-  Warning: package 'timeDate' was built under R version 3.6.2
-See 'C:/Users/walte/Documents/GitHub/RoME/RoME.Rcheck/00install.out' for details.
+* checking for portable file names ... WARNING
+Found the following file with a non-portable file name:
+  sampling_individual_measures_ 2012 .csv
+These are not fully portable file names.
+See section 'Package structure' in the 'Writing R Extensions' manual.
+* checking whether package 'RoME' can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... OK
+* checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  'sampling_individual_measures_ 2012 .csv'
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -99,13 +102,16 @@ to your NAMESPACE file.
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'ResultDataTE'
+  'RSufi_files' 'ResultDataTE'
 Undocumented data sets:
   'ResultDataTE'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... OK
+* checking for code/documentation mismatches ... WARNING
+Functions or methods with usage in documentation object 'Rsufi_files' but not in code:
+  'Rsufi_files'
+
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
@@ -129,5 +135,6 @@ The error most likely occurred in:
 Error in str(TE_provisional) : object 'TE_provisional' not found
 Execution halted
 ** found \donttest examples: check also with --run-donttest
+* checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 2 WARNINGs, 1 NOTE
+Status: 1 ERROR, 3 WARNINGs, 2 NOTEs

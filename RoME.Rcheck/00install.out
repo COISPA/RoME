@@ -4,15 +4,11 @@
 ** data
 *** moving datasets to lazyload DB
 ** byte-compile and prepare package for lazy loading
-Warning message:
-package 'timeDate' was built under R version 3.6.2 
 ** help
 *** installing help indices
 *** copying figures
 ** building package indices
 ** testing if installed package can be loaded from temporary location
-Warning: package 'timeDate' was built under R version 3.6.2
 ** testing if installed package can be loaded from final location
-Warning: package 'timeDate' was built under R version 3.6.2
 ** testing if installed package keeps a record of temporary installation path
 * DONE (RoME)

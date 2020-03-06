@@ -101,6 +101,35 @@ data(MedSea)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("MedSea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("Rsufi_files")
+### * Rsufi_files
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: Rsufi_files
+### Title: Function to concatenate the R-sufi files of the different years.
+### Aliases: Rsufi_files
+### Keywords: R-sufi,global files
+
+### ** Examples
+
+
+library(MEDITS)
+library(RoME)
+wd <- tempdir()
+
+create_haul(TA,wd)
+create_catch(TB,wd)
+create_length(TC,TM_list,wd)
+create_strata(stratification_scheme,"10",wd)
+RSufi_files(2007,2007,"10",wd)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("Rsufi_files", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("TE_provisional")
 ### * TE_provisional
 
@@ -393,7 +422,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 library(RoME)
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time h17m44s55"
     DataTA = MEDITS::TA
     Data = MEDITS::TB
     check_date_haul(DataTA, Data, wd, suffix)
@@ -1310,7 +1339,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(MEDITS)
 library(RoME)
 wd <- tempdir()
-suffix="27-02-2020 18:30"
 create_catch(TB,wd)
 
 
@@ -1334,7 +1362,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(MEDITS)
 library(RoME)
 wd <- tempdir()
-suffix="27-02-2020 18:30"
 create_haul(TA,wd)
 
 
@@ -1382,7 +1409,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 library(MEDITS)
 library(RoME)
 wd <- tempdir()
-suffix="27-02-2020 18:30"
 create_strata(stratification_scheme,"18",wd)
 
 
@@ -1397,7 +1423,8 @@ flush(stderr()); flush(stdout())
 
 base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### Name: graphs_TA
-### Title: Quality control by graphs
+### Title: Function for qualitative checks of shooting depth, warp length
+###   and wing opening in Haul data table (TA).
 ### Aliases: graphs_TA
 ### Keywords: graph
 
@@ -1495,6 +1522,25 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("printError", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("scheme_individual_data")
+### * scheme_individual_data
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: scheme_individual_data
+### Title: Summary of the individual data collected by species
+### Aliases: scheme_individual_data
+### Keywords: report
+
+### ** Examples
+
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("scheme_individual_data", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("templateTA")
 ### * templateTA

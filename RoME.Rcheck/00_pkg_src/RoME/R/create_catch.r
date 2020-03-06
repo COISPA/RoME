@@ -19,8 +19,8 @@ if (FALSE){
 
 create_catch<-function(ResultDataTB,wd){
 
-  if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
-    dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
+  if (!file.exists(paste(wd,"/files R-Sufi",sep="/"))){
+    dir.create(file.path(wd, "/files R-Sufi"), showWarnings = FALSE)
   }
 
   ResultData = ResultDataTB
