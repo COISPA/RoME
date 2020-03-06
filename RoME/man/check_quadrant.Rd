@@ -10,7 +10,7 @@ Function checking that the shooting quadrant and the hauling quadrant are the sa
 check_quadrant(ResultDataTA,wd,suffix)
 }
 \arguments{
-  \item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
+\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
 }
 \item{wd}{Working directory selected by the user.
 }
@@ -21,7 +21,7 @@ check_quadrant(ResultDataTA,wd,suffix)
 The function returns a warning if shooting and hauling quadrant are not the same.
 }
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that doesnot lock the execution of the RoME checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
+The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the RoME checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
 }
 \references{
 For the definition of the quadrants, please refer to:
