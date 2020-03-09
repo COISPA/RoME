@@ -18,9 +18,6 @@
 check_distance<-function(DataTA, wd, suffix){
   oldpar <- par(no.readonly = TRUE)
 
-
-
-
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
@@ -43,6 +40,8 @@ check_distance<-function(DataTA, wd, suffix){
   for (i in 1:nrow(ResultData)){
     ResultData$computed_distance[i]= MEDITS::dd.distance(ResultData[i,], unit = "m", verbose=FALSE)
   }
+
+
   if (nrow(ResultData)!=0){
     for (j in 1:nrow(ResultData)){
       if (  (ResultData$DISTANCE[j]<=ResultData$computed_distance[j]-0.3*ResultData$computed_distance[j]) | (ResultData$DISTANCE[j]>=ResultData$computed_distance[j]+0.3*ResultData$computed_distance[j])){

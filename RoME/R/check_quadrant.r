@@ -18,20 +18,20 @@ if (FALSE){
 
 check_quadrant<-function(ResultDataTA,wd,suffix){
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
-  if (!exists("suffix")){
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  if (!file.exists(file.path(wd,"Graphs"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
+  if (!exists("suffix")){
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  }
   numberError = 0
-  ResultData = ResultDataTA #read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
-  write(paste("
------------ check start quadrant and end quadrant TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+
+  ResultData = ResultDataTA
+  write(paste("\n----------- check start quadrant and end quadrant TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
@@ -49,4 +49,3 @@ check_quadrant<-function(ResultDataTA,wd,suffix){
   } else { return(FALSE) }
 
 }
-################################################################################

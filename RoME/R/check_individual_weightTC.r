@@ -18,16 +18,14 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
     # check_individual_weightTC(DataTC=DataTC, wd=wd, suffix=suffix, verbose=TRUE)
   }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
-  numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
-
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   TC = DataTC
 
@@ -58,8 +56,6 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
       mean_weight = A*mean_length^B
 
       TC$mean_weight[i] = mean_weight * TC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE[i] # estimated weight
-      #TC$mean_individual_weight[i] = mean_weight
-
 
     }
 
@@ -82,8 +78,8 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   } else {
-
-  write.table(TC_w,file=paste(wd,"/Comparison_estimated_observed_weight_in_TC_",  TC$YEAR[1],".csv",sep=""),sep=";",row.names=F)
+  filename <- paste("Comparison_estimated_observed_weight_in_TC_",  TC$YEAR[1],".csv",sep="")
+  write.table(TC_w,file=file.path(wd,filename),sep=";",row.names=F)
 
     write("For some hauls the difference between estimated and observed total weight is greater than 50%. Please verify in the file Comparison_estimated_observed_weight_in_TC.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }
