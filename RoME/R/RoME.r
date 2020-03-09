@@ -704,23 +704,18 @@ if (check_without_errors == TRUE) {
 
 checkName = "Check presence in TB of TA hauls"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_hauls_TATB(ResultDataTA,ResultDataTB)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_hauls_TATB(ResultDataTA,ResultDataTB,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check presence in TA of TB hauls"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_hauls_TBTA(ResultDataTA,ResultDataTB)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_hauls_TBTA(ResultDataTA,ResultDataTB,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
 
 checkName = "Check presence in TC of TB target species"
 if (check_without_errors == TRUE) {

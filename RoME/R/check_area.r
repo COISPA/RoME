@@ -29,7 +29,7 @@ check_area <- function(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix){
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- file.path(wd,"Logfiles",paste(" Logfile_", suffix ,".dat",sep=""))
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
 
   #### CHECK TL FIELDS ####
   {
@@ -45,7 +45,7 @@ check_area <- function(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix){
   }
   #### CHECK TL FIELDS - END ####
 
-  write(paste("\n----------- check consistency of area and year TX - ", DataTA$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check consistency of area in TX - ", DataTA$YEAR[1]), file = Errors, append = TRUE)
 
   GSA_TA=unique(DataTA$AREA)
   if (!(GSA_TA %in% GSAs$GSA)){
