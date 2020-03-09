@@ -25,19 +25,19 @@ if (FALSE){
 check_TE_TC <- function (ResultDataTC,ResultDataTE,wd,suffix){
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
+  if (!file.exists(file.path(wd,"Graphs"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+  }
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
-
   numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+
   TC = ResultDataTC
   TE = ResultDataTE
 
@@ -45,8 +45,7 @@ if (nrow(TE[which(TE$MATSUB=="O"),])!=0){
   TE[which(TE$MATSUB=="O"),]$MATSUB="ND"
 }
 
-  write(paste("
------------ check consistency nb of individuals TC and TE - ",TC$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check consistency nb of individuals TC and TE - ",TC$YEAR[1]), file = Errors, append = TRUE)
    for (i in 1:nrow(TE)){
   TE$SEX[i]=ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i]))
   }
