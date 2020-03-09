@@ -92,7 +92,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
         if (length(X)>=10) {
           if ( nb_graphs<20) {
             if(.Platform$OS.type=="windows") {
-              windows(width=60, height=60)
+              dev.new(width=60, height=60)
             } #else if(.Platform$OS.type=="unix")
 #            {
 #              X11(width=60, height=60)
