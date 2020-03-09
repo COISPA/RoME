@@ -21,21 +21,17 @@ if (FALSE){
 check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
   numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-
-    write(paste("
-              ----------- check consistency of maturity stages",ResultDataTC$TYPE_OF_FILE[1],"by means of spawning season information - ",ResultDataTA$YEAR[1]), file = Errors, append = TRUE)
+    write(paste("\n----------- check consistency of maturity stages",ResultDataTC$TYPE_OF_FILE[1],"by means of spawning season information - ",ResultDataTA$YEAR[1]), file = Errors, append = TRUE)
 
   ResultDataTC$Species = paste(ResultDataTC$GENUS,ResultDataTC$SPECIES)
   ResultDataTC$Maturity = paste(as.character(ResultDataTC$MATURITY),ifelse(is.na(ResultDataTC$MATSUB),"",as.character(ResultDataTC$MATSUB)), sep="")
@@ -136,4 +132,3 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Ma
     return(TRUE)
   } else { return(FALSE) }
 }
-################################################################################
