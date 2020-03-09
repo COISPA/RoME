@@ -25,18 +25,18 @@ ResultDataTC[ResultDataTC$YEAR==1994,]
 check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
 Format="from_2012"
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
-  }
+if (!file.exists(file.path(wd, "Logfiles"))){
+  dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+}
+if (!file.exists(file.path(wd,"Graphs"))){
+  dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+}
+if (!exists("suffix")){
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+}
+numberError = 0
+Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-  if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
-  numberError = 0
   ResultTC = ResultDataTC
   write(paste("
               ----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
@@ -162,6 +162,3 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
   } else { return(FALSE) }
 
 }
-
-
-################################################################################
