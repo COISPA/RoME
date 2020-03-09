@@ -457,108 +457,108 @@ if (!(all(is.na(TL)) & length(TL)==1)) {
 
 checkName = "Check 0 fields TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_0_fieldsTA(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check dm TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_dm(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency between duration and time TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_consistencyTA_duration(ResultDataTA, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency between distance and duration of the haul TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_consistencyTA_distance(ResultDataTA, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of the hauls coordinates with the distance(difference not greater than 30%)"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_distance(ResultDataTA, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of bridles length TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_bridles_length(ResultDataTA, wd, suffix)
 }
-stop_ =printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ =printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check difference between start depth and end depth (not greater than 20%) in TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_depth(ResultDataTA, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check start depth and end depth in the same stratum TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_stratum(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of stratum code in TA"
   if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
     check_without_errors = check_stratum_code(ResultDataTA,Stratification=MEDITS::stratification_scheme,wd,suffix)
   }
-  stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check start quadrant and end quadrant TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_quadrant(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check uniqueness of valid hauls TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_unique_valid_haul(ResultDataTA,wd,suffix)
 }
-stop_ =printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ =printError(checkName,check_without_errors, stop_)}
 
 checkName = "Visual check of the haul positions"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_position(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Relation between shooting depth e warp length and between warp length e wing opening"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   graphs_TA(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check if the coordinates are in the Mediterranean Sea"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_position_in_Med(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check on temperature by haul"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_temperature(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 
