@@ -21,27 +21,27 @@
 
 # VAR END --------------------------------------------------------
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA)
+RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA, verbose=TRUE)
 {
   stringsAsFactors=FALSE
   assign("Format",value="from_2012",envir=.GlobalEnv)
 
   # wd <- tempdir()
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+  if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
-  if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
-    dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
+  if (!file.exists(file.path(wd,"/files R-Sufi",sep="/"))){
+    dir.create(file.path(wd, "/files R-Sufi"), showWarnings = FALSE)
   }
 
   if (is.na(suffix)){
     suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <<- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
   write(paste("\n ",date(),sep=""), file = Errors, append = TRUE)
 
 
@@ -50,7 +50,9 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA)
 
 # START -------------------------------------------------------------------
 
-  write(paste("-------------------------------------------------------------\nLIST OF ERRORS\n-------------------------------------------------------------"), file = Errors, append = TRUE)
+  write(paste("-------------------------------------------------------------\n
+              LIST OF ERRORS
+              \n-------------------------------------------------------------"), file = Errors, append = TRUE)
 
 check_without_errors = TRUE
 
@@ -83,7 +85,7 @@ years = unique (TA$YEAR)
 yea <- 2012
 for (yea in years) {
 
-if (check_without_errors == TRUE) {
+if (check_without_errors == TRUE & verbose==TRUE) {
 print(paste("Checking year ",yea ),quote=F)
 }
 
@@ -112,34 +114,34 @@ print(paste("Checking year ",yea ),quote=F)
 
 checkName = "Check identical record TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_identical_records(Data=ResultDataTA, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+      if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName= "Check identical record TB"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_identical_records(Data=ResultDataTB,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check identical record TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_identical_records(Data=ResultDataTC,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 if (!(all(is.na(TE)) & length(TE)==1))
 {
   if (nrow(ResultDataTE)>0){
   checkName = "Check identical record TE"
   if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
     check_without_errors = check_identical_records(Data=ResultDataTE,wd,suffix)
   }
-  stop_ = printError(checkName,check_without_errors, stop_)
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
   }
 }
 
@@ -148,10 +150,10 @@ if (!(all(is.na(TL)) & length(TL)==1))
   if (nrow(ResultDataTL)>0){
   checkName = "Check identical record TL"
   if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
     check_without_errors = check_identical_records(Data=ResultDataTL,wd,suffix)
   }
-  stop_ = printError(checkName,check_without_errors, stop_)
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
   }
 }
 
@@ -161,26 +163,26 @@ if (!(all(is.na(TL)) & length(TL)==1))
 
 checkName = "Check quasi-identical record in TA"
 if (check_without_errors == TRUE) {
-   print(paste(checkName, "in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
    check_without_errors = check_quasiidentical_records(ResultDataTA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 checkName = "Check quasi-identical record in TB"
 if (check_without_errors == TRUE) {
-   print(paste(checkName,"in progress..."), quote = FALSE)
-check_without_errors = check_quasiidentical_records(ResultDataTB,wd,suffix)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+   check_without_errors = check_quasiidentical_records(ResultDataTB,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 checkName = "Check quasi-identical record in TC"
 if (check_without_errors == TRUE) {
-   print(paste(checkName,"in progress..."), quote = FALSE)
-check_without_errors = check_quasiidentical_records(ResultDataTC,wd,suffix)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_quasiidentical_records(ResultDataTC,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 if (!(all(is.na(TE)) & length(TE)==1))
@@ -188,10 +190,10 @@ if (!(all(is.na(TE)) & length(TE)==1))
   if (nrow(ResultDataTE)>0){
     checkName = "Check quasi-identical record in TE"
     if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
       check_without_errors = check_quasiidentical_records(ResultDataTE,wd,suffix)
     }
-    stop_ = printError(checkName,check_without_errors, stop_)
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
       }
 }
 
@@ -200,10 +202,10 @@ if (!(all(is.na(TL)) & length(TL)==1))
   if (nrow(ResultDataTL)>0){
     checkName = "Check quasi-identical record in TL"
     if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
       check_without_errors = check_quasiidentical_records(ResultDataTL,wd,suffix)
     }
-    stop_ = printError(checkName,check_without_errors, stop_)
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
   }
 }
 
@@ -213,10 +215,10 @@ if (!(all(is.na(TL)) & length(TL)==1))
 
 checkName = "Check consistency of area TA, TB, TC, TE, TL"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_area(TA, TB, TC, TE, TL, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 #--------------------------------------------------
@@ -229,94 +231,94 @@ checkName = "Check dictionary for field:"
 Field = "VALIDITY"
 Values = c("V","I")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "COURSE"
 Values = c("R","N")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 Field = "PART_OF_THE_CODEND"
 Values = c("A","M","P","S")
 if (check_without_errors == TRUE) {
-    print(paste(checkName,Field,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "GEOMETRICAL_PRECISION"
 Values = c("M","E")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "GEAR"
 Values = c("GOC73")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "RIGGING"
 Values = c("GC73")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "DOORS"
 Values = c("WHS8")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 Field = "SHOOTING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "HAULING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 
   Field = "MEASURING_SYSTEM"
   Values = c("VA","SO","XA","SA","SI","CT","SB")
   if (check_without_errors == TRUE) {
-    print(paste(checkName,Field,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
   }
-  stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 
@@ -325,18 +327,18 @@ stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 Field = "PART_OF_THE_CODEND"
 Values = c("A", "M", "P", "S")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 
@@ -345,37 +347,37 @@ stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 Field = "PART_OF_THE_CODEND"
 Values = c("A", "M", "P", "S")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 Field = "SEX"
 Values = c("M", "F", "I", "N")
 if (check_without_errors == TRUE) {
-  print(paste(checkName,Field,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
 }
-stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
   Field = "LENGTH_CLASSES_CODE"
   Values = c("0","m")
   if (check_without_errors == TRUE) {
-    print(paste(checkName,Field,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
     check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
   }
-  stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 #TE
 
@@ -384,20 +386,20 @@ stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
     Field = "LENGTH_CLASSES_CODE"
     Values = c("0","m")
     if (check_without_errors == TRUE) {
-      print(paste(checkName,Field,"in progress..."), quote = FALSE)
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
     }
-    stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
     ResultDataTE[is.na(ResultDataTE$LENGTH_CLASSES_CODE),]
 
     Field = "SEX"
     Values = c("M", "F", "I", "N")
     if (check_without_errors == TRUE) {
-      print(paste(checkName,Field,"in progress..."), quote = FALSE)
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
     }
-    stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
   }
 }
 # End dictionary checks
@@ -408,34 +410,34 @@ stop_ = printError(paste(checkName,Field),check_without_errors, stop_)
 
 checkName = "Check no empty fields TA"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_no_empty_fields(ResultDataTA, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName =  "Check no empty fields TB"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_no_empty_fields(ResultDataTB, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check no empty fields TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_no_empty_fields(ResultDataTC, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 if (!(all(is.na(TE)) & length(TE)==1)) {
    if (nrow(ResultDataTE)>0){
   checkName = "Check no empty fields TE"
   if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
     check_without_errors = check_no_empty_fields(ResultDataTE, wd, suffix)
   }
-  stop_ = printError(checkName,check_without_errors, stop_)
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
   }
 }
 
@@ -443,10 +445,10 @@ if (!(all(is.na(TL)) & length(TL)==1)) {
   if (nrow(ResultDataTL)>0){
     checkName = "Check no empty fields TL"
     if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
       check_without_errors = check_no_empty_fields(ResultDataTL, wd, suffix)
     }
-    stop_ = printError(checkName,check_without_errors, stop_)
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
   }
 }
 
