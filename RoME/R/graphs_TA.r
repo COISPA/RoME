@@ -18,17 +18,17 @@ graphs_TA<-function(DataTA,wd,suffix){
     # graphs_TA(DataTA, wd, suffix)
   }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+  if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
-  numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   oldoptions <- options()$warn
   old_par <- list()
@@ -43,7 +43,7 @@ graphs_TA<-function(DataTA,wd,suffix){
 
   ResultData = DataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
   ResultData=ResultData[ResultData$VALIDITY=="V",]
-  tiff(file=paste(wd,"/Graphs/qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",ResultData$AREA[1],".tif",sep=""),width=8, height=12, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(filename=file.path(wd,"Graphs",paste("qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",ResultData$AREA[1],".tif",sep="")),width=8, height=12, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
   X=ResultData$SHOOTING_DEPTH
   Y=ResultData$WARP_LENGTH
