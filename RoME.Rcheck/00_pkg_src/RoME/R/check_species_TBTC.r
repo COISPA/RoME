@@ -21,31 +21,26 @@ if (FALSE){
   check_species_TBTC(ResultTB,ResultTC,DataTargetSpecies,wd,suffix)
   }
 
-
-
-
 check_species_TBTC<-function(ResultTB,ResultTC,DataSpecies=DataTargetSpecies,wd,suffix){
 DataTargetSpecies=RoME::DataTargetSpecies
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
   numberError = 0
-  write(paste(" ----------- check presence in TC of TB target species - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+
+  write(paste("\n----------- check presence in TC of TB target species - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
 
   ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES")]
   ResultTC=ResultTC[,which(names(ResultTC)=="YEAR" | names(ResultTC)=="HAUL_NUMBER" | names(ResultTC)=="GENUS" | names(ResultTC)=="SPECIES")]
 
-  ResultSpecies=DataSpecies #read.csv(file=paste(DataSpecies,".csv",sep=""), sep=";", header=TRUE )
+  ResultSpecies=DataSpecies
 
   if (nrow(ResultSpecies)!=0) {
 
@@ -102,4 +97,3 @@ DataTargetSpecies=RoME::DataTargetSpecies
   }
 
 }
-################################################################################

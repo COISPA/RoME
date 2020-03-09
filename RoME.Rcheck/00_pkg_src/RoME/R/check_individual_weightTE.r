@@ -133,7 +133,7 @@ dev.off()
     write(paste("No error occurred"), file = Errors, append = TRUE)
   } else {
 
-    write.table(TE,file=paste(wd,"/TE_with_estimated_weights_",TE$YEAR[1],".csv",sep=""),sep=";",row.names=F)
+    write.table(TE,file=file.path(wd,paste("TE_with_estimated_weights_",TE$YEAR[1],".csv",sep="")),sep=";",row.names=F)
 
     write("For some records the difference between estimated and observed individual weight is greater than 20%. Please verify in the file TE_with_estimated_weights.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }

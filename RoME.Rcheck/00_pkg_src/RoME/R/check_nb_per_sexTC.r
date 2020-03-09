@@ -21,15 +21,14 @@ check_nb_per_sexTC <- function(DataTC,wd,suffix){
   }
 
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
-  numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   Result = DataTC
   write(paste("\n----------- check consistency of number per sex in TC - ", Result$YEAR[1]), file = Errors, append = TRUE)
@@ -74,7 +73,7 @@ check_nb_per_sexTC <- function(DataTC,wd,suffix){
                            Result$WEIGHT_OF_THE_SAMPLE_MEASURED==table1$WEIGHT_OF_THE_SAMPLE_MEASURED[k]),
                    which(names(Result)=="NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED")]= table1$Sum[k]
       }
-      write.table(Result[,1:ncol(Result)-1],file=paste(wd,"/TC_file_with_computed_nb_per_sex.csv",sep=""),sep=";",row.names=FALSE)
+      write.table(Result[,1:ncol(Result)-1],file=file.path(wd,paste("TC_file_with_computed_nb_per_sex.csv",sep="")),sep=";",row.names=FALSE)
       numberError=numberError+1
     }
 

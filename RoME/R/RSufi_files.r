@@ -49,7 +49,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   for (i in ((Year_start+1):Year_end)){
 
 
-    traits2String <- filepath(wd,"files R-Sufi",paste("traits_",i,"_GSA",AREA,".csv",sep=""))
+    traits2String <- file.path(wd,"files R-Sufi",paste("traits_",i,"_GSA",AREA,".csv",sep=""))
     if(file.exists(traits2String))
     {
       traits2=read.csv(file=traits2String,sep=";")
@@ -84,8 +84,8 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   }
   tryCatch({
     write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
-    write.table(captures,file=file.pat(wd,"files R-Sufi",paste("captures_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
-    write.table(tailles,file=file.pat(wd,"files R-Sufi",paste("taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
+    write.table(captures,file=file.path(wd,"files R-Sufi",paste("captures_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
+    write.table(tailles,file=file.path(wd,"files R-Sufi",paste("taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
   }, error = function(e)
     {
     print(e)

@@ -5,21 +5,20 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu                #
 #   March 2020                                                                                                            #
 ###########################################################################################################################
-
 # Creation of R-SUFI files:
 # capt.csv
 
 if (FALSE){
   Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
 
-  wd <- "C:/Users/Utente/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-    create_catch(Result,wd)
+  #wd <- "C:/Users/Utente/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  #create_catch(Result,wd)
 }
 
 create_catch<-function(ResultDataTB,wd){
 
-  if (!file.exists(file.path(wd,"/files R-Sufi",sep="/"))){
-    dir.create(file.path(wd, "/files R-Sufi"), showWarnings = FALSE)
+  if (!file.exists(file.path(wd,"files R-Sufi"))){
+    dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
 
   ResultData = ResultDataTB
@@ -31,11 +30,8 @@ create_catch<-function(ResultDataTB,wd){
   capt[,3]=ResultData$HAUL_NUMBER
   capt[,4]=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
 
- capt[,5]=as.numeric(as.character(ResultData$TOTAL_NUMBER_IN_THE_HAUL))
-
-
+  capt[,5]=as.numeric(as.character(ResultData$TOTAL_NUMBER_IN_THE_HAUL))
   capt[,6]=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/1000,3)
 
-write.table(capt,file=paste(wd,"/files R-Sufi/captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
+write.table(capt,file=file.path(wd,"files R-Sufi",paste("captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
 }
-###########################################################################################################################

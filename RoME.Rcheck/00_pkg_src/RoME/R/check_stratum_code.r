@@ -25,29 +25,22 @@ check_stratum_code <- function (ResultDataTA,Stratification=stratification_schem
   stratification_scheme=MEDITS::stratification_scheme
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
   numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
+   Dataset = ResultDataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";",header=TRUE)
+   write(paste("\n----------- check correctness of stratum code - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
 
-    Dataset = ResultDataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";",header=TRUE)
-
-   write(paste("
-              ----------- check correctness of stratum code - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
-
-  Strat_table = Stratification #read.csv(paste(Stratification,".csv",sep=""), sep=";",header=TRUE)
-
+  Strat_table = Stratification
   Strat_table = Strat_table[Strat_table$GSA== Dataset$AREA[1],] # selection of the area
 
-    mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH,Dataset$HAULING_DEPTH))
+  mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH,Dataset$HAULING_DEPTH))
 
   for (i in 1:nrow(Dataset))
   {

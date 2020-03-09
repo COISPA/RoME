@@ -5,7 +5,6 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
 #   March 2020
 ################################################################################
-
 # Start depth and end depth of each haul should be in the same stratum
 
 
@@ -27,21 +26,17 @@ if (FALSE){
 check_stratum<-function(ResultData,wd,suffix){
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
   numberError = 0
-  #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
-  write(paste("
-              ----------- check start depth and end depth in the same stratum TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
+  #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
+  write(paste("\n----------- check start depth and end depth in the same stratum TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
   for (i in 1:nrow(ResultData)){
@@ -60,10 +55,7 @@ check_stratum<-function(ResultData,wd,suffix){
             if (ResultData$SHOOTING_DEPTH[i]>=500 ){
               ResultData$stratum_s[i]="501-800"
             }
-
-
           }
-
         }
       }
     }
@@ -101,8 +93,4 @@ check_stratum<-function(ResultData,wd,suffix){
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
-
-
 }
-
-################################################################################

@@ -10,13 +10,13 @@
 # Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
 
 if (FALSE){
-ResultDataTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-ResultDataTB[ResultDataTB$YEAR==1994,]
-ResultDataTC[ResultDataTC$YEAR==1994,]
+ResultDataTB = RoME::TB # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
+ResultDataTC = RoME::TC # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+ResultDataTB = ResultDataTB[ResultDataTB$YEAR==2007,]
+ResultDataTC = ResultDataTC[ResultDataTC$YEAR==2007,]
 
 
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #check_raising(ResultDataTB,ResultDataTC,wd,suffix)
 }
@@ -25,30 +25,25 @@ ResultDataTC[ResultDataTC$YEAR==1994,]
 check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
 Format="from_2012"
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
-  }
+if (!file.exists(file.path(wd, "Logfiles"))){
+  dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+}
+if (!file.exists(file.path(wd,"Graphs"))){
+  dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+}
+if (!exists("suffix")){
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+}
+numberError = 0
+Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-  if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
-  numberError = 0
   ResultTC = ResultDataTC
-  write(paste("
-              ----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
 
   ResultTB = ResultDataTB
 
- if(Format=="before_2012"){
-  ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES" | names(ResultTB)=="TOTAL_WEIGHT_IN_HAUL" | names(ResultTB)=="TOTAL_NUMBER_IN_HAUL" | names(ResultTB)=="NUMBER_OF_FEMALES" | names(ResultTB)=="NUMBER_OF_MALES" | names(ResultTB)=="NUMBER_OF_UNDETERMINED")]
-} else {
   ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES" | names(ResultTB)=="TOTAL_WEIGHT_IN_THE_HAUL" | names(ResultTB)=="TOTAL_NUMBER_IN_THE_HAUL" | names(ResultTB)=="NB_OF_FEMALES" | names(ResultTB)=="NB_OF_MALES" | names(ResultTB)=="NB_OF_UNDETERMINED")]
 
-}
 class(ResultTC$WEIGHT_OF_THE_FRACTION)="numeric"
 
 class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
@@ -126,9 +121,9 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
       oneRowTB = ResultTB[as.character(ResultTB$GENUS)==as.character(ResultTCpivotSex$GENUS[j])
                           & as.character(ResultTB$SPECIES)==as.character(ResultTCpivotSex$SPECIES[j])
                           & as.numeric(ResultTB$HAUL_NUMBER)==as.numeric(ResultTCpivotSex$HAUL_NUMBER[j]),]
-      if (as.character(ResultTCpivotSex$codedsex[j])=="F") {
+      if (as.character(ResultTCpivotSex$SEX[j])=="F") {
         TotalNumberTBSex = ifelse(Format=="before_2012",oneRowTB$NUMBER_OF_FEMALES[1],oneRowTB$NB_OF_FEMALES[1])
-      } else if (as.character(ResultTCpivotSex$codedsex[j])=="M") {
+      } else if (as.character(ResultTCpivotSex$SEX[j])=="M") {
         TotalNumberTBSex = ifelse(Format=="before_2012",oneRowTB$NUMBER_OF_MALES[1],oneRowTB$NB_OF_MALES[1])
       } else {
         TotalNumberTBSex = ifelse(Format=="before_2012",oneRowTB$NUMBER_OF_UNDETERMINED[1],oneRowTB$NB_OF_UNDETERMINED[1])
@@ -138,9 +133,9 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
       if ((round(ResultTCpivotSex$Sum[j],0))!= round(TotalNumberTBSex,0)) {
         numberError = numberError+1
 
-        if (as.character(ResultTCpivotSex$codedsex[j])=="F") {
+        if (as.character(ResultTCpivotSex$SEX[j])=="F") {
           labelsex= "FEMALES"
-        } else if (as.character(ResultTCpivotSex$codedsex[j])=="M") {
+        } else if (as.character(ResultTCpivotSex$SEX[j])=="M") {
           labelsex = "MALES"
         } else {
           labelsex = "UNDETERMINED"
@@ -162,6 +157,3 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
   } else { return(FALSE) }
 
 }
-
-
-################################################################################

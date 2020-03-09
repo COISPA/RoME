@@ -24,17 +24,14 @@ check_nb_TE<- function (DataTE,wd,suffix){
     # check_nb_TE(DataTE, wd, suffix)
   }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
-    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
-  }
-  numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   TE <- DataTE
 

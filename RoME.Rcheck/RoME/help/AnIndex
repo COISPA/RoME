@@ -46,6 +46,7 @@ check_temperature	check_temperature
 check_TE_TC	check_TE_TC
 check_unique_valid_haul	check_unique_valid_haul
 check_weight	check_weight
+check_weight_tot_nb	check_weight_tot_nb
 create_catch	create_catch
 create_haul	create_haul
 create_length	create_length
@@ -60,7 +61,7 @@ mat_stages	mat_stages
 MedSea	MedSea
 printError	printError
 RoME	RoME
-RSufi_files	RSufi_files
+RSufi_files	Rsufi_files
 scheme_individual_data	scheme_individual_data
 TA	TA
 TB	TB

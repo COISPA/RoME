@@ -47,8 +47,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
 
    numberError = 0
    Result = ResultDataTB
-  write(paste("
-              ----------- check consistency of weight and number TB - ",Result$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check consistency of weight and number TB - ",Result$YEAR[1]), file = Errors, append = TRUE)
 
 
   Weight=DataTargetSpecies #read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)

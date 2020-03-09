@@ -21,11 +21,6 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
     # check_date_haul(DataTA, Data, wd, suffix)
   }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
-  }
-
-
   #### CHECK TL FIELDS ####
   {
     if ("LITTER_SUB.CATEGORY" %in% colnames(Data)){
@@ -42,10 +37,14 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
 
 
   numberError = 0
+  if (!file.exists(file.path(wd, "Logfiles"))){
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  }
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
+
 
   Dataset = Data
 
@@ -60,9 +59,9 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
   }
 
 
-Dataset$Date = paste (Dataset$HAUL_NUMBER, "/",Dataset$MONTH,"/",Dataset$DAY,sep="")
+Dataset$Date = paste (Dataset$HAUL_NUMBER, "-",Dataset$MONTH,"-",Dataset$DAY,sep="")
 TA_df =DataTA
-TA_df$Date = paste (TA_df$HAUL_NUMBER,"/",TA_df$MONTH,"/",TA_df$DAY,sep="")
+TA_df$Date = paste (TA_df$HAUL_NUMBER,"-",TA_df$MONTH,"-",TA_df$DAY,sep="")
 
 for (i in 1:nrow(Dataset)){
   if( !(Dataset$Date[i] %in% TA_df$Date)) {

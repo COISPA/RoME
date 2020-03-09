@@ -17,8 +17,6 @@ if (FALSE){
 
 check_position<-function(DataTA,wd,suffix){
 
-  oldpar <- par(no.readonly = TRUE)
-
 
   if (!file.exists(file.path(wd,"Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
@@ -51,9 +49,6 @@ check_position<-function(DataTA,wd,suffix){
   old_par$mai <- par()$mai
   old_par$omi <- par()$omi
 
-
-  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
-  options(warn=-1)
 
   ### HAUL POSITIONS ###
 
@@ -88,6 +83,7 @@ check_position<-function(DataTA,wd,suffix){
 
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
-   on.exit(suppressWarnings(par(oldpar)))
+  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
+  options(warn=-1)
 
 }

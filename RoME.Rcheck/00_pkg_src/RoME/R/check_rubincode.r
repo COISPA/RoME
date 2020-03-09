@@ -5,6 +5,7 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu                #
 #   March 2020                                                                                                            #
 ###########################################################################################################################
+# Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 if (FALSE){
   ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
@@ -15,43 +16,36 @@ if (FALSE){
 load("C:\\Users\\Bitetto Isabella\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\Rome\\RoME\\RoME\\data\\TM_list.rda")
 }
 
-# Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
   numberError = 0
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   if (ResultData$TYPE_OF_FILE[1] == "TB") {
-     write(paste("
-                ----------- check correctness of species codes in TB - ", ResultData$YEAR[1]), file = Errors, append = TRUE)
+     write(paste("\n----------- check correctness of species codes in TB - ", ResultData$YEAR[1]), file = Errors, append = TRUE)
     Result=ResultData[,which(names(ResultData)=="TYPE_OF_FILE" | names(ResultData)=="HAUL_NUMBER" | names(ResultData)=="GENUS" | names(ResultData)=="SPECIES" | names(ResultData)=="FAUNISTIC_CATEGORY")]
   }    else # TC-TE
   { if (Format=="before_2012"){     # old format of TC (without faunistic category)
-    write(paste(
-                "----------- check correctness of species codes in - ", ResultData$TYPE_OF_FILE[1], "-",ResultData$YEAR[1]), file = Errors, append = TRUE)
+     write(paste("\n----------- check correctness of species codes in - ", ResultData$TYPE_OF_FILE[1], "-",ResultData$YEAR[1]), file = Errors, append = TRUE)
     Result=ResultData[,which(names(ResultData)=="TYPE_OF_FILE" | names(ResultData)=="HAUL_NUMBER" | names(ResultData)=="GENUS" | names(ResultData)=="SPECIES")]
     } else {      # new format of TC and TE (with faunistic category)
-    write(paste(
-                "----------- check correctness of species codes in - ", ResultData$TYPE_OF_FILE[1],"-",ResultData$YEAR[1]), file = Errors, append = TRUE)
+     write(paste("\n----------- check correctness of species codes in - ", ResultData$TYPE_OF_FILE[1],"-",ResultData$YEAR[1]), file = Errors, append = TRUE)
     Result=ResultData[,which(names(ResultData)=="TYPE_OF_FILE" | names(ResultData)=="HAUL_NUMBER" | names(ResultData)=="GENUS" | names(ResultData)=="SPECIES"| names(ResultData)=="FAUNISTIC_CATEGORY")]
 
     }
   }
 
-
   # data species
-  ResultSpecies = TM_list #read.csv(paste(DataSpecies,".csv",sep=""), sep=";", header=TRUE)
+  ResultSpecies = TM_list
   ResultSpecies=ResultSpecies[,c(which(names(ResultSpecies)=="MeditsCode"),which(names(ResultSpecies)=="CATFAU"))]
 
   if (nrow(ResultData)!=0){
@@ -97,5 +91,3 @@ check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
 
 
 }
-
-################################################################################
