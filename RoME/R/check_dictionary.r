@@ -24,15 +24,14 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     # check_dictionary(ResultData,Field,Values, wd, suffix)
   }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"Logfiles",paste(" Logfile_", suffix ,".dat",sep=""))
 
 
   Result = ResultData

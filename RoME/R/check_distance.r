@@ -21,7 +21,7 @@ check_distance<-function(DataTA, wd, suffix){
 
 
 
-  if (!file.exists(file.path(wd,"Logfiles"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){

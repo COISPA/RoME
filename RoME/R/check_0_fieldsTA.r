@@ -18,14 +18,14 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
   }
 
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"Logfiles",paste(" Logfile_", suffix ,".dat",sep=""))
 
 
   write(paste("\n----------- check 0 fields TA"), file = Errors, append = TRUE)
