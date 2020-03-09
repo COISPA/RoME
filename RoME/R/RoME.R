@@ -10,23 +10,29 @@
 
 # VAR INIZIALIZING --------------------------------------------------------
 
+# RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE)
 
-
-
-# TA <- RoME::TA
-# TB <- RoME::TB
-# TC <- RoME::TC
-# TE <- RoME::TE
-# TL <- RoME::TL
+if (FALSE) {
+wd <- tempdir()
+suffix=NA
+TA <- RoME::TA
+TB <- RoME::TB
+TC <- RoME::TC
+TE <- RoME::TE
+TL <- RoME::TL
+verbose = TRUE
+create_RSufi_files=FALSE
+create_global_RSufi_files=FALSE
+Year_start=NA
+Year_end=NA
+}
 
 # VAR END --------------------------------------------------------
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA, verbose=TRUE)
+RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE)
 {
   stringsAsFactors=FALSE
   assign("Format",value="from_2012",envir=.GlobalEnv)
-
-  # wd <- tempdir()
 
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
@@ -83,6 +89,7 @@ check_without_errors = TRUE
 years = unique (TA$YEAR)
 
 yea <- 2012
+print(yea)
 for (yea in years) {
 
 if (check_without_errors == TRUE & verbose==TRUE) {
@@ -588,12 +595,12 @@ checkName = "Check presence of NB_TOTAL and number per sex TB for species G1"
 ##################
 # MANCA FUNZIONE #
 ##################
-checkName = "Check consistency between not null weight and not null total number"
-if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_weight_tot_nb(ResultDataTB)
-  }
-  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+# checkName = "Check consistency between not null weight and not null total number"
+# if (check_without_errors == TRUE) {
+#     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#     check_without_errors = check_weight_tot_nb(ResultDataTB)
+#   }
+#   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 #########################
 # FINE - MANCA FUNZIONE #
 #########################
@@ -640,7 +647,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check consistency of maturity stages TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_mat_stages(ResultDataTC,DataTargetSpecies)
+  check_without_errors = check_mat_stages(ResultDataTC, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -753,7 +760,7 @@ if (check_without_errors == TRUE) {
 if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
-# TE
+#Check on TE
 
 if (!(all(is.na(TE)) & length(TE)==1)) {
   if (nrow(ResultDataTE)>0){
@@ -771,9 +778,6 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-
-#Check on TE
-
   checkName = "Check consistency of maturity stages TE"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
@@ -787,8 +791,6 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
     check_without_errors = check_smallest_mature(ResultDataTE,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
-
-
 
 
   #
@@ -834,152 +836,94 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   }
 
 
-   if (as.character(DataTL)!=""){
-   # Checks on TL
+
+# Checks on TL
+if (!(all(is.na(TL)) & length(TL)==1)) {
+  if (nrow(ResultDataTL)>0){
+
+
 checkName = "Check allowed values for category on Litter data"
 Field = "LITTER_CATEGORY"
 Values = c("L0","L1","L2","L3","L4","L5","L6","L7")
-
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTL,Field, Values)
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-  }
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultDataTL,Field, Values, wd, suffix)
+    }
+      if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check allowed values for category on Litter data"
 Field = "LITTER_SUB-CATEGORY"
 Values = c("0","a","b","c","d","e","f","g","h","i","j")
-
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_dictionary(ResultDataTL,Field, Values)
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-}
-
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultDataTL,Field, Values, wd, suffix)
+    }
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check correctness of associations between category and sub-category on Litter data"
-
-AssociationsTL=read.table("Tables/Associations_cat_TL.csv",sep=";",header=T)
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_associations_category_TL(ResultDataTL,AssociationsTL)
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-}
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      check_without_errors = check_associations_category_TL(ResultDataTL,assTL, wd, suffix)
+    }
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check if the number is always filled in on Litter data"
-
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_no_empty_fields(ResultDataTL,"TL")
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-}
-
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      check_without_errors = check_no_empty_fields(ResultDataTL,wd,suffix)
+    }
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check if the date in TL is consistent with TA"
-
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_date_haul(ResultDataTL)
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-}
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_date_haul(ResultDataTA, ResultDataTL, wd, suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check if the hauls in TL are present in TA"
-
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_hauls_TLTA(ResultDataTA,ResultDataTL)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_hauls_TLTA(ResultDataTA,ResultDataTL, wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-}
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check if the hauls in TA are present in TL"
-
-
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_hauls_TATL(ResultDataTA,ResultDataTL)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_hauls_TATL(ResultDataTA,ResultDataTL,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-  unlink(paste(DataTB,".csv",sep=""))
-  unlink(paste(DataTC,".csv",sep=""))
-  unlink(paste(DataTE,".csv",sep=""))
-  unlink(paste(DataTL,".csv",sep=""))
-}
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+
+   }
 }
 
 
 if (!stop_) {
-  print("All the checks have been performed!",quote=FALSE)
+  if(verbose){print("All the checks have been performed!",quote=FALSE)}
 }
 
 
 
 # Create files for R_Sufi
 
-if ((!stop_) & as.character(create_RSufi_files)=="Y"){
-  create_strata(Stratification,AREA)
-  create_haul(ResultDataTA)
-  create_catch(ResultDataTB)
-  if ((Format=="before_2012")| (DataTE=="") ){
-    create_length(ResultDataTC)
-  } else if (DataTE!=""){
-    create_length(ResultDataTE)
+if ((!stop_) & (create_RSufi_files==TRUE)){
+  AREA <- ResultDataTA[1,"TYPE_OF_FILE"]
+  create_strata(Stratification=MEDITS::stratification_scheme,AREA,wd)
+  create_haul(ResultDataTA,wd,suffix)
+  create_catch(ResultDataTB,wd)
+
+
+  if (!(all(is.na(TE)) & length(TE)==1)) {
+    if (nrow(ResultDataTE)>0){
+        create_length(ResultDataTE,DataSpecies=RoME::TM_list,wd)
+    }
   }
   print(paste("R-Sufi files have been created for the ",yea, "and the GSA selected! They have been stored in files R-Sufi directory."),quote=FALSE)
 }
 
-#----- bkp
-if(Format=="before_2012"){
-DataTT = DataTT_bkp
-DataTD = DataTD_bkp
-} else {
-DataTE = DataTE_bkp
-}
 
-
-#------ bkp
 
 } # ciclo years
 
@@ -994,9 +938,13 @@ DataTE = DataTE_bkp
   # -------------------------------------------------------
 
 
-  if ((!stop_) & as.character(create_global_RSufi_files)=="Y"){
-    RSufi_files()
-    print("R-Sufi files have been created for the Years and the GSA selected! They have been stored in files R-Sufi directory.",quote=FALSE)
+  if ((!stop_) & (create_global_RSufi_files==TRUE)){
+    if (is.na(Year_start) | is.na(Year_end)){
+      warning("One or both variables Year_start and Year_end not declared")
+    } else {
+      RSufi_files(Year_start,Year_end,AREA,wd)
+      print("R-Sufi files have been created for the Years and the GSA selected! They have been stored in files R-Sufi directory.",quote=FALSE)
+    }
   }
   # -------------------------------------------------------
 } # funzione RoME
