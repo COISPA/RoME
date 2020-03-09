@@ -23,31 +23,24 @@ if (FALSE){
 }
 
 check_temperature <- function (ResultDataTA,wd,suffix){
-
-   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  oldpar <- par(no.readonly = TRUE)
+  Format="from_2012"
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
+  if (!file.exists(file.path(wd,"Graphs"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+  }
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-   if (!file.exists(paste(wd,"Graphs",sep="/"))){
-     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
-   }
-
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
   numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
 
   Dataset = ResultDataTA
 
-  write(paste("
-              ----------- check temperature - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check temperature - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
 
 if (!all(is.na(Dataset$BOTTOM_TEMPERATURE_BEGINNING))){
 start_temp <- cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_BEGINNING)
@@ -92,7 +85,7 @@ if (length(end_temp) > 0) {
 
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]],Dataset$HAULING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]]))
 
-  tiff(file=paste(wd,"/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(file=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
   X=mean_depth
   Y=mean_temp
@@ -102,6 +95,8 @@ if (length(end_temp) > 0) {
   text(X+0.1,Y,labels=Dataset$HAUL_NUMBER)
 
   dev.off()
+
+  on.exit(suppressWarnings(par(oldpar)))
 
   write("Temperature check: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
   }
