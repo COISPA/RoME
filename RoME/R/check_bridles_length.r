@@ -26,7 +26,7 @@ check_bridles_length<-function(DataTA, wd, suffix){
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- file.path(wd,"Logfiles",paste(" Logfile_", suffix ,".dat",sep=""))
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
 
    ResultData = DataTA
    write(paste("\n----------- check consistency of bridles length TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)

@@ -716,173 +716,123 @@ if (check_without_errors == TRUE) {
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-
 checkName = "Check presence in TC of TB target species"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_species_TBTC(DataTargetSpecies,ResultDataTB,ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_species_TBTC(ResultDataTB,ResultDataTC,DataSpecies=DataTargetSpecies,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check presence in TB of TC species"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_haul_species_TCTB(ResultDataTB,ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_haul_species_TCTB(ResultDataTB,ResultDataTC,wd, suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check correctness of the number per sex in TB in case of sub-sampling in TC  "
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_raising(ResultDataTB,ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_raising(ResultDataTB,ResultDataTC,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-if (Format=="from_2012"){
 
-  checkName = "Check on date by haul TB"
-  if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_date_haul(ResultDataTB)
-  }
-  stop_ =printError(checkName,check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))
-                                         unlink(paste(DataTE,".csv",sep=""))}
+checkName = "Check on date by haul TB"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_date_haul(ResultDataTA, ResultDataTB, wd, suffix)
+}
+if(verbose){stop_ =printError(checkName,check_without_errors, stop_)}
 
-  checkName = "Check on date by haul TC"
-  if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_date_haul(ResultDataTC)
-  }
-  stop_ = printError(checkName,check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))
-                                         unlink(paste(DataTE,".csv",sep=""))}
+checkName = "Check on date by haul TC"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_date_haul(ResultDataTA, ResultDataTC, wd, suffix)
+}
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
+
+# TE
+
+if (!(all(is.na(TE)) & length(TE)==1)) {
+  if (nrow(ResultDataTE)>0){
   checkName = "Check on date by haul TE"
-  if (DataTE!=""){
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_date_haul(ResultDataTE)
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-
-    checkName = "Cross check on number between TC and TE"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_TE_TC()
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-
-
-
-
-    #Check on TE
-
-    checkName = "Check consistency of maturity stages TE"
-    if (as.character(DataTE)!=""){
-      if (check_without_errors == TRUE) {
-        print(paste(checkName,"in progress..."), quote = FALSE)
-        check_without_errors = check_mat_stages(ResultDataTE,DataTargetSpecies)
-      }
-      stop_ = printError(checkName,check_without_errors, stop_)
-      if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                             unlink(paste(DataTB,".csv",sep=""))
-                                             unlink(paste(DataTC,".csv",sep=""))
-                                             unlink(paste(DataTE,".csv",sep=""))}
-    }
-
-    checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_smallest_mature(ResultDataTE)
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-    checkName = "Check consistency of maturity stages in TE by means of spawning period"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_spawning_period(ResultDataTA,ResultDataTE)
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-    checkName = "Check individual weight in TE"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_individual_weightTE()
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-    checkName = "Check correctness of species codes TE"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_rubincode(DataSpecies,ResultDataTE)
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-
-    checkName = "Check consistency TE check-fields"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = check_nb_TE()
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
-    checkName = "Summary individual data sampling"
-    if (check_without_errors == TRUE) {
-      print(paste(checkName,"in progress..."), quote = FALSE)
-      check_without_errors = scheme_individual_data()
-    }
-    stop_ = printError(checkName,check_without_errors, stop_)
-    if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                           unlink(paste(DataTB,".csv",sep=""))
-                                           unlink(paste(DataTC,".csv",sep=""))
-                                           unlink(paste(DataTE,".csv",sep=""))}
-
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_date_haul(ResultDataTA,ResultDataTE,wd,suffix)
   }
-}
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+  checkName = "Cross check on number between TC and TE"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_TE_TC(ResultDataTC,ResultDataTE,wd,suffix)
+  }
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+
+#Check on TE
+
+  checkName = "Check consistency of maturity stages TE"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_mat_stages(ResultDataTE, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+  checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_smallest_mature(ResultDataTE,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+  }
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+
+
+
+  #
+  # questo check è nella sezione dei check dei TE ma sembra essere solo per il TC
+  #
+  # checkName = "Check consistency of maturity stages in TE by means of spawning period"
+  # if (check_without_errors == TRUE) {
+  #   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  #   check_without_errors = check_spawning_period(ResultDataTA,ResultDataTE,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+  # }
+  #   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+
+  checkName = "Check individual weight in TE"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_individual_weightTE(ResultDataTE,LW=NA,wd,suffix,verbose=FALSE)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+  checkName = "Check correctness of species codes TE"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_rubincode(ResultDataTE,TM_list=TM_list,wd,suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+  checkName = "Check consistency TE check-fields"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_nb_TE(ResultDataTE,wd,suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+  checkName = "Summary individual data sampling"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = scheme_individual_data(ResultDataTC,ResultDataTE,wd,suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+    }
+  }
+
 
    if (as.character(DataTL)!=""){
    # Checks on TL
