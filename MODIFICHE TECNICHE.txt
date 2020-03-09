@@ -6,3 +6,30 @@ If you really have to do so, please ensure with an *immediate* call of on.exit()
 4. You write information messages to the console that cannot be easily suppressed. It is more R like to generate objects that can be used to
 extract the information a user is interested in, and then print() that object. Instead of print()/cat() rather use message()/warning()  or
 if(verbose)cat(..) if you really have to write text to the console. (da verificare in RoME.r!!!!!)
+5. il pacchetto non deve lasciate file nella cartella temporanea. (?!! capire come ho fatto per secfish)
+
+
+Da Fare:
+-----------------
+
+
+1. sostituire file.path al posto dei percorsi. Non devono esistere "/"!
+Es. 
+Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+
+diventa:
+
+Errors <- file.path(wd,"Logfiles",paste(Logfile_",suffix,".dat",sep=""))
+
+
+2. in tiff deve esserci filename e non file!
+
+
+3. i parametri dei plot devono essere backuppati all'inizio e ripresi alla fine:
+inizio:
+oldpar <- par(no.readonly = TRUE)
+
+
+
+fine:
+on.exit(suppressWarnings(par(oldpar)))
