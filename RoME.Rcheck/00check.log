@@ -46,8 +46,6 @@ check_weight: warning in tiff(file = file.path(wd, "Graphs",
   i, ".tif", sep = ""), width = 12, height = 8, bg = "white", units =
   "in", res = 300, compression = "lzw", pointsize = 1/300)): partial
   argument match of 'file' to 'filename'
-RSufi_files: no visible global function definition for 'filepath'
-RSufi_files: no visible global function definition for 'file.pat'
 RoME: no visible binding for global variable 'TM_list'
 RoME: no visible binding for global variable 'DataTargetSpecies'
 RoME: no visible global function definition for 'graphics.off'
@@ -58,7 +56,7 @@ check_weight: no visible global function definition for 'dev.new'
 graphs_TA: no visible global function definition for 'mtext'
 Undefined global functions or variables:
   DataTargetSpecies GSAs Maturity_parameters TM_list assTL dev.new
-  file.pat filepath graphics.off mtext
+  graphics.off mtext
 Consider adding
   importFrom("grDevices", "dev.new", "graphics.off")
   importFrom("graphics", "mtext")
@@ -79,18 +77,7 @@ Undocumented data sets:
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... WARNING
-Codoc mismatches from documentation object 'RoME':
-RoME
-  Code: function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA,
-                 create_RSufi_files = FALSE, create_global_RSufi_files
-                 = FALSE, Year_start = NA, Year_end = NA, verbose =
-                 TRUE)
-  Docs: function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA)
-  Argument names in code not in docs:
-    create_RSufi_files create_global_RSufi_files Year_start Year_end
-    verbose
-
+* checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... WARNING
 Undocumented arguments in documentation object 'check_weight_tot_nb'
   'ResultDataTB'
@@ -982,4 +969,4 @@ Execution halted
 ** found \donttest examples: check also with --run-donttest
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 3 WARNINGs, 1 NOTE
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE

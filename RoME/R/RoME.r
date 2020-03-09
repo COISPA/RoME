@@ -32,7 +32,7 @@ Year_end=NA
 RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE)
 {
   stringsAsFactors=FALSE
-  assign("Format",value="from_2012",envir=.GlobalEnv)
+  Format <- from_2012
 
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)

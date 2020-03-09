@@ -5,7 +5,9 @@ R code to perform multiple checks on MEDITS Survey data (TA, TB, TC, TE and TL f
 \description{
 The check is performed simultaneously on the files that can contain also data of more than one year.}
 \usage{
-RoME(TA, TB, TC, TE = NA, TL = NA, wd, suffix=NA)
+RoME(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,
+create_RSufi_files = FALSE, create_global_RSufi_files=FALSE,
+Year_start=NA,Year_end=NA,verbose =TRUE)
 }
 \arguments{
   \item{TA}{Haul data table according to MEDITS protocol (TA)}
@@ -15,6 +17,11 @@ RoME(TA, TB, TC, TE = NA, TL = NA, wd, suffix=NA)
   \item{TL}{Litter data table according to MEDITS protocol (TL)}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
+  \item{create_RSufi_files}{...}
+  \item{create_global_RSufi_files}{...}
+  \item{Year_start}{...}
+  \item{Year_end}{...}
+  \item{verbose}{...}
 }
 \details{
 ...
