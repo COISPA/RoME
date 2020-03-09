@@ -592,19 +592,12 @@ checkName = "Check presence of NB_TOTAL and number per sex TB for species G1"
   }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-##################
-# MANCA FUNZIONE #
-##################
-# checkName = "Check consistency between not null weight and not null total number"
-# if (check_without_errors == TRUE) {
-#     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-#     check_without_errors = check_weight_tot_nb(ResultDataTB)
-#   }
-#   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
-#########################
-# FINE - MANCA FUNZIONE #
-#########################
-
+checkName = "Check consistency between not null weight and not null total number"
+if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_weight_tot_nb(ResultDataTB,wd,suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of weight and number TB"
 if (check_without_errors == TRUE) {
