@@ -27,34 +27,25 @@ if (FALSE){
 
 check_step_length_distr<-function(ResultData,wd,suffix){
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
-    numberError = 0
-
-  write(paste("
-              ----------- check consistency of length distribution TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
-
-
+  write(paste("\n----------- check consistency of length distribution TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
   fishes_cefalopods= ResultData[ResultData$LENGTH_CLASSES_CODE!="m",]
-
-
 
   for (i in 1:nrow(ResultData)){
     if ((ResultData$LENGTH_CLASS[i])!=round((ResultData$LENGTH_CLASS[i]),0)){
       write(paste("Haul",ResultData$HAUL_NUMBER[i],ResultData$GENUS[i],ResultData$SPECIES[i],ResultData$SEX[i],ResultData$LENGTH_CLASS[i],": LENGTH_CLASS value must be an integer number in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
       numberError = numberError +1
     }
-
   }
 
   if (nrow(fishes_cefalopods)>0){
@@ -62,7 +53,8 @@ check_step_length_distr<-function(ResultData,wd,suffix){
   for (j in 1:nrow(fishes_cefalopods)){
     if (as.character(fishes_cefalopods$LENGTH_CLASSES_CODE[j])=="1"){
       if ((fishes_cefalopods$LENGTH_CLASS[j]/10)!=round((fishes_cefalopods$LENGTH_CLASS[j]/10),0))
-      {write(paste("Haul",fishes_cefalopods$HAUL_NUMBER[j],fishes_cefalopods$GENUS[j],fishes_cefalopods$SPECIES[j],fishes_cefalopods$SEX[j],fishes_cefalopods$LENGTH_CLASS[j],": in", ResultData$TYPE_OF_FILE[1],"LENGTH_CLASS value for fishes and cefalopods must have a full step, because LENGTH_CLASSES_CODE=1"), file = Errors, append = TRUE)
+      {
+       write(paste("Haul",fishes_cefalopods$HAUL_NUMBER[j],fishes_cefalopods$GENUS[j],fishes_cefalopods$SPECIES[j],fishes_cefalopods$SEX[j],fishes_cefalopods$LENGTH_CLASS[j],": in", ResultData$TYPE_OF_FILE[1],"LENGTH_CLASS value for fishes and cefalopods must have a full step, because LENGTH_CLASSES_CODE=1"), file = Errors, append = TRUE)
        numberError = numberError +1
       }
     } else {
