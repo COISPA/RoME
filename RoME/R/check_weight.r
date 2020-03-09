@@ -25,9 +25,10 @@ if (FALSE){
 
 
 check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+  oldpar <- par()
 
-  Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd,"Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
 
@@ -35,12 +36,12 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
 
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+  if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
 
 
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"/Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
 
 
@@ -91,14 +92,9 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
 
         if (length(X)>=10) {
           if ( nb_graphs<20) {
-            if(.Platform$OS.type=="windows") {
+
               dev.new(width=60, height=60)
-            } #else if(.Platform$OS.type=="unix")
-#            {
-#              X11(width=60, height=60)
-#            }else{
-#              quartz(width=60, height=60)
-#            }
+
             plot(X,Y,main=paste(ResultData$species[i],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
             text(X,Y,labels=X)
             nb_graphs= nb_graphs+1
@@ -140,7 +136,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
       }
 
       if (i<=20){
-        tiff(file=paste(wd,"/Graphs/check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+        tiff(file=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep=""),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300))
         par(mfrow=c(3,2), mai=c(0.6,0.6,0.6,0.6), omi=c(0.8,0.8,1,0.8))
         for (m in (6*i-5):(nb_loops)) {
           X=ResultData[ResultData$species==present_true$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
@@ -167,7 +163,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
-
+  on.exit(par(oldpar))
 
   if (numberError ==0) {
     return(TRUE)
