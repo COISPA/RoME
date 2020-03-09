@@ -21,26 +21,23 @@ if (FALSE){
 check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
   numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-    write(paste("----------- check consistency of maturity stages", ResultData$TYPE_OF_FILE[1]," by means of the comparison with the lenght of smallest mature individuals in bibliography - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
+    write(paste("\n----------- check consistency of maturity stages", ResultData$TYPE_OF_FILE[1]," by means of the comparison with the lenght of smallest mature individuals in bibliography - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
   ResultData$Species = paste(ResultData$GENUS,ResultData$SPECIES)
   ResultData$Maturity = paste(as.character(ResultData$MATURITY),ifelse(is.na(ResultData$MATSUB),"",as.character(ResultData$MATSUB)), sep="")
 
-    maturity_table = Maturity_parameters # read.csv(file=paste(working_tables,"/Maturity_parameters.csv",sep=""),sep=";",header=TRUE)
+    maturity_table = Maturity_parameters
 
-     species_list = DataTargetSpecies #read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)
-  mat_lmin = maturity_table[as.character(maturity_table$smallest_mature_individual_observed)!="n.a.",]
+    species_list = DataTargetSpecies
+    mat_lmin = maturity_table[as.character(maturity_table$smallest_mature_individual_observed)!="n.a.",]
 
   for (i in unique(mat_lmin$Species)){
     cau_fau_temp =  species_list$FAUNISTIC_CATEGORY[paste(substring(species_list$SPECIES,1,4),substring(species_list$SPECIES,5,7)) == i]
@@ -80,4 +77,3 @@ check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_paramete
     return(TRUE)
   } else { return(FALSE) }
 }
-###########################################################################################################################
