@@ -21,9 +21,6 @@ check_quadrant<-function(ResultDataTA,wd,suffix){
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-  if (!file.exists(file.path(wd,"Graphs"))){
-    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
-  }
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
