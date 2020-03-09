@@ -84,8 +84,8 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   }
   tryCatch({
     write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
-    write.table(captures,file=paste(wd,"files R-Sufi",paste("captures_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
-    write.table(tailles,file=paste(wd,"files R-Sufi",paste("taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
+    write.table(captures,file=file.pat(wd,"files R-Sufi",paste("captures_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
+    write.table(tailles,file=file.pat(wd,"files R-Sufi",paste("taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
   }, error = function(e)
     {
     print(e)
