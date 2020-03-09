@@ -562,215 +562,144 @@ if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
 
-
-
-
-###########################
-#### Riprendere da qui ####
-###########################
-
-
-
-
-
-
 # checks on TB
 
 checkName = "Check correctness of species codes TB"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_rubincode(DataSpecies,ResultDataTB)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_rubincode(ResultDataTB,TM_list=TM_list,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of NB_TOTAL and number per sex TB"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_nbtotTB(ResultDataTB)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_nbtotTB(ResultDataTB,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-if (Format=="from_2012"){
-  checkName = "Check presence of NB_TOTAL and number per sex TB for species G1"
+checkName = "Check presence of NB_TOTAL and number per sex TB for species G1"
   if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_nm_TB()
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_nm_TB(ResultDataTB, ResultDataTC,wd,suffix)
   }
-  stop_ = printError(checkName,check_without_errors, stop_)
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-}
-
+##################
+# MANCA FUNZIONE #
+##################
 checkName = "Check consistency between not null weight and not null total number"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_weight_tot_nb(ResultDataTB)
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_weight_tot_nb(ResultDataTB)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+#########################
+# FINE - MANCA FUNZIONE #
+#########################
+
 
 checkName = "Check consistency of weight and number TB"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_weight(ResultDataTB, DataTargetSpecies)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_weight(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 # checks on TC
 
 graphics.off()
 checkName = "Check correctness of LENGTH_CLASSES_CODE TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_length_class_codeTC(ResultDataTC,DataSpecies)
-}
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-
-#if(Format=="before_2012"){
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      check_without_errors = check_length_class_codeTC(ResultDataTC,Specieslist=NA, wd,suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_rubincode(DataSpecies,ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_rubincode(ResultDataTC,TM_list=TM_list,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-#}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of length classes TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_length(ResultDataTC,DataTargetSpecies)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_length(ResultDataTC,DataSpecies=NA,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-
-
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check correctness of number per sex in TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_nb_per_sexTC(ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_nb_per_sexTC(ResultDataTC,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of maturity stages TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_mat_stages(ResultDataTC,DataTargetSpecies)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check sub-sampling"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_subsampling(ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_subsampling(ResultDataTC,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_smallest_mature(ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_smallest_mature(ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of sex TC by means of spawning period"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_spawning_period(ResultDataTA,ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_spawning_period(ResultDataTA,ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of sex data TC by means of sex-inversion size"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_sex_inversion(ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_sex_inversion(ResultDataTC,Maturity_parameters,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of length distribution TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_step_length_distr(ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_step_length_distr(ResultDataTC,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check total weight in the haul in TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_individual_weightTC()
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_individual_weightTC(ResultDataTC,LW=NA,wd,suffix, verbose=FALSE)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
-  print(paste(checkName,"in progress..."), quote = FALSE)
-  check_without_errors = check_rubincode(DataSpecies,ResultDataTC)
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  check_without_errors = check_rubincode(ResultDataTC,TM_list=TM_list,wd,suffix)
 }
-stop_ = printError(checkName,check_without_errors, stop_)
-if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                       unlink(paste(DataTB,".csv",sep=""))
-                                       unlink(paste(DataTC,".csv",sep=""))}
-#}
-if (Format=="from_2012") {
-  checkName = "Check presence of lengths for G1 and G2 Medits species in TC"
-  if (check_without_errors == TRUE) {
-    print(paste(checkName,"in progress..."), quote = FALSE)
-    check_without_errors = check_G1_G2()
-  }
-  stop_ = printError(checkName,check_without_errors, stop_)
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-  if ((stop_) & (Type_of_files==".xls")){unlink(paste(DataTA,".csv",sep=""))
-                                         unlink(paste(DataTB,".csv",sep=""))
-                                         unlink(paste(DataTC,".csv",sep=""))}
-}
+checkName = "Check presence of lengths for G1 and G2 Medits species in TC"
+if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_G1_G2(ResultDataTC, wd, suffix)
+  }
+    if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
 # cross checks
 
 checkName = "Check presence in TB of TA hauls"
