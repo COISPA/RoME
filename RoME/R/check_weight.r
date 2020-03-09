@@ -25,7 +25,7 @@ if (FALSE){
 
 
 check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffix){
-  oldpar <- par()
+  oldpar <- par(no.readonly = TRUE)
 
 
   if (!file.exists(file.path(wd,"Logfiles"))){
@@ -163,7 +163,8 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
-  on.exit(par(oldpar))
+  on.exit(suppressWarnings(par(oldpar)))
+
 
   if (numberError ==0) {
     return(TRUE)

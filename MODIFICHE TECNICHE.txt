@@ -1,5 +1,5 @@
 1. Eliminare tutti i window e sostituire con dev.new() FATTO
-2.Please use file.path in future, and never use \ as a file separator in an R package.
+2.Please use file.path in future, and never use \ as a file separator in an R package. HO COMINCIATO
 3. Please make sure that you do not change the user's options (also par).
 If you really have to do so, please ensure with an *immediate* call of on.exit() that the settings are reset f.i.: oldpar <- par(asdf)
       on.exit(par(oldpar))

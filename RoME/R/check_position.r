@@ -6,23 +6,24 @@
 #   March 2020                                                                                                             #
 ############################################################################################################################
 # Visual check of the haul positions
-
-check_position<-function(DataTA,wd,suffix){
-
-  if (FALSE){
+if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
     DataTA = DataTA[DataTA$YEAR == 2007 , ]
     # check_position(DataTA, wd, suffix)
-  }
+}
+
+check_position<-function(DataTA,wd,suffix){
+
+  oldpar <- par(no.readonly = TRUE)
 
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+  if (!file.exists(file.path(wd,"Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+  if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
 
@@ -30,7 +31,7 @@ check_position<-function(DataTA,wd,suffix){
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   ResultData = DataTA
   ResultData=ResultData[ResultData$VALIDITY=="V",]
@@ -56,7 +57,7 @@ check_position<-function(DataTA,wd,suffix){
 
   ### HAUL POSITIONS ###
 
-  tiff(file=paste(wd,"/Graphs/hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep=""),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
       par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
       plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
       maps::map("world", fill=T, col="yellow",add=T)
@@ -67,7 +68,7 @@ check_position<-function(DataTA,wd,suffix){
 
   ### STARTING POSITIONS ###
 
-  tiff(file=paste(wd,"/Graphs/Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep=""),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
       par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
       plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls start position- ",ResultData$YEAR[1]))
       maps::map("world", fill=T, col="yellow",add=T)
@@ -77,7 +78,7 @@ check_position<-function(DataTA,wd,suffix){
 
   ### END POSITIONS ###
 
-  tiff(file=paste(wd,"/Graphs/End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep=""),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
       par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
       plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls end position - ",ResultData$YEAR[1]))
       maps::map("world", fill=T, col="yellow",add=T)
@@ -87,5 +88,6 @@ check_position<-function(DataTA,wd,suffix){
 
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
+   on.exit(suppressWarnings(par(oldpar)))
 
 }

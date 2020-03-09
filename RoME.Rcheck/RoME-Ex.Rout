@@ -122,6 +122,46 @@ Warning: package 'timeDate' was built under R version 3.6.2
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("MedSea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
+> nameEx("RSufi_files")
+> ### * RSufi_files
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: RSufi_files
+> ### Title: Function to concatenate the R-sufi files of the different years.
+> ### Aliases: RSufi_files
+> ### Keywords: R-sufi,global files
+> 
+> ### ** Examples
+> 
+> 
+> library(MEDITS)
+Warning: package 'MEDITS' was built under R version 3.6.3
+
+Attaching package: 'MEDITS'
+
+The following objects are masked from 'package:RoME':
+
+    TA, TB, TC
+
+> library(RoME)
+> wd <- tempdir()
+> 
+> create_haul(TA,wd)
+> create_catch(TB,wd)
+> create_length(TC,TM_list,wd)
+> create_strata(stratification_scheme,"10",wd)
+> RSufi_files(2007,2007,"10",wd)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("RSufi_files", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
 > nameEx("RoME")
 > ### * RoME
 > 

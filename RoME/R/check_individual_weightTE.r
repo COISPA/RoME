@@ -6,10 +6,7 @@
 #   March 2020                                                                                                             #
 ############################################################################################################################
 # Check if weight in TE are consistent with length-weight relationship
-
-check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
-
-  if (FALSE){
+ if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
@@ -21,19 +18,23 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
     b=NA
     verbose=FALSE
     # check_individual_weightTE(DataTE=DataTE, wd=wd, suffix=suffix, verbose=TRUE)
-  }
+ }
 
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
+  oldpar <- par(no.readonly = TRUE)
+
+
+  if (!file.exists(file.path(wd,"Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
+  if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   TE <- DataTE
 
@@ -101,7 +102,7 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
 for (ii in 1: length(species_to_plot)){
 TE_temp1 = TE[paste(TE$GENUS,TE$SPECIES)==species_to_plot[ii] ,]
 if (nrow(TE_temp1)!=0){
-tiff(file=paste(wd,"/Graphs/check_individual_weight_",species_to_plot[ii],"_",TE$YEAR[1],".tif",sep=""),width=8, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+tiff(filename =file.path(wd,"Graphs",paste("check_individual_weight_",species_to_plot[ii],"_",TE$YEAR[1],".tif",sep="")),width=8, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
 par(mfrow=c(3,1))
 }
 for (sex in c("M","F","I")){
@@ -136,6 +137,7 @@ dev.off()
 
     write("For some records the difference between estimated and observed individual weight is greater than 20%. Please verify in the file TE_with_estimated_weights.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }
+  on.exit(suppressWarnings(par(oldpar)))
 
   if (numberError_==0){
   return(TRUE)

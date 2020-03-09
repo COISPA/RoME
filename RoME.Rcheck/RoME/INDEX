@@ -2,10 +2,10 @@ DataTargetSpecies       Length and weight ranges
 LW                      Table of the Length-Weight parameters
 Maturity_parameters     Maturity parameters
 MedSea                  Shapefile of Mediterranean and Black Sea area
+RSufi_files             Function to concatenate the R-sufi files of the
+                        different years.
 RoME                    R code to perform multiple checks on MEDITS
                         Survey data (TA, TB, TC, TE and TL files)
-Rsufi_files             Function to concatenate the R-sufi files of the
-                        different years.
 TA                      TA
 TB                      TB
 TC                      TC

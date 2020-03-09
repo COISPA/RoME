@@ -1,12 +1,12 @@
-\name{Rsufi_files}
-\alias{Rsufi_files}
+\name{RSufi_files}
+\alias{RSufi_files}
 \title{
 Function to concatenate the R-sufi files of the different years.
 }
 \description{
 When the check procedure is completed for a number of years, it is possible to obtain the 4 R-Sufi global files from an year to another year.}
 \usage{
-Rsufi_files(Year_start,Year_end,AREA,wd)
+RSufi_files(Year_start,Year_end,AREA,wd)
 }
 \arguments{
 \item{Year_start}{Start year}

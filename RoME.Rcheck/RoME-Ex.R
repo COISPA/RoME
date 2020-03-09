@@ -101,6 +101,35 @@ data(MedSea)
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("MedSea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
+nameEx("RSufi_files")
+### * RSufi_files
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: RSufi_files
+### Title: Function to concatenate the R-sufi files of the different years.
+### Aliases: RSufi_files
+### Keywords: R-sufi,global files
+
+### ** Examples
+
+
+library(MEDITS)
+library(RoME)
+wd <- tempdir()
+
+create_haul(TA,wd)
+create_catch(TB,wd)
+create_length(TC,TM_list,wd)
+create_strata(stratification_scheme,"10",wd)
+RSufi_files(2007,2007,"10",wd)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("RSufi_files", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
 nameEx("RoME")
 ### * RoME
 
@@ -128,35 +157,6 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("RoME", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
-cleanEx()
-nameEx("Rsufi_files")
-### * Rsufi_files
-
-flush(stderr()); flush(stdout())
-
-base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-### Name: Rsufi_files
-### Title: Function to concatenate the R-sufi files of the different years.
-### Aliases: Rsufi_files
-### Keywords: R-sufi,global files
-
-### ** Examples
-
-
-library(MEDITS)
-library(RoME)
-wd <- tempdir()
-
-create_haul(TA,wd)
-create_catch(TB,wd)
-create_length(TC,TM_list,wd)
-create_strata(stratification_scheme,"10",wd)
-RSufi_files(2007,2007,"10",wd)
-
-
-
-base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
-base::cat("Rsufi_files", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("TM_list")
 ### * TM_list

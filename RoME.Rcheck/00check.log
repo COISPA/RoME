@@ -13,11 +13,7 @@
 * checking if there is a namespace ... OK
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
-* checking for portable file names ... WARNING
-Found the following file with a non-portable file name:
-  sampling_individual_measures_ 2012 .csv
-These are not fully portable file names.
-See section 'Package structure' in the 'Writing R Extensions' manual.
+* checking for portable file names ... OK
 * checking whether package 'RoME' can be installed ... WARNING
 Found the following significant warnings:
   Warning: package 'timeDate' was built under R version 3.6.2
@@ -26,9 +22,7 @@ See 'C:/RoME/RoME/RoME.Rcheck/00install.out' for details.
 * checking package directory ... OK
 * checking for future file timestamps ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... NOTE
-Non-standard file/directory found at top level:
-  'sampling_individual_measures_ 2012 .csv'
+* checking top-level files ... OK
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -45,49 +39,16 @@ Non-standard file/directory found at top level:
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
-Found an obsolete/platform-specific call in the following function:
-  'check_weight'
-Found the platform-specific device:
-  'windows'
-dev.new() is the preferred way to open a new device, in the unlikely
-event one is needed.
-check_distance: warning in tiff(file = paste(wd, "/Graphs/haul ",
-  ResultData[j, "HAUL_NUMBER"], " AREA ", ResultData[1, "AREA"], "_",
-  ResultData[1, "YEAR"], ".tiff", sep = ""), width = 12, height = 8, bg
-  = "white", units = "in", res = 300, compression = "lzw", pointsize =
-  1/300): partial argument match of 'file' to 'filename'
-check_individual_weightTE: warning in tiff(file = paste(wd,
-  "/Graphs/check_individual_weight_", species_to_plot[ii], "_",
-  TE$YEAR[1], ".tif", sep = ""), width = 8, height = 8, bg = "white",
-  units = "in", res = 300, compression = "lzw", pointsize = 1/300):
-  partial argument match of 'file' to 'filename'
-check_position: warning in tiff(file = paste(wd,
-  "/Graphs/hauls_position ", ResultData$YEAR[1], " AREA ",
-  ResultData$AREA[1], ".tiff", sep = ""), width = img_width, height =
-  img_height, bg = "white", units = "in", res = 300, compression =
-  "lzw", pointsize = 1/300): partial argument match of 'file' to
-  'filename'
-check_position: warning in tiff(file = paste(wd,
-  "/Graphs/Start_position ", ResultData$YEAR[1], " AREA ",
-  ResultData$AREA[1], ".tiff", sep = ""), width = img_width, height =
-  img_height, bg = "white", units = "in", res = 300, compression =
-  "lzw", pointsize = 1/300): partial argument match of 'file' to
-  'filename'
-check_position: warning in tiff(file = paste(wd, "/Graphs/End_position
-  ", ResultData$YEAR[1], " AREA ", ResultData$AREA[1], ".tiff", sep =
-  ""), width = img_width, height = img_height, bg = "white", units =
-  "in", res = 300, compression = "lzw", pointsize = 1/300): partial
-  argument match of 'file' to 'filename'
 check_temperature: warning in tiff(file = paste(wd,
   "/Graphs/temperature_control_", Dataset$YEAR[1], "_AREA_",
   Dataset$AREA[1], ".tiff", sep = ""), width = 12, height = 8, bg =
   "white", units = "in", res = 300, compression = "lzw", pointsize =
   1/300): partial argument match of 'file' to 'filename'
-check_weight: warning in tiff(file = paste(wd,
-  "/Graphs/check_mean_weight_", Result$AREA[1], "_", Result$YEAR[1],
-  "_", i, ".tif", sep = ""), width = 12, height = 8, bg = "white",
-  units = "in", res = 300, compression = "lzw", pointsize = 1/300):
-  partial argument match of 'file' to 'filename'
+check_weight: warning in tiff(file = file.path(wd, "Graphs",
+  paste("check_mean_weight_", Result$AREA[1], "_", Result$YEAR[1], "_",
+  i, ".tif", sep = ""), width = 12, height = 8, bg = "white", units =
+  "in", res = 300, compression = "lzw", pointsize = 1/300)): partial
+  argument match of 'file' to 'filename'
 graphs_TA: warning in tiff(file = paste(wd,
   "/Graphs/qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",
   ResultData$AREA[1], ".tif", sep = ""), width = 8, height = 12, bg =
@@ -115,14 +76,15 @@ RoME: no visible binding for global variable 'DataTE_bkp'
 RoME: no visible binding for global variable
   'create_global_RSufi_files'
 check_area: no visible binding for global variable 'GSAs'
+check_weight: no visible global function definition for 'dev.new'
 graphs_TA: no visible global function definition for 'mtext'
 Undefined global functions or variables:
   AREA DataSpecies DataTA DataTB DataTC DataTD_bkp DataTE_bkp DataTL
   DataTT_bkp DataTargetSpecies Errors Format GSAs Stratification
   Type_of_files check_weight_tot_nb create_RSufi_files
-  create_global_RSufi_files graphics.off mtext read.table
+  create_global_RSufi_files dev.new graphics.off mtext read.table
 Consider adding
-  importFrom("grDevices", "graphics.off")
+  importFrom("grDevices", "dev.new", "graphics.off")
   importFrom("graphics", "mtext")
   importFrom("utils", "read.table")
 to your NAMESPACE file.
@@ -136,16 +98,13 @@ File 'RoME/R/RoME.r':
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'GSAs' 'RSufi_files'
+  'GSAs'
 Undocumented data sets:
   'GSAs'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
-* checking for code/documentation mismatches ... WARNING
-Functions or methods with usage in documentation object 'Rsufi_files' but not in code:
-  'Rsufi_files'
-
+* checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
@@ -183,4 +142,4 @@ Calls: RoME -> check_identical_records
 Execution halted
 ** found \donttest examples: check also with --run-donttest
 * DONE
-Status: 1 ERROR, 4 WARNINGs, 2 NOTEs
+Status: 1 ERROR, 2 WARNINGs, 1 NOTE
