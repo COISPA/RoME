@@ -1,8 +1,13 @@
 DataTargetSpecies
+GSAs
 LW
 Maturity_parameters
 MedSea
-TE_provisional: ResultDataTE
+TA
+TB
+TC
+TE
+TL
 TM_list
 assTL
 list_g1_g2

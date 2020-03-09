@@ -1,5 +1,5 @@
-* using log directory 'D:/Documents and Settings/Utente/Documenti/GitHub/RoME/RoME.Rcheck'
-* using R version 3.6.2 (2019-12-12)
+* using log directory 'C:/RoME/RoME/RoME.Rcheck'
+* using R version 3.6.1 (2019-07-05)
 * using platform: x86_64-w64-mingw32 (64-bit)
 * using session charset: ISO8859-1
 * using options '--no-manual --as-cran'
@@ -18,7 +18,10 @@ Found the following file with a non-portable file name:
   sampling_individual_measures_ 2012 .csv
 These are not fully portable file names.
 See section 'Package structure' in the 'Writing R Extensions' manual.
-* checking whether package 'RoME' can be installed ... OK
+* checking whether package 'RoME' can be installed ... WARNING
+Found the following significant warnings:
+  Warning: package 'timeDate' was built under R version 3.6.2
+See 'C:/RoME/RoME/RoME.Rcheck/00install.out' for details.
 * checking installed package size ... OK
 * checking package directory ... OK
 * checking for future file timestamps ... OK
@@ -90,21 +93,52 @@ graphs_TA: warning in tiff(file = paste(wd,
   ResultData$AREA[1], ".tif", sep = ""), width = 8, height = 12, bg =
   "white", units = "in", res = 300, compression = "lzw", pointsize =
   1/300): partial argument match of 'file' to 'filename'
+RoME: no visible binding for '<<-' assignment to 'Errors'
+RoME: no visible binding for global variable 'Errors'
+RoME: no visible binding for global variable 'DataSpecies'
+RoME: no visible binding for global variable 'Type_of_files'
+RoME: no visible binding for global variable 'DataTA'
+RoME: no visible binding for global variable 'DataTB'
+RoME: no visible binding for global variable 'DataTC'
+RoME: no visible binding for global variable 'Format'
+RoME: no visible global function definition for 'check_weight_tot_nb'
+RoME: no visible binding for global variable 'DataTargetSpecies'
+RoME: no visible global function definition for 'graphics.off'
+RoME: no visible binding for global variable 'DataTL'
+RoME: no visible global function definition for 'read.table'
+RoME: no visible binding for global variable 'create_RSufi_files'
+RoME: no visible binding for global variable 'Stratification'
+RoME: no visible binding for global variable 'AREA'
+RoME: no visible binding for global variable 'DataTT_bkp'
+RoME: no visible binding for global variable 'DataTD_bkp'
+RoME: no visible binding for global variable 'DataTE_bkp'
+RoME: no visible binding for global variable
+  'create_global_RSufi_files'
+check_area: no visible binding for global variable 'GSAs'
 graphs_TA: no visible global function definition for 'mtext'
 Undefined global functions or variables:
-  mtext
+  AREA DataSpecies DataTA DataTB DataTC DataTD_bkp DataTE_bkp DataTL
+  DataTT_bkp DataTargetSpecies Errors Format GSAs Stratification
+  Type_of_files check_weight_tot_nb create_RSufi_files
+  create_global_RSufi_files graphics.off mtext read.table
 Consider adding
+  importFrom("grDevices", "graphics.off")
   importFrom("graphics", "mtext")
+  importFrom("utils", "read.table")
 to your NAMESPACE file.
+
+Found the following assignments to the global environment:
+File 'RoME/R/RoME.r':
+  assign("Format", value = "from_2012", envir = .GlobalEnv)
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'RSufi_files' 'ResultDataTE'
+  'GSAs' 'RSufi_files'
 Undocumented data sets:
-  'ResultDataTE'
+  'GSAs'
 All user-level objects in a package should have documentation entries.
 See chapter 'Writing R documentation files' in the 'Writing R
 Extensions' manual.
@@ -123,18 +157,30 @@ Running examples in 'RoME-Ex.R' failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: TE_provisional
-> ### Title: Provisional example of TE table!!!!
-> ### Aliases: TE_provisional
-> ### Keywords: datasets
+> ### Name: RoME
+> ### Title: R code to perform multiple checks on MEDITS Survey data (TA, TB,
+> ###   TC, TE and TL files)
+> ### Aliases: RoME
+> ### Keywords: error
 > 
 > ### ** Examples
 > 
-> data(TE_provisional)
-> str(TE_provisional)
-Error in str(TE_provisional) : object 'TE_provisional' not found
+>     wd <- tempdir()
+>     suffix="2020-03-05_time h17m44s55"
+>     DataTA = RoME::TA
+>     DataTB = RoME::TB
+>     DataTC = RoME::TC
+>     DataTE = RoME::TE
+>     DataTL = RoME::TL
+>     RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix)
+[1] Checking year  1994
+[1] Check identical record TA in progress...
+[1] Check identical record TA successfully completed!
+[1] Check identical record TB in progress...
+Error in if (Result[1, "TYPE_OF_FILE"] == "TA") { : 
+  missing value where TRUE/FALSE needed
+Calls: RoME -> check_identical_records
 Execution halted
 ** found \donttest examples: check also with --run-donttest
-* checking for detritus in the temp directory ... OK
 * DONE
-Status: 1 ERROR, 3 WARNINGs, 2 NOTEs
+Status: 1 ERROR, 4 WARNINGs, 2 NOTEs

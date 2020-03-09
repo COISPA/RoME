@@ -72,7 +72,7 @@ mat_fin[riga,5] = mat3$NUMBER_OTOLITH[mat3$Species==mat_fin$Species[riga]& mat3$
 }
 
 mat_fin = mat_fin[which(mat_fin$Species %in% unique (ResultDataTE$Species)),]
-write.table(mat_fin, file = paste("sampling_individual_measures_",ResultDataTE$YEAR[1],".csv"),sep=";",row.names=F)
+write.table(mat_fin, file = paste("sampling_individual_measures_",ResultDataTE$YEAR[1],".csv",sep=""),sep=";",row.names=F)
 
 # if (numberError ==0) {
 #     write(paste("No error occurred"), file = Errors, append = TRUE)
