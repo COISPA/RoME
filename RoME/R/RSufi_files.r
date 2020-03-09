@@ -17,7 +17,7 @@ if (FALSE){
 
 RSufi_files<-function(Year_start,Year_end,AREA,wd){
 
-  traitsString <- paste(wd,"/files R-Sufi/traits_",Year_start,"_GSA",AREA,".csv",sep="")
+  traitsString <- file.path(wd,"files R-Sufi",paste("traits_",Year_start,"_GSA",AREA,".csv",sep=""))
   if(file.exists(traitsString))
   {
     traits=read.csv(file=traitsString,sep=";",header=TRUE)
@@ -26,7 +26,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   }
 
 
-  taillesString <- paste(wd,"/files R-Sufi/taille_",Year_start,"_GSA",AREA,".csv",sep="")
+  taillesString <- file.path(wd,"files R-Sufi",paste("taille_",Year_start,"_GSA",AREA,".csv",sep=""))
   if(file.exists(taillesString))
   {
     tailles=read.csv(file=taillesString,sep=";",header=TRUE)
@@ -35,7 +35,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   }
 
 
-  capturesString <- paste(wd,"/files R-Sufi/captures_",Year_start,"_GSA",AREA,".csv",sep="")
+  capturesString <- file.path(wd,"files R-Sufi",paste("captures_",Year_start,"_GSA",AREA,".csv",sep=""))
   if(file.exists(capturesString))
   {
     captures=read.csv(file=capturesString,sep=";",header=TRUE)
@@ -49,7 +49,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   for (i in ((Year_start+1):Year_end)){
 
 
-    traits2String <- paste("files R-Sufi/traits_",i,"_GSA",AREA,".csv",sep="")
+    traits2String <- filepath(wd,"files R-Sufi",paste("traits_",i,"_GSA",AREA,".csv",sep=""))
     if(file.exists(traits2String))
     {
       traits2=read.csv(file=traits2String,sep=";")
@@ -59,7 +59,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
     }
 
 
-    tailles2String <- paste("files R-Sufi/taille_",i,"_GSA",AREA,".csv",sep="")
+    tailles2String <- file.path(wd,"files R-Sufi",paste("taille_",i,"_GSA",AREA,".csv",sep=""))
     if(file.exists(tailles2String))
     {
       tailles2=read.csv(file=tailles2String,sep=";")
@@ -69,7 +69,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
     }
 
 
-    captures2String <- paste("files R-Sufi/captures_",i,"_GSA",AREA,".csv",sep="")
+    captures2String <- file.path(wd,"files R-Sufi",paste("captures_",i,"_GSA",AREA,".csv",sep=""))
     if(file.exists(captures2String))
     {
       captures2=read.csv(file=captures2String,sep=";")
@@ -83,13 +83,12 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   }
   }
   tryCatch({
-    write.table(traits,file=paste(wd,"/files R-Sufi/traits_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep=""),sep=";",row.names=FALSE)
-    write.table(captures,file=paste(wd,"/files R-Sufi/captures_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep=""),sep=";",row.names=FALSE)
-    write.table(tailles,file=paste(wd,"/files R-Sufi/taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep=""),sep=";",row.names=FALSE)
+    write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
+    write.table(captures,file=paste(wd,"files R-Sufi",paste("captures_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
+    write.table(tailles,file=paste(wd,"files R-Sufi",paste("taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
   }, error = function(e)
     {
     print(e)
   })
 
 }
-###########################################################################################################################
