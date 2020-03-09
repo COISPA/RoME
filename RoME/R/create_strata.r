@@ -38,7 +38,7 @@ create_strata<-function(Stratification=MEDITS::stratification_scheme,AREA,wd){
   Campagne=rep(paste("MEDITS-GSA",AREA,sep=""),6)
   strates=cbind(Campagne,strates)
 #   write.table(strates,file=paste("./files R-Sufi/strates_GSA",AREA,".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
-  write.table(strates,file=paste(wd,"/files R-Sufi/strates_GSA",AREA,".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
+  write.table(strates,file=file.path(wd,"files R-Sufi",paste("strates_GSA",AREA,".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
   #odbcClose(channel)
   #unlink(paste(Stratification,".xls", sep = ""))
 }
