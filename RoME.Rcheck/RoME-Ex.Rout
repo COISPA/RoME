@@ -1,0 +1,154 @@
+
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "RoME"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> options(pager = "console")
+> base::assign(".ExTimings", "RoME-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('RoME')
+Loading required package: timeDate
+Warning: package 'timeDate' was built under R version 3.6.2
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("DataTargetSpecies")
+> ### * DataTargetSpecies
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: DataTargetSpecies
+> ### Title: Length and weight ranges
+> ### Aliases: DataTargetSpecies
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(DataTargetSpecies)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("DataTargetSpecies", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("LW")
+> ### * LW
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: LW
+> ### Title: Table of the Length-Weight parameters
+> ### Aliases: LW
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(LW)
+> ## maybe str(LW) ; plot(LW) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("LW", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("Maturity_parameters")
+> ### * Maturity_parameters
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: Maturity_parameters
+> ### Title: Maturity parameters
+> ### Aliases: Maturity_parameters
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(Maturity_parameters)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("Maturity_parameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("MedSea")
+> ### * MedSea
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: MedSea
+> ### Title: Shapefile of Mediterranean and Black Sea area
+> ### Aliases: MedSea
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(MedSea)
+> ## maybe str(MedSea) ; plot(MedSea) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("MedSea", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("RoME")
+> ### * RoME
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: RoME
+> ### Title: R code to perform multiple checks on MEDITS Survey data (TA, TB,
+> ###   TC, TE and TL files)
+> ### Aliases: RoME
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+>     wd <- tempdir()
+>     suffix="2020-03-05_time h17m44s55"
+>     DataTA = RoME::TA
+>     DataTB = RoME::TB
+>     DataTC = RoME::TC
+>     DataTE = RoME::TE
+>     DataTL = RoME::TL
+>     RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix)
+[1] Checking year  1994
+[1] Check identical record TA in progress...
+[1] Check identical record TA successfully completed!
+[1] Check identical record TB in progress...
+Error in if (Result[1, "TYPE_OF_FILE"] == "TA") { : 
+  missing value where TRUE/FALSE needed
+Calls: RoME -> check_identical_records
+Execution halted
