@@ -28,8 +28,8 @@ create_haul<-function(ResultDataTA,wd,suffix){
    if (!file.exists(file.path(wd,"Graphs"))){
      dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
    }
-   if (!file.exists(file.path(wd,"/files R-Sufi",sep="/"))){
-     dir.create(file.path(wd, "/files R-Sufi"), showWarnings = FALSE)
+   if (!file.exists(file.path(wd,"files R-Sufi"))){
+     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
    }
 
   ResultData = ResultDataTA

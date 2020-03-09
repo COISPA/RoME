@@ -24,7 +24,7 @@ create_length<-function(ResultData,DataSpecies=RoME::TM_list,wd){
    # DataSpecies=RoME::TM_list
   #}
 
-  if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
+  if (!file.exists(file.path(wd,"files R-Sufi"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
 
@@ -199,7 +199,7 @@ create_length<-function(ResultData,DataSpecies=RoME::TM_list,wd){
   colnames(Matrix)=(c("Survey",	"Year",	"Haul",	"Species",	"Sex", "Maturity", "Length",	"Number",	"Weight", "Age") )
 
 
-  rSufiString <- paste(wd,"/files R-Sufi/taille_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")
+  rSufiString <- file.path(wd,"files R-Sufi",paste("taille_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep=""))
 #   rSufiString <- paste("taille_",Year,"_GSA",ResultData$AREA[1],".csv",sep="")
 
   if(file.exists(paste(rSufiString,sep=""))) file.remove(paste(rSufiString,sep=""))
@@ -209,5 +209,3 @@ create_length<-function(ResultData,DataSpecies=RoME::TM_list,wd){
 
   #write.csv(Matrix,file=rSufiString, row.names=FALSE, quote=FALSE, sep=";")
   }
-
-###########################################################################################################################
