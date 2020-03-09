@@ -24,25 +24,21 @@ if (FALSE){
 
 check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
+  if (!file.exists(file.path(wd,"Graphs"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+  }
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
+  numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
-    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
-  }
-
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-    numberError = 0
   Result = ResultDataTA # read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
-  write(paste("
-              ----------- check uniqueness of valid hauls TA - ",Result$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check uniqueness of valid hauls TA - ",Result$YEAR[1]), file = Errors, append = TRUE)
 
 
   #channelTA <- odbcConnectExcel(paste(DataTA,".xls", sep = ""))
@@ -72,7 +68,6 @@ check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
-
 
   if (numberError ==0) {
     return(TRUE)
