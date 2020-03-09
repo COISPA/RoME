@@ -45,22 +45,33 @@ checkHeader <- function(dataframe, template)
                      "LENGTH_CLASS","MATURITY","MATSUB","INDIVIDUAL_WEIGHT","NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT",
                      "OTOLITH_SAMPLED","NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_AGEING","OTOLITH_READ","AGE","OTOLITH_CODE","RECORD_NUMBER")
 
-  TL_after_2012 <- c("TYPE_OF_FILE", "COUNTRY",	"AREA", "VESSEL",	"YEAR",	"MONTH",	"DAY",	"HAUL_NUMBER",	"LITTER_CATEGORY","LITTER_SUB.CATEGORY",
-                     "TOTAL_WEIGHT_IN_THE_CATEGORY_HAUL",	"TOTAL_NUMBER_IN_THE_CATEGORY_HAUL","TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL",
-                     "TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")
+  TL_after_2012 <- c("TYPE_OF_FILE", "COUNTRY",	"AREA", "VESSEL",	"YEAR",	"MONTH",	"DAY",	"HAUL_NUMBER",	"LITTER_CATEGORY","LITTER_SUB-CATEGORY",
+                     "TOTAL_WEIGHT_IN_THE_CATEGORY_HAUL",	"TOTAL_NUMBER_IN_THE_CATEGORY_HAUL","TOTAL_WEIGHT_IN_THE_SUB-CATEGORY_HAUL",
+                     "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL")
 
+
+  #### CHECK TL FIELDS ####
+  {
+    if ("LITTER_SUB.CATEGORY" %in% colnames(dataframe)){
+      colnames(dataframe)[which(colnames(dataframe)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+    }
+    if ("TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(dataframe)){
+      colnames(dataframe)[which(colnames(dataframe)=="TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_WEIGHT_IN_THE_SUB-CATEGORY_HAUL"
+    }
+    if ("TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(dataframe)){
+      colnames(dataframe)[which(colnames(dataframe)=="TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
+    }
+  }
+  #### CHECK TL FIELDS - END ####
 
 
   # eseguo i controlli
-
-
   if(template=="TA")
   {
     if (isTRUE(all.equal( colnames(dataframe), TA_after_2012))) {
       # colonne corrette
     } else{
       stop("ERROR: wrong TA headers.")
-
     }
   }
 
@@ -70,7 +81,6 @@ checkHeader <- function(dataframe, template)
       # colonne corrette
     } else{
       stop("ERROR: wrong TB headers.")
-
     }
   }
 
@@ -80,7 +90,6 @@ checkHeader <- function(dataframe, template)
       # colonne corrette
     } else{
       stop("ERROR: wrong TC headers.")
-
     }
   }
 
@@ -90,7 +99,6 @@ checkHeader <- function(dataframe, template)
       # colonne corrette
     } else{
       stop("ERROR: wrong TE headers.")
-
     }
   }
 
@@ -100,10 +108,6 @@ checkHeader <- function(dataframe, template)
       # colonne corrette
     } else{
       stop("ERROR: wrong TL headers.")
-
     }
   }
-
-
-
 }
