@@ -25,15 +25,12 @@ create_haul<-function(ResultDataTA,wd,suffix){
 
 
 
-  if (!file.exists(paste(wd,"Graphs",sep="/"))){
-    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
-  }
-
-   if (!file.exists(paste(wd,"files R-Sufi",sep="/"))){
-     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
+   if (!file.exists(file.path(wd,"Graphs"))){
+     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
    }
-
-
+   if (!file.exists(file.path(wd,"/files R-Sufi",sep="/"))){
+     dir.create(file.path(wd, "/files R-Sufi"), showWarnings = FALSE)
+   }
 
   ResultData = ResultDataTA
 
@@ -72,7 +69,5 @@ create_haul<-function(ResultDataTA,wd,suffix){
      }
     }
   }
-  write.table(traits,file=paste(wd,"/files R-Sufi/traits_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
+  write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
 }
-
-###########################################################################################################################
