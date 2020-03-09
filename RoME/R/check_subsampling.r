@@ -25,21 +25,17 @@ if (FALSE){
 check_subsampling<-function(ResultTC,wd,suffix){
 
   Format="from_2012"
-  if (!file.exists(paste(wd,"Logfiles",sep="/"))){
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
-
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-
-  Errors <- paste(wd,"/Logfiles/Logfile_",suffix,".dat",sep="")
-
-
   numberError = 0
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
-  write(paste("
-              ----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
 
   #queryTCpivot = paste("SELECT YEAR, HAUL_NUMBER, GENUS, SPECIES, SUM(NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE) AS Sum, WEIGHT_OF_THE_FRACTION,  WEIGHT_OF_THE_SAMPLE_MEASURED from ResultTC where  HAUL_NUMBER is not NULL ","group by YEAR, HAUL_NUMBER, GENUS, SPECIES, WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED", sep="" )
 
@@ -55,23 +51,9 @@ write(paste("Warning: Year", ResultTCpivot$YEAR[ii], "Haul",ResultTCpivot$HAUL_N
 
 }
 
-
-
-
-
-
-
-
   # check sum per sex
-
-
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
-  }
-
-
-
-  if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
 
