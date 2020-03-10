@@ -19,7 +19,8 @@ The function returns always TRUE because the outcome of the function is a warnin
 library(MEDITS)
 library(RoME)
 wd=tempdir()
-DataTC <- MEDITS::TC
+DataTC <- RoME::TC
+DataSpecies=NA
 suffix= "27-02-2020 18:30"
 check_length(DataTC,DataSpecies,wd,suffix)
 }
