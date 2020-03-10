@@ -15,7 +15,7 @@ Year_start=2007 # deve essere impostato se vuoi effettuare l'analisi R-sufi
 Year_end=2016# deve essere impostato se vuoi effettuare l'analisi R-sufi
 
 ################ NON MODIFICARE #############
-RoME(TA=ta::TA,
+RoME(TA=ta,
      TB=tb,
      TC=tc,
      TE=te,
