@@ -1,4 +1,5 @@
 DataTargetSpecies       Length and weight ranges
+GSAs                    List of GFCM Geographical subareas (GSAs)
 LW                      Table of the Length-Weight parameters
 Maturity_parameters     Maturity parameters
 MedSea                  Shapefile of Mediterranean and Black Sea area

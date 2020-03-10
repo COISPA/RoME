@@ -85,7 +85,7 @@ if (length(end_temp) > 0) {
 
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]],Dataset$HAULING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]]))
 
-  tiff(file=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(filename=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
   X=mean_depth
   Y=mean_temp

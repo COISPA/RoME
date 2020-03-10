@@ -53,6 +53,7 @@ create_length	create_length
 create_strata	create_strata
 DataTargetSpecies	DataTargetSpecies
 graphs_TA	graphs_TA
+GSAs	GSAs
 haul_at_sea	haul_at_sea
 list_g1_g2	list_g1_g2
 LW	LW

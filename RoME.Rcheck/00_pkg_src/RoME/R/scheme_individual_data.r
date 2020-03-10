@@ -32,13 +32,13 @@ scheme_individual_data <- function(DataTC,DataTE,wd,suffix){
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
+  ResultDataTC <- DataTC
+  ResultDataTC$Species <- paste(ResultDataTC$GENUS,ResultDataTC$SPECIES)
+  ResultDataTE <- DataTE
+  ResultDataTE$Species <- paste(ResultDataTE$GENUS,ResultDataTE$SPECIES)
+
 write(paste("\n----------- check summary of individual measures"), file = Errors, append = TRUE)
 write(paste("\n----------- check summary of individual measures - ",ResultDataTE$YEAR[1]), file = Errors, append = TRUE)
-
-ResultDataTC = DataTC
-ResultDataTC$Species = paste(ResultDataTC$GENUS,ResultDataTC$SPECIES)
-ResultDataTE = DataTE
-ResultDataTE$Species = paste(ResultDataTE$GENUS,ResultDataTE$SPECIES)
 
 mat = aggregate(ResultDataTC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE, by=list(ResultDataTC$Species,ResultDataTC$LENGTH_CLASS), FUN="sum")
 colnames(mat)= c("Species", "LENGHT_CLASS","LENGTHS")

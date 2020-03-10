@@ -1,6 +1,6 @@
 
-R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
-Copyright (C) 2019 The R Foundation for Statistical Computing
+R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-w64-mingw32/x64 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -58,6 +58,27 @@ Loading required package: timeDate
 > 
 > base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 > base::cat("DataTargetSpecies", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("GSAs")
+> ### * GSAs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: GSAs
+> ### Title: List of GFCM Geographical subareas (GSAs)
+> ### Aliases: GSAs
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(GSAs)
+> ## maybe str(GSAs) ; plot(GSAs) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("GSAs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 > cleanEx()
 > nameEx("LW")
 > ### * LW
@@ -983,6 +1004,8 @@ Loading required package: timeDate
 [1] Check consistency of maturity stages TE successfully completed!
 [1] Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography in progress...
 [1] Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography successfully completed!
+[1] Check consistency of maturity stages in TE by means of spawning period in progress...
+[1] Check consistency of maturity stages in TE by means of spawning period successfully completed!
 [1] Check individual weight in TE in progress...
 [1] Check individual weight in TE successfully completed!
 [1] Check correctness of species codes TE in progress...
@@ -990,7 +1013,308 @@ Loading required package: timeDate
 [1] Check consistency TE check-fields in progress...
 [1] Check consistency TE check-fields successfully completed!
 [1] Summary individual data sampling in progress...
-Error in paste("\n----------- check summary of individual measures - ",  : 
+[1] Summary individual data sampling successfully completed!
+[1] Check allowed values for category on Litter data in progress...
+[1] Check allowed values for category on Litter data successfully completed!
+[1] Check allowed values for category on Litter data in progress...
+[1] Check allowed values for category on Litter data successfully completed!
+[1] Check correctness of associations between category and sub-category on Litter data in progress...
+[1] Check correctness of associations between category and sub-category on Litter data successfully completed!
+[1] Check if the number is always filled in on Litter data in progress...
+[1] Check if the number is always filled in on Litter data successfully completed!
+[1] Check if the date in TL is consistent with TA in progress...
+[1] Check if the date in TL is consistent with TA successfully completed!
+[1] Check if the hauls in TL are present in TA in progress...
+[1] Check if the hauls in TL are present in TA successfully completed!
+[1] Check if the hauls in TA are present in TL in progress...
+[1] Check if the hauls in TA are present in TL successfully completed!
+[1] All the checks have been performed!
+[1] Checking year  2013
+[1] Check identical record TA in progress...
+[1] Check identical record TA successfully completed!
+[1] Check identical record TB in progress...
+[1] Check identical record TB successfully completed!
+[1] Check identical record TC in progress...
+[1] Check identical record TC successfully completed!
+[1] Check identical record TE in progress...
+[1] Check identical record TE successfully completed!
+[1] Check identical record TL in progress...
+[1] Check identical record TL successfully completed!
+[1] Check quasi-identical record in TA in progress...
+[1] Check quasi-identical record in TA successfully completed!
+[1] Check quasi-identical record in TB in progress...
+[1] Check quasi-identical record in TB successfully completed!
+[1] Check quasi-identical record in TC in progress...
+[1] Check quasi-identical record in TC successfully completed!
+[1] Check quasi-identical record in TE in progress...
+[1] Check quasi-identical record in TE successfully completed!
+[1] Check quasi-identical record in TL in progress...
+[1] Check quasi-identical record in TL successfully completed!
+[1] Check consistency of area TA, TB, TC, TE, TL in progress...
+[1] Check consistency of area TA, TB, TC, TE, TL successfully completed!
+[1] Check dictionary for field: VALIDITY in progress...
+[1] Check dictionary for field: VALIDITY successfully completed!
+[1] Check dictionary for field: COURSE in progress...
+[1] Check dictionary for field: COURSE successfully completed!
+[1] Check dictionary for field: CODEND_CLOSING in progress...
+[1] Check dictionary for field: CODEND_CLOSING successfully completed!
+[1] Check dictionary for field: PART_OF_THE_CODEND in progress...
+[1] Check dictionary for field: PART_OF_THE_CODEND successfully completed!
+[1] Check dictionary for field: GEOMETRICAL_PRECISION in progress...
+[1] Check dictionary for field: GEOMETRICAL_PRECISION successfully completed!
+[1] Check dictionary for field: GEAR in progress...
+[1] Check dictionary for field: GEAR successfully completed!
+[1] Check dictionary for field: RIGGING in progress...
+[1] Check dictionary for field: RIGGING successfully completed!
+[1] Check dictionary for field: DOORS in progress...
+[1] Check dictionary for field: DOORS successfully completed!
+[1] Check dictionary for field: SHOOTING_QUADRANT in progress...
+[1] Check dictionary for field: SHOOTING_QUADRANT successfully completed!
+[1] Check dictionary for field: HAULING_QUADRANT in progress...
+[1] Check dictionary for field: HAULING_QUADRANT successfully completed!
+[1] Check dictionary for field: MEASURING_SYSTEM in progress...
+[1] Check dictionary for field: MEASURING_SYSTEM successfully completed!
+[1] Check dictionary for field: CODEND_CLOSING in progress...
+[1] Check dictionary for field: CODEND_CLOSING successfully completed!
+[1] Check dictionary for field: PART_OF_THE_CODEND in progress...
+[1] Check dictionary for field: PART_OF_THE_CODEND successfully completed!
+[1] Check dictionary for field: CODEND_CLOSING in progress...
+[1] Check dictionary for field: CODEND_CLOSING successfully completed!
+[1] Check dictionary for field: PART_OF_THE_CODEND in progress...
+[1] Check dictionary for field: PART_OF_THE_CODEND successfully completed!
+[1] Check dictionary for field: SEX in progress...
+[1] Check dictionary for field: SEX successfully completed!
+[1] Check dictionary for field: LENGTH_CLASSES_CODE in progress...
+[1] Check dictionary for field: LENGTH_CLASSES_CODE successfully completed!
+[1] Check dictionary for field: LENGTH_CLASSES_CODE in progress...
+[1] Check dictionary for field: LENGTH_CLASSES_CODE successfully completed!
+[1] Check dictionary for field: SEX in progress...
+[1] Check dictionary for field: SEX successfully completed!
+[1] Check no empty fields TA in progress...
+[1] Check no empty fields TA successfully completed!
+[1] Check no empty fields TB in progress...
+[1] Check no empty fields TB successfully completed!
+[1] Check no empty fields TC in progress...
+[1] Check no empty fields TC: errors occurred! Please correct files and run again the script. For more details see Logfile.dat
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("RoME", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("Rsufi_files")
+> ### * Rsufi_files
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: RSufi_files
+> ### Title: Function to concatenate the R-sufi files of the different years.
+> ### Aliases: RSufi_files
+> ### Keywords: R-sufi,global files
+> 
+> ### ** Examples
+> 
+> 
+> library(MEDITS)
+
+Attaching package: 'MEDITS'
+
+The following objects are masked from 'package:RoME':
+
+    TA, TB, TC
+
+> library(RoME)
+> wd <- tempdir()
+> 
+> create_haul(TA,wd)
+> create_catch(TB,wd)
+> create_length(TC,TM_list,wd)
+> create_strata(stratification_scheme,"10",wd)
+> RSufi_files(2007,2007,"10",wd)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("Rsufi_files", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("TM_list")
+> ### * TM_list
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: TM_list
+> ### Title: TM list
+> ### Aliases: TM_list
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(TM_list)
+> ## maybe str(TM_list) ; plot(TM_list) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("TM_list", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("assTL")
+> ### * assTL
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: assTL
+> ### Title: TL association between categories and sub-categories
+> ### Aliases: assTL
+> ### Keywords: datasets
+> 
+> ### ** Examples
+> 
+> data(assTL)
+> ## maybe str(assTL) ; plot(assTL) ...
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("assTL", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("checkHeader")
+> ### * checkHeader
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: checkHeader
+> ### Title: Function to check the correctness of the headers.
+> ### Aliases: checkHeader
+> ### Keywords: headers
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+
+Attaching package: 'MEDITS'
+
+The following objects are masked from 'package:RoME':
+
+    TA, TB, TC
+
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> checkHeader(TA,"TA")
+> checkHeader(TB,"TB")
+> checkHeader(TC,"TC")
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("checkHeader", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_0_fieldsTA")
+> ### * check_0_fieldsTA
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_0_fieldsTA
+> ### Title: Checks the presence of 0 fields in TA
+> ### Aliases: check_0_fieldsTA
+> ### Keywords: error
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+
+Attaching package: 'MEDITS'
+
+The following objects are masked from 'package:RoME':
+
+    TA, TB, TC
+
+> wd <- tempdir()
+> suffix="2020-03-05_time h17m44s55"
+> check_0_fieldsTA(MEDITS::TA,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_0_fieldsTA", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_G1_G2")
+> ### * check_G1_G2
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_G1_G2
+> ### Title: Check of length measurements for G1 and G2 species
+> ### Aliases: check_G1_G2
+> ### Keywords: warning
+> 
+> ### ** Examples
+> 
+> library(RoME)
+> library(MEDITS)
+
+Attaching package: 'MEDITS'
+
+The following objects are masked from 'package:RoME':
+
+    TA, TB, TC
+
+> wd <- tempdir()
+> suffix="2020-03-05_time h17m44s55"
+> check_G1_G2(MEDITS::TC,wd,suffix)
+[1] TRUE
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("check_G1_G2", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+
+detaching 'package:MEDITS'
+
+> nameEx("check_TE_TC")
+> ### * check_TE_TC
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: check_TE_TC
+> ### Title: Function to verify the onsistency between individual data table
+> ###   (TE) and biological data table (TC) respect to numbe rof individuals.
+> ### Aliases: check_TE_TC
+> ### Keywords: cross-check TETC
+> 
+> ### ** Examples
+> 
+> library(MEDITS)
+
+Attaching package: 'MEDITS'
+
+The following objects are masked from 'package:RoME':
+
+    TA, TB, TC
+
+> library(RoME)
+> wd=tempdir()
+> suffix= "27-02-2020 18:30"
+> check_TE_TC(TC,ResultDataTE,wd,suffix)
+Error in check_TE_TC(TC, ResultDataTE, wd, suffix) : 
   object 'ResultDataTE' not found
-Calls: RoME -> scheme_individual_data -> write -> cat -> paste
 Execution halted

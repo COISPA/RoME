@@ -30,6 +30,6 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_TE_TC(TC,ResultDataTE,wd,suffix)
+check_TE_TC(RoME::TC,RoME::TE,wd,suffix)
 }
 \keyword{cross-check TETC}

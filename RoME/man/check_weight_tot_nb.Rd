@@ -11,7 +11,7 @@ If total weight is different from 0, total number must be different from 0 (only
 check_weight_tot_nb(ResultDataTB,wd,suffix)
 }
 \arguments{
-  \item{DataTB}{Catch data table according to MEDITS protocol (TB)}
+  \item{ResultDataTB}{Catch data table according to MEDITS protocol (TB)}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }

@@ -48,28 +48,28 @@ check_area <- function(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix){
   write(paste("\n----------- check consistency of area in TX - ", DataTA$YEAR[1]), file = Errors, append = TRUE)
 
   GSA_TA=unique(DataTA$AREA)
-  if (!(GSA_TA %in% GSAs$GSA)){
+  if (!(GSA_TA %in% RoME::GSAs$GSA)){
     write(paste("Warning: the AREA code used in TA file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
   GSA_TB=unique(DataTB$AREA)
-  if (!(GSA_TB %in% GSAs$GSA)){
+  if (!(GSA_TB %in% RoME::GSAs$GSA)){
     write(paste("Warning: the AREA code used in TB file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
   GSA_TC=unique(DataTC$AREA)
-  if (!(GSA_TC %in% GSAs$GSA)){
+  if (!(GSA_TC %in% RoME::GSAs$GSA)){
     write(paste("Warning: the AREA code used in TC file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
 
 
   if (length(DataTE)>1 & any(!is.na(DataTE))) {
   GSA_TE=unique(DataTE$AREA)
-  if (!(GSA_TE %in% GSAs$GSA)){
+  if (!(GSA_TE %in% RoME::GSAs$GSA)){
     write(paste("Warning: the AREA code used in TE file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
   }
   if (length(DataTL)>1 & any(!is.na(DataTL))) {
   GSA_TL=unique(DataTL$AREA)
-  if (!(GSA_TL %in% GSAs$GSA)){
+  if (!(GSA_TL %in% RoME::GSAs$GSA)){
     write(paste("Warning: the AREA code used in TL file is not present in the GFCM's GSA list"), file = Errors, append = TRUE)
   }
   }
