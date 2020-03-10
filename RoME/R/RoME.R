@@ -6,28 +6,25 @@
 #   March 2020                                                                                                            #
 ###########################################################################################################################
 
-# IMPORTANT: set the name of your TA, TB, TC, TD, TT, TE (that have to be in your working directory)
-
-# VAR INIZIALIZING --------------------------------------------------------
-
-# RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=NA,Year_end=NA, verbose=TRUE)
-
+# TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
-wd <- tempdir()
-suffix=NA
-TA <- RoME::TA
-TB <- RoME::TB
-TC <- RoME::TC
-TE <- RoME::TE
-TL <- RoME::TL
-verbose = TRUE
-create_RSufi_files=FALSE
-create_global_RSufi_files=FALSE
-Year_start=NA
-Year_end=NA
+  library(RoME)
+  wd <- tempdir()
+  suffix=NA
+  TA <- RoME::TA
+  TB <- RoME::TB
+  TC <- RoME::TC
+  TE <- RoME::TE
+  TL <- RoME::TL
+  verbose = TRUE
+  create_RSufi_files=TRUE
+  create_global_RSufi_files=TRUE
+  Year_start=2007
+  Year_end=2016
+  # RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
 }
+# TEST END --------------------------------------------------------
 
-# VAR END --------------------------------------------------------
 
 RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE)
 {
@@ -88,8 +85,7 @@ check_without_errors = TRUE
 
 years = unique (TA$YEAR)
 
-yea <- 2012
-print(yea)
+yea <- 2007
 for (yea in years) {
 
 if (check_without_errors == TRUE & verbose==TRUE) {
@@ -902,7 +898,7 @@ if (!stop_) {
 # Create files for R_Sufi
 
 if ((!stop_) & (create_RSufi_files==TRUE)){
-  AREA <- ResultDataTA[1,"TYPE_OF_FILE"]
+  AREA <- ResultDataTA[1,"AREA"]
   create_strata(Stratification=MEDITS::stratification_scheme,AREA,wd)
   create_haul(ResultDataTA,wd,suffix)
   create_catch(ResultDataTB,wd)
