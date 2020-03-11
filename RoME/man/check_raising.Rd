@@ -39,4 +39,5 @@ wd=tempdir()
 suffix= "27-02-2020 18:30"
 check_raising(TB,TC,wd,suffix)
 }
-\keyword{raising, sub-sampling}
+\keyword{raising}
+\keyword{sub-sampling}

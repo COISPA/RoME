@@ -30,4 +30,5 @@ wd <- tempdir()
 create_strata(stratification_scheme,"18",wd)
 }
 
-\keyword{R-sufi,strata}
+\keyword{R-sufi}
+\keyword{strata}

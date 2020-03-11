@@ -25,4 +25,5 @@ wd <- tempdir()
 create_catch(TB,wd)
 }
 
-\keyword{R-sufi,capt}
+\keyword{R-sufi}
+\keyword{Rcapt}

@@ -1,18 +1,23 @@
 library(RoME)
 
-wd <- "metti il percorso della cartella (esistente) in cui vuoi salvare i risultati (usa \\ come separatore)"
+wd <- tempdir()
 suffix=NA  # non modificare
-ta <- read.table(file="metti qui il nome del file con il percorso", sep=";", header=T)
-tb <- read.table(file="metti qui il nome del file con il percorso", sep=";", header=T)
-tc <- read.table(file="metti qui il nome del file con il percorso", sep=";", header=T)
-te <- read.table(file="metti qui il nome del file con il percorso", sep=";", header=T) # puoi mettere NA
-tl <- read.table(file="metti qui il nome del file con il percorso", sep=";", header=T) # puoi mettere NA
+ta <- read.table(file="C:\\Users\\walte\\Documents\\GitHub\\RoME\\data\\GSA18-test\\TA_GSA18_1994-2018.csv", sep=";", header=T)
+tb <- read.table(file="C:\\Users\\walte\\Documents\\GitHub\\RoME\\data\\GSA18-test\\TB_GSA18_1994-2018.csv", sep=";", header=T)
+tc <- read.table(file="C:\\Users\\walte\\Documents\\GitHub\\RoME\\data\\GSA18-test\\TC_GSA18_1994-2018.csv", sep=";", header=T)
+te <- NA # puoi mettere NA
+tl <- NA # puoi mettere NA
+
+ta <- ta[ta$YEAR==1996,]
+tb <- tb[tb$YEAR==1996,]
+tc <- tc[tc$YEAR==1996,]
+
 
 verbose = TRUE
-create_RSufi_files=TRUE # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
-create_global_RSufi_files=TRUE # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
-Year_start=2007 # deve essere impostato se vuoi effettuare l'analisi R-sufi
-Year_end=2016# deve essere impostato se vuoi effettuare l'analisi R-sufi
+create_RSufi_files=FALSE # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
+create_global_RSufi_files=FALSE # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
+Year_start=NA   # deve essere impostato se vuoi effettuare l'analisi R-sufi
+Year_end=NA     # deve essere impostato se vuoi effettuare l'analisi R-sufi
 
 ################ NON MODIFICARE #############
 RoME(TA=ta,

@@ -27,4 +27,5 @@ wd <- tempdir()
 create_haul(TA,wd)
 }
 
-\keyword{R-sufi,traits}
+\keyword{R-sufi}
+\keyword{traits}

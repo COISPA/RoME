@@ -9,12 +9,12 @@
 # Check about the consistency of the number of individuals by length, sex and stage between TC and TE
 
 if (FALSE){
-  ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultDataTC=ResultDataTC[ResultDataTC$YEAR==2017,]
-  ResultDataTE = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TE_2012-2018 _GSA18.csv", sep=";")
-  ResultDataTE=ResultDataTE[ResultDataTE$YEAR==2017,]
+  ResultDataTC = RoME::TC # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+  ResultDataTC = ResultDataTC[ResultDataTC$YEAR==2007,]
+  ResultDataTE = RoME::TE # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TE_2012-2018 _GSA18.csv", sep=";")
+  ResultDataTE = ResultDataTE[ResultDataTE$YEAR==2012,]
 
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  wd <- tempdir() #"C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
@@ -46,8 +46,9 @@ if (nrow(TE[which(TE$MATSUB=="O"),])!=0){
 }
 
   write(paste("\n----------- check consistency nb of individuals TC and TE - ",TC$YEAR[1]), file = Errors, append = TRUE)
-   for (i in 1:nrow(TE)){
-  TE$SEX[i]=ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i]))
+  i=1
+  for (i in 1:nrow(TE)){
+    TE$SEX[i]=ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i]))
   }
 
   for (i in 1:nrow(TE)){

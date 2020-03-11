@@ -1,7 +1,7 @@
 \name{check_TE_TC}
 \alias{check_TE_TC}
 \title{
-Function to verify the onsistency between individual data table (TE) and biological data table (TC) respect to numbe rof individuals.}
+Function to verify the consistency between individual data table (TE) and biological data table (TC) respect to numbe rof individuals.}
 \description{
 Check if the individuals by species, length, sex and maturity stage reported in TE are less than the number reported in TC}
 \usage{
@@ -30,6 +30,10 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_TE_TC(RoME::TC,RoME::TE,wd,suffix)
+tc <- RoME::TC
+tc <- tc[tc$YEAR == 2012, ]
+te <- RoME::TE
+te <- te[te$YEAR == 2012, ]
+check_TE_TC(tc,te,wd,suffix)
 }
 \keyword{cross-check TETC}

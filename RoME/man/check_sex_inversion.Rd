@@ -33,4 +33,5 @@ wd=tempdir()
 suffix= "27-02-2020 18:30"
 check_sex_inversion(TC,Maturity_parameters,wd,suffix)
 }
-\keyword{sex inversion, hermaphrodite}
+\keyword{sex inversion}
+\keyword{hermaphrodite}

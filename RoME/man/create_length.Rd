@@ -32,4 +32,5 @@ suffix="27-02-2020 18:30"
 create_length(TC,TM_list,wd)
 }
 
-\keyword{R-sufi,taille}
+\keyword{R-sufi}
+\keyword{taille}

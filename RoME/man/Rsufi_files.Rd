@@ -32,4 +32,5 @@ create_length(TC,TM_list,wd)
 create_strata(stratification_scheme,"10",wd)
 RSufi_files(2007,2007,"10",wd)
 }
-\keyword{R-sufi,global files}
+\keyword{R-sufi}
+\keyword{global files}

@@ -29,4 +29,5 @@ wd=tempdir()
 suffix= "27-02-2020 18:30"
 check_step_length_distr(TC,wd,suffix)
 }
-\keyword{length, step}
+\keyword{length}
+\keyword{step}
