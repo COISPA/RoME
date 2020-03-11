@@ -12,7 +12,6 @@ if (FALSE){
   ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
   ResultDataTA=ResultDataTA[ResultDataTA$YEAR==1994,]
   #ResultTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
@@ -21,8 +20,8 @@ if (FALSE){
   check_stratum_code(ResultDataTA,stratification_scheme,wd,suffix)
 }
 
-check_stratum_code <- function (ResultDataTA,Stratification=stratification_scheme,wd,suffix){
-  stratification_scheme=MEDITS::stratification_scheme
+check_stratum_code <- function (ResultDataTA,Stratification=MEDITS::stratification_scheme,wd,suffix){
+  stratification_scheme=Stratification
 
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -42,13 +41,14 @@ check_stratum_code <- function (ResultDataTA,Stratification=stratification_schem
 
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH,Dataset$HAULING_DEPTH))
 
+  i=1
   for (i in 1:nrow(Dataset))
   {
     # check if the stratum code in TA is one of the codes in the Stratification table
 
   if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in%  Strat_table$STRATUM)) {
     numberError = numberError+1
-    write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"wrong stratum code"), file = Errors, append = TRUE)
+    write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"wrong stratum code, check if it is the most recent version of MEDITS codes"), file = Errors, append = TRUE)
 
     }
 

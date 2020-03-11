@@ -34,14 +34,17 @@ The function does not correct the data, but it detects the errors, warning the u
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
+    \donttest{
+    library(RoME)
     wd <- tempdir()
-    suffix="2020-03-05_time h17m44s55"
+    suffix=NA
     DataTA = RoME::TA
     DataTB = RoME::TB
     DataTC = RoME::TC
     DataTE = RoME::TE
     DataTL = RoME::TL
     RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix)
+    }
 }
 
 \keyword{error}
