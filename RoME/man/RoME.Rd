@@ -3,7 +3,7 @@
 \title{
 R code to perform multiple checks on MEDITS Survey data (TA, TB, TC, TE and TL files)}
 \description{
-The check is performed simultaneously on the files that can contain also data of more than one year.}
+The function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The check is performed simultaneously on the files that can contain also data of more than one year.}
 \usage{
 RoME(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,
 create_RSufi_files = FALSE, create_global_RSufi_files=FALSE,
@@ -24,9 +24,7 @@ Year_start=NA,Year_end=NA,verbose =TRUE)
   \item{verbose}{...}
 }
 \details{
-\code{RoME} checks can be used to integrate a list of common quality checks on survey data. This function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The order of the checks in \code{RoME} was implemented in a defined sequence to avoid cascade errors due to the correction of a previous error. No automatic correction is implemented in RoME. RoME stops if an error occurs; then the user has to correct the error and run again the code to continue with the other checks. The function runs on a complete time series dataset, checking year after year, until the end of the time series. After the checks of the mandatory fields and the controlled vocabulary, that are carried out for all the TX tables, the specific checks on each kind of TX table are performed. Finally, \code{RoME} provides a list of cross checks aimed to guarantee the consistency among the data tables
-
-
+\code{RoME} checks can be used to integrate a list of common quality checks on survey data. This function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The order of the checks in \code{RoME} was implemented in a defined sequence to avoid cascade errors due to the correction of a previous error. No automatic correction is implemented in RoME. RoME stops if an error occurs; then the user has to correct the error and run again the code to continue with the other checks. The function runs on a complete time series dataset, checking year after year, until the end of the time series. After the checks of the mandatory fields and the controlled vocabulary, that are carried out for all the TX tables, the specific checks on each kind of TX table are performed. Finally, \code{RoME} provides a list of cross checks aimed to guarantee the consistency among the data tables.
 }
 \value{
 The function does not correct the data, but it detects the errors, warning the user that there is the possibility of one or more errors, specifying the type of the error and easing the data correction. If parameter \code{verbose=TRUE} returns a series of text output in console to let the user to trace the state of the checks. All the output of the functions are stored in the user defined working directory  \code{wd} and in the sub-directory there resident. In the Lofile subfolder are stored the logfiles of each run of the function.
