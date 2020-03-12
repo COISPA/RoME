@@ -20,11 +20,12 @@ DataSpecies = RoME::TM_list, stages = RoME::mat_stages)
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-library(RoME)
+\donttest{library(RoME)
 DataTC <- RoME::TC
 wd=tempdir()
 suffix= "27-02-2020 18:30"
 check_mat_stages(DataTC, wd, suffix)
+}
 }
 \keyword{ error }
 \keyword{ warning }

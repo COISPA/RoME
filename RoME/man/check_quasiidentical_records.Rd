@@ -32,12 +32,13 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
+\donttest{library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
 check_quasiidentical_records(TA,wd,suffix)
 check_quasiidentical_records(TB,wd,suffix)
 check_quasiidentical_records(TC,wd,suffix)
+}
 }
 \keyword{quasi-identical}

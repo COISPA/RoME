@@ -15,8 +15,8 @@ haul_at_sea(DataTA, seas = RoME::MedSea, verbose = TRUE)
 \details{
 The function check whether the haul position falls in the polygon \code{seas} defining the extension of the reference sea area.
 \cr
-\if{html}{\figure{MedSea_map.png}{options: width="70\%"}}
-\if{latex}{\figure{MedSea_map.png}}\cr
+\if{html}{\figure{MedSeamap.png}{options: width="70\%"}}
+\if{latex}{\figure{MedSeamap.png}}\cr
 
 }
 \value{
