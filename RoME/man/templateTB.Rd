@@ -40,6 +40,6 @@ The dataframe is empty and it is to be used to verify the correctness of headers
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
 }
 \examples{
-data(templateTB)
+\donttest{data(templateTB)}
 }
 \keyword{datasets}

@@ -31,6 +31,6 @@ Template of the Litter data table (TL) as defined in the MEDITS protocol
 \source{MEDITS Survey - Instruction Manual - Version 9 (2017)}
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \examples{
-data(templateTL)
+\donttest{data(templateTL)}
 }
 \keyword{datasets}
