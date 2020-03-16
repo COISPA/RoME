@@ -31,11 +31,7 @@ check_length_class_codeTC<-function(DataTC,Specieslist=NA, wd,suffix){
   ResultData = DataTC
   write(paste("\n----------- check correctness of LENGTH_CLASSES_CODE in TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
-  if(is.na(Specieslist)){
-    ResultSpecies <- RoME::TM_list
-  } else {
-    ResultSpecies <- Specieslist
-  }
+
 
   if (nrow(ResultData)!=0){
     j=1
