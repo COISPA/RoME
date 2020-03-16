@@ -32,4 +32,39 @@ See 'C:/RoME/RoME/RoME.Rcheck/00install.out' for details.
 * checking whether the package can be loaded ... OK
 * checking whether the package can be loaded with stated dependencies ... OK
 * checking whether the package can be unloaded cleanly ... OK
-* checking whether the namespace can be loaded with stated dependencies ...
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... NOTE
+Rd file 'RoME.Rd':
+  \usage lines wider than 90 characters:
+     Year_start=NA,Year_end=NA,verbose =TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpeci ... [TRUNCATED]
+  \examples lines wider than 100 characters:
+         RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,Stratification=MEDITS::stratification_scheme, TM_list=RoME::TM_list,DataTarget ... [TRUNCATED]
+
+These lines will be truncated in the PDF manual.
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of 'data' directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking examples ... OK
+Examples with CPU or elapsed time > 5s
+                      user system elapsed
+check_length          4.99   0.00    5.12
+check_spawning_period 3.28   0.21    5.44
+check_raising         1.17   0.69    8.64
+** found \donttest examples: check also with --run-donttest
+* DONE
+Status: 1 WARNING, 1 NOTE

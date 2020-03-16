@@ -25,7 +25,8 @@ if (FALSE){
 
 
 check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffix){
-  oldpar <- par(no.readonly = TRUE)
+
+  oldpar <- par()
 
 
   if (!file.exists(file.path(wd,"Logfiles"))){
