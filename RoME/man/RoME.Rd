@@ -7,7 +7,7 @@ The function calls all the functions built in the package in an ordered way to p
 \usage{
 RoME(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,
 create_RSufi_files = FALSE, create_global_RSufi_files=FALSE,
-Year_start=NA,Year_end=NA,verbose =TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,assTL=assTL)
+Year_start=NA,Year_end=NA,verbose =TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,mat_stages=mat_stages,assTL=assTL)
 }
 \arguments{
   \item{TA}{Haul data table according to MEDITS protocol (TA)}
@@ -26,6 +26,7 @@ Year_start=NA,Year_end=NA,verbose =TRUE,Stratification=MEDITS::stratification_sc
   \item{TM_list}{TM_list reference list}
   \item{DataTargetSpecies}{Information related to target species.}
   \item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
+  \item{mat_stages} {Table of maturity stages.}
   \item{assTL}{data frame with the association between TL (litter table) categories and sub-categories}
 }
 \details{
@@ -46,7 +47,7 @@ The function does not correct the data, but it detects the errors, warning the u
     DataTC = RoME::TC
     DataTE = RoME::TE
     DataTL = RoME::TL
-    RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,Stratification=MEDITS::stratification_scheme, TM_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,Maturity_parameters=RoME::Maturity_parameters,assTL=RoME::assTL)
+    RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,Stratification=MEDITS::stratification_scheme, TM_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,Maturity_parameters=RoME::Maturity_parameters,mat_stages=RoME::mat_stages,assTL=RoME::assTL)
     }
 }
 

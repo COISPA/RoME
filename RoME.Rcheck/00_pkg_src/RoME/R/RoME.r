@@ -26,7 +26,7 @@ if (FALSE) {
 # TEST END --------------------------------------------------------
 
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,assTL=assTL){
+RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,mat_stages=mat_stages,assTL=assTL){
 
   stringsAsFactors=FALSE
   Format <- "from_2012"
@@ -615,7 +615,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_rubincode(ResultDataTC,TM_list=RoME::TM_list,wd,suffix)
+  check_without_errors = check_rubincode(ResultDataTC,TM_list=TM_list,wd,suffix)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -636,7 +636,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check consistency of maturity stages TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_mat_stages(ResultDataTC, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
+  check_without_errors = check_mat_stages(ResultDataTC, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=mat_stages)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -650,21 +650,21 @@ if (check_without_errors == TRUE) {
 checkName = "Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_smallest_mature(ResultDataTC,Maturity_parameters=RoME::Maturity_parameters,DataTargetSpecies=RoME::DataTargetSpecies,wd,suffix)
+  check_without_errors = check_smallest_mature(ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of sex TC by means of spawning period"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_spawning_period(ResultDataTA,ResultDataTC,Maturity_parameters=RoME::Maturity_parameters,DataTargetSpecies=RoME::DataTargetSpecies,wd,suffix)
+  check_without_errors = check_spawning_period(ResultDataTA,ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of sex data TC by means of sex-inversion size"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_sex_inversion(ResultDataTC,RoME::Maturity_parameters,wd,suffix)
+  check_without_errors = check_sex_inversion(ResultDataTC,Maturity_parameters,wd,suffix)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -685,7 +685,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_rubincode(ResultDataTC,TM_list=RoME::TM_list,wd,suffix)
+  check_without_errors = check_rubincode(ResultDataTC,TM_list=TM_list,wd,suffix)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -715,7 +715,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check presence in TC of TB target species"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_species_TBTC(ResultDataTB,ResultDataTC,DataSpecies=RoME::DataTargetSpecies,wd,suffix)
+  check_without_errors = check_species_TBTC(ResultDataTB,ResultDataTC,DataSpecies=DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -770,14 +770,14 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   checkName = "Check consistency of maturity stages TE"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_mat_stages(ResultDataTE, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
+    check_without_errors = check_mat_stages(ResultDataTE, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=mat_stages)
   }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
   checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_smallest_mature(ResultDataTE,Maturity_parameters=RoME::Maturity_parameters,DataTargetSpecies=RoME::DataTargetSpecies,wd,suffix)
+    check_without_errors = check_smallest_mature(ResultDataTE,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -788,7 +788,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   checkName = "Check consistency of maturity stages in TE by means of spawning period"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_spawning_period(ResultDataTA,ResultDataTE,Maturity_parameters=RoME::Maturity_parameters,DataTargetSpecies=RoME::DataTargetSpecies,wd,suffix)
+    check_without_errors = check_spawning_period(ResultDataTA,ResultDataTE,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -803,7 +803,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   checkName = "Check correctness of species codes TE"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_rubincode(ResultDataTE,TM_list=RoME::TM_list,wd,suffix)
+    check_without_errors = check_rubincode(ResultDataTE,TM_list=TM_list,wd,suffix)
   }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -852,7 +852,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check correctness of associations between category and sub-category on Litter data"
 if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-      check_without_errors = check_associations_category_TL(ResultDataTL,RoME::assTL, wd, suffix)
+      check_without_errors = check_associations_category_TL(ResultDataTL,assTL, wd, suffix)
     }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 

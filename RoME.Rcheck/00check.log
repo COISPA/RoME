@@ -16,6 +16,7 @@
 * checking for portable file names ... OK
 * checking whether package 'RoME' can be installed ... WARNING
 Found the following significant warnings:
+  Warning: bad markup (extra space?) at RoME.Rd:29:20
   Warning: package 'timeDate' was built under R version 3.6.2
   Warning: package 'MEDITS' was built under R version 3.6.3
 See 'C:/RoME/RoME/RoME.Rcheck/00install.out' for details.
@@ -40,7 +41,8 @@ See 'C:/RoME/RoME/RoME.Rcheck/00install.out' for details.
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... OK
-* checking Rd files ... OK
+* checking Rd files ... WARNING
+prepare_Rd: bad markup (extra space?) at RoME.Rd:29:20
 * checking Rd metadata ... OK
 * checking Rd line widths ... NOTE
 Rd file 'RoME.Rd':
@@ -54,7 +56,10 @@ These lines will be truncated in the PDF manual.
 * checking for missing documentation entries ... OK
 * checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... OK
-* checking Rd contents ... OK
+* checking Rd contents ... WARNING
+Argument items with no description in Rd object 'RoME':
+  'mat_stages'
+
 * checking for unstated dependencies in examples ... OK
 * checking contents of 'data' directory ... OK
 * checking data for non-ASCII characters ... OK
@@ -62,9 +67,8 @@ These lines will be truncated in the PDF manual.
 * checking examples ... OK
 Examples with CPU or elapsed time > 5s
                       user system elapsed
-check_length          4.99   0.00    5.12
-check_spawning_period 3.28   0.21    5.44
-check_raising         1.17   0.69    8.64
+check_spawning_period  3.4   0.16    5.56
+check_raising          1.3   0.30    8.35
 ** found \donttest examples: check also with --run-donttest
 * DONE
-Status: 1 WARNING, 1 NOTE
+Status: 3 WARNINGs, 1 NOTE

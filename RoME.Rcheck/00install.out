@@ -8,6 +8,7 @@ Warning messages:
 1: package 'timeDate' was built under R version 3.6.2 
 2: package 'MEDITS' was built under R version 3.6.3 
 ** help
+Warning: bad markup (extra space?) at RoME.Rd:29:20
 *** installing help indices
 *** copying figures
 ** building package indices

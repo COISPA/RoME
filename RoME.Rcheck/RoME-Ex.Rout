@@ -1753,7 +1753,7 @@ None of the coordinates is on the land
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  48.03 2.72 64.89 NA NA 
+Time elapsed:  47.58 2.19 62.33 NA NA 
 > grDevices::dev.off()
 null device 
           1 
