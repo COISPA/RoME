@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: R Code to Perform Multiple Checks on MEDITS Survey Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> R Code to Perform Multiple Checks on MEDITS Survey Data
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;RoME&rsquo; version 0.1.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="assTL.html">assTL</a></td>
+<td>TL association between categories and sub-categories</td></tr>
+<tr><td style="width: 25%;"><a href="checkHeader.html">checkHeader</a></td>
+<td>Function to check the correctness of the headers.</td></tr>
+<tr><td style="width: 25%;"><a href="check_0_fieldsTA.html">check_0_fieldsTA</a></td>
+<td>Checks the presence of 0 fields in TA</td></tr>
+<tr><td style="width: 25%;"><a href="check_area.html">check_area</a></td>
+<td>Check if TX files have the same area</td></tr>
+<tr><td style="width: 25%;"><a href="check_associations_category_TL.html">check_associations_category_TL</a></td>
+<td>Check corretness of TL categories</td></tr>
+<tr><td style="width: 25%;"><a href="check_bridles_length.html">check_bridles_length</a></td>
+<td>check of bridles length correctness</td></tr>
+<tr><td style="width: 25%;"><a href="check_consistencyTA_distance.html">check_consistencyTA_distance</a></td>
+<td>Consistency check of distance in TA</td></tr>
+<tr><td style="width: 25%;"><a href="check_consistencyTA_duration.html">check_consistencyTA_duration</a></td>
+<td>Consistency check of hauls duration in TA</td></tr>
+<tr><td style="width: 25%;"><a href="check_date_haul.html">check_date_haul</a></td>
+<td>Check of date consistency</td></tr>
+<tr><td style="width: 25%;"><a href="check_depth.html">check_depth</a></td>
+<td>Check between start depth and end depth</td></tr>
+<tr><td style="width: 25%;"><a href="check_dictionary.html">check_dictionary</a></td>
+<td>Check of the dictionary of specific fields</td></tr>
+<tr><td style="width: 25%;"><a href="check_distance.html">check_distance</a></td>
+<td>Check of distance consistency</td></tr>
+<tr><td style="width: 25%;"><a href="check_dm.html">check_dm</a></td>
+<td>Check of "WING_OPENING" and "VERTICAL_OPENING" fields</td></tr>
+<tr><td style="width: 25%;"><a href="check_G1_G2.html">check_G1_G2</a></td>
+<td>Check of length measurements for G1 and G2 species</td></tr>
+<tr><td style="width: 25%;"><a href="check_hauls_TATB.html">check_hauls_TATB</a></td>
+<td>Check of TA hauls in TB</td></tr>
+<tr><td style="width: 25%;"><a href="check_hauls_TATL.html">check_hauls_TATL</a></td>
+<td>Check presence of TA hauls in TL</td></tr>
+<tr><td style="width: 25%;"><a href="check_hauls_TBTA.html">check_hauls_TBTA</a></td>
+<td>Check of TB hauls in TA</td></tr>
+<tr><td style="width: 25%;"><a href="check_hauls_TLTA.html">check_hauls_TLTA</a></td>
+<td>Check presence of TL hauls in TA</td></tr>
+<tr><td style="width: 25%;"><a href="check_haul_species_TCTB.html">check_haul_species_TCTB</a></td>
+<td>Check species of TC in TB</td></tr>
+<tr><td style="width: 25%;"><a href="check_identical_records.html">check_identical_records</a></td>
+<td>Check of identical records in TX tables</td></tr>
+<tr><td style="width: 25%;"><a href="check_individual_weightTC.html">check_individual_weightTC</a></td>
+<td>Check of observed and estimated total weight in the haul</td></tr>
+<tr><td style="width: 25%;"><a href="check_individual_weightTE.html">check_individual_weightTE</a></td>
+<td>Consistency of individual weights (according to length-weight relationship)</td></tr>
+<tr><td style="width: 25%;"><a href="check_length.html">check_length</a></td>
+<td>Check of length classes in TC</td></tr>
+<tr><td style="width: 25%;"><a href="check_length_class_codeTC.html">check_length_class_codeTC</a></td>
+<td>Consistency check of LENGTH_CLASS</td></tr>
+<tr><td style="width: 25%;"><a href="check_mat_stages.html">check_mat_stages</a></td>
+<td>Consistency of maturity stages</td></tr>
+<tr><td style="width: 25%;"><a href="check_nbtotTB.html">check_nbtotTB</a></td>
+<td>Check total number of individuals in TB</td></tr>
+<tr><td style="width: 25%;"><a href="check_nb_per_sexTC.html">check_nb_per_sexTC</a></td>
+<td>Consistency check of number of individuals</td></tr>
+<tr><td style="width: 25%;"><a href="check_nb_TE.html">check_nb_TE</a></td>
+<td>Consistency of number of individuals sampled for weight and ageing in TE</td></tr>
+<tr><td style="width: 25%;"><a href="check_nm_TB.html">check_nm_TB</a></td>
+<td>Check of consistency in number per sex set "not mandatory" in TB</td></tr>
+<tr><td style="width: 25%;"><a href="check_no_empty_fields.html">check_no_empty_fields</a></td>
+<td>Check empty fields in TA,TB,TC</td></tr>
+<tr><td style="width: 25%;"><a href="check_position.html">check_position</a></td>
+<td>Plot of haul positions</td></tr>
+<tr><td style="width: 25%;"><a href="check_position_in_Med.html">check_position_in_Med</a></td>
+<td>Check of haul position in Mediterranean Sea</td></tr>
+<tr><td style="width: 25%;"><a href="check_quadrant.html">check_quadrant</a></td>
+<td>Check start and end quadrant for each haul</td></tr>
+<tr><td style="width: 25%;"><a href="check_quasiidentical_records.html">check_quasiidentical_records</a></td>
+<td>Function checking the presence of quasi-identical records.</td></tr>
+<tr><td style="width: 25%;"><a href="check_raising.html">check_raising</a></td>
+<td>Function checking if, in case of sub-sampling in TC, the Total number and the number per sex in TB is raised correctly</td></tr>
+<tr><td style="width: 25%;"><a href="check_rubincode.html">check_rubincode</a></td>
+<td>Function checking the correctness of species MEDITS code and faunistic category according to TM reference list</td></tr>
+<tr><td style="width: 25%;"><a href="check_sex_inversion.html">check_sex_inversion</a></td>
+<td>Function to verify the consistency of sex information about hermaphrodite species.</td></tr>
+<tr><td style="width: 25%;"><a href="check_smallest_mature.html">check_smallest_mature</a></td>
+<td>Function to verify the consistency of maturity information respect to the smallest mature individual observed in literature.</td></tr>
+<tr><td style="width: 25%;"><a href="check_spawning_period.html">check_spawning_period</a></td>
+<td>Function to check the consistency of the maturity stages according to the spawning period.</td></tr>
+<tr><td style="width: 25%;"><a href="check_species_TBTC.html">check_species_TBTC</a></td>
+<td>Function checking if all the target species in the catch data table (TB) are in Biological data table (TC)</td></tr>
+<tr><td style="width: 25%;"><a href="check_step_length_distr.html">check_step_length_distr</a></td>
+<td>Function the verifies that in TC the length measures are repoerted with the correct precision.</td></tr>
+<tr><td style="width: 25%;"><a href="check_stratum.html">check_stratum</a></td>
+<td>Function that checks the consistency between start and end depth according to the stratum.</td></tr>
+<tr><td style="width: 25%;"><a href="check_stratum_code.html">check_stratum_code</a></td>
+<td>Function to check the correct codification of the strata in haul data table (TA).</td></tr>
+<tr><td style="width: 25%;"><a href="check_subsampling.html">check_subsampling</a></td>
+<td>Function to warng the user about the presence of subsamples &lt;0.1 of the total catch.</td></tr>
+<tr><td style="width: 25%;"><a href="check_temperature.html">check_temperature</a></td>
+<td>Function to check the consistency of the temperature data stored in haul data table (TA).</td></tr>
+<tr><td style="width: 25%;"><a href="check_TE_TC.html">check_TE_TC</a></td>
+<td>Function to verify the consistency between individual data table (TE) and biological data table (TC) respect to numbe rof individuals.</td></tr>
+<tr><td style="width: 25%;"><a href="check_unique_valid_haul.html">check_unique_valid_haul</a></td>
+<td>Function checking that smong hauls with the same code, only one must be valid.</td></tr>
+<tr><td style="width: 25%;"><a href="check_weight.html">check_weight</a></td>
+<td>Function that checks if number of individuals and total weight collected in the haul are consistent.</td></tr>
+<tr><td style="width: 25%;"><a href="check_weight_tot_nb.html">check_weight_tot_nb</a></td>
+<td>Function to check if, when the weight is not null, also the number is not null.</td></tr>
+<tr><td style="width: 25%;"><a href="create_catch.html">create_catch</a></td>
+<td>Function to create the R-sufi file capt.</td></tr>
+<tr><td style="width: 25%;"><a href="create_haul.html">create_haul</a></td>
+<td>Function to create R-sufi file containing haul data.</td></tr>
+<tr><td style="width: 25%;"><a href="create_length.html">create_length</a></td>
+<td>Function to create the R-sufi file taille.</td></tr>
+<tr><td style="width: 25%;"><a href="create_strata.html">create_strata</a></td>
+<td>Function to create R-sufi file containing strata surface data.</td></tr>
+<tr><td style="width: 25%;"><a href="DataTargetSpecies.html">DataTargetSpecies</a></td>
+<td>Length and weight ranges</td></tr>
+<tr><td style="width: 25%;"><a href="graphs_TA.html">graphs_TA</a></td>
+<td>Function for qualitative checks of shooting depth, warp length and wing opening in Haul data table (TA).</td></tr>
+<tr><td style="width: 25%;"><a href="GSAs.html">GSAs</a></td>
+<td>List of GFCM Geographical subareas (GSAs)</td></tr>
+<tr><td style="width: 25%;"><a href="haul_at_sea.html">haul_at_sea</a></td>
+<td>Check of haul position on sea area</td></tr>
+<tr><td style="width: 25%;"><a href="list_g1_g2.html">list_g1_g2</a></td>
+<td>List of G1 and G2 species</td></tr>
+<tr><td style="width: 25%;"><a href="LW.html">LW</a></td>
+<td>Table of the Length-Weight parameters</td></tr>
+<tr><td style="width: 25%;"><a href="Maturity_parameters.html">Maturity_parameters</a></td>
+<td>Maturity parameters</td></tr>
+<tr><td style="width: 25%;"><a href="mat_stages.html">mat_stages</a></td>
+<td>Table of maturity stages</td></tr>
+<tr><td style="width: 25%;"><a href="MedSea.html">MedSea</a></td>
+<td>Shapefile of Mediterranean and Black Sea area</td></tr>
+<tr><td style="width: 25%;"><a href="printError.html">printError</a></td>
+<td>Management of the error in logfile.</td></tr>
+<tr><td style="width: 25%;"><a href="RoME.html">RoME</a></td>
+<td>R code to perform multiple checks on MEDITS Survey data (TA, TB, TC, TE and TL files)</td></tr>
+<tr><td style="width: 25%;"><a href="Rsufi_files.html">RSufi_files</a></td>
+<td>Function to concatenate the R-sufi files of the different years.</td></tr>
+<tr><td style="width: 25%;"><a href="scheme_individual_data.html">scheme_individual_data</a></td>
+<td>Summary of the individual data collected by species</td></tr>
+<tr><td style="width: 25%;"><a href="TA.html">TA</a></td>
+<td>TA</td></tr>
+<tr><td style="width: 25%;"><a href="TB.html">TB</a></td>
+<td>TB</td></tr>
+<tr><td style="width: 25%;"><a href="TC.html">TC</a></td>
+<td>TC</td></tr>
+<tr><td style="width: 25%;"><a href="TE.html">TE</a></td>
+<td>TE</td></tr>
+<tr><td style="width: 25%;"><a href="templateTA.html">templateTA</a></td>
+<td>Template haul data table (TA).</td></tr>
+<tr><td style="width: 25%;"><a href="templateTB.html">templateTB</a></td>
+<td>Template catch data table (TB).</td></tr>
+<tr><td style="width: 25%;"><a href="templateTC.html">templateTC</a></td>
+<td>Template biological data table (TC).</td></tr>
+<tr><td style="width: 25%;"><a href="templateTE.html">templateTE</a></td>
+<td>Template individual data table (TE).</td></tr>
+<tr><td style="width: 25%;"><a href="templateTL.html">templateTL</a></td>
+<td>TL table template</td></tr>
+<tr><td style="width: 25%;"><a href="TL.html">TL</a></td>
+<td>TL</td></tr>
+<tr><td style="width: 25%;"><a href="TM_list.html">TM_list</a></td>
+<td>TM list</td></tr>
+</table>
+</body></html>
