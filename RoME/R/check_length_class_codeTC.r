@@ -7,7 +7,7 @@
 ############################################################################################################################
 #  Check if LENGTH_CLASSES_CODE is correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_length_class_codeTC<-function(DataTC,Specieslist=NA, wd,suffix){
+check_length_class_codeTC<-function(DataTC,Specieslist=TM_list, wd,suffix){
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir()
@@ -31,7 +31,7 @@ check_length_class_codeTC<-function(DataTC,Specieslist=NA, wd,suffix){
   ResultData = DataTC
   write(paste("\n----------- check correctness of LENGTH_CLASSES_CODE in TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
-
+    ResultSpecies <- Specieslist
 
   if (nrow(ResultData)!=0){
     j=1
