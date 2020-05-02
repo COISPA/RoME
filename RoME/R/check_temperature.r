@@ -23,7 +23,7 @@ if (FALSE){
 }
 
 check_temperature <- function (ResultDataTA,wd,suffix){
-  oldpar <- par(no.readonly = TRUE)
+  oldpar <- par()
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
