@@ -7,7 +7,7 @@ suffix=NA  # non modificare
 ta <- read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
 tb <- read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T)
 tc <- read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T)
-te <- read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
+te <- NA #read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
 tl <- read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # puoi mettere NA
 
 Stratification= MEDITS::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
@@ -24,6 +24,7 @@ Year_start=2018 # deve essere impostato se vuoi effettuare l'analisi R-sufi
 Year_end=2019 # deve essere impostato se vuoi effettuare l'analisi R-sufi
 
 ################ NON MODIFICARE #############
+
 RoME(TA=ta,
      TB=tb,
      TC=tc,
