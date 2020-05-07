@@ -832,11 +832,11 @@ if (!(all(is.na(TL)) & length(TL)==1)) {
 
 
 checkName = "Check allowed values for category on Litter data"
-Field = "LITTER_CATEGORY"
+Field = "LITTER_CATEGORY" 
 Values = c("L0","L1","L2","L3","L4","L5","L6","L7")
 if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-      check_without_errors = check_dictionary(ResultDataTL,Field, Values, wd, suffix)
+      check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, wd, suffix)
     }
       if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -845,7 +845,7 @@ Field = "LITTER_SUB-CATEGORY"
 Values = c("0","a","b","c","d","e","f","g","h","i","j")
 if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-      check_without_errors = check_dictionary(ResultDataTL,Field, Values, wd, suffix)
+      check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, wd, suffix)
     }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 

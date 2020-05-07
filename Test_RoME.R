@@ -1,23 +1,27 @@
+
+
 library(RoME)
 
-wd <- tempdir()
+wd <- "C:\\Users\\Utente\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\CORONAVIRUS\\Test RoME"
 suffix=NA  # non modificare
-ta <- read.table(file="C:\\Users\\walte\\Documents\\GitHub\\RoME\\data\\GSA18-test\\TA_GSA18_1994-2018.csv", sep=";", header=T)
-tb <- read.table(file="C:\\Users\\walte\\Documents\\GitHub\\RoME\\data\\GSA18-test\\TB_GSA18_1994-2018.csv", sep=";", header=T)
-tc <- read.table(file="C:\\Users\\walte\\Documents\\GitHub\\RoME\\data\\GSA18-test\\TC_GSA18_1994-2018.csv", sep=";", header=T)
-te <- NA # puoi mettere NA
-tl <- NA # puoi mettere NA
+ta <- read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
+tb <- read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T)
+tc <- read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T)
+te <- read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
+tl <- read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # puoi mettere NA
 
-ta <- ta[ta$YEAR==1996,]
-tb <- tb[tb$YEAR==1996,]
-tc <- tc[tc$YEAR==1996,]
-
+Stratification= MEDITS::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
+TM_list= read.csv(file=paste(wd,"\\Tables\\TM_list.csv",sep=""), sep=";", header=T)  # oppure RoME::TM_list
+DataTargetSpecies=RoME::DataTargetSpecies # oppure = read.table(file=paste(wd,"\\Tables\\DataTargetSpecies.csv",sep=""), sep=";", header=T)
+Maturity_parameters=RoME::Maturity_parameters # oppure = read.table(file=paste(wd,"\\Tables\\Maturity_parameters.csv",sep=""), sep=";", header=T)
+stages=RoME::mat_stages
+assTL=RoME::assTL
 
 verbose = TRUE
 create_RSufi_files=FALSE # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
 create_global_RSufi_files=FALSE # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
-Year_start=NA   # deve essere impostato se vuoi effettuare l'analisi R-sufi
-Year_end=NA     # deve essere impostato se vuoi effettuare l'analisi R-sufi
+Year_start=2018 # deve essere impostato se vuoi effettuare l'analisi R-sufi
+Year_end=2019 # deve essere impostato se vuoi effettuare l'analisi R-sufi
 
 ################ NON MODIFICARE #############
 RoME(TA=ta,
@@ -31,4 +35,10 @@ RoME(TA=ta,
      create_global_RSufi_files=create_global_RSufi_files,
      Year_start=Year_start,
      Year_end=Year_end,
-     verbose=verbose)
+     verbose=verbose,
+     Stratification=Stratification,
+     TM_list=TM_list,
+     DataTargetSpecies=DataTargetSpecies,
+     Maturity_parameters=Maturity_parameters,
+     stages=stages,
+     assTL=assTL)
