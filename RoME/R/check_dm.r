@@ -12,7 +12,7 @@ check_dm<-  function(DataTA,wd,suffix){
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-
+    DataTA$WING_OPENING[1] <- 80.2
     # check_dm(DataTA,wd,suffix)
   }
 
@@ -31,6 +31,9 @@ check_dm<-  function(DataTA,wd,suffix){
 
   wing=which(Matrix$WING_OPENING < 50 | Matrix$WING_OPENING > 250)
   vertical=which(Matrix$VERTICAL_OPENING < 10 | Matrix$VERTICAL_OPENING > 100)
+  wing.decimal=which(!(Matrix$WING_OPENING%%1==0))
+  vertical.decimal=which(!(Matrix$VERTICAL_OPENING%%1==0))
+
   if (length(wing)!=0){
     for (i in 1:length(wing)){
       write(paste("Haul ",Matrix$HAUL_NUMBER[wing[i]],"WING_OPENING out of boundaries (50,250) in", Matrix$TYPE_OF_FILE[1],". Please check if the measure unit is dm"), file = Errors, append = TRUE)
@@ -42,6 +45,20 @@ check_dm<-  function(DataTA,wd,suffix){
       write(paste("Haul ",Matrix$HAUL_NUMBER[vertical[j]],"VERTICAL_OPENING out of boundaries (10,100)in", Matrix$TYPE_OF_FILE[1],". Please check if the measure unit is dm"), file = Errors, append = TRUE)
     }
   }
+
+  if (length(wing.decimal)!=0){
+    for (i in 1:length(wing.decimal)){
+      write(paste("Haul ",Matrix$HAUL_NUMBER[wing.decimal[i]],"WING_OPENING is not an INTEGER number in", Matrix$TYPE_OF_FILE[1],". Please check the format of the value"), file = Errors, append = TRUE)
+    }
+  }
+
+  if (length(vertical.decimal)!=0){
+    for (i in 1:length(vertical.decimal)){
+      write(paste("Haul ",Matrix$HAUL_NUMBER[vertical.decimal[i]],"VERTICAL_OPENING is not an INTEGER number in", Matrix$TYPE_OF_FILE[1],". Please check the format of the value"), file = Errors, append = TRUE)
+    }
+  }
+
+
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)

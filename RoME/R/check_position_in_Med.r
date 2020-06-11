@@ -19,7 +19,7 @@ check_position_in_Med<-function(DataTA,wd,suffix){
     DataTA[1,"SHOOTING_LATITUDE"] <- 4700
     DataTA[1,"HAULING_LONGITUDE"] <- 2300
     DataTA[1,"HAULING_LATITUDE"] <- 4700
-
+    DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
     # check_position_in_Med(DataTA, wd, suffix)
   }
 

@@ -12,6 +12,8 @@ if (FALSE){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
     DataTA = DataTA[DataTA$YEAR == 2007 , ]
+
+    DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
     # check_position(DataTA, wd, suffix)
 }
 
