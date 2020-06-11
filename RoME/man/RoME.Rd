@@ -22,11 +22,11 @@ Year_start=NA,Year_end=NA,verbose =TRUE,Stratification=MEDITS::stratification_sc
   \item{Year_start}{numeric value indicating the starting year for the production of R-sufi file. This parameter must to be reported in case }
   \item{Year_end}{numeric value indicating the ending year for the production of R-sufi files}
   \item{verbose}{...}
-  \item{Stratification}{Stratification scheme according to MEDITS protocol.}0
+  \item{Stratification}{Stratification scheme according to MEDITS protocol.}
   \item{TM_list}{TM_list reference list}
   \item{DataTargetSpecies}{Information related to target species.}
   \item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
-  \item{mat_stages} {Table of maturity stages.}
+  \item{mat_stages}{Table of maturity stages.}
   \item{assTL}{data frame with the association between TL (litter table) categories and sub-categories}
 }
 \details{
