@@ -1,5 +1,5 @@
 
- Fri Jun 12 16:08:39 2020
+ Fri Jun 12 19:11:44 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
@@ -32,11 +32,11 @@ No error occurred
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TA
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TA
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TA
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TA
 
 ----------- check dictionary for field: VALIDITY - 2019
 No error occurred for field VALIDITY in TA
@@ -65,8 +65,20 @@ No error occurred for field DOORS in TA
 ----------- check dictionary for field: SHOOTING_QUADRANT - 2019
 No error occurred for field SHOOTING_QUADRANT in TA
 
+----------- check dictionary for field: SHOOTING_TIME - 2019
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2019
+No error occurred for field SHOOTING_DEPTH in TA
+
 ----------- check dictionary for field: HAULING_QUADRANT - 2019
 No error occurred for field HAULING_QUADRANT in TA
+
+----------- check dictionary for field: HAULING_TIME - 2019
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2019
+No error occurred for field HAULING_DEPTH in TA
 
 ----------- check dictionary for field: MEASURING_SYSTEM - 2019
 No error occurred for field MEASURING_SYSTEM in TA
@@ -74,11 +86,11 @@ No error occurred for field MEASURING_SYSTEM in TA
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TB
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TB
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TB
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TB
 
 ----------- check dictionary for field: CODEND_CLOSING - 2019
 No error occurred for field CODEND_CLOSING in TB
@@ -89,11 +101,11 @@ No error occurred for field PART_OF_THE_CODEND in TB
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TC
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TC
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TC
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TC
 
 ----------- check dictionary for field: CODEND_CLOSING - 2019
 No error occurred for field CODEND_CLOSING in TC
@@ -110,11 +122,11 @@ No error occurred for field LENGTH_CLASSES_CODE in TC
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TL
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TL
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TL
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TL
 
 ----------- check no empty fields
 TA -  2019
@@ -244,50 +256,6 @@ No error occurred
 No error occurred
 
 ----------- check consistency of weight and number TB -  2019
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
 Warning: See graphs generated and saved in working directory about the species without mean weight range
 No error occurred
 
@@ -433,12 +401,230 @@ No error occurred
 No error occurred
 
 ----------- check dictionary for field: LITTER_CATEGORY - 2019
-Haul 33     : value not allowed for LITTER_CATEGORY in TL
-Haul 26     : value not allowed for LITTER_CATEGORY in TL
-Haul 157     : value not allowed for LITTER_CATEGORY in TL
-Haul 151     : value not allowed for LITTER_CATEGORY in TL
-Haul 160     : value not allowed for LITTER_CATEGORY in TL
-Haul 80     : value not allowed for LITTER_CATEGORY in TL
-Haul 142     : value not allowed for LITTER_CATEGORY in TL
-Haul 162     : value not allowed for LITTER_CATEGORY in TL
-Haul 176     : value not allowed for LITTER_CATEGORY in TL
+No error occurred for field LITTER_CATEGORY in TL
+
+----------- check dictionary for field: LITTER_SUB-CATEGORY - 2019
+Haul 32     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 22     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 26     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 14     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 168     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 33     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 38     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 39     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 27     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 1     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 6     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 23     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 31     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 169     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 17     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 16     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 41     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 8     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 4     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 17     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 33     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 22     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 169     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 32     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 168     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 2     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 13     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 1     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 27     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 163     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 6     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 170     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 23     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 8     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 41     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 38     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 163     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 27     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 10     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 26     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 6     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 163     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 168     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 166     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 165     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 32     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 27     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 26     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 38     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 14     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 26     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 33     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 16     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 32     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 8     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 169     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 16     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 2     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 32     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 165     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 10     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 39     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 33     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 27     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 165     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 33     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 31     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 17     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 10     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 22     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 121     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 148     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 112     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 110     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 137     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 138     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 145     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 125     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 144     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 143     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 139     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 129     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 100     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 107     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 80     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 150     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 134     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 132     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 101     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 152     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 131     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 154     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 97     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 147     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 158     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 88     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 126     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 93     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 161     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 95     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 98     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 85     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 105     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 77     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 162     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 116     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 109     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 142     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 117     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 78     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 123     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 86     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 160     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 84     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 83     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 93     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 95     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 157     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 142     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 135     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 78     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 161     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 157     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 83     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 123     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 88     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 137     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 98     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 142     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 101     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 105     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 117     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 104     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 160     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 162     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 105     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 112     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 158     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 101     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 123     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 121     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 117     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 137     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 105     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 150     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 154     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 162     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 151     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 152     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 86     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 101     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 104     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 161     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 143     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 100     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 146     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 148     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 105     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 151     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 161     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 86     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 97     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 134     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 116     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 157     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 157     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 142     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 145     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 139     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 146     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 80     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 97     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 158     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 88     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 86     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 116     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 161     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 121     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 117     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 129     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 93     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 100     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 133     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 95     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 116     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 148     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 101     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 77     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 85     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 147     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 110     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 129     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 78     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 132     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 135     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 175     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 173     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 171     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 172     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 180     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 172     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 175     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 171     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 179     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 177     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 176     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 180     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 173     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 174     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 177     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 178     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 171     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 178     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 179     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 177     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 178     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 174     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 179     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 172     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 171     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 175     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 176     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 177     : value not allowed for LITTER_SUB-CATEGORY in TL
+Haul 172     : value not allowed for LITTER_SUB-CATEGORY in TL

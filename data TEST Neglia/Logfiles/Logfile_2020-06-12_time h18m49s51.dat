@@ -1,5 +1,5 @@
 
- Fri Jun 12 16:05:00 2020
+ Fri Jun 12 18:49:51 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
@@ -32,11 +32,11 @@ No error occurred
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TA
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TA
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TA
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TA
 
 ----------- check dictionary for field: VALIDITY - 2019
 No error occurred for field VALIDITY in TA
@@ -65,8 +65,20 @@ No error occurred for field DOORS in TA
 ----------- check dictionary for field: SHOOTING_QUADRANT - 2019
 No error occurred for field SHOOTING_QUADRANT in TA
 
+----------- check dictionary for field: SHOOTING_TIME - 2019
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2019
+No error occurred for field SHOOTING_DEPTH in TA
+
 ----------- check dictionary for field: HAULING_QUADRANT - 2019
 No error occurred for field HAULING_QUADRANT in TA
+
+----------- check dictionary for field: HAULING_TIME - 2019
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2019
+No error occurred for field HAULING_DEPTH in TA
 
 ----------- check dictionary for field: MEASURING_SYSTEM - 2019
 No error occurred for field MEASURING_SYSTEM in TA
@@ -74,11 +86,11 @@ No error occurred for field MEASURING_SYSTEM in TA
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TB
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TB
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TB
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TB
 
 ----------- check dictionary for field: CODEND_CLOSING - 2019
 No error occurred for field CODEND_CLOSING in TB
@@ -89,11 +101,11 @@ No error occurred for field PART_OF_THE_CODEND in TB
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TC
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TC
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TC
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TC
 
 ----------- check dictionary for field: CODEND_CLOSING - 2019
 No error occurred for field CODEND_CLOSING in TC
@@ -110,11 +122,11 @@ No error occurred for field LENGTH_CLASSES_CODE in TC
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TL
 
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TL
+
 ----------- check dictionary for field: MONTH - 2019
 No error occurred for field MONTH in TL
-
------------ check dictionary for field: YEAR - 2019
-No error occurred for field YEAR in TL
 
 ----------- check no empty fields
 TA -  2019
@@ -130,6 +142,7 @@ No error occurred
 No error occurred
 
 ----------- check dm TA -  2019
+Haul  32 VERTICAL_OPENING out of boundaries (10,100)in TA . Please check if the measure unit is dm
 No error occurred
 
 ----------- check consistency between duration and time TA -  2019
@@ -244,50 +257,6 @@ No error occurred
 No error occurred
 
 ----------- check consistency of weight and number TB -  2019
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
-Warning: Haul 148 SERAHEP : mean weight= 60 out of boundaries (0.5,45) in TB
 Warning: See graphs generated and saved in working directory about the species without mean weight range
 No error occurred
 
@@ -312,3 +281,133 @@ Haul 123 SQUIMAN M 34 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent accor
 Haul 112 SQUIMAN M 25 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
 Haul 100 SQUIMAN M 14 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
 Haul 100 SQUIMAN M 24 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 105 SQUIMAN M 17 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 105 SQUIMAN M 25 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 105 SQUIMAN M 31 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 80 SQUIMAN M 17 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 80 SQUIMAN M 27 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 80 SQUIMAN M 29 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 135 SQUIMAN M 31 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 101 SQUIMAN M 21 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 101 SQUIMAN M 24 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 101 SQUIMAN M 25 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 101 SQUIMAN M 26 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 154 SQUIMAN M 27 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 154 SQUIMAN M 31 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 154 SQUIMAN M 32 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 165 SCYOCAN F 390 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 170 GALUMEL F 440 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 33 SCYMLIC F 1020 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 33 SCYMLIC F 1045 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 32 SCYMLIC F 1005 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 163 MUSTMUS M 910 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 163 MUSTMUS F 985 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 8 SQUIMAN M 23 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 MUSTMUS F 1035 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 13 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 15 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 16 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 17 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 23 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 24 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 27 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 28 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+Haul 171 SQUIMAN M 30 0  FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in TC
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2019
+No error occurred
+
+----------- check consistency of maturity stages TC  by means of the comparison with the lenght of smallest mature individuals in bibliography -  2019
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- check consistency of maturity stages TC by means of spawning season information -  2019
+Warning: Haul  175 MULL BAR M length 125 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  175 MULL BAR M length 130 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  175 MULL BAR M length 135 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  175 MULL BAR M length 145 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  163 LOLI VUL M length 120 : specimen mature (STAGE  3A )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  151 NEPR NOR M length 36 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 34 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 41 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 42 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 47 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  77 NEPR NOR M length 35 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 35 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 51 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 52 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 53 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 55 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 56 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 34 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 37 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 39 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 40 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  174 NEPR NOR M length 40 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  27 NEPR NOR M length 47 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 30 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 32 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 33 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 37 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 39 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 46 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 48 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  33 NEPR NOR M length 55 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  31 NEPR NOR M length 34 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  31 NEPR NOR M length 36 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  31 NEPR NOR M length 47 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  144 TODA SAG M length 315 : specimen mature (STAGE  3A )outside the spawning period. Please check correctness of maturity stage.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- check consistency of sex data TC by means of sex-inversion size
+In Maturity_parameters.csv table, in Tables folder, information about the sex-inversion size of the following hermaphrodite species is present: 
+PAGE ACA
+PAGE BOG
+PAGE ERY
+SPIC FLE
+SPIC SMA
+Attention: if you decide to change the sex data detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- check consistency of length distribution TC -  2019
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2019
+For some hauls the difference between estimated and observed total weight is greater than 50%. Please verify in the file Comparison_estimated_observed_weight_in_TC.csv automatically produced in the working directory
+
+----------- check correctness of species codes in -  TC - 2019
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2019
+No error occurred
+
+----------- check presence in TB of TA hauls -  2019
+No error occurred
+
+----------- check presence in TA of TB hauls -  2019
+No error occurred
+
+----------- check presence in TC of TB target species -  2019
+No error occurred
+
+----------- check presence in TB of TC species -  2019
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2019
+No error occurred
+
+----------- check correctness of date by haul in TB -  2019
+No error occurred
+
+----------- check correctness of date by haul in TC -  2019
+No error occurred
+
+----------- check dictionary for field: LITTER_CATEGORY - 2019
+Haul 33     : value not allowed for LITTER_CATEGORY in TL
+Haul 26     : value not allowed for LITTER_CATEGORY in TL
+Haul 157     : value not allowed for LITTER_CATEGORY in TL
+Haul 151     : value not allowed for LITTER_CATEGORY in TL
+Haul 160     : value not allowed for LITTER_CATEGORY in TL
+Haul 80     : value not allowed for LITTER_CATEGORY in TL
+Haul 142     : value not allowed for LITTER_CATEGORY in TL
+Haul 162     : value not allowed for LITTER_CATEGORY in TL
+Haul 176     : value not allowed for LITTER_CATEGORY in TL

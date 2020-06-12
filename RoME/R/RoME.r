@@ -9,21 +9,21 @@
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
   library(RoME)
-  wd <- tempdir()
+  wd <-  "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
   suffix=NA
-  TA <- RoME::TA
-  TB <- RoME::TB
-  TC <- RoME::TC
-  TE <- RoME::TE
-  TL <- RoME::TL
+  TA <-  read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # RoME::TA
+  TB <-  read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T) # RoME::TB
+  TC <-  read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # RoME::TC
+  TE <-  NA # RoME::TE
+  TL <-  read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # RoME::TL
   verbose = TRUE
   create_RSufi_files=TRUE
   create_global_RSufi_files=TRUE
   Year_start=2007
   Year_end=2016
 
-  TA$TYPE_OF_FILE <- as.character(TA$TYPE_OF_FILE)
-  TA$TYPE_OF_FILE[1] <-"TZ"
+  # TA$TYPE_OF_FILE <- as.character(TA$TYPE_OF_FILE)
+TA$VERTICAL_OPENING[1] <-219
 
   # RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
 }
@@ -69,13 +69,22 @@ check_without_errors = TRUE
     stop("TYPE_OF_FILE not expected in TA table")
   }
 
+  if (all(TA$YEAR %in% seq(1900,2100,1))) {
+      years = unique (TA$YEAR)
+    } else {
+        stop("YEAR value not expected in TA")
+    }
+
+
   if(any(unique(as.character(TB$TYPE_OF_FILE)) != "TB")) {
     stop("TYPE_OF_FILE not expected in TB table")
   }
+  if (!(all(TB$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TB")}
 
   if(any(unique(as.character(TC$TYPE_OF_FILE)) != "TC")) {
     stop("TYPE_OF_FILE not expected in TC table")
   }
+  if (!(all(TC$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TC")}
 
   checkHeader(TA,"TA")
   checkHeader(TB,"TB")
@@ -92,6 +101,8 @@ check_without_errors = TRUE
     if(any(unique(as.character(TE$TYPE_OF_FILE)) != "TE")) {
       stop("TYPE_OF_FILE not expected in TE table")
     }
+
+  if (!(all(TE$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TE")}
   checkHeader(TE,"TE")
   ResultDataTE_bkp <- TE
   }
@@ -101,13 +112,14 @@ check_without_errors = TRUE
     if(any(unique(as.character(TL$TYPE_OF_FILE)) != "TL")) {
       stop("TYPE_OF_FILE not expected in TL table")
     }
+    if (!(all(TL$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TL")}
     checkHeader(TL,"TL")
     ResultDataTL_bkp <- TL
   }
 
-years = unique (TA$YEAR)
 
-yea <- 2007
+
+yea <- 2019
 for (yea in years) {
 
 if (check_without_errors == TRUE & verbose==TRUE) {
@@ -279,14 +291,6 @@ if (check_without_errors == TRUE) {
 }
 if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
-Field = "YEAR"
-Values = seq(1900,2100,1)
-if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
-  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
-}
-if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
-
 Field = "VALIDITY"
 Values = c("V","I")
 if (check_without_errors == TRUE) {
@@ -361,6 +365,22 @@ if (check_without_errors == TRUE) {
 }
 if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
+Field = "SHOOTING_TIME"
+Values = seq(0,2400,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+Field = "SHOOTING_DEPTH"
+Values = c(0,10:800)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
 Field = "HAULING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
@@ -369,7 +389,21 @@ if (check_without_errors == TRUE) {
 }
 if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
+Field = "HAULING_TIME"
+Values = seq(0,2400,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
+Field = "HAULING_DEPTH"
+Values = c(0,10:800)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
   Field = "MEASURING_SYSTEM"
   Values = c("VA","SO","XA","SA","SI","CT","SB")
@@ -410,13 +444,13 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
   if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
-  Field = "YEAR"
-  Values = seq(1900,2100,1)
-  if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
-    check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
-  }
-  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+  # Field = "YEAR"
+  # Values = seq(1900,2100,1)
+  # if (check_without_errors == TRUE) {
+  #   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  #   check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
+  # }
+  # if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 Field = "CODEND_CLOSING"
@@ -466,13 +500,13 @@ if (check_without_errors == TRUE) {
 if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
-Field = "YEAR"
-Values = seq(1900,2100,1)
-if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
-  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
-}
-if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+# Field = "YEAR"
+# Values = seq(1900,2100,1)
+# if (check_without_errors == TRUE) {
+#   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+#   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
+# }
+# if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
 Field = "CODEND_CLOSING"
@@ -542,13 +576,13 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
     if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
-    Field = "YEAR"
-    Values = seq(1900,2100,1)
-    if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
-      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
-    }
-    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+    # Field = "YEAR"
+    # Values = seq(1900,2100,1)
+    # if (check_without_errors == TRUE) {
+    #   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    #   check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
+    # }
+    # if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
     Field = "LENGTH_CLASSES_CODE"
@@ -602,13 +636,13 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
       if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
-      Field = "YEAR"
-      Values = seq(1900,2100,1)
-      if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
-        check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, wd, suffix)
-      }
-      if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+      # Field = "YEAR"
+      # Values = seq(1900,2100,1)
+      # if (check_without_errors == TRUE) {
+      #   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      #   check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, wd, suffix)
+      # }
+      # if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
     }
     }
 
@@ -1040,7 +1074,7 @@ if (!(all(is.na(TL)) & length(TL)==1)) {
 
 checkName = "Check allowed values for category on Litter data"
 Field = "LITTER_CATEGORY"
-Values = c("L0","L1","L2","L3","L4","L5","L6","L7")
+Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8")
 if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
       check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, wd, suffix)
@@ -1049,7 +1083,7 @@ if (check_without_errors == TRUE) {
 
 checkName = "Check allowed values for sub-category on Litter data"
 Field = "LITTER_SUB-CATEGORY"
-Values = c("0","a","b","c","d","e","f","g","h","i","j")
+Values = c("0","A","B","C","D","E","F","G","H","I","J")
 colnames(ResultDataTL)[10]="LITTER_SUB-CATEGORY"
 
 if (check_without_errors == TRUE) {

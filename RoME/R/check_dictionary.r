@@ -13,7 +13,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
     suffix=NA  # non modificare
 
-    Field = "YEAR"
+    Field = "VERTICAL_OPENING"
     Values = seq(1900,2100,1) # as.character(unique(Stratification$COUNTRY))
 
     # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
@@ -21,7 +21,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     # ResultData = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     ResultData = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
 
-    ResultData$YEAR[1] <- 210
+    ResultData$VERTICAL_OPENING[1] <- 210
 
 
     # check_dictionary(ResultData,Field,Values, wd, suffix)
