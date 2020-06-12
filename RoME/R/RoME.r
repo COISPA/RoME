@@ -21,6 +21,10 @@ if (FALSE) {
   create_global_RSufi_files=TRUE
   Year_start=2007
   Year_end=2016
+
+  TA$TYPE_OF_FILE <- as.character(TA$TYPE_OF_FILE)
+  TA$TYPE_OF_FILE[1] <-"TZ"
+
   # RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
 }
 # TEST END --------------------------------------------------------
@@ -61,6 +65,18 @@ check_without_errors = TRUE
 
 # check degli header ------------------------------------------------------
 
+  if(any(unique(as.character(TA$TYPE_OF_FILE)) != "TA")) {
+    stop("TYPE_OF_FILE not expected in TA table")
+  }
+
+  if(any(unique(as.character(TB$TYPE_OF_FILE)) != "TB")) {
+    stop("TYPE_OF_FILE not expected in TB table")
+  }
+
+  if(any(unique(as.character(TC$TYPE_OF_FILE)) != "TC")) {
+    stop("TYPE_OF_FILE not expected in TC table")
+  }
+
   checkHeader(TA,"TA")
   checkHeader(TB,"TB")
   checkHeader(TC,"TC")
@@ -73,12 +89,18 @@ check_without_errors = TRUE
 
   if (!(all(is.na(TE)) & length(TE)==1))
   {
+    if(any(unique(as.character(TE$TYPE_OF_FILE)) != "TE")) {
+      stop("TYPE_OF_FILE not expected in TE table")
+    }
   checkHeader(TE,"TE")
   ResultDataTE_bkp <- TE
   }
 
   if (!(all(is.na(TL)) & length(TL)==1))
   {
+    if(any(unique(as.character(TL$TYPE_OF_FILE)) != "TL")) {
+      stop("TYPE_OF_FILE not expected in TL table")
+    }
     checkHeader(TL,"TL")
     ResultDataTL_bkp <- TL
   }
@@ -231,6 +253,40 @@ if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 #TA
 
 checkName = "Check dictionary for field:"
+Field = "COUNTRY"
+Values = as.character(unique(Stratification$COUNTRY))
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+Field = "DAY"
+Values = seq(1,31,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+Field = "MONTH"
+Values = seq(1,12,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+Field = "YEAR"
+Values = seq(1900,2100,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
 Field = "VALIDITY"
 Values = c("V","I")
 if (check_without_errors == TRUE) {
@@ -327,6 +383,42 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
 
 
 #TB
+  Field = "COUNTRY"
+  Values = as.character(unique(Stratification$COUNTRY))
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+  Field = "DAY"
+  Values = seq(1,31,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+  Field = "MONTH"
+  Values = seq(1,12,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+  Field = "YEAR"
+  Values = seq(1900,2100,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
@@ -347,6 +439,42 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
 
 
 #TC
+Field = "COUNTRY"
+Values = as.character(unique(Stratification$COUNTRY))
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+Field = "DAY"
+Values = seq(1,31,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+Field = "MONTH"
+Values = seq(1,12,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+Field = "YEAR"
+Values = seq(1900,2100,1)
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, wd, suffix)
+}
+if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
@@ -386,6 +514,43 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
 
   if (!(all(is.na(TE)) & length(TE)==1)){
   if (nrow(ResultDataTE)>0){
+    Field = "COUNTRY"
+    Values = as.character(unique(Stratification$COUNTRY))
+    if (check_without_errors == TRUE) {
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
+    }
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+
+    Field = "DAY"
+    Values = seq(1,31,1)
+    if (check_without_errors == TRUE) {
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
+    }
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+    Field = "MONTH"
+    Values = seq(1,12,1)
+    if (check_without_errors == TRUE) {
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
+    }
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+    Field = "YEAR"
+    Values = seq(1900,2100,1)
+    if (check_without_errors == TRUE) {
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, wd, suffix)
+    }
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
     Field = "LENGTH_CLASSES_CODE"
     Values = c("0","m")
     if (check_without_errors == TRUE) {
@@ -394,7 +559,7 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
     }
     if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
-    ResultDataTE[is.na(ResultDataTE$LENGTH_CLASSES_CODE),]
+    # ResultDataTE[is.na(ResultDataTE$LENGTH_CLASSES_CODE),]
 
     Field = "SEX"
     Values = c("M", "F", "I", "N")
@@ -404,7 +569,49 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
     }
     if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
   }
-}
+  }
+
+  # TL
+  if (!(all(is.na(TL)) & length(TL)==1)){
+    if (nrow(ResultDataTL)>0){
+      Field = "COUNTRY"
+      Values = as.character(unique(Stratification$COUNTRY))
+      if (check_without_errors == TRUE) {
+        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, wd, suffix)
+      }
+      if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+
+      Field = "DAY"
+      Values = seq(1,31,1)
+      if (check_without_errors == TRUE) {
+        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, wd, suffix)
+      }
+      if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+      Field = "MONTH"
+      Values = seq(1,12,1)
+      if (check_without_errors == TRUE) {
+        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, wd, suffix)
+      }
+      if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
+      Field = "YEAR"
+      Values = seq(1900,2100,1)
+      if (check_without_errors == TRUE) {
+        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, wd, suffix)
+      }
+      if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+    }
+    }
+
 # End dictionary checks
 #-------------------------------------
 

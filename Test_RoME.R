@@ -9,9 +9,9 @@ tb <- read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T
 tc <- read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T)
 te <- NA #read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
 tl <- read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # puoi mettere NA
+#
 
-
-ta$SHOOTING_LATITUDE[1] <- 2257.26
+tb$YEAR[1] <- 210
 
 Stratification= MEDITS::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
 TM_list= RoME::TM_list #read.csv(file=paste(wd,"\\Tables\\TM_list.csv",sep=""), sep=";", header=T)  # oppure RoME::TM_list

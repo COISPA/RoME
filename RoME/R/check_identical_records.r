@@ -21,7 +21,6 @@ check_identical_records<-function(Data,wd,suffix){
     Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
     Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
 
-
     Data <- Data[Data$YEAR ==2018 , ]
 
     # check_identical_records(Data, wd, suffix)

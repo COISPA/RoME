@@ -10,16 +10,19 @@
 check_dictionary<-function(ResultData,Field,Values, wd, suffix){
 
   if (FALSE){
-    wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
+    suffix=NA  # non modificare
 
-    Field = "SEX"
-    Values = c("M", "F", "I", "N")
+    Field = "YEAR"
+    Values = seq(1900,2100,1) # as.character(unique(Stratification$COUNTRY))
 
     # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    ResultData = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+    ResultData = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
+
+    ResultData$YEAR[1] <- 210
+
 
     # check_dictionary(ResultData,Field,Values, wd, suffix)
   }
@@ -38,6 +41,8 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     write(paste("\n----------- check dictionary for field:", Field, "-", Result$YEAR[1]), file = Errors, append = TRUE)
 
   Valuesf <- factor(Values)
+
+
   if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="CODEND_CLOSING") ){
     Result=Result[(Result$CODEND_CLOSING != "") & is.na(Result$CODEND_CLOSING) == FALSE,]
   }
@@ -45,6 +50,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
   if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="COURSE") ){
     Result=Result[(Result$COURSE != "") & is.na(Result$COURSE) == FALSE ,]
   }
+
   if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="GEOMETRICAL_PRECISION") ){
     Result=Result[(Result$GEOMETRICAL_PRECISION != "") & is.na(Result$GEOMETRICAL_PRECISION) == FALSE ,]
   }
@@ -69,6 +75,9 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
                   write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                   numberError = numberError +1
                 } else if (Result$TYPE_OF_FILE[1] == "TE") {
+                  write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+                  numberError = numberError +1
+                } else if (Result$TYPE_OF_FILE[1] == "TL") {
                   write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                   numberError = numberError +1
                 }
@@ -106,7 +115,15 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
                 numberError = numberError +1
               }
             }
+          } else if (Result$TYPE_OF_FILE[1] == "TL") {
+
+              if ((as.character(Result[k,indexcol])!="FALSE")) {
+                write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k],  ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1] ), file = Errors, append = TRUE)
+                numberError = numberError +1
+
+            }
           }
+
 
 
 
