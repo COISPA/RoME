@@ -10,10 +10,11 @@
 
 
 if (FALSE){
-  ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA=ResultDataTA[ResultDataTA$YEAR==2017,]
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  # ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
+  ResultDataTA= read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # ResultDataTA[ResultDataTA$YEAR==2017,]
+  ResultDataTA <-  ResultDataTA[c(-91,-92),]
+  nrow(ResultDataTA)
+  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
@@ -51,11 +52,12 @@ check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
 
   moreThanOneHaul = which(ResultTA$no_hauls > 1, arr.ind=TRUE)
 
-  if (length(moreThanOneHaul)>1){
+  if (length(moreThanOneHaul)>0){
+    j=1
     for (j in 1:length(moreThanOneHaul)){
       index= moreThanOneHaul[j]
 
-      ResultCheck=ResultTA[ResultTA$HAUL_NUMBER==ResultTA$HAUL_NUMBER[index] & ResultTA$VALIDITY=="V",]
+      ResultCheck=Result[Result$HAUL_NUMBER==ResultTA$HAUL_NUMBER[index] & Result$VALIDITY=="V",]
 
       if (nrow(ResultCheck)>1)   {
         write(paste("Haul",ResultTA$HAUL_NUMBER[index],": only one row for the haul is allowed to be VALID"), file = Errors, append = TRUE)

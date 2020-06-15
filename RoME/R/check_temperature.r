@@ -10,8 +10,8 @@
 
 
 if (FALSE){
-  ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA=MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
+  # ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
+  ResultDataTA= read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
 
   wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
@@ -42,7 +42,7 @@ check_temperature <- function (ResultDataTA,wd,suffix){
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
 
-  Dataset = ResultDataTA
+  Dataset = ResultDataTA[ResultDataTA$VALIDITY =="V", ]
 
   write(paste("\n----------- check temperature - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
 
@@ -102,7 +102,7 @@ if (length(end_temp) > 0) {
   mean_temp = rowMeans(cbind(start_temp[,2],end_temp[,2]))
 
 
-  mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]],Dataset$HAULING_DEPTH[Dataset$HAUL_NUMBER %in% start_temp[,1]]))
+  mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[indices],Dataset$HAULING_DEPTH[indices]))
 
   tiff(filename=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
