@@ -1,5 +1,5 @@
 
- Fri Jun 12 18:43:13 2020
+ Mon Jun 15 17:43:40 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
@@ -83,62 +83,14 @@ No error occurred for field HAULING_DEPTH in TA
 ----------- check dictionary for field: MEASURING_SYSTEM - 2019
 No error occurred for field MEASURING_SYSTEM in TA
 
------------ check dictionary for field: COUNTRY - 2019
-No error occurred for field COUNTRY in TB
+----------- check dictionary for field: RECORDED_SPECIES - 2019
+No error occurred for field RECORDED_SPECIES in TA
 
------------ check dictionary for field: DAY - 2019
-No error occurred for field DAY in TB
+----------- check dictionary for field: WARP_LENGTH - 2019
+No error occurred for field WARP_LENGTH in TA
 
------------ check dictionary for field: MONTH - 2019
-No error occurred for field MONTH in TB
+----------- check dictionary for field: WARP_DIAMETER - 2019
+No error occurred for field WARP_DIAMETER in TA
 
------------ check dictionary for field: CODEND_CLOSING - 2019
-No error occurred for field CODEND_CLOSING in TB
-
------------ check dictionary for field: PART_OF_THE_CODEND - 2019
-No error occurred for field PART_OF_THE_CODEND in TB
-
------------ check dictionary for field: COUNTRY - 2019
-No error occurred for field COUNTRY in TC
-
------------ check dictionary for field: DAY - 2019
-No error occurred for field DAY in TC
-
------------ check dictionary for field: MONTH - 2019
-No error occurred for field MONTH in TC
-
------------ check dictionary for field: CODEND_CLOSING - 2019
-No error occurred for field CODEND_CLOSING in TC
-
------------ check dictionary for field: PART_OF_THE_CODEND - 2019
-No error occurred for field PART_OF_THE_CODEND in TC
-
------------ check dictionary for field: SEX - 2019
-No error occurred for field SEX in TC
-
------------ check dictionary for field: LENGTH_CLASSES_CODE - 2019
-No error occurred for field LENGTH_CLASSES_CODE in TC
-
------------ check dictionary for field: COUNTRY - 2019
-No error occurred for field COUNTRY in TL
-
------------ check dictionary for field: DAY - 2019
-No error occurred for field DAY in TL
-
------------ check dictionary for field: MONTH - 2019
-No error occurred for field MONTH in TL
-
------------ check no empty fields
-TA -  2019
-No error occurred
-TB-  2019
-No error occurred
-TC-  2019
-No error occurred
-TL-  2019
-No error occurred
-
------------ check 0 fields TA
-No error occurred
-
------------ check dm TA -  2019
+----------- check dictionary for field: OBSERVATIONS - 2019
+Haul 32 : value not allowed for OBSERVATIONS in TA

@@ -23,7 +23,7 @@ if (FALSE) {
   Year_end=2016
 
   # TA$TYPE_OF_FILE <- as.character(TA$TYPE_OF_FILE)
-TA$VERTICAL_OPENING[1] <-219
+TA$TYPE_OF_FILE[1] <- NA
 
   # RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
 }
@@ -65,7 +65,7 @@ check_without_errors = TRUE
 
 # check degli header ------------------------------------------------------
 
-  if(any(unique(as.character(TA$TYPE_OF_FILE)) != "TA")) {
+  if (any(unique(as.character(TA$TYPE_OF_FILE)) != "TA")    | any(is.na(unique(as.character(TA$TYPE_OF_FILE))))   ) {
     stop("TYPE_OF_FILE not expected in TA table")
   }
 
@@ -76,12 +76,12 @@ check_without_errors = TRUE
     }
 
 
-  if(any(unique(as.character(TB$TYPE_OF_FILE)) != "TB")) {
+  if(any(unique(as.character(TB$TYPE_OF_FILE)) != "TB")   | any(is.na(unique(as.character(TB$TYPE_OF_FILE))))  ) {
     stop("TYPE_OF_FILE not expected in TB table")
   }
   if (!(all(TB$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TB")}
 
-  if(any(unique(as.character(TC$TYPE_OF_FILE)) != "TC")) {
+  if(any(unique(as.character(TC$TYPE_OF_FILE)) != "TC")   | any(is.na(unique(as.character(TC$TYPE_OF_FILE))))  ) {
     stop("TYPE_OF_FILE not expected in TC table")
   }
   if (!(all(TC$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TC")}
@@ -98,7 +98,7 @@ check_without_errors = TRUE
 
   if (!(all(is.na(TE)) & length(TE)==1))
   {
-    if(any(unique(as.character(TE$TYPE_OF_FILE)) != "TE")) {
+    if(any(unique(as.character(TE$TYPE_OF_FILE)) != "TE")   | any(is.na(unique(as.character(TE$TYPE_OF_FILE))))  ) {
       stop("TYPE_OF_FILE not expected in TE table")
     }
 
@@ -109,7 +109,7 @@ check_without_errors = TRUE
 
   if (!(all(is.na(TL)) & length(TL)==1))
   {
-    if(any(unique(as.character(TL$TYPE_OF_FILE)) != "TL")) {
+    if(any(unique(as.character(TL$TYPE_OF_FILE)) != "TL")    | any(is.na(unique(as.character(TL$TYPE_OF_FILE)))) ) {
       stop("TYPE_OF_FILE not expected in TL table")
     }
     if (!(all(TL$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TL")}
@@ -413,8 +413,37 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
   }
   if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
+  Field = "RECORDED_SPECIES"
+  Values = seq(0,4,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
+  Field = "WARP_LENGTH"
+  Values = seq(100,2200,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
+  Field = "WARP_DIAMETER"
+  Values = seq(10,30,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+  Field = "OBSERVATIONS"
+  Values = seq(0,9,1)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, wd, suffix)
+  }
+  if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 #TB
   Field = "COUNTRY"

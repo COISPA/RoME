@@ -1,0 +1,97 @@
+
+ Mon Jun 15 17:45:01 2020
+-------------------------------------------------------------
+
+              LIST OF ERRORS
+              
+-------------------------------------------------------------
+
+----------- check identical records -  2019
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+TL:
+No error occurred
+
+                ----------- check quasi identical records -  2019
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+TL:
+No error occurred
+
+----------- check consistency of area in TX -  2019
+No error occurred
+
+----------- check dictionary for field: COUNTRY - 2019
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: MONTH - 2019
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: VALIDITY - 2019
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2019
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2019
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2019
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2019
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: GEAR - 2019
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2019
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2019
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2019
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2019
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2019
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2019
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check dictionary for field: HAULING_TIME - 2019
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2019
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2019
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2019
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2019
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2019
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2019
+Haul 32 : value not allowed for OBSERVATIONS in TA
+Haul 32 : the field OBSERVATIONS is empty in TA

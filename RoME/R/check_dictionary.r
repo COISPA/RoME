@@ -13,15 +13,15 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
     suffix=NA  # non modificare
 
-    Field = "VERTICAL_OPENING"
-    Values = seq(1900,2100,1) # as.character(unique(Stratification$COUNTRY))
+    Field = "CODEND_CLOSING"
+    Values = c("S","C") # as.character(unique(Stratification$COUNTRY))
 
     # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     ResultData = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
 
-    ResultData$VERTICAL_OPENING[1] <- 210
+    ResultData$CODEND_CLOSING[1] <- NA
 
 
     # check_dictionary(ResultData,Field,Values, wd, suffix)
@@ -43,17 +43,37 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
   Valuesf <- factor(Values)
 
 
-  if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="CODEND_CLOSING") ){
-    Result=Result[(Result$CODEND_CLOSING != "") & is.na(Result$CODEND_CLOSING) == FALSE,]
-  }
+    if (any(is.na(Result[, which(colnames(Result)==Field)]))){
+          na.results <- Result[ is.na(Result[, which(colnames(Result)==Field)]) , ]
+          l.na <- nrow(na.results)
+        for (x.na in 1:l.na){
+              write(paste("Haul",na.results$HAUL_NUMBER[x.na], ": value not allowed for", Field, "in",  na.results$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+              numberError = numberError +1
+            }
+    }
 
-  if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="COURSE") ){
-    Result=Result[(Result$COURSE != "") & is.na(Result$COURSE) == FALSE ,]
-  }
 
-  if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="GEOMETRICAL_PRECISION") ){
-    Result=Result[(Result$GEOMETRICAL_PRECISION != "") & is.na(Result$GEOMETRICAL_PRECISION) == FALSE ,]
-  }
+  # if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="CODEND_CLOSING") ){
+  #   if (any(is.na(Result$CODEND_CLOSING))){
+  #         na.results <- Result[ is.na(Result$CODEND_CLOSING) , ]
+  #         l.na <- nrow(na.results)
+  #       for (x.na in 1:l.na){
+  #             write(paste("Haul",na.results$HAUL_NUMBER[x.na], ": value not allowed for", Field, "in",  na.results$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+  #             numberError = numberError +1
+  #           }
+  #   }
+  #
+  #   # Result=Result[(Result$CODEND_CLOSING != ""),]
+  #   # Result=Result[(Result$CODEND_CLOSING != "") & is.na(Result$CODEND_CLOSING) == FALSE,]
+  # }
+
+  # if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="COURSE") ){
+  #   Result=Result[(Result$COURSE != "") & is.na(Result$COURSE) == FALSE ,]
+  # }
+  #
+  # if ( (Result$TYPE_OF_FILE[1] == "TA") & (Field=="GEOMETRICAL_PRECISION") ){
+  #   Result=Result[(Result$GEOMETRICAL_PRECISION != "") & is.na(Result$GEOMETRICAL_PRECISION) == FALSE ,]
+  # }
 
   indexcol= which(names(Result)==Field)
 
@@ -62,12 +82,14 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     for (k in 1:nrow(Result)){
       if ((is.na(as.character(Result[k,indexcol]))==TRUE )| (as.character(Result[k,indexcol])=="")){
         if (Result$TYPE_OF_FILE[1] == "TA") {
-          if (Result$VALIDITY[k]=="V") {
-            if (!is.na(as.character(Result$BOTTOM_TEMPERATURE_BEGINNING[k])) & !is.na(as.character(Result$BOTTOM_TEMPERATURE_END[k])) ){
-            write(paste("Haul",as.character(Result$HAUL_NUMBER[k]), ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-            numberError = numberError +1
-            }
-          }
+         #          if (!is.na(Result$VALIDITY[k])) {
+         #            if (Result$VALIDITY[k]=="V") {
+         #                             if (!is.na(as.character(Result$BOTTOM_TEMPERATURE_BEGINNING[k])) & !is.na(as.character(Result$BOTTOM_TEMPERATURE_END[k])) ){
+                                          write(paste("Haul",as.character(Result$HAUL_NUMBER[k]), ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+                                          numberError = numberError +1
+         #                                }
+         #          }
+         # }
           } else if (Result$TYPE_OF_FILE[1] == "TB") {
                 write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                 numberError = numberError +1
@@ -81,7 +103,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
                   write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                   numberError = numberError +1
                 }
-      } else {
+      } else {  #  if ((is.na(as.character(Result[k,indexcol]))==TRUE )
 
         if (any(as.character(Result[k,indexcol])==Valuesf) == FALSE) {
           if (Result$TYPE_OF_FILE[1] == "TA") {
@@ -129,8 +151,9 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
 
 
         }
-      }}
-  }
+      }
+      }  #  for (k in 1:nrow(Result))
+  }  # nrow(Result)!=0
 
   if (numberError ==0) {
     write(paste("No error occurred for field", Field, "in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)

@@ -57,31 +57,26 @@ check_stratum_code <- function (ResultDataTA,Stratification=MEDITS::stratificati
     Strat_table_temp = Strat_table[Strat_table$CODE==1,]
     if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% Strat_table_temp$STRATUM)){
     write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-    numberError ==numberError +1
     }
   }  else if ((mean_depth[i] >50) & (mean_depth[i] <=100)){
     Strat_table_temp = Strat_table[Strat_table$CODE==2,]
     if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% Strat_table_temp$STRATUM)){
       write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-      numberError ==numberError +1
     }
   } else if ((mean_depth[i] >100) & (mean_depth[i] <=200)){
     Strat_table_temp = Strat_table[Strat_table$CODE==3,]
     if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% Strat_table_temp$STRATUM)){
       write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-      numberError ==numberError +1
     }
   } else if ((mean_depth[i] >200) & (mean_depth[i] <=500)){
     Strat_table_temp = Strat_table[Strat_table$CODE==4,]
     if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% Strat_table_temp$STRATUM)){
       write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-      numberError ==numberError +1
     }
   } else if ((mean_depth[i] >500) & (mean_depth[i] <=800)){
     Strat_table_temp = Strat_table[Strat_table$CODE==5,]
     if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% Strat_table_temp$STRATUM)){
       write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],"stratum code not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-      numberError ==numberError +1
     }
   }
 

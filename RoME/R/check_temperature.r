@@ -13,11 +13,15 @@ if (FALSE){
   ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
   ResultDataTA=MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
 
-  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
+
+  ResultDataTA = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
+
+  ResultDataTA$BOTTOM_TEMPERATURE_BEGINNING[1] <- NA
 
   # check_temperature(MEDITS::TA,wd,suffix)
 }
@@ -41,6 +45,21 @@ check_temperature <- function (ResultDataTA,wd,suffix){
   Dataset = ResultDataTA
 
   write(paste("\n----------- check temperature - ",Dataset$YEAR[1]), file = Errors, append = TRUE)
+
+  # if (any(is.na(Dataset$BOTTOM_TEMPERATURE_BEGINNING))){
+  #   na.results <- Dataset[ is.na(Dataset[, "BOTTOM_TEMPERATURE_BEGINNING"]) , ]
+  #   l.na <- nrow(na.results)
+  #   for (x.na in 1:l.na){
+  #     write(paste("Haul",na.results$HAUL_NUMBER[x.na], ": empty value not allowed for 'BOTTOM_TEMPERATURE_BEGINNING' in",  na.results$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+  #   }
+  # }
+  # if (any(is.na(Dataset$BOTTOM_TEMPERATURE_END))){
+  #   na.results <- Dataset[ is.na(Dataset[, "BOTTOM_TEMPERATURE_END"]) , ]
+  #   l.na <- nrow(na.results)
+  #   for (x.na in 1:l.na){
+  #     write(paste("Haul",na.results$HAUL_NUMBER[x.na], ": empty value not allowed for 'BOTTOM_TEMPERATURE_END' in",  na.results$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+  #   }
+  # }
 
 if (!all(is.na(Dataset$BOTTOM_TEMPERATURE_BEGINNING))){
 start_temp <- cbind(Dataset$HAUL_NUMBER,Dataset$BOTTOM_TEMPERATURE_BEGINNING)

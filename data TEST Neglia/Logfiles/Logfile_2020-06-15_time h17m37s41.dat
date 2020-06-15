@@ -1,5 +1,5 @@
 
- Fri Jun 12 19:16:57 2020
+ Mon Jun 15 17:37:41 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
@@ -82,6 +82,18 @@ No error occurred for field HAULING_DEPTH in TA
 
 ----------- check dictionary for field: MEASURING_SYSTEM - 2019
 No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2019
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2019
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2019
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2019
+No error occurred for field OBSERVATIONS in TA
 
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TB

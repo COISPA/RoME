@@ -1,5 +1,5 @@
 
- Fri Jun 12 18:49:51 2020
+ Mon Jun 15 17:50:35 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
@@ -83,6 +83,18 @@ No error occurred for field HAULING_DEPTH in TA
 ----------- check dictionary for field: MEASURING_SYSTEM - 2019
 No error occurred for field MEASURING_SYSTEM in TA
 
+----------- check dictionary for field: RECORDED_SPECIES - 2019
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2019
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2019
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2019
+No error occurred for field OBSERVATIONS in TA
+
 ----------- check dictionary for field: COUNTRY - 2019
 No error occurred for field COUNTRY in TB
 
@@ -142,7 +154,6 @@ No error occurred
 No error occurred
 
 ----------- check dm TA -  2019
-Haul  32 VERTICAL_OPENING out of boundaries (10,100)in TA . Please check if the measure unit is dm
 No error occurred
 
 ----------- check consistency between duration and time TA -  2019
@@ -181,7 +192,8 @@ No error occurred
 No error occurred
 
 ----------- check correctness of stratum code -  2019
-No error occurred
+Warning: Haul  32 wrong stratum code, check if it is the most recent version of MEDITS codes
+Warning: Haul  32 stratum code not consistent with the mean detph of the haul
 
 ----------- check start quadrant and end quadrant TA -  2019
 No error occurred
@@ -402,12 +414,260 @@ No error occurred
 No error occurred
 
 ----------- check dictionary for field: LITTER_CATEGORY - 2019
-Haul 33     : value not allowed for LITTER_CATEGORY in TL
-Haul 26     : value not allowed for LITTER_CATEGORY in TL
-Haul 157     : value not allowed for LITTER_CATEGORY in TL
-Haul 151     : value not allowed for LITTER_CATEGORY in TL
-Haul 160     : value not allowed for LITTER_CATEGORY in TL
-Haul 80     : value not allowed for LITTER_CATEGORY in TL
-Haul 142     : value not allowed for LITTER_CATEGORY in TL
-Haul 162     : value not allowed for LITTER_CATEGORY in TL
-Haul 176     : value not allowed for LITTER_CATEGORY in TL
+No error occurred for field LITTER_CATEGORY in TL
+
+----------- check dictionary for field: LITTER_SUB-CATEGORY - 2019
+No error occurred for field LITTER_SUB-CATEGORY in TL
+ ----------- check consistency of category/subcategory codes in  TL - 2019
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+No error occurred
+TL-  2019
+No error occurred
+
+----------- check correctness of date by haul in TL -  2019
+No error occurred
+
+----------- check presence in TA of TL hauls -  2019
+No error occurred
+
+----------- check presence in TL of TA hauls -  2019
+No error occurred
