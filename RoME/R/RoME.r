@@ -66,25 +66,35 @@ check_without_errors = TRUE
 # check degli header ------------------------------------------------------
 
   if (any(unique(as.character(TA$TYPE_OF_FILE)) != "TA")    | any(is.na(unique(as.character(TA$TYPE_OF_FILE))))   ) {
+    write("TYPE_OF_FILE not expected in TA table", file = Errors, append = TRUE)
     stop("TYPE_OF_FILE not expected in TA table")
   }
 
   if (all(TA$YEAR %in% seq(1900,2100,1))) {
       years = unique (TA$YEAR)
     } else {
-        stop("YEAR value not expected in TA")
+      write("YEAR value not expected in TA", file = Errors, append = TRUE)
+      stop("YEAR value not expected in TA")
     }
 
 
   if(any(unique(as.character(TB$TYPE_OF_FILE)) != "TB")   | any(is.na(unique(as.character(TB$TYPE_OF_FILE))))  ) {
+    write("TYPE_OF_FILE not expected in TB table", file = Errors, append = TRUE)
     stop("TYPE_OF_FILE not expected in TB table")
   }
-  if (!(all(TB$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TB")}
+  if (!(all(TB$YEAR %in% seq(1900,2100,1)))) {
+    write("YEAR value not expected in TB", file = Errors, append = TRUE)
+    stop("YEAR value not expected in TB")
+    }
 
   if(any(unique(as.character(TC$TYPE_OF_FILE)) != "TC")   | any(is.na(unique(as.character(TC$TYPE_OF_FILE))))  ) {
+    write("TYPE_OF_FILE not expected in TC table", file = Errors, append = TRUE)
     stop("TYPE_OF_FILE not expected in TC table")
   }
-  if (!(all(TC$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TC")}
+  if (!(all(TC$YEAR %in% seq(1900,2100,1)))) {
+    write("YEAR value not expected in TC", file = Errors, append = TRUE)
+    stop("YEAR value not expected in TC")
+    }
 
   checkHeader(TA,"TA")
   checkHeader(TB,"TB")
@@ -99,10 +109,14 @@ check_without_errors = TRUE
   if (!(all(is.na(TE)) & length(TE)==1))
   {
     if(any(unique(as.character(TE$TYPE_OF_FILE)) != "TE")   | any(is.na(unique(as.character(TE$TYPE_OF_FILE))))  ) {
+      write("TYPE_OF_FILE not expected in TE table", file = Errors, append = TRUE)
       stop("TYPE_OF_FILE not expected in TE table")
     }
 
-  if (!(all(TE$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TE")}
+  if (!(all(TE$YEAR %in% seq(1900,2100,1)))) {
+    write("YEAR value not expected in TE", file = Errors, append = TRUE)
+    stop("YEAR value not expected in TE")
+    }
   checkHeader(TE,"TE")
   ResultDataTE_bkp <- TE
   }
@@ -110,9 +124,13 @@ check_without_errors = TRUE
   if (!(all(is.na(TL)) & length(TL)==1))
   {
     if(any(unique(as.character(TL$TYPE_OF_FILE)) != "TL")    | any(is.na(unique(as.character(TL$TYPE_OF_FILE)))) ) {
+      write("TYPE_OF_FILE not expected in TE table", file = Errors, append = TRUE)
       stop("TYPE_OF_FILE not expected in TL table")
     }
-    if (!(all(TL$YEAR %in% seq(1900,2100,1)))) {stop("YEAR value not expected in TL")}
+    if (!(all(TL$YEAR %in% seq(1900,2100,1)))) {
+      write("YEAR value not expected in TL", file = Errors, append = TRUE)
+      stop("YEAR value not expected in TL")
+      }
     checkHeader(TL,"TL")
     ResultDataTL_bkp <- TL
   }
@@ -875,18 +893,20 @@ if (check_without_errors == TRUE) {
 # checks on TC
 
 graphics.off()
-checkName = "Check correctness of LENGTH_CLASSES_CODE TC"
-if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-      check_without_errors = check_length_class_codeTC(ResultDataTC,Specieslist=TM_list, wd,suffix)
-  }
-  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_rubincode(ResultDataTC,TM_list=TM_list,wd,suffix)
 }
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+
+checkName = "Check correctness of LENGTH_CLASSES_CODE TC"
+if (check_without_errors == TRUE) {
+      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      check_without_errors = check_length_class_codeTC(ResultDataTC,Specieslist=TM_list, wd,suffix)
+  }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName = "Check consistency of length classes TC"

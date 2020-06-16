@@ -235,7 +235,24 @@ check_identical_records<-function(Data,wd,suffix){
     if (length(Err)!=0){
       for (j in 1:length(Err)){
         m=Matrix[Err[j],]
-        write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)}
+
+        if (Result$TYPE_OF_FILE[1] == "TA"){
+          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        }
+        if (Result$TYPE_OF_FILE[1] == "TB"){
+          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX),": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        }
+        if (Result$TYPE_OF_FILE[1] == "TC"){
+          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        }
+        if (Result$TYPE_OF_FILE[1] == "TE"){
+          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        }
+        if (Result$TYPE_OF_FILE[1] == "TL"){
+          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        }
+
+        }
     }   else {
       write(paste("No error occurred"), file = Errors, append = TRUE)
       check_without_errors = TRUE

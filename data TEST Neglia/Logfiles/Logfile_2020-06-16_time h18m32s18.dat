@@ -1,5 +1,5 @@
 
- Mon Jun 15 18:51:56 2020
+ Tue Jun 16 18:32:18 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
@@ -148,55 +148,4 @@ No error occurred
 TC-  2019
 No error occurred
 TL-  2019
-No error occurred
-
------------ check 0 fields TA
-No error occurred
-
------------ check dm TA -  2019
-No error occurred
-
------------ check consistency between duration and time TA -  2019
-No error occurred
-
------------ check consistency between duration and distance TA -  2019
-No error occurred
-
------------ check consistency of the hauls coordinates with the distance -  2019
-Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the .tiff files in Graphs directory
-No error occurred
-
------------ check consistency of bridles length TA -  2019
-Warning: Haul 32 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 78 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 86 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 178 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 169 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Haul 23 : BRIDLES_LENGTH not correct
-Warning: Haul 33 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 98 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 152 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 116 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 170 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 144 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 143 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 39 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 38 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-Warning: Haul 32 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
-ATTENTION: BRIDLES_LENGTH=100 between 0 and 200 m, BRIDLES_LENGTH=150 over 200 m
-
------------ check difference between start depth and end depth (not greater than 20%) TA  - 2019
-Warning: Haul 135 difference between start depth 31 and end depth 38 greater than 20% in TA
-No error occurred
-
------------ check start depth and end depth in the same stratum TA -  2019
-No error occurred
-
------------ check correctness of stratum code -  2019
-No error occurred
-
------------ check start quadrant and end quadrant TA -  2019
-No error occurred
-
------------ check uniqueness of valid hauls TA -  2019
-Haul 32 : only one row for the haul is allowed to be VALID
+Haul  167 no value for  TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL  in TL

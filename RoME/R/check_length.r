@@ -11,11 +11,12 @@ check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
 
   if (FALSE){
     #library(MEDITS)
-    wd <- tempdir()
+    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
     DataSpecies=NA
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    DataTC <- DataTC[DataTC$YEAR == 2018, ]
+    DataTC = read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    DataTC$LENGTH_CLASS[1] <- -10
+    # DataTC <- DataTC[DataTC$YEAR == 2018, ]
 
     # check_length(DataTB,DataTC,wd,suffix)
   }
@@ -48,6 +49,17 @@ check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
 
   i=1
   for (i in 1:nrow(ResultData)){
+
+    if (is.na(ResultData$LENGTH_CLASS[i]) | (ResultData$LENGTH_CLASS[i]=="")){
+      write(paste("Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," sex ",ResultData$SEX[i]," length ",ResultData$LENGTH_CLASS[i]," : unexpected value in LENGTH_CLASS ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
+      numberError = numberError +1
+    }
+
+    if ((ResultData$LENGTH_CLASS[i] < 0)==TRUE){
+      write(paste("Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," sex ",ResultData$SEX[i]," length ",ResultData$LENGTH_CLASS[i]," : negative value in LENGTH_CLASS in ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
+      numberError = numberError +1
+    }
+
     FoundInTable=Target[as.character(Target$SPECIES)==as.character(ResultData$species[i]),]
     FoundInTable=FoundInTable[is.na(FoundInTable$MIN_LEN[1])==FALSE,]
     if (nrow(FoundInTable)!=0){

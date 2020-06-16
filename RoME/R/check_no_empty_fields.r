@@ -16,9 +16,10 @@ check_no_empty_fields<-function(Data,wd,suffix){
     Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
     Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
+    Data <- read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T)
 
-
-    Data <- Data[Data$YEAR ==2018 , ]
+    Data$FAUNISTIC_CATEGORY[1] <- NA
+    # Data <- Data[Data$YEAR ==2018 , ]
 
     # check_no_empty_fields(Data, wd, suffix)
   }
@@ -54,9 +55,10 @@ check_no_empty_fields<-function(Data,wd,suffix){
     Mat=Matrix[,c(1:10,12,14)]
   }
 
-  empty_X=which(is.na(Mat)==TRUE,arr.ind=TRUE)
+  empty_X=which((is.na(Mat) | Mat ==""),arr.ind=TRUE)
 
   if (nrow(empty_X)!=0) {
+    i=1
     for (i in 1:nrow(empty_X)){
       # Exception for PART_OF_THE_CODEND field, according to MEDITS manual 2012
       if (names(Mat)[empty_X[i,2]]!="PART_OF_THE_CODEND"){

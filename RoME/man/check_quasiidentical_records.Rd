@@ -20,7 +20,7 @@ check_quasiidentical_records(Result,wd,suffix)
 }
 }
 \details{
-The checks execution is stopped if any quasi-identical record was found.
+The checks execution is stopped if any quasi-identical record was found. In a give survey the following fields (of TA table) should be identical: 'TYPE_OF_FILE AREA', 'VESSEL', 'GEAR', 'RIGGING', 'DOORS' and 'YEAR'. The function checks whether any differences occur in these fields in each yearly survey. The same think is done for all the other tables where these fields occur.
 }
 \value{
 The function returns TRUE if no error occurs, FALSE is at least a quasi-identical record was found.
