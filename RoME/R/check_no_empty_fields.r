@@ -9,14 +9,14 @@
 
 check_no_empty_fields<-function(Data,wd,suffix){
   if (FALSE){
-    wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    Data = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
-    Data <- read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T)
+    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
+    suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    # Data = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
+    Data <- read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T)
 
     Data$FAUNISTIC_CATEGORY[1] <- NA
     # Data <- Data[Data$YEAR ==2018 , ]
@@ -46,10 +46,10 @@ check_no_empty_fields<-function(Data,wd,suffix){
     Mat=Matrix
   } else if ((Data[1,"TYPE_OF_FILE"] == "TC") == TRUE) {
     write(paste("TC- ",Matrix$YEAR[1]), file = Errors, append = TRUE)
-    Mat=Matrix[,c(1:20,22)]
+    Mat=Matrix[,c(1:20,22)]   #
   } else if ((Data[1,"TYPE_OF_FILE"] == "TE") == TRUE) {
     write(paste("TE- ",Matrix$YEAR[1]), file = Errors, append = TRUE)
-    Mat=Matrix[,1:23]
+    Mat=Matrix[,c(1:16,18:23)]  # c(1:23)
   } else if ((Data[1,"TYPE_OF_FILE"] == "TL") == TRUE){
     write(paste("TL- ",Matrix$YEAR[1]), file = Errors, append = TRUE)
     Mat=Matrix[,c(1:10,12,14)]

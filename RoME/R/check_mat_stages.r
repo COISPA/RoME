@@ -10,10 +10,10 @@
 
 if (FALSE){
   #library(RoME)
-  Result = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-  Result = Result[Result$YEAR==1994,]
-  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  Data = read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+  # Result = Result[Result$YEAR==1994,]
+  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" #tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  suffix= NA #paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #DataTC = MEDITS::TC
 
   check_mat_stages(Result, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
@@ -43,16 +43,16 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
   cat_fau=cat_fau[cat_fau$CATFAU!="",]
 
   if ((as.character(ResultData$TYPE_OF_FILE[1])=="TC"))    {
-  ResultData = ResultData[as.character(ResultData$MATURITY)!="ND",]
+      ResultData = ResultData[as.character(ResultData$MATURITY)!="ND",]
   } else if ((as.character(ResultData$TYPE_OF_FILE[1])=="TE")){
-  ResultData_ND = ResultData[as.character(ResultData$MATURITY)=="ND",]
+      ResultData_ND = ResultData[as.character(ResultData$MATURITY)=="ND",]
   if (nrow(ResultData_ND)!=0){
-  write("Warning: in TE the records with maturity ND are not allowed.", file = Errors, append = TRUE)
+      write("Warning: in TE the records with maturity ND are not allowed.", file = Errors, append = TRUE)
   }
   }
 
   if(as.character(ResultData$TYPE_OF_FILE[1])=="TE"){
-  stages=stages[stages$MEDITS_STAGE_from_2012!="NDND",]                                       # for TE the maturity stage ND are not allowed
+      stages=stages[stages$MEDITS_STAGE_from_2012!="NDND",]                                       # for TE the maturity stage ND are not allowed
   }
 
   if (nrow(ResultData)!=0){
@@ -63,7 +63,7 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
   ResultData$maturity=ifelse(is.na(ResultData$MATSUB)==FALSE,paste(ResultData$MATURITY,ResultData$MATSUB,sep=""),ResultData$MATURITY)
   }
 
-  i=255
+  i=1
   for (i in 1:nrow(ResultData)){
     if (Format=="before_2012"){
       #if (ResultData$YEAR[1]<2012){
@@ -102,13 +102,13 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
 
         }
 
-        if (is.na(ResultData$MATSUB[i])){
-          write(paste("Warning: Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)  } else
-                      {
-                        write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-                                    ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],ResultData$MATSUB[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-                      }
+        # if (is.na(ResultData$MATSUB[i])){
+        #   write(paste("Warning: Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
+        #               ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)  } else
+        #               {
+        #                 write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
+        #                             ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],ResultData$MATSUB[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        #               }
 
 
       }

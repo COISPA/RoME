@@ -12,7 +12,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
   if (FALSE){
     library(RoME)
-    wd <- tempdir()
+    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
 
     # assTL <- read.csv("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\RoME versione aperta 1.4\\Tables\\Associations_cat_TL.csv", sep=";")
     # str(assTL)
@@ -22,8 +22,8 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
     # str(assTL)
     # save(assTL, file="data/assTL.rda")
 
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    DataTL = read.table("D:\\Documents and Settings\\Utente\\Documenti\\__ DATI MEDITS AGGIORNATI __\\BKP\\GSA18 - 2018\\NUOVI\\2018 completo TL.csv", sep=";", header=T)
+    suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    DataTL = read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) #read.table("D:\\Documents and Settings\\Utente\\Documenti\\__ DATI MEDITS AGGIORNATI __\\BKP\\GSA18 - 2018\\NUOVI\\2018 completo TL.csv", sep=";", header=T)
     # colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
     # check_associations_category_TL(DataTL, assTL, wd, suffix)
   }
@@ -56,7 +56,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
 
   ResultData = DataTL
-  write(paste(" ----------- check consistency of category/subcategory codes in ",ResultData$TYPE_OF_FILE[1],"-", ResultData$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check consistency of category/subcategory codes in ",ResultData$TYPE_OF_FILE[1],"-", ResultData$YEAR[1]), file = Errors, append = TRUE)
 
   if (nrow(ResultData)!=0){
 
@@ -66,17 +66,13 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
     ass_allowed_TL = assTL[assTL$LITTER_CATEGORY==ResultData$LITTER_CATEGORY[i],"LITTER_SUB-CATEGORY"]
 
     if (!(as.character(ResultData[i,"LITTER_SUB-CATEGORY"]) %in% ass_allowed_TL)){
-      numberError=numberError+1
       write(paste(ResultData$YEAR[i], " " ,ResultData$HAUL_NUMBER[i], ": Association between category and sub-category not allowed."), file = Errors, append = TRUE)
+      numberError=numberError+1
     }
-
-
-  if (numberError ==0) {
+  }
+  }
+if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
-
-  }
-  }
-
     return(TRUE)
 }

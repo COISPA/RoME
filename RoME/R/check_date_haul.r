@@ -65,8 +65,13 @@ TA_df$Date = paste (TA_df$HAUL_NUMBER,"-",TA_df$MONTH,"-",TA_df$DAY,sep="")
 
 for (i in 1:nrow(Dataset)){
   if( !(Dataset$Date[i] %in% TA_df$Date)) {
-  write(paste("Warning: Haul",Dataset$HAUL_NUMBER[i],", code species", Dataset$GENUS[i] , Dataset$SPECIES[i] ,": the date is not consistent with the date reported in TA."), file = Errors, append = TRUE)
-  numberError = numberError+1
+  if (Dataset$TYPE_OF_FILE[1] != "TL"){
+    write(paste("Haul",Dataset$HAUL_NUMBER[i],", code species", Dataset$GENUS[i] , Dataset$SPECIES[i] ,": the date is not consistent with the date reported in TA."), file = Errors, append = TRUE)
+    numberError = numberError+1
+  } else if (Dataset$TYPE_OF_FILE[1] == "TL"){
+    write(paste("Haul",Dataset$HAUL_NUMBER[i],": the date is not consistent with the date reported in TA."), file = Errors, append = TRUE)
+    numberError = numberError+1
+  }
 }
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)

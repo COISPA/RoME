@@ -13,13 +13,13 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
     suffix=NA  # non modificare
 
-    Field = "CODEND_CLOSING"
-    Values = c("S","C") # as.character(unique(Stratification$COUNTRY))
+    Field = "LITTER_CATEGORY"
+    Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8")
 
     # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    ResultData = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
+    ResultData = read.table(file=paste(wd, "\\2019 GSA18 TL.csv",sep=""), sep=";", header=T)
 
     ResultData$CODEND_CLOSING[1] <- NA
 
@@ -140,7 +140,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
           } else if (Result$TYPE_OF_FILE[1] == "TL") {
 
               if ((as.character(Result[k,indexcol])!="FALSE")) {
-                write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k],  ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1] ), file = Errors, append = TRUE)
+                write(paste("Haul",Result$HAUL_NUMBER[k], ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1], " (",as.character(Result[k,indexcol]),")" ), file = Errors, append = TRUE)
                 numberError = numberError +1
 
             }

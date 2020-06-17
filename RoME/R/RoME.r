@@ -22,8 +22,8 @@ if (FALSE) {
   Year_start=2007
   Year_end=2016
 
-  # TA$TYPE_OF_FILE <- as.character(TA$TYPE_OF_FILE)
-TA$TYPE_OF_FILE[1] <- NA
+TB$TYPE_OF_FILE <- as.character(TB$TYPE_OF_FILE)
+TB$TYPE_OF_FILE[1] <- "TC"
 
   # RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
 }
@@ -53,7 +53,7 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,crea
 
 
   stop_ = FALSE
-
+  check_without_errors = TRUE
 
 # START -------------------------------------------------------------------
 
@@ -61,40 +61,11 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,crea
               LIST OF ERRORS
               \n-------------------------------------------------------------"), file = Errors, append = TRUE)
 
-check_without_errors = TRUE
+
+
+  years = unique (TA$YEAR)
 
 # check degli header ------------------------------------------------------
-
-  if (any(unique(as.character(TA$TYPE_OF_FILE)) != "TA")    | any(is.na(unique(as.character(TA$TYPE_OF_FILE))))   ) {
-    write("TYPE_OF_FILE not expected in TA table", file = Errors, append = TRUE)
-    stop("TYPE_OF_FILE not expected in TA table")
-  }
-
-  if (all(TA$YEAR %in% seq(1900,2100,1))) {
-      years = unique (TA$YEAR)
-    } else {
-      write("YEAR value not expected in TA", file = Errors, append = TRUE)
-      stop("YEAR value not expected in TA")
-    }
-
-
-  if(any(unique(as.character(TB$TYPE_OF_FILE)) != "TB")   | any(is.na(unique(as.character(TB$TYPE_OF_FILE))))  ) {
-    write("TYPE_OF_FILE not expected in TB table", file = Errors, append = TRUE)
-    stop("TYPE_OF_FILE not expected in TB table")
-  }
-  if (!(all(TB$YEAR %in% seq(1900,2100,1)))) {
-    write("YEAR value not expected in TB", file = Errors, append = TRUE)
-    stop("YEAR value not expected in TB")
-    }
-
-  if(any(unique(as.character(TC$TYPE_OF_FILE)) != "TC")   | any(is.na(unique(as.character(TC$TYPE_OF_FILE))))  ) {
-    write("TYPE_OF_FILE not expected in TC table", file = Errors, append = TRUE)
-    stop("TYPE_OF_FILE not expected in TC table")
-  }
-  if (!(all(TC$YEAR %in% seq(1900,2100,1)))) {
-    write("YEAR value not expected in TC", file = Errors, append = TRUE)
-    stop("YEAR value not expected in TC")
-    }
 
   checkHeader(TA,"TA")
   checkHeader(TB,"TB")
@@ -105,37 +76,43 @@ check_without_errors = TRUE
   ResultDataTC_bkp <- TC
 
 
-
+###  TE  ###
   if (!(all(is.na(TE)) & length(TE)==1))
   {
-    if(any(unique(as.character(TE$TYPE_OF_FILE)) != "TE")   | any(is.na(unique(as.character(TE$TYPE_OF_FILE))))  ) {
-      write("TYPE_OF_FILE not expected in TE table", file = Errors, append = TRUE)
-      stop("TYPE_OF_FILE not expected in TE table")
-    }
-
-  if (!(all(TE$YEAR %in% seq(1900,2100,1)))) {
-    write("YEAR value not expected in TE", file = Errors, append = TRUE)
-    stop("YEAR value not expected in TE")
-    }
   checkHeader(TE,"TE")
   ResultDataTE_bkp <- TE
   }
 
+###  TL  ###
   if (!(all(is.na(TL)) & length(TL)==1))
   {
-    if(any(unique(as.character(TL$TYPE_OF_FILE)) != "TL")    | any(is.na(unique(as.character(TL$TYPE_OF_FILE)))) ) {
-      write("TYPE_OF_FILE not expected in TE table", file = Errors, append = TRUE)
-      stop("TYPE_OF_FILE not expected in TL table")
-    }
-    if (!(all(TL$YEAR %in% seq(1900,2100,1)))) {
-      write("YEAR value not expected in TL", file = Errors, append = TRUE)
-      stop("YEAR value not expected in TL")
-      }
     checkHeader(TL,"TL")
     ResultDataTL_bkp <- TL
   }
+###
+
+    ###########
+
+  ### CHECK YEAR
+
+checkName = "Check YEAR"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
+   check_without_errors = check_year(TA, TB, TC, TE, TL, years, wd, Errors)
+}
+ if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+  ### CHECK TYPE_OF_FILE
+
+  checkName = "Check TYPE_OF_FILE"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
+   check_without_errors = check_type(TA, TB, TC, TE, TL, years, wd, Errors)
+}
+ if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 
+
+## CICLO PER ANNO ##
 
 yea <- 2019
 for (yea in years) {
@@ -172,7 +149,7 @@ if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_identical_records(Data=ResultDataTA, wd, suffix)
 }
-      if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
 checkName= "Check identical record TB"
 if (check_without_errors == TRUE) {
@@ -1155,13 +1132,6 @@ if (check_without_errors == TRUE) {
     }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-checkName = "Check if the date in TL is consistent with TA"
-if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_date_haul(ResultDataTA, ResultDataTL, wd, suffix)
-  }
-  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
-
 checkName = "Check if the hauls in TL are present in TA"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
@@ -1176,6 +1146,12 @@ if (check_without_errors == TRUE) {
 }
 if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
+checkName = "Check if the date in TL is consistent with TA"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_date_haul(ResultDataTA, ResultDataTL, wd, suffix)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
    }
 }

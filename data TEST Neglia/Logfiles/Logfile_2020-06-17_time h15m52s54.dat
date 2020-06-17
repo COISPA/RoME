@@ -1,0 +1,405 @@
+
+ Wed Jun 17 15:52:54 2020
+-------------------------------------------------------------
+
+              LIST OF ERRORS
+              
+-------------------------------------------------------------
+
+----------- check on YEAR field 
+No error occurred
+
+----------- check on TYPE_OF_FILE field 
+No error occurred
+
+----------- check identical records -  2019
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+TE:
+No error occurred
+TL:
+No error occurred
+
+                ----------- check quasi identical records -  2019
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+TE:
+No error occurred
+TL:
+No error occurred
+
+----------- check consistency of area in TX -  2019
+No error occurred
+
+----------- check dictionary for field: COUNTRY - 2019
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: MONTH - 2019
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: VALIDITY - 2019
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2019
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2019
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2019
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2019
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: GEAR - 2019
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2019
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2019
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2019
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2019
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2019
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2019
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check dictionary for field: HAULING_TIME - 2019
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2019
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2019
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2019
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2019
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2019
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2019
+No error occurred for field OBSERVATIONS in TA
+
+----------- check dictionary for field: COUNTRY - 2019
+No error occurred for field COUNTRY in TB
+
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TB
+
+----------- check dictionary for field: MONTH - 2019
+No error occurred for field MONTH in TB
+
+----------- check dictionary for field: CODEND_CLOSING - 2019
+No error occurred for field CODEND_CLOSING in TB
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2019
+No error occurred for field PART_OF_THE_CODEND in TB
+
+----------- check dictionary for field: COUNTRY - 2019
+No error occurred for field COUNTRY in TC
+
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TC
+
+----------- check dictionary for field: MONTH - 2019
+No error occurred for field MONTH in TC
+
+----------- check dictionary for field: CODEND_CLOSING - 2019
+No error occurred for field CODEND_CLOSING in TC
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2019
+No error occurred for field PART_OF_THE_CODEND in TC
+
+----------- check dictionary for field: SEX - 2019
+No error occurred for field SEX in TC
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2019
+No error occurred for field LENGTH_CLASSES_CODE in TC
+
+----------- check dictionary for field: COUNTRY - 2019
+No error occurred for field COUNTRY in TE
+
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TE
+
+----------- check dictionary for field: MONTH - 2019
+No error occurred for field MONTH in TE
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2019
+No error occurred for field LENGTH_CLASSES_CODE in TE
+
+----------- check dictionary for field: SEX - 2019
+No error occurred for field SEX in TE
+
+----------- check dictionary for field: COUNTRY - 2019
+No error occurred for field COUNTRY in TL
+
+----------- check dictionary for field: DAY - 2019
+No error occurred for field DAY in TL
+
+----------- check dictionary for field: MONTH - 2019
+No error occurred for field MONTH in TL
+
+----------- check no empty fields
+TA -  2019
+No error occurred
+TB-  2019
+No error occurred
+TC-  2019
+No error occurred
+TE-  2019
+No error occurred
+TL-  2019
+No error occurred
+
+----------- check 0 fields TA
+No error occurred
+
+----------- check dm TA -  2019
+No error occurred
+
+----------- check consistency between duration and time TA -  2019
+No error occurred
+
+----------- check consistency between duration and distance TA -  2019
+No error occurred
+
+----------- check consistency of the hauls coordinates with the distance -  2019
+Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the .tiff files in Graphs directory
+No error occurred
+
+----------- check consistency of bridles length TA -  2019
+Warning: Haul 32 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 78 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 86 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 178 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 169 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Haul 23 : BRIDLES_LENGTH not correct
+Warning: Haul 33 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 98 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 152 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 116 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 170 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 144 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 143 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 39 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+Warning: Haul 38 : MEDITS handbook recommends to increase the bridle length to 200 m in depths deeper than 500 m
+ATTENTION: BRIDLES_LENGTH=100 between 0 and 200 m, BRIDLES_LENGTH=150 over 200 m
+
+----------- check difference between start depth and end depth (not greater than 20%) TA  - 2019
+Warning: Haul 135 difference between start depth 31 and end depth 38 greater than 20% in TA
+No error occurred
+
+----------- check start depth and end depth in the same stratum TA -  2019
+No error occurred
+
+----------- check correctness of stratum code -  2019
+No error occurred
+
+----------- check start quadrant and end quadrant TA -  2019
+No error occurred
+
+----------- check uniqueness of valid hauls TA -  2019
+No error occurred
+Check of hauls position: see the graphs automatically generated in Graphs directory
+Qualitative check TA: see the graphs automatically generated in Graphs directory
+
+----------- check if the hauls positions are in Mediterranean Sea -  2019
+No error occurred
+
+----------- check temperature -  2019
+Temperature check: see the graphs automatically generated in Graphs directory
+No error occurred
+
+----------- check correctness of species codes in TB -  2019
+Warning: Haul 109 : species APLY SPP  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 121 : species APLY SPP  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 121 : species PHIN APE  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 116 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 138 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 144 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 143 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 100 : species PELT ATR  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 100 : species PLER SPP  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 105 : species APLY SPP  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 105 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 80 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 104 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 135 : species APLY SPP  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 135 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 134 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 101 : species APLY PUN  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 101 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 133 : species PHIN APE  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 152 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 154 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 88 : species APLY PUN  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 88 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 98 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 85 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 156 : species APLY PUN  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 156 : species PHIN APE  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 156 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 76 : species PHIN APE  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 76 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 77 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 78 : species APLY PUN  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 78 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 86 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 170 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 168 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 178 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 39 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 38 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 33 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 32 : species CYMU PER  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 2 : code species PENA AZT  not present in MEDITS FM list in Tables directory
+Warning: Haul 8 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 171 : species APLY FAS  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+Warning: Haul 171 : code species PENA AZT  not present in MEDITS FM list in Tables directory
+Warning: Haul 171 : species PLER MEC  wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory
+No error occurred
+
+----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB -  2019
+No error occurred
+
+----------- check presence of number of individuals for species G1 -  2019
+No error occurred
+
+              ----------- check consistency between not null weight and not null total number in TB -  2019
+No error occurred
+
+----------- check consistency of weight and number TB -  2019
+Warning: See graphs generated and saved in working directory about the species without mean weight range
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2019
+No error occurred
+
+----------- check correctness of LENGTH_CLASSES_CODE in TC -  2019
+No error occurred
+
+----------- check consistency of length classes TC -  2019
+Warning: Haul 156 RAJAAST sex M length 525 : LENGTH_CLASS out of boundaries (40,500) in TC
+Warning: Haul 41 RAJAAST sex F length 510 : LENGTH_CLASS out of boundaries (40,500) in TC
+Warning: Haul 175 RAJAAST sex M length 535 : LENGTH_CLASS out of boundaries (40,500) in TC
+No error occurred
+
+----------- check consistency of number per sex in TC -  2019
+No error occurred
+ ----------- check consistency of maturity stages in  TC - 2019
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2019
+No error occurred
+
+----------- check consistency of maturity stages TC  by means of the comparison with the lenght of smallest mature individuals in bibliography -  2019
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- check consistency of maturity stages TC by means of spawning season information -  2019
+Warning: Haul  175 MULL BAR M length 125 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  175 MULL BAR M length 130 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  175 MULL BAR M length 135 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  175 MULL BAR M length 145 : specimen mature (STAGE  3 )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  163 LOLI VUL M length 120 : specimen mature (STAGE  3A )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  151 NEPR NOR M length 36 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 34 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 41 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 42 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  85 NEPR NOR M length 47 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  77 NEPR NOR M length 35 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 35 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 51 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 52 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 53 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 55 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  26 NEPR NOR M length 56 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 34 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 37 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 39 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  168 NEPR NOR M length 40 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  174 NEPR NOR M length 40 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  27 NEPR NOR M length 47 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 30 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 32 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 33 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 37 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 39 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 46 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  167 NEPR NOR M length 48 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  33 NEPR NOR M length 55 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  31 NEPR NOR M length 34 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  31 NEPR NOR M length 36 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  31 NEPR NOR M length 47 : specimen mature (STAGE  2D )outside the spawning period. Please check correctness of maturity stage.
+Warning: Haul  144 TODA SAG M length 315 : specimen mature (STAGE  3A )outside the spawning period. Please check correctness of maturity stage.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- check consistency of sex data TC by means of sex-inversion size
+In Maturity_parameters.csv table, in Tables folder, information about the sex-inversion size of the following hermaphrodite species is present: 
+PAGE ACA
+PAGE BOG
+PAGE ERY
+SPIC FLE
+SPIC SMA
+Attention: if you decide to change the sex data detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- check consistency of length distribution TC -  2019
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2019
+For some hauls the difference between estimated and observed total weight is greater than 50%. Please verify in the file Comparison_estimated_observed_weight_in_TC.csv automatically produced in the working directory
+
+----------- check correctness of species codes in -  TC - 2019
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2019
+No error occurred
+
+----------- check presence in TB of TA hauls -  2019
+No error occurred
+
+----------- check presence in TA of TB hauls -  2019
+No error occurred
+
+----------- check presence in TC of TB target species -  2019
+No error occurred
+
+----------- check presence in TB of TC species -  2019
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2019
+No error occurred
+
+----------- check correctness of date by haul in TB -  2019
+No error occurred
+
+----------- check correctness of date by haul in TC -  2019
+No error occurred
+
+----------- check correctness of date by haul in TE -  2019
+Warning: Haul 1 , code species RAJA AST : the date is not consistent with the date reported in TA.

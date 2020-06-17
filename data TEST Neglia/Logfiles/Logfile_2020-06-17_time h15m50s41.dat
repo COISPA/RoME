@@ -1,10 +1,16 @@
 
- Tue Jun 16 18:32:18 2020
+ Wed Jun 17 15:50:41 2020
 -------------------------------------------------------------
 
               LIST OF ERRORS
               
 -------------------------------------------------------------
+
+----------- check on YEAR field 
+No error occurred
+
+----------- check on TYPE_OF_FILE field 
+No error occurred
 
 ----------- check identical records -  2019
 TA: 
@@ -12,6 +18,8 @@ No error occurred
 TB:
 No error occurred
 TC:
+No error occurred
+TE:
 No error occurred
 TL:
 No error occurred
@@ -22,6 +30,8 @@ No error occurred
 TB:
 No error occurred
 TC:
+No error occurred
+TE:
 No error occurred
 TL:
 No error occurred
@@ -117,35 +127,4 @@ No error occurred for field COUNTRY in TC
 No error occurred for field DAY in TC
 
 ----------- check dictionary for field: MONTH - 2019
-No error occurred for field MONTH in TC
-
------------ check dictionary for field: CODEND_CLOSING - 2019
-No error occurred for field CODEND_CLOSING in TC
-
------------ check dictionary for field: PART_OF_THE_CODEND - 2019
-No error occurred for field PART_OF_THE_CODEND in TC
-
------------ check dictionary for field: SEX - 2019
-No error occurred for field SEX in TC
-
------------ check dictionary for field: LENGTH_CLASSES_CODE - 2019
-No error occurred for field LENGTH_CLASSES_CODE in TC
-
------------ check dictionary for field: COUNTRY - 2019
-No error occurred for field COUNTRY in TL
-
------------ check dictionary for field: DAY - 2019
-No error occurred for field DAY in TL
-
------------ check dictionary for field: MONTH - 2019
-No error occurred for field MONTH in TL
-
------------ check no empty fields
-TA -  2019
-No error occurred
-TB-  2019
-No error occurred
-TC-  2019
-No error occurred
-TL-  2019
-Haul  167 no value for  TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL  in TL
+Haul 109 ENGR ENC N 85 : value not allowed for MONTH in TC
