@@ -13,7 +13,8 @@ tl <- read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T)
 # colnames(tl)[which(colnames(tl)=="TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
 # tl$`TOTAL_WEIGHT_IN_THE_CATEGORY_HAUL` [1] <- ""
 # tb$TYPE_OF_FILE <- as.character(tb$TYPE_OF_FILE)
-tl$MONTH[1] <- 8
+tc$SEX[14] <- "F"
+tc$MATURITY[14] <- "3"
 
 Stratification= MEDITS::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
 TM_list= RoME::TM_list #read.csv(file=paste(wd,"\\Tables\\TM_list.csv",sep=""), sep=";", header=T)  # oppure RoME::TM_list
