@@ -22,7 +22,7 @@ check_hauls_TLTA(DataTA, DataTL,wd, suffix)
     wd <- tempdir()
     suffix="27-02-2020 18:30"
     DataTA = MEDITS::TA
-    DataTL = TL_table
+    DataTL = RoME::TL
     check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix)
 }
 }

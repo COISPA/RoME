@@ -8,11 +8,11 @@
 # Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 if (FALSE){
-  ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-  ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  # ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
+  ResultData = read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
+  ResultData$SPECIES[28]  <- "SUP"
+  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
 load("C:\\Users\\Bitetto Isabella\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\Rome\\RoME\\RoME\\data\\TM_list.rda")
 }
 
@@ -49,8 +49,9 @@ check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
   ResultSpecies=ResultSpecies[,c(which(names(ResultSpecies)=="MeditsCode"),which(names(ResultSpecies)=="CATFAU"))]
 
   if (nrow(ResultData)!=0){
+    j=28
     for (j in 1:nrow(ResultData)){
-      if ((ResultData$TYPE_OF_FILE[1]=="TB")  |(Format=="from_2012"))
+      if ((ResultData$TYPE_OF_FILE[1]=="TB") | (Format=="from_2012" & !(ResultData$TYPE_OF_FILE[1] %in% c("TC","TE"))))
       {
         Found=ResultSpecies[
           (
@@ -61,17 +62,29 @@ check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
         if (nrow(Found)==0)   {
           FoundSpecies=ResultSpecies[as.character(ResultSpecies$MeditsCode)==paste(as.character(ResultData$GENUS[j]),as.character(ResultData$SPECIES[j]),sep=""),]
           if (nrow(FoundSpecies)==0)   {
-            write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": code species", ResultData$GENUS[j] , ResultData$SPECIES[j] ," not present in MEDITS FM list in Tables directory"), file = Errors, append = TRUE)
+            write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": code species", ResultData$GENUS[j] , ResultData$SPECIES[j] ," not present in MEDITS TM list in Tables directory"), file = Errors, append = TRUE)
           } else {
-            write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": species", ResultData$GENUS[j] , ResultData$SPECIES[j] ," wrong FAUNISTIC_CATEGORY according to MEDITS FM list in Tables directory"), file = Errors, append = TRUE)
+            write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": species", ResultData$GENUS[j] , ResultData$SPECIES[j] ," wrong FAUNISTIC_CATEGORY according to MEDITS TM list in Tables directory"), file = Errors, append = TRUE)
           }
 
         }
-      }  else if (ResultData$TYPE_OF_FILE[1]=="TC") # type of file = TC
+      }
+
+      if (ResultData$TYPE_OF_FILE[1]=="TC") # type of file = TC
       {
         FoundSpecies=ResultSpecies[as.character(ResultSpecies$MeditsCode)==paste(as.character(ResultData$GENUS[j]),as.character(ResultData$SPECIES[j]),sep=""),]
         if (nrow(FoundSpecies)==0)   {
-          write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ," not present in MEDITS FM list in", as.character(ResultData$TYPE_OF_FILE[j])), file = Errors, append = TRUE)
+          write(paste("Haul",ResultData$HAUL_NUMBER[j],": code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ," not present in MEDITS TM list in", as.character(ResultData$TYPE_OF_FILE[j])), file = Errors, append = TRUE)
+          numberError = numberError +1
+        }
+
+      }
+
+      if (ResultData$TYPE_OF_FILE[1]=="TE") # type of file = TE
+      {
+        FoundSpecies=ResultSpecies[as.character(ResultSpecies$MeditsCode)==paste(as.character(ResultData$GENUS[j]),as.character(ResultData$SPECIES[j]),sep=""),]
+        if (nrow(FoundSpecies)==0)   {
+          write(paste("Haul",ResultData$HAUL_NUMBER[j],": code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ," not present in MEDITS TM list in", as.character(ResultData$TYPE_OF_FILE[j])), file = Errors, append = TRUE)
           numberError = numberError +1
         }
 

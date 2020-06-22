@@ -13,15 +13,16 @@ check_identical_records<-function(Data,wd,suffix){
   check_without_errors = FALSE
 
   if (FALSE){
-    wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-    Data = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
-    Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
-
-    Data <- Data[Data$YEAR ==2018 , ]
+    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
+    # suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    # Data = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+    Data = read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
+    Data$MATURITY [28] <- 2
+    Data$MATSUB[28] <- "D"
+    # Data <- Data[Data$YEAR ==2018 , ]
 
     # check_identical_records(Data, wd, suffix)
   }

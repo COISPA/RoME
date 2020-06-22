@@ -30,7 +30,7 @@ TB$TYPE_OF_FILE[1] <- "TC"
 # TEST END --------------------------------------------------------
 
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,stages=mat_stages,assTL=assTL){
+RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,stages=RoME::mat_stages,assTL=assTL){
 
   stringsAsFactors=FALSE
   Format <- "from_2012"
@@ -903,7 +903,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check consistency of maturity stages TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_mat_stages(ResultDataTC, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=mat_stages)
+  check_without_errors = check_mat_stages(ResultDataTC, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=stages)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -1027,6 +1027,17 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
+
+
+  checkName = "Check consistency of maturity stages TE"
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    check_without_errors = check_mat_stages(ResultDataTE, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=stages)
+  }
+  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
+
+
+
   checkName = "Cross check on number between TC and TE"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
@@ -1034,12 +1045,6 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-  checkName = "Check consistency of maturity stages TE"
-  if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_mat_stages(ResultDataTE, wd, suffix, DataTargetSpecies=DataTargetSpecies,DataSpecies=TM_list,stages=mat_stages)
-  }
-  if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
   checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
   if (check_without_errors == TRUE) {

@@ -20,9 +20,9 @@ The function returns always TRUE because the outcome of the function is a warnin
     library(RoME)
     wd <- tempdir()
     suffix="27-02-2020 18:30"
-    DataTA = MEDITS::TA
-    DataTL = TL_table
-    check_hauls_TATL<-function(DataTA,DataTL,wd,suffix)
+    DataTA = RoME::TA
+    DataTL = RoME::TL
+    check_hauls_TATL(DataTA,DataTL,wd,suffix)
 }
 }
 

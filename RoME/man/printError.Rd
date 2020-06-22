@@ -19,8 +19,8 @@ Description of the error is reported in the logfile and/or in the console.
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-\donttest{
-...
+\dontrun{
+printError(funname,check_without_errors, stop_)
 }
 }
 \keyword{error}

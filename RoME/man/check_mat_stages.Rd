@@ -16,7 +16,7 @@ DataSpecies = RoME::TM_list, stages = RoME::mat_stages)
   \item{stages}{data frame with the list of allowed maturity stages for faunistic category as defined by the mat_stages dataset included in the package}
 }
 \details{The check on maturity stage is performed for all the species using the new TM list, where selachians and bony fish are distinguished.}
-\value{The function returns TRUE if no error occurs, while FALSE is returned when inconsistences in the maturity stages are detected. This function also gives a warning message, because it is difficult to define for all GSAs the year of passing from the "old" MEDITS maturity scale to the current MEDITS scale.}
+\value{The function returns TRUE if no error occurs, while FALSE is returned when inconsistences in the maturity stages are detected. This function also gives a warning message, because it is difficult to define for all GSAs the year of passing from the "old" MEDITS maturity scale to the current MEDITS scale. Furthermore, the function returns an error (FALSE value) in case the faunistic category reported in the TC (or TE) table is present in the TM the one expected for the given species.}
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{

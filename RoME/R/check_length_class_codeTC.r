@@ -7,7 +7,7 @@
 ############################################################################################################################
 #  Check if LENGTH_CLASSES_CODE is correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_length_class_codeTC<-function(DataTC,Specieslist=TM_list, wd,suffix){
+check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list, wd,suffix){
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir()

@@ -15,9 +15,9 @@ if (FALSE){
   wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" #tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix= NA #paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #DataTC = MEDITS::TC
-  Data$MATURITY [28] <- 2
-  Data$MATSUB[28] <- "D"
-  check_mat_stages(Result, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
+  # Data$MATURITY [28] <- 2
+  # Data$MATSUB[28] <- "D"
+  check_mat_stages(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
 }
 
 
@@ -64,7 +64,7 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
   ResultData$maturity=ifelse(is.na(ResultData$MATSUB)==FALSE,paste(ResultData$MATURITY,ResultData$MATSUB,sep=""),ResultData$MATURITY)
   }
 
-  i=1
+  i=3
   for (i in 1:nrow(ResultData)){
     if (Format=="before_2012"){
       #if (ResultData$YEAR[1]<2012){
@@ -86,44 +86,27 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
         stages_err = stages[as.character(stages$FAUNISTIC_CATEGORY)==cat_fau_one     & as.character(stages$SEX)== as.character(ResultData$SEX[i])  & as.character(stages$MEDITS_STAGE)== as.character(ResultData$maturity[i]),]
       }
 
-      if (nrow(stages_err) == 0
+        if (nrow(stages_err) == 0) {
           #particular case of NEPRNOR and sex 0 for males crustaceans before 2006
-          |  ( (cat_fau_one == "B") & (ResultData$species[i] != "NEPRNOR") & (as.character(ResultData$SEX[i]) == "F") & (ResultData$MATURITY[i] == 3)) )
+           if  (!( (cat_fau_one == "B") & (ResultData$species[i] == "NEPRNOR") & (as.character(ResultData$SEX[i]) == "F") & (ResultData$MATURITY[i] == 3)) )
 
-      {
-
-        if ( (cat_fau_one == "Bst") & (as.character(ResultData$SEX[i]) == "M")  & ( (ResultData$MATURITY[i] == 0) | is.na(ResultData$MATURITY[i]) ) & (ResultData$YEAR[i]> 2006))     {
-            if (is.na(ResultData$MATSUB[i])){
+                  {
                       write(paste("Warning: Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-            }  else {
-                          write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-                                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],ResultData$MATSUB[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-                        }
-
-        } else  if (!(cat_fau_one == "Bst" & as.character(ResultData$SEX[i]) == "M"  & ResultData$MATURITY[i] == 0)) {
-          write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),": maturity stage not allowed ",ResultData$species[i], ResultData$SEX[i] ,
-                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i]," according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-          numberError <- numberError + 1
-        }
-
-        # if (is.na(ResultData$MATSUB[i])){
-        #   write(paste("Warning: Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-        #               ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)  } else
-        #               {
-        #                 write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-        #                             ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],ResultData$MATSUB[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
-        #               }
-
-
+                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],ResultData$MATSUB[i],", FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+                  }
+                } else {
+                   if (ResultData$FAUNISTIC_CATEGORY[i] != cat_fau_one){
+                       write(paste("Error: ",ResultData$species[i], ", faunistic category '",ResultData$FAUNISTIC_CATEGORY[i],"' not expected in ",ResultData$TYPE_OF_FILE[1]," table."), file = Errors, append = TRUE)
+                       numberError <- numberError + 1
+                     }
       }
 
-    }   else {
-      write(paste(ResultData$species[i], ": in MATURITY_STAGES table (Tables directory) is not set the faunistic category. For checking the maturity stages, fill in the field FAUNISTIC_CATEGORY in that table."), file = Errors, append = TRUE)
-    }     # ciclo catfau non nullo
-  }            # ciclo for
+    }
 
-  }
+
+  }  # ciclo for
+
+  }            # (nrow(ResultData)!=0)
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)

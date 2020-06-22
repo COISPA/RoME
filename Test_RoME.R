@@ -14,8 +14,8 @@ tl <- read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T)
 # tl$`TOTAL_WEIGHT_IN_THE_CATEGORY_HAUL` [1] <- ""
 # tb$TYPE_OF_FILE <- as.character(tb$TYPE_OF_FILE)
 
-tc$MATURITY [28] <- 2
-tc$MATSUB[28] <- "D"
+te$MATURITY [2] <- 5
+# te$MATSUB[2] <- "D"
 # ta$WING_OPENING [12] <- 1165
 
 Stratification= MEDITS::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
