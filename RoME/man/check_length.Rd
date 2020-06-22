@@ -11,7 +11,7 @@
 }
 \details{The function checks whether the length classes by species are included in the range reported in the DataSpecies dataset. When DataSpecies is NA the DataTargetSpecies dataset (included in the package) is used by default.}
 \value{
-The function returns always TRUE because the outcome of the function is a warning that does not lock the execution of the RoME checks. If the length classes in TC table (biological data table) are not consistent with DataSpecies dataset (or DataTargetSpecies if DataSpecies is NA) a warning message is given in the logfile.
+The function returns TRUE (warning message in logfile) in case of LENGTH_CLASS value out of the allowed range. If the length classes in TC table (biological data table) are not consistent with DataSpecies dataset (or DataTargetSpecies if DataSpecies is NA) a warning message is given in the logfile. Furthermore, the function returns FALSE in case the value in the LENGTH_CLASS field is empty, exiting with an error message.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}

@@ -15,7 +15,8 @@ if (FALSE){
   wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" #tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   suffix= NA #paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #DataTC = MEDITS::TC
-
+  Data$MATURITY [28] <- 2
+  Data$MATSUB[28] <- "D"
   check_mat_stages(Result, wd, suffix, DataTargetSpecies=RoME::DataTargetSpecies,DataSpecies=RoME::TM_list,stages=RoME::mat_stages)
 }
 
@@ -72,7 +73,7 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
       cat_fau_one = as.character(cat_fau[cat_fau$MeditsCode==ResultData$species[i],]$CATFAU)
     }
     if (length(cat_fau_one)==1){      # !=0
-      if( (ResultData$YEAR[i] > 2006) & (ResultData$YEAR[i] < 2012))  {
+      if ( (ResultData$YEAR[i] > 2006) & (ResultData$YEAR[i] < 2012))  {
         #cat_fau_one = ifelse (cat_fau_one=="Ae","S",cat_fau_one)
         #ResultData$maturity=ifelse(is.na(ResultData$MATSUB)==FALSE,paste(ResultData$MATURITY,ResultData$MATSUB,sep=""),ResultData$MATURITY)
         stages_err = stages[as.character(stages$FAUNISTIC_CATEGORY)==cat_fau_one      & as.character(stages$SEX)== as.character(ResultData$SEX[i])  & as.character(stages$MEDITS_STAGE)== as.character(ResultData$maturity[i]),]
@@ -91,15 +92,19 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
 
       {
 
-        if ( (cat_fau_one == "B") & (as.character(ResultData$SEX[i]) == "M")  & ( (ResultData$MATURITY[i] == 0) | is.na(ResultData$MATURITY[i]) ) & (ResultData$YEAR[i]> 2006))     {
-          if (is.na(ResultData$MATSUB[i])){
-            write(paste("Warning: Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
-                        ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)  } else
-                        {
+        if ( (cat_fau_one == "Bst") & (as.character(ResultData$SEX[i]) == "M")  & ( (ResultData$MATURITY[i] == 0) | is.na(ResultData$MATURITY[i]) ) & (ResultData$YEAR[i]> 2006))     {
+            if (is.na(ResultData$MATSUB[i])){
+                      write(paste("Warning: Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
+                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+            }  else {
                           write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),ResultData$species[i], ResultData$SEX[i] ,
                                       ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i],ResultData$MATSUB[i],"FAUNISTIC_CATEGORY, SEX and MATURITY inconsistent according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                         }
 
+        } else  if (!(cat_fau_one == "Bst" & as.character(ResultData$SEX[i]) == "M"  & ResultData$MATURITY[i] == 0)) {
+          write(paste("Haul",as.character(ResultData$HAUL_NUMBER[i]),": maturity stage not allowed ",ResultData$species[i], ResultData$SEX[i] ,
+                      ResultData$LENGTH_CLASS[i], ResultData$MATURITY[i]," according to MEDITS INSTRUCTIONS MANUAL in", ResultData$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          numberError <- numberError + 1
         }
 
         # if (is.na(ResultData$MATSUB[i])){
