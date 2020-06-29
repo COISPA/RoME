@@ -10,24 +10,27 @@
 
 
 if (FALSE){
-  # ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA= read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
+  wd <- "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\" # tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+    # ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
+  ResultDataTA= read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T) # MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
 
-  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+  suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
+#
+#   ResultDataTA = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
+#
+#   ResultDataTA$BOTTOM_TEMPERATURE_BEGINNING[1] <- NA
 
-  ResultDataTA = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
-
-  ResultDataTA$BOTTOM_TEMPERATURE_BEGINNING[1] <- NA
-
-  # check_temperature(MEDITS::TA,wd,suffix)
+  check_temperature(ResultDataTA,wd,suffix)
 }
 
 check_temperature <- function (ResultDataTA,wd,suffix){
-  oldpar <- par()
+  oldpar$mfrow <- par()$mfrow
+  oldpar$mai <- par()$mai
+  oldpar$omi <- par()$omi
+
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
@@ -105,7 +108,7 @@ if (length(end_temp) > 0) {
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[indices],Dataset$HAULING_DEPTH[indices]))
 
   tiff(filename=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-  par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
+  par( mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8)) #
   X=mean_depth
   Y=mean_temp
   #plot(X,Y,xlab="Mean depth (m)",ylab="Mean temperature (?C)",col="blue",pch=16)
@@ -115,7 +118,7 @@ if (length(end_temp) > 0) {
 
   dev.off()
 
-  on.exit(suppressWarnings(par(oldpar)))
+  on.exit(par(mfrow=oldpar$mfrow, omi=oldpar$omi, mai=oldpar$mai))
 
   write("Temperature check: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
   }

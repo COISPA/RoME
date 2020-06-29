@@ -11,15 +11,12 @@
 
 
 if (FALSE){
-  ResultDataTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
+  wd <- "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\"
+  ResultDataTB = read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
   #ResultDataTB= MEDITS::TB # ResultDataTB[ResultDataTB$YEAR==2017,]
 
-  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  # check_weight(ResultDataTB,DataTargetSpecies,wd,suffix)
+  suffix=NA
+  check_weight(ResultDataTB,DataTargetSpecies,wd,suffix)
 
   }
 
@@ -54,7 +51,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
   Weight=DataTargetSpecies #read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)
 
   #queryData= paste("SELECT TYPE_OF_FILE, HAUL_NUMBER, GENUS, SPECIES,TOTAL_WEIGHT_IN_THE_HAUL,TOTAL_NUMBER_IN_THE_HAUL from Result where HAUL_NUMBER is not null order by HAUL_NUMBER", sep="")
-  ResultData= Result[sort(Result$HAUL_NUMBER),c("TYPE_OF_FILE", "HAUL_NUMBER", "GENUS", "SPECIES","TOTAL_WEIGHT_IN_THE_HAUL","TOTAL_NUMBER_IN_THE_HAUL")] #sqldf(queryData)
+  ResultData = Result[order(Result$HAUL_NUMBER),c("TYPE_OF_FILE", "HAUL_NUMBER", "GENUS", "SPECIES","TOTAL_WEIGHT_IN_THE_HAUL","TOTAL_NUMBER_IN_THE_HAUL")] #sqldf(queryData)
 
   ResultData$species=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
 

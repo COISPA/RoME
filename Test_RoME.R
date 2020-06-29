@@ -2,19 +2,19 @@
 
 library(RoME)
 
-wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
+wd <- "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\"
 suffix=NA  # non modificare
-ta <- read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T)
-tb <- read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T)
-tc <- read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T)
-te <- read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
-tl <- read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # puoi mettere NA
+ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
+tb <- read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
+tc <- read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T)
+te <- NA # read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
+tl <- NA # read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # puoi mettere NA
 #
 # colnames(tl)[which(colnames(tl)=="TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
 # tl$`TOTAL_WEIGHT_IN_THE_CATEGORY_HAUL` [1] <- ""
 # tb$TYPE_OF_FILE <- as.character(tb$TYPE_OF_FILE)
 
-te$MATURITY [2] <- 5
+# te$MATURITY [2] <- 5
 # te$MATSUB[2] <- "D"
 # ta$WING_OPENING [12] <- 1165
 
