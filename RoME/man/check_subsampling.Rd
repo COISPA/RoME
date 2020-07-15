@@ -1,7 +1,7 @@
 \name{check_subsampling}
 \alias{check_subsampling}
 \title{
-Function to warng the user about the presence of subsamples <0.1 of the total catch.
+Function to warn the user about the presence of subsamples <0.1 of the total catch.
 }
 \description{
 Check if the sub-sample is smaller than the 10 percent of the total weight in the haul.

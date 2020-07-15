@@ -1,7 +1,7 @@
 \name{check_TE_TC}
 \alias{check_TE_TC}
 \title{
-Function to verify the consistency between individual data table (TE) and biological data table (TC) respect to numbe rof individuals.}
+Function to verify the consistency between individual data table (TE) and biological data table (TC) respect to number of individuals.}
 \description{
 Check if the individuals by species, length, sex and maturity stage reported in TE are less than the number reported in TC}
 \usage{

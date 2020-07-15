@@ -674,7 +674,7 @@ if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop
 #-------------------------------------
 
 #-------------------------------------
-# Check no empty fields TA
+# Check no empty fields
 
 checkName = "Check no empty fields TA"
 if (check_without_errors == TRUE) {
@@ -751,7 +751,7 @@ if (check_without_errors == TRUE) {
 }
 if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-checkName = "Check consistency of the hauls coordinates with the distance(difference not greater than 30%)"
+checkName = "Check consistency of the hauls coordinates with the distance (difference not greater than 30%)"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_distance(ResultDataTA, wd, suffix)
@@ -807,7 +807,7 @@ if (check_without_errors == TRUE) {
 }
 if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-checkName = "Relation between shooting depth e warp length and between warp length e wing opening"
+checkName = "Relation between shooting depth and warp length, and between warp length and wing opening"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   graphs_TA(ResultDataTA,wd,suffix)

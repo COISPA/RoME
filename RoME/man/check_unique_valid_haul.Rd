@@ -2,7 +2,7 @@
 \alias{check_unique_valid_haul}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Function checking that smong hauls with the same code, only one must be valid.}
+Function checking that among hauls with the same code, only one must be valid.}
 \description{Check the presence of unique valid haul codes.}
 \usage{
 check_unique_valid_haul(ResultDataTA,wd,suffix)

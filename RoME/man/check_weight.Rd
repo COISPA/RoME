@@ -1,9 +1,10 @@
 \name{check_weight}
 \alias{check_weight}
 \title{
-Function that checks if number of individuals and total weight collected in the haul are consistent.}
+Function that checks if number of individuals and total weight collected in the haul are consistent.
+}
 \description{
-The total weight and total number in the haul have to be consistent. The check is quantitative if there is information related to averageindividual weight. Alternatively the check is qualitative (through a plot).}
+The total weight and total number in the haul have to be consistent. The check is quantitative if there is information related to average individual weight. Alternatively the check is qualitative (through a plot).}
 \usage{
   check_weight(ResultDataTB,DataTargetSpecies,wd,suffix)
 }

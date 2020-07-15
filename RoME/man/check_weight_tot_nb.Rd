@@ -16,7 +16,7 @@ check_weight_tot_nb(ResultDataTB,wd,suffix)
   \item{suffix}{Suffix string of the Logfile}
 }
 \details{
-In this check RoME verifies  if for the records with total weight not null, there is a total number not null, except for categories V, G, H, D and E, as reported in MEDITS manual.
+In this check RoME verifies if for the records with total weight not null, there is a total number not null, except for categories V, G, H, D and E, as reported in MEDITS manual.
 }
 \value{
 The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the RoME checks.
