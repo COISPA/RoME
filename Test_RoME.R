@@ -2,7 +2,7 @@
 
 library(RoME)
 
-wd <- "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\"
+wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\Test Loredana"
 suffix=NA  # non modificare
 ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
 tb <- read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)

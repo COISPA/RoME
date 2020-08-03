@@ -27,6 +27,8 @@ if (FALSE){
 }
 
 check_temperature <- function (ResultDataTA,wd,suffix){
+
+  oldpar <- par(no.readonly = TRUE)
   oldpar$mfrow <- par()$mfrow
   oldpar$mai <- par()$mai
   oldpar$omi <- par()$omi
