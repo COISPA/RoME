@@ -1,6 +1,6 @@
 \name{check_no_empty_fields}
 \alias{check_no_empty_fields}
-\title{Check empty fields in TA,TB,TC}
+\title{Check empty fields in TA, TB, TC, TE and TL}
 \description{All the fields, except to HYDROLOGICAL_STATION and OBSERVATIONS, must be not empty for valid hauls}
 \usage{
 check_no_empty_fields(Data, wd, suffix)

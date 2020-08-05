@@ -14,6 +14,9 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
+    DataTA[12,]
+    DataTA[12,"DAY"] <- 24
+
     Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
     Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
     Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";") # MEDITS::TA
@@ -59,12 +62,12 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
   }
 
 
-Dataset$Date = paste (Dataset$HAUL_NUMBER, "-",Dataset$MONTH,"-",Dataset$DAY,sep="")
+Dataset$Date = paste (Dataset$HAUL_NUMBER, "-",Dataset$DAY,"-",Dataset$MONTH,"-",Dataset$YEAR ,sep="")
 TA_df =DataTA
-TA_df$Date = paste (TA_df$HAUL_NUMBER,"-",TA_df$MONTH,"-",TA_df$DAY,sep="")
-
+TA_df$Date = paste (TA_df$HAUL_NUMBER,"-",TA_df$DAY,"-",TA_df$MONTH,"-",TA_df$YEAR,sep="")
+i=463
 for (i in 1:nrow(Dataset)){
-  if( !(Dataset$Date[i] %in% TA_df$Date)) {
+  if ( !(Dataset$Date[i] %in% TA_df$Date)) {
   if (Dataset$TYPE_OF_FILE[1] != "TL"){
     write(paste("Haul",Dataset$HAUL_NUMBER[i],", code species", Dataset$GENUS[i] , Dataset$SPECIES[i] ,": the date is not consistent with the date reported in TA."), file = Errors, append = TRUE)
     numberError = numberError+1
@@ -73,13 +76,13 @@ for (i in 1:nrow(Dataset)){
     numberError = numberError+1
   }
 }
-  if (numberError ==0) {
+}
+
+ if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
-}
-
 }

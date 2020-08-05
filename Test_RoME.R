@@ -16,7 +16,7 @@ tl <- NA # read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", head
 
 # te$MATURITY [2] <- 5
 # te$MATSUB[2] <- "D"
-# ta$WING_OPENING [12] <- 1165
+ta$DAY [12] <- 12
 
 Stratification= MEDITS::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
 TM_list= RoME::TM_list #read.csv(file=paste(wd,"\\Tables\\TM_list.csv",sep=""), sep=";", header=T)  # oppure RoME::TM_list
