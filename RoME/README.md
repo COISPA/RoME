@@ -8,12 +8,12 @@
 COISPA Tecnologia & Ricerca, Stazione Sperimentale per lo Studio delle
 Risorse del Mare <!-- badges: start --> <!-- badges: end -->
 
-**RoME** package integrate a list of common quality checks on survey
+**RoME** package integrates a list of common quality checks on survey
 data. The main function *RoME()* calls all the functions built in the
 package in an ordered way to perform a complete quality check of TX data
 available. The order of the checks in *RoME* was implemented in a
 defined sequence to avoid cascade errors due to the correction of a
-previous error. The function does not correct the data it self, but it
+previous error. The function does not correct the data itself, but it
 detects the errors, warning the user that there is the possibility of
 one or more errors, specifying the type of the error and easing the data
 correction. RoME stops if an error occurs; then the user has to correct
