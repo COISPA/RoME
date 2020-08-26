@@ -59,6 +59,9 @@ ResultDataTC_temp = ResultDataTC[ResultDataTC$Species == G1_G2[spe,],]
 if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
+unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+#unlink(file.path(tempdir(),"Graphs"),recursive=T)
+#unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
     return(TRUE)
 

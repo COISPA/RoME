@@ -76,7 +76,11 @@ check_distance<-function(DataTA, wd, suffix){
   # on.exit(suppressWarnings(par(oldpar)))
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
   options(warn=-1)
+unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
   return(TRUE)
+
 }
 ################################################################################

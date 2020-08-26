@@ -91,4 +91,8 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
     print(e)
   })
 
-}
+  #unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  #unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+
+  }

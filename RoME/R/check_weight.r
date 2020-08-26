@@ -162,6 +162,10 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
 
   on.exit(suppressWarnings(par(oldpar)))
 
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+
 
   if (numberError ==0) {
     return(TRUE)

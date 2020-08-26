@@ -259,6 +259,9 @@ check_identical_records<-function(Data,wd,suffix){
       check_without_errors = TRUE
     }
   }
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  #unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
   return(check_without_errors)
 }

@@ -25,7 +25,7 @@ The file Comparison_estimated_observed_weight_in_TC.csv is automatically saved i
 \examples{
     wd <- tempdir()
     suffix="27-02-2020 18:30"
-    TC = RoME::TC
+    TC = RoME::TC[1:20,]
     check_individual_weightTC(DataTC=TC, wd=wd, suffix=suffix)
 }
 

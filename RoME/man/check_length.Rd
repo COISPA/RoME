@@ -19,7 +19,7 @@ The function returns TRUE (warning message in logfile) in case of LENGTH_CLASS v
 library(MEDITS)
 library(RoME)
 wd=tempdir()
-DataTC <- RoME::TC
+DataTC <- RoME::TC[1:20,]
 DataSpecies=NA
 suffix= "27-02-2020 18:30"
 check_length(DataTC,DataSpecies,wd,suffix)

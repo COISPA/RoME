@@ -42,7 +42,7 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,crea
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"/files R-Sufi",sep="/"))){
-    dir.create(file.path(wd, "/files R-Sufi"), showWarnings = FALSE)
+    dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
 
   if (is.na(suffix)){
@@ -1209,5 +1209,10 @@ if ((!stop_) & (create_RSufi_files==TRUE)){
     }
   }
   # -------------------------------------------------------
+unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+unlink(file.path(tempdir(),"Graphs"),recursive=T)
+unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+
+
 } # funzione RoME
 

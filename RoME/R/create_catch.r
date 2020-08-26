@@ -34,4 +34,7 @@ create_catch<-function(ResultDataTB,wd){
   capt[,6]=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/1000,3)
 
 write.table(capt,file=file.path(wd,"files R-Sufi",paste("captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+
+unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+
 }

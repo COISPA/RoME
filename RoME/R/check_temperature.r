@@ -128,6 +128,9 @@ if (length(end_temp) > 0) {
    if (numberError ==0) {
     write("No error occurred",file = Errors, append = TRUE)
     }
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
   if (numberError ==0) {
     return(TRUE)

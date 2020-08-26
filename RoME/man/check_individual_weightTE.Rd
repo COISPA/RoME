@@ -25,7 +25,7 @@ If for at least one record the difference between observed and estimated individ
 \donttest{
     wd <- tempdir()
     suffix="27-02-2020 18:30"
-    DataTE = RoME::TE
+    DataTE = RoME::TE[1:6,]
     check_individual_weightTE(DataTE, wd=wd, suffix=suffix,verbose=TRUE)
     }
 }

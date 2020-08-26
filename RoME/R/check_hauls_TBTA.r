@@ -50,6 +50,9 @@ check_hauls_TBTA <- function(DataTA,DataTB,wd,suffix){
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  #unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
   if (numberError ==0) {
     return(TRUE)

@@ -159,9 +159,14 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     write(paste("No error occurred for field", Field, "in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
   }
 
-  if (numberError ==0) {
+unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+
+if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
+
+  #unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
 }
 ################################################################################

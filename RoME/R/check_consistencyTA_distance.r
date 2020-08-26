@@ -22,6 +22,7 @@ check_consistencyTA_distance<-function(DataTA, wd, suffix){
   }
 
   numberError = 0
+
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
@@ -41,10 +42,13 @@ check_consistencyTA_distance<-function(DataTA, wd, suffix){
   }
 
 
+    #unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
   if (numberError ==0) {
     write("No error occurred",file = Errors, append = TRUE)
-    return(TRUE)
+    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+return(TRUE)
   } else { return(FALSE) }
 
 }

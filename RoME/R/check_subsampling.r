@@ -51,9 +51,13 @@ write(paste("Warning: Year", ResultTCpivot$YEAR[ii], "Haul",ResultTCpivot$HAUL_N
 
 }
 
+  # unlink(file.path(tempdir(),"Graphs"),recursive=T)
+   #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+
   # check sum per sex
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
+    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
     return(TRUE)
   } else { return(FALSE) }
 

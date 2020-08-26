@@ -221,6 +221,10 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
 
   }
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+ # unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+
 
 return(check_without_errors)
 }

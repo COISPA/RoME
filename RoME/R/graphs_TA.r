@@ -58,5 +58,7 @@ graphs_TA<-function(DataTA,wd,suffix){
   dev.off()
 
   write("Qualitative check TA: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
-
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 }

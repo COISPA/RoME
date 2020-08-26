@@ -138,6 +138,9 @@ dev.off()
     write("For some records the difference between estimated and observed individual weight is greater than 20%. Please verify in the file TE_with_estimated_weights.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }
   on.exit(suppressWarnings(par(oldpar)))
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
   if (numberError_==0){
   return(TRUE)
