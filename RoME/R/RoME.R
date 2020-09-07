@@ -1209,9 +1209,16 @@ if ((!stop_) & (create_RSufi_files==TRUE)){
     }
   }
   # -------------------------------------------------------
-unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-unlink(file.path(tempdir(),"Graphs"),recursive=T)
-unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+  if (file.exists(file.path(tempdir(), "Logfiles"))){
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+    }
+	if (file.exists(file.path(tempdir(), "Graphs"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
+	
 
 
 } # funzione RoME

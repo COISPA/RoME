@@ -109,7 +109,7 @@ if (length(end_temp) > 0) {
 
   mean_depth = rowMeans(cbind(Dataset$SHOOTING_DEPTH[indices],Dataset$HAULING_DEPTH[indices]))
 
-  tiff(filename=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  tiff(filename=file.path(wd,"Graphs",paste("temperature_control_", Dataset$YEAR[1], "_AREA_",Dataset$AREA[1],".tiff",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
   par( mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8)) #
   X=mean_depth
   Y=mean_temp
@@ -128,10 +128,15 @@ if (length(end_temp) > 0) {
    if (numberError ==0) {
     write("No error occurred",file = Errors, append = TRUE)
     }
+   if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
   unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-
+    }
+	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }

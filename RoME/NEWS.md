@@ -17,5 +17,15 @@ Fixes 0.1.2
 Fixes 0.1.3
 -----
 1. Eliminated  Namespace with empty importFrom: 'grDevices'
-2. Corrected the wrong pintsieze in function check_position.
+2. Corrected the wrong pintsize in function check_position.
 3. Eliminated the folders created in all the RoME functions from the tempdir.
+
+Fixes 0.1.4
+-----
+1. Corrected the wrong pintsize in function check_temperature.
+2. Revised again for eliminating the folders created in all the RoME functions from the tempdir.
+
+Fixes 0.1.5
+-----
+1. Corrected the wrong pintsize in function check_weight.
+

@@ -83,10 +83,15 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
 
     write("For some hauls the difference between estimated and observed total weight is greater than 50%. Please verify in the file Comparison_estimated_observed_weight_in_TC.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }
+   if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  #unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+    }
+	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
   return(TRUE)
 
 

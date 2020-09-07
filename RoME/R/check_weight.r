@@ -39,7 +39,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
   }
 
 
-  Errors <- file.path(wd,"/Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
 
 
@@ -133,7 +133,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
       }
 
       if (i<=20){
-        tiff(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+        tiff(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
         par(mfrow=c(3,2), mai=c(0.6,0.6,0.6,0.6), omi=c(0.8,0.8,1,0.8))
         for (m in (6*i-5):(nb_loops)) {
           X=ResultData[ResultData$species==present_true$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
@@ -162,10 +162,15 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
 
   on.exit(suppressWarnings(par(oldpar)))
 
+   if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
   unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-
+    }
+	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
 
   if (numberError ==0) {
     return(TRUE)

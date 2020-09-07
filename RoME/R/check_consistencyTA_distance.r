@@ -47,7 +47,15 @@ check_consistencyTA_distance<-function(DataTA, wd, suffix){
 
   if (numberError ==0) {
     write("No error occurred",file = Errors, append = TRUE)
-    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+      if (file.exists(file.path(tempdir(), "Logfiles"))){
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+    }
+	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
 return(TRUE)
   } else { return(FALSE) }
 

@@ -206,7 +206,8 @@ create_length<-function(ResultData,DataSpecies=RoME::TM_list,wd){
 
 
   write.table(Matrix,file=rSufiString, col.names=TRUE, row.names=FALSE, quote=FALSE, sep=";", append=FALSE)
+  if (file.exists(file.path(tempdir(),"files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-
+}
   #write.csv(Matrix,file=rSufiString, row.names=FALSE, quote=FALSE, sep=";")
   }

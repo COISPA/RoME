@@ -44,7 +44,8 @@ create_strata<-function(Stratification=MEDITS::stratification_scheme,AREA,wd){
   write.table(strates,file=file.path(wd,"files R-Sufi",paste("strates_GSA",AREA,".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
   #odbcClose(channel)
   #unlink(paste(Stratification,".xls", sep = ""))
+  if (file.exists(file.path(tempdir(),"files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-
+}
 }
 ###########################################################################################################################

@@ -221,10 +221,15 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
 
   }
+   if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
- # unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+    }
+	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
 
 return(check_without_errors)
 }

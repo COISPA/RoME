@@ -59,7 +59,7 @@ check_distance<-function(DataTA, wd, suffix){
     for (j in 1:nrow(ResultData)){
       if (  (ResultData$DISTANCE[j]<=ResultData$computed_distance[j]-0.3*ResultData$computed_distance[j]) | (ResultData$DISTANCE[j]>=ResultData$computed_distance[j]+0.3*ResultData$computed_distance[j])){
         write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": the distance in TA ",ResultData$DISTANCE[j],"is quite different from the computed distance",round(ResultData$computed_distance[j],4),"(haul duration:",ResultData$HAUL_DURATION[j],"min)"), file = Errors, append = TRUE)
-        tiff(file.path(wd,"Graphs",paste("haul ", ResultData[j,"HAUL_NUMBER"], " AREA ",ResultData[1,"AREA"],"_",ResultData[1,"YEAR"],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+        tiff(file.path(wd,"Graphs",paste("haul ", ResultData[j,"HAUL_NUMBER"], " AREA ",ResultData[1,"AREA"],"_",ResultData[1,"YEAR"],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
         par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
         plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Haul",ResultData[j,"HAUL_NUMBER"],"-",ResultData[j,"YEAR"]))
         maps::map("world", fill=T, col="yellow",add=T)
@@ -76,10 +76,16 @@ check_distance<-function(DataTA, wd, suffix){
   # on.exit(suppressWarnings(par(oldpar)))
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
   options(warn=-1)
-unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  #unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 
+  if (file.exists(file.path(tempdir(), "Logfiles"))){
+  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
+  unlink(file.path(tempdir(),"Graphs"),recursive=T)
+    }
+	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
   return(TRUE)
 
 }
