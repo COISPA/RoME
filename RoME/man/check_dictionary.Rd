@@ -20,6 +20,7 @@
     Field = "COURSE"
     Values = c("R","N")
     DataTA = MEDITS::TA
+    library(RoME)
     check_dictionary(ResultData = DataTA, Field, Values, wd, suffix)
 }
 

@@ -26,6 +26,7 @@ The function returns always TRUE, because the outcome of the function is a warni
 library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time h17m44s55"
+library(RoME)
 check_bridles_length(MEDITS::TA, wd, suffix)
 }
 \keyword{error}

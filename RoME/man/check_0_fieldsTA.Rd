@@ -17,6 +17,7 @@ The function checks the presence of 0 fields in the following haul data table (T
 library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time h17m44s55"
+library(RoME)
 check_0_fieldsTA(MEDITS::TA,wd,suffix)
 }
 

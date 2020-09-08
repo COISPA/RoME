@@ -32,7 +32,7 @@ The function returns TRUE if no error occurs, while FALSE is returned when there
     DataTC = RoME::TC
     DataTE = RoME::TE
     DataTL = RoME::TL
-
+    library(RoME)
     check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
 }
 

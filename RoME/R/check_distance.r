@@ -85,7 +85,12 @@ check_distance<-function(DataTA, wd, suffix){
     }
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+	}
+  
+  if (file.exists(file.path(tempdir()))){
+    dev.off()
+    unlink(file.path(tempdir(),list.files(tempdir())),recursive=T)
+  }
   return(TRUE)
 
 }
