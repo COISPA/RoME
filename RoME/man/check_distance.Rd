@@ -1,4 +1,4 @@
-\name{check_distance}
+l\name{check_distance}
 \alias{check_distance}
 \title{Check of distance consistency}
 \description{

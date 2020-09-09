@@ -12,9 +12,10 @@
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
     DataTA = MEDITS::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
+    #DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
     check_distance(DataTA,wd,suffix)
-  }
+ }
+
 check_distance<-function(DataTA, wd, suffix){
   # oldpar <- par(no.readonly = TRUE)
 
@@ -24,10 +25,12 @@ check_distance<-function(DataTA, wd, suffix){
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
+  
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
+  
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   ResultData = DataTA
@@ -50,10 +53,15 @@ check_distance<-function(DataTA, wd, suffix){
   oldoptions <- options()$warn
   old_par <- list()
   old_par$mfrow <- par()$mfrow
+ 
   old_par$mar <-par()$mar
+
   old_par$fin <-par()$fin
+  
   old_par$mai <- par()$mai
+  
   old_par$omi <- par()$omi
+ 
 
   if (nrow(ResultData)!=0){
     for (j in 1:nrow(ResultData)){
@@ -86,11 +94,16 @@ check_distance<-function(DataTA, wd, suffix){
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 	}
-  
-  if (file.exists(file.path(tempdir()))){
-    dev.off()
-    unlink(file.path(tempdir(),list.files(tempdir())),recursive=T)
+  dev.off()
+ 
+   if (file.exists(file.path(tempdir()))){
+    
+    for (i in 1:length(list.files(tempdir()))){
+      
+    unlink(file.path(tempdir(),list.files(tempdir())[i]),recursive=F)
+    }
   }
+  
   return(TRUE)
 
 }
