@@ -25,12 +25,12 @@ check_distance<-function(DataTA, wd, suffix){
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
-  
+
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
-  
+
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   ResultData = DataTA
@@ -53,15 +53,15 @@ check_distance<-function(DataTA, wd, suffix){
   oldoptions <- options()$warn
   old_par <- list()
   old_par$mfrow <- par()$mfrow
- 
+
   old_par$mar <-par()$mar
 
   old_par$fin <-par()$fin
-  
+
   old_par$mai <- par()$mai
-  
+
   old_par$omi <- par()$omi
- 
+
 
   if (nrow(ResultData)!=0){
     for (j in 1:nrow(ResultData)){
@@ -90,20 +90,21 @@ check_distance<-function(DataTA, wd, suffix){
   }
   if (file.exists(file.path(tempdir(), "Graphs"))){
   unlink(file.path(tempdir(),"Graphs"),recursive=T)
-    }
+  }
+
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 	}
   dev.off()
- 
+
    if (file.exists(file.path(tempdir()))){
-    
+
     for (i in 1:length(list.files(tempdir()))){
-      
-    unlink(file.path(tempdir(),list.files(tempdir())[i]),recursive=F)
+
+    unlink(file.path(tempdir(),list.files(tempdir())[i]),recursive=T)
     }
   }
-  
+
   return(TRUE)
 
 }
