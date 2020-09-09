@@ -51,16 +51,17 @@ check_distance<-function(DataTA, wd, suffix){
   img_width <- 12
   img_height <- img_width * ratio
   oldoptions <- options()$warn
-  old_par <- list()
-  old_par$mfrow <- par()$mfrow
-
-  old_par$mar <-par()$mar
-
-  old_par$fin <-par()$fin
-
-  old_par$mai <- par()$mai
-
-  old_par$omi <- par()$omi
+  old_par <- list(deleteFile=TRUE)
+  old_par <- par()
+  # old_par$mfrow <- par()$mfrow
+  #
+  # old_par$mar <-par()$mar
+  #
+  # old_par$fin <-par()$fin
+  #
+  # old_par$mai <- par()$mai
+  #
+  # old_par$omi <- par()$omi
 
 
   if (nrow(ResultData)!=0){
@@ -82,7 +83,8 @@ check_distance<-function(DataTA, wd, suffix){
   write(paste("No error occurred"), file = Errors, append = TRUE)
 
   # on.exit(suppressWarnings(par(oldpar)))
-  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
+  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions),
+            unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)))
   options(warn=-1)
 
   if (file.exists(file.path(tempdir(), "Logfiles"))){
@@ -95,14 +97,30 @@ check_distance<-function(DataTA, wd, suffix){
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 	}
+
   dev.off()
+  unlink(old_par)
+
 
    if (file.exists(file.path(tempdir()))){
+     wd <- getwd()
+     dirl <- list.dirs(path = tempdir(), full.names = TRUE, recursive = TRUE)
+     i=1
+    for (i in 1:length(dirl)){
+    setwd(dirl[i])
 
-    for (i in 1:length(list.files(tempdir()))){
-
-    unlink(file.path(tempdir(),list.files(tempdir())[i]),recursive=T)
+    unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
     }
+     if (file.exists(file.path(tempdir()))){
+       dirl <- list.dirs(path = tempdir(), full.names = TRUE, recursive = TRUE)
+       i=1
+       for (i in 1:length(dirl)){
+         setwd(dirl[i])
+         unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
+       }
+
+  setwd (wd)
+  }
   }
 
   return(TRUE)
