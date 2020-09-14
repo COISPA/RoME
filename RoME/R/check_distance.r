@@ -99,29 +99,29 @@ check_distance<-function(DataTA, wd, suffix){
 	}
 
   dev.off()
-  unlink(old_par)
+  #unlink(old_par)
+  unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
 
-
-   if (file.exists(file.path(tempdir()))){
-     wd <- getwd()
-     dirl <- list.dirs(path = tempdir(), full.names = TRUE, recursive = TRUE)
-     i=1
-    for (i in 1:length(dirl)){
-    setwd(dirl[i])
-
-    unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
-    }
-     if (file.exists(file.path(tempdir()))){
-       dirl <- list.dirs(path = tempdir(), full.names = TRUE, recursive = TRUE)
-       i=1
-       for (i in 1:length(dirl)){
-         setwd(dirl[i])
-         unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
-       }
-
-  setwd (wd)
-  }
-  }
+  #  if (file.exists(file.path(tempdir()))){
+  #    wd <- getwd()
+  #    dirl <- list.dirs(path = tempdir(), full.names = TRUE, recursive = TRUE)
+  #    i=1
+  #   for (i in 1:length(dirl)){
+  #   setwd(dirl[i])
+  # 
+  #   unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
+  #   }
+  #    if (file.exists(file.path(tempdir()))){
+  #      dirl <- list.dirs(path = tempdir(), full.names = TRUE, recursive = TRUE)
+  #      i=1
+  #      for (i in 1:length(dirl)){
+  #        setwd(dirl[i])
+  #        unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
+  #      }
+  # 
+  # setwd (wd)
+  # }
+  # }
 
   return(TRUE)
 

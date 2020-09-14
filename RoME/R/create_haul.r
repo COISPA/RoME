@@ -25,9 +25,7 @@ create_haul<-function(ResultDataTA,wd,suffix){
 
 
 
-   if (!file.exists(file.path(wd,"Graphs"))){
-     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
-   }
+   
    if (!file.exists(file.path(wd,"files R-Sufi"))){
      dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
    }
@@ -70,6 +68,7 @@ create_haul<-function(ResultDataTA,wd,suffix){
     }
   }
   write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+  
 if (file.exists(file.path(tempdir(),"files R-Sufi"))){
 
 unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)

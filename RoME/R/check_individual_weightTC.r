@@ -17,7 +17,8 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
     verbose=TRUE
     # check_individual_weightTC(DataTC=DataTC, wd=wd, suffix=suffix, verbose=TRUE)
   }
-
+  
+  
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
@@ -91,7 +92,12 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
     }
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+	}
+  
+  
+    unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
+  
+  
   return(TRUE)
 
 

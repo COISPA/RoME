@@ -18,6 +18,6 @@ check_position_in_Med(DataTA, wd, suffix)
 library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time h17m44s55"
-check_position_in_Med(MEDITS::TA,wd,suffix)
+c
 }
 \keyword{ error }

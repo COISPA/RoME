@@ -27,5 +27,10 @@ Fixes 0.1.4
 
 Fixes 0.1.5
 -----
-1. Corrected the wrong pintsize in function check_weight.
+1. Corrected the wrong pointsize in function check_weight.
+
+Fixes 0.1.6
+-----
+1. Eliminated detritus from the temporary directories.
+
 

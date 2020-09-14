@@ -98,7 +98,7 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
   }
 
   # scatter plots
-  ii=1
+  #ii=1
 for (ii in 1: length(species_to_plot)){
 TE_temp1 = TE[paste(TE$GENUS,TE$SPECIES)==species_to_plot[ii] ,]
 if (nrow(TE_temp1)!=0){
@@ -146,7 +146,10 @@ dev.off()
     }
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+	}
+  
+  unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
+  
   if (numberError_==0){
   return(TRUE)
   } else {

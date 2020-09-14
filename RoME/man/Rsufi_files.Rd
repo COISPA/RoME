@@ -30,7 +30,7 @@ create_haul(TA,wd)
 create_catch(TB,wd)
 create_length(TC,TM_list,wd)
 create_strata(stratification_scheme,"10",wd)
-RSufi_files(2007,2007,"10",wd)
+# RSufi_files(2007,2007,"10",wd) # run only if you are working outside a temporary directory
 }
 \keyword{R-sufi}
 \keyword{global files}

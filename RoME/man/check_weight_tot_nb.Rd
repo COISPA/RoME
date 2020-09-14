@@ -32,7 +32,8 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "27-02-2020 18:30"
-check_weight_tot_nb(TB,wd,suffix)}
+check_weight_tot_nb(TB,wd,suffix)
+}
 \keyword{numberl}
 \keyword{weight}
 \keyword{not null}

@@ -23,7 +23,7 @@ check_hauls_TLTA(DataTA, DataTL,wd, suffix)
     suffix="27-02-2020 18:30"
     DataTA = MEDITS::TA
     DataTL = RoME::TL
-    check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix)
+    check_hauls_TLTA(DataTA,DataTL,wd,suffix)
 }
 }
 \keyword{ error }
