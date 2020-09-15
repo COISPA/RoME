@@ -29,6 +29,9 @@ graphs_TA<-function(DataTA,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   oldoptions <- options()$warn
   old_par <- list()

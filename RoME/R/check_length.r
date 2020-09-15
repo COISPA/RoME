@@ -30,6 +30,9 @@ check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   Result = DataTC
   write(paste("\n----------- check consistency of length classes TC - ",Result$YEAR[1]), file = Errors, append = TRUE)
@@ -75,7 +78,7 @@ check_length<-function(DataTC,DataSpecies=NA,wd,suffix){
     write(paste("No error occurred"), file = Errors, append = TRUE)
     unlink("length.csv")
   }
-  
+
    if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   }

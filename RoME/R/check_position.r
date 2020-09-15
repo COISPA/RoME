@@ -32,6 +32,9 @@ check_position<-function(DataTA,wd,suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultData = DataTA
   ResultData=ResultData[ResultData$VALIDITY=="V",]

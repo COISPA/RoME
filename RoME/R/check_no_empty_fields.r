@@ -32,6 +32,9 @@ check_no_empty_fields<-function(Data,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   Matrix = Data
   if ((Data[1,"TYPE_OF_FILE"] == "TA") == TRUE)  {

@@ -28,6 +28,9 @@ check_G1_G2 <- function (DataTC, wd, suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultDataTC = DataTC
   write(paste("\n----------- check presence of lengths for G1 and G2 species in TC - ",ResultDataTC$YEAR[1]), file = Errors, append = TRUE)

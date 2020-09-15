@@ -26,6 +26,9 @@ check_hauls_TATL<-function(DataTA,DataTL,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   #### CHECK TL FIELDS ####
   {

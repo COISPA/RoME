@@ -37,6 +37,9 @@ check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   Result = ResultDataTA # read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
   write(paste("\n----------- check uniqueness of valid hauls TA - ",Result$YEAR[1]), file = Errors, append = TRUE)

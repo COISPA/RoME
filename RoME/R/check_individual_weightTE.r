@@ -35,6 +35,9 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   TE <- DataTE
 
@@ -147,9 +150,9 @@ dev.off()
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 	}
-  
+
   unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
-  
+
   if (numberError_==0){
   return(TRUE)
   } else {

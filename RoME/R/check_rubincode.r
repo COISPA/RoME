@@ -29,6 +29,9 @@ check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   if (ResultData$TYPE_OF_FILE[1] == "TB") {
      write(paste("\n----------- check correctness of species codes in TB - ", ResultData$YEAR[1]), file = Errors, append = TRUE)

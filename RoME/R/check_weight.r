@@ -40,7 +40,9 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
 
 
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
-
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
 
    numberError = 0

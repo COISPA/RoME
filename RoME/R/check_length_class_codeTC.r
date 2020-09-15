@@ -27,6 +27,9 @@ check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list, wd,suffix)
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultData = DataTC
   write(paste("\n----------- check correctness of LENGTH_CLASSES_CODE in TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)

@@ -26,8 +26,11 @@ check_nbtotTB<-function(DataTB, wd, suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
-  Errors <- paste(wd,"\\Logfiles\\Logfile_",suffix,".dat",sep="")
+
   Matrix = DataTB #read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
   write(paste("\n----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB - ", Matrix$YEAR[1]), file = Errors, append = TRUE)
   Err_vec=which(round(Matrix$TOTAL_NUMBER_IN_THE_HAUL,6)!=round(Matrix$NB_OF_FEMALES + Matrix$NB_OF_MALES + Matrix$NB_OF_UNDETERMINED,6))

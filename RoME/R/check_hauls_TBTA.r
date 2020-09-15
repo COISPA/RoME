@@ -29,6 +29,9 @@ check_hauls_TBTA <- function(DataTA,DataTB,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultTB = DataTB
   write(paste("\n----------- check presence in TA of TB hauls - ", ResultTB$YEAR[1]), file = Errors, append = TRUE)

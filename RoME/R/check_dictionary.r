@@ -35,7 +35,9 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
-
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   Result = ResultData
     write(paste("\n----------- check dictionary for field:", Field, "-", Result$YEAR[1]), file = Errors, append = TRUE)
@@ -168,7 +170,7 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
     }
-	
+
 if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }

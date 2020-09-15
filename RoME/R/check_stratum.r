@@ -34,6 +34,9 @@ check_stratum<-function(ResultData,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
   write(paste("\n----------- check start depth and end depth in the same stratum TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)

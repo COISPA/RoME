@@ -32,6 +32,9 @@ check_position_in_Med<-function(DataTA,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultData = DataTA
 

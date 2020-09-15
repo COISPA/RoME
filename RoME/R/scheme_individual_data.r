@@ -31,6 +31,9 @@ scheme_individual_data <- function(DataTC,DataTE,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultDataTC <- DataTC
   ResultDataTC$Species <- paste(ResultDataTC$GENUS,ResultDataTC$SPECIES)
@@ -83,7 +86,7 @@ write.table(mat_fin, file = file.path(wd,paste("sampling_individual_measures_",R
   if (file.exists(file.path(tempdir(), "Graphs"))){
   unlink(file.path(tempdir(),"Graphs"),recursive=T)
     }
-	
+
   #if (numberError ==0) {
     return(TRUE)
   #} else { return(FALSE) }

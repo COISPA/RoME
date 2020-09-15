@@ -29,6 +29,9 @@ check_nb_per_sexTC <- function(DataTC,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   Result = DataTC
   write(paste("\n----------- check consistency of number per sex in TC - ", Result$YEAR[1]), file = Errors, append = TRUE)

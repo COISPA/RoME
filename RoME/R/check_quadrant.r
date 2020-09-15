@@ -26,6 +26,9 @@ check_quadrant<-function(ResultDataTA,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultData = ResultDataTA
   write(paste("\n----------- check start quadrant and end quadrant TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)

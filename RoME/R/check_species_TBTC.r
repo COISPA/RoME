@@ -34,6 +34,9 @@ DataTargetSpecies=RoME::DataTargetSpecies
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   write(paste("\n----------- check presence in TC of TB target species - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
 

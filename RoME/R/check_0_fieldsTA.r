@@ -26,7 +26,9 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
-
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   write(paste("\n----------- check 0 fields TA"), file = Errors, append = TRUE)
   Matrix = DataTA # read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
@@ -65,7 +67,7 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
    if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   }
- 
+
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }

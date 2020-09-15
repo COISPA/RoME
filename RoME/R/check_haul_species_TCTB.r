@@ -35,7 +35,8 @@ check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 
   if (!file.exists(Errors)){
-    file.create(Errors) }
+    file.create(Errors)
+    }
 
 
   ResultTC = DataTC

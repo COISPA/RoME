@@ -29,6 +29,9 @@ check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_paramete
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
     write(paste("\n----------- check consistency of maturity stages", ResultData$TYPE_OF_FILE[1]," by means of the comparison with the lenght of smallest mature individuals in bibliography - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
   ResultData$Species = paste(ResultData$GENUS,ResultData$SPECIES)

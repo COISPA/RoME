@@ -32,6 +32,9 @@ check_distance<-function(DataTA, wd, suffix){
   }
 
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultData = DataTA
   write(paste("\n----------- check consistency of the hauls coordinates with the distance - ", ResultData$YEAR[1]), file = Errors, append = TRUE)
@@ -108,7 +111,7 @@ check_distance<-function(DataTA, wd, suffix){
   #    i=1
   #   for (i in 1:length(dirl)){
   #   setwd(dirl[i])
-  # 
+  #
   #   unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
   #   }
   #    if (file.exists(file.path(tempdir()))){
@@ -118,7 +121,7 @@ check_distance<-function(DataTA, wd, suffix){
   #        setwd(dirl[i])
   #        unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
   #      }
-  # 
+  #
   # setwd (wd)
   # }
   # }

@@ -34,6 +34,9 @@ check_mat_stages<-function(Data, wd, suffix, DataTargetSpecies=RoME::DataTargetS
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   ResultData = Data
   write(paste(" ----------- check consistency of maturity stages in ",ResultData$TYPE_OF_FILE[1],"-", ResultData$YEAR[1]), file = Errors, append = TRUE)

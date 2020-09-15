@@ -27,6 +27,9 @@ check_sex_inversion<-function(Data,Maturity_parameters,wd,suffix){
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
   write(paste("\n----------- check consistency of sex data TC by means of sex-inversion size"), file = Errors, append = TRUE)
 

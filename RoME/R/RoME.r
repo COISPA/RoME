@@ -49,6 +49,9 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,crea
     suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
   write(paste("\n ",date(),sep=""), file = Errors, append = TRUE)
 
 
@@ -1218,7 +1221,7 @@ if ((!stop_) & (create_RSufi_files==TRUE)){
 	if (file.exists(file.path(tempdir(), "Graphs"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
     }
-	
+
 
 
 } # funzione RoME

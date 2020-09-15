@@ -32,6 +32,9 @@ check_stratum_code <- function (ResultDataTA,Stratification=MEDITS::stratificati
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
    Dataset = ResultDataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";",header=TRUE)
    write(paste("\n----------- check correctness of stratum code - ",Dataset$YEAR[1]), file = Errors, append = TRUE)

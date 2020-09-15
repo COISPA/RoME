@@ -30,6 +30,9 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Ma
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
 
     write(paste("\n----------- check consistency of maturity stages",ResultDataTC$TYPE_OF_FILE[1],"by means of spawning season information - ",ResultDataTA$YEAR[1]), file = Errors, append = TRUE)
 

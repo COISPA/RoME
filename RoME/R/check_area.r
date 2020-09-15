@@ -30,7 +30,9 @@ check_area <- function(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
-
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
   #### CHECK TL FIELDS ####
   {
     if ("LITTER_SUB.CATEGORY" %in% colnames(DataTL)){
@@ -107,7 +109,7 @@ if (  (all(is.na(DataTE)) & length(DataTE)==1  ) & (all(is.na(DataTL)) & length(
     if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   }
-  
+
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
