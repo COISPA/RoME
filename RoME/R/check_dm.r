@@ -8,6 +8,7 @@
 # Check consistency of wing ad vertical opening in TA according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 check_dm<-  function(DataTA,wd,suffix){
+
   if (FALSE){
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
@@ -20,6 +21,7 @@ check_dm<-  function(DataTA,wd,suffix){
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
+
   numberError = 0
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
@@ -59,11 +61,10 @@ check_dm<-  function(DataTA,wd,suffix){
   }
 
 
-
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
-  
+
     if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   }
@@ -73,7 +74,7 @@ check_dm<-  function(DataTA,wd,suffix){
 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
     }
-	
+
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }

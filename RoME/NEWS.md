@@ -33,4 +33,10 @@ Fixes 0.1.6
 -----
 1. Eliminated detritus from the temporary directories.
 
+Fixes 0.1.7
+-----
+1. Changed the reference version of R indicated in the file DESCRIPTION.
 
+Fixes 0.1.8
+-----
+1. Solved the error in check_dm for saving the Logfile.

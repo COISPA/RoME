@@ -19,9 +19,12 @@ check_dm(DataTA, wd, suffix)
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
+\donttest{library(MEDITS)
 library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time h17m44s55"
 check_dm(MEDITS::TA,wd,suffix)
+}
+
 }
 \keyword{ error }
