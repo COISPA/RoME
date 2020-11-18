@@ -13,7 +13,7 @@ if (FALSE){
     Result = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
 
     wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-    suffix= NA # "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix= NA # "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     check_quasiidentical_records(Result,wd,suffix)
 }
 
@@ -27,7 +27,7 @@ check_quasiidentical_records<-function(Result,wd,suffix){
   }
 
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))

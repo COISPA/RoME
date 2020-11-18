@@ -19,7 +19,7 @@ The function returns always TRUE because the outcome of the function is a warnin
 \donttest{
     library(RoME)
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time_h17m44s55"
     DataTA = RoME::TA
     DataTL = RoME::TL
     check_hauls_TATL(DataTA,DataTL,wd,suffix)

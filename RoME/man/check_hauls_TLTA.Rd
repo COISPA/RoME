@@ -20,7 +20,7 @@ check_hauls_TLTA(DataTA, DataTL,wd, suffix)
 \donttest{
     library(RoME)
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time_h17m44s55"
     DataTA = MEDITS::TA
     DataTL = RoME::TL
     check_hauls_TLTA(DataTA,DataTL,wd,suffix)

@@ -22,7 +22,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
     # str(assTL)
     # save(assTL, file="data/assTL.rda")
 
-    suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTL = read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) #read.table("D:\\Documents and Settings\\Utente\\Documenti\\__ DATI MEDITS AGGIORNATI __\\BKP\\GSA18 - 2018\\NUOVI\\2018 completo TL.csv", sep=";", header=T)
     # colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
     # check_associations_category_TL(DataTL, assTL, wd, suffix)
@@ -36,7 +36,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
   numberError = 0
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
   if (!file.exists(Errors)){

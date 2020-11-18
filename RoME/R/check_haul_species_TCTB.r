@@ -13,7 +13,7 @@ check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTB = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     DataTB <- DataTB[DataTB$YEAR == 2018, ]
@@ -29,7 +29,7 @@ check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
 
   numberError = 0
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
 
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))

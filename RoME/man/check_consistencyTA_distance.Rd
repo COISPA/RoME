@@ -21,7 +21,7 @@ The function returns a boolean value. It is FALSE in case one or more distances 
 \examples{
 library(MEDITS)
 wd=tempdir()
-suffix="2020-03-05_time h17m44s55"
+suffix="2020-03-05_time_h17m44s55"
 library(RoME)
 check_consistencyTA_distance(MEDITS::TA,wd,suffix)
 }

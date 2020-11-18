@@ -11,7 +11,7 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
 
   if (FALSE){
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     DataTA[1,"WING_OPENING"] <- 0.1
     # check_0_fieldsTA(DataTA,wd,suffix)
@@ -23,7 +23,7 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
   }
   numberError = 0
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
   if (!file.exists(Errors)){

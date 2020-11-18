@@ -27,7 +27,7 @@ I. Bitetto, W. Zupa
 \examples{
 \donttest{
     wd <- tempdir()
-    suffix="2020-03-05_time h17m44s55"
+    suffix="2020-03-05_time_h17m44s55"
     DataTC = TC
     DataTE = TE
     check_date_haul(DataTC,DataTE, wd, suffix)

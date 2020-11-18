@@ -12,7 +12,7 @@ check_nm_TB<- function (DataTB, DataTC,wd,suffix){
   if (FALSE){
     library(RoME)
     wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTB = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     DataTB = DataTB[DataTB$YEAR == 2012 ,   ]
     DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
@@ -26,7 +26,7 @@ check_nm_TB<- function (DataTB, DataTC,wd,suffix){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))

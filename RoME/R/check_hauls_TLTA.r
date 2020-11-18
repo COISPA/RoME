@@ -12,7 +12,7 @@ check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix){
   if (FALSE){
     library(RoME)
     wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTL = read.table("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";", header=T)
     DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # check_hauls_TLTA(DataTA,DataTL,wd,suffix)
@@ -22,7 +22,7 @@ check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))

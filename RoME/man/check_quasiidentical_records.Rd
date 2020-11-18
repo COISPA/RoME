@@ -35,7 +35,7 @@ I. Bitetto, W. Zupa
 \donttest{library(MEDITS)
 library(RoME)
 wd=tempdir()
-suffix= "27-02-2020 18:30"
+suffix= "2020-03-05_time_h17m44s55"
 check_quasiidentical_records(TA,wd,suffix)
 # check_quasiidentical_records(TB,wd,suffix)
 # check_quasiidentical_records(TC,wd,suffix)

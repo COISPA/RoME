@@ -32,7 +32,7 @@ The function returns FALSE in case incosistances are detected in the individual 
 \examples{
 \donttest{
     wd <- tempdir()
-    suffix="2020-03-05_time h17m44s55"
+    suffix="2020-03-05_time_h17m44s55"
     DataTE = TE
     check_nb_TE(DataTE, wd, suffix)
     }

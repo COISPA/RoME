@@ -16,7 +16,7 @@ The haul position maps are saved in the Graph directory allocated in the user de
 \examples{
 library(MEDITS)
 wd <- tempdir()
-suffix="2020-03-05_time h17m44s55"
+suffix="2020-03-05_time_h17m44s55"
 check_position(MEDITS::TA,wd,suffix)
 }
 

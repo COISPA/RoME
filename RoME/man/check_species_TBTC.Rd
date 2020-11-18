@@ -32,7 +32,7 @@ I. Bitetto, W. Zupa
 library(MEDITS)
 library(RoME)
 wd=tempdir()
-suffix= "27-02-2020 18:30"
+suffix= "2020-03-05_time_h17m44s55"
 check_species_TBTC(TB,TC,DataTargetSpecies,wd,suffix)
 }
 \keyword{cross-check TBTC}

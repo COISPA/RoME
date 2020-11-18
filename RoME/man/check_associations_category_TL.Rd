@@ -25,7 +25,7 @@ I. Bitetto, W. Zupa
 \donttest{
     library(RoME)
     wd <- tempdir()
-    suffix="2020-03-05_time h17m44s55"
+    suffix="2020-03-05_time_h17m44s55"
     DataTL = RoME::TL
     check_associations_category_TL(DataTL, assTL, wd, suffix)
 }

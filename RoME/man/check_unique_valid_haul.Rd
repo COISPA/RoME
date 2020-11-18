@@ -30,7 +30,7 @@ I. Bitetto, W. Zupa
 library(MEDITS)
 library(RoME)
 wd=tempdir()
-suffix= "27-02-2020 18:30"
+suffix= "2020-03-05_time_h17m44s55"
 check_unique_valid_haul(TA,wd,suffix)
 }
 \keyword{valid hauls}

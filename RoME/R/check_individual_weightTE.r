@@ -9,7 +9,7 @@
  if (FALSE){
     library(RoME)
     wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTE = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
     SPECIES=NA
     SEX=NA
@@ -32,7 +32,7 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
   }
   numberError = 0
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
   if (!file.exists(Errors)){

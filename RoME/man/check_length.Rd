@@ -21,7 +21,7 @@ library(RoME)
 wd=tempdir()
 DataTC <- RoME::TC[1:20,]
 DataSpecies=NA
-suffix= "27-02-2020 18:30"
+suffix= "2020-03-05_time_h17m44s55"
 check_length(DataTC,DataSpecies,wd,suffix)
 }
 \keyword{warning}

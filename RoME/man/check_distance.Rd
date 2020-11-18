@@ -31,7 +31,7 @@ All the coordinates involved in the formulas above are in decimal degrees; the r
 
 library(MEDITS)
 wd <- tempdir()
-suffix="2020-03-05_time h17m44s55"
+suffix="2020-03-05_time_h17m44s55"
 library(RoME)
 check_distance(MEDITS::TA,wd,suffix)
 }

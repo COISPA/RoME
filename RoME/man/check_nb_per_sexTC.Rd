@@ -20,7 +20,7 @@ The function returns TRUE if no error occurs, while FALSE is returned when there
 \examples{
     library(RoME)
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time_h17m44s55"
     DataTC = MEDITS::TC
     check_nb_per_sexTC(DataTC,wd,suffix)
 }

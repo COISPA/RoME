@@ -17,7 +17,7 @@
     library(RoME)
     library(MEDITS)
     wd <- tempdir()
-    suffix="27-02-2020 18:30"
+    suffix="2020-03-05_time_h17m44s55"
     DataTA <- MEDITS::TA
     DataTA <- DataTA[DataTA$YEAR ==2018 , ]
     DataTB <- MEDITS::TB

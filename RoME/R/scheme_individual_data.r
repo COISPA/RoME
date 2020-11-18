@@ -13,7 +13,7 @@ scheme_individual_data <- function(DataTC,DataTE,wd,suffix){
   if (FALSE){
     library(RoME)
     wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTC <- read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     DataTC <- DataTC[DataTC$YEAR == 2012 , ]
     DataTE <- read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
@@ -27,7 +27,7 @@ scheme_individual_data <- function(DataTC,DataTE,wd,suffix){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
   if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time h%Hm%Ms%OS0"),sep="")
+    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))

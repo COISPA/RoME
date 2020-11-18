@@ -22,7 +22,7 @@ check_dm(DataTA, wd, suffix)
 library(MEDITS)
 library(MEDITS)
 wd <- tempdir()
-suffix="2020-03-05_time h17m44s55"
+suffix="2020-03-05_time_h17m44s55"
 check_dm(MEDITS::TA,wd,suffix)
 }
 \keyword{ error }

@@ -23,7 +23,7 @@ DataSpecies = RoME::TM_list, stages = RoME::mat_stages)
 \donttest{library(RoME)
 DataTC <- RoME::TC
 wd=tempdir()
-suffix= "27-02-2020 18:30"
+suffix= "2020-03-05_time_h17m44s55"
 check_mat_stages(DataTC, wd, suffix)
 }
 }
