@@ -17,6 +17,14 @@ check_dm<-  function(DataTA,wd,suffix){
     # check_dm(DataTA,wd,suffix)
   }
 
+  if (FALSE) {
+    library(MEDITS)
+    wd <- tempdir()
+    suffix="2020-03-05_time_h17m44s55"
+    DataTA = MEDITS::TA
+    check_dm(DataTA,wd,suffix)
+  }
+
 
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)

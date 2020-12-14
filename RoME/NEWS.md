@@ -40,3 +40,13 @@ Fixes 0.1.7
 Fixes 0.1.8
 -----
 1. Solved the error in check_dm for saving the Logfile.
+
+Fixes 0.1.9
+-----
+1. Space removed from filenames of the files stored in the temporary directory.
+
+Fixes 0.1.10
+-----
+1. Addressed the ploblem of nested temporary directories in Linux.
+
+
