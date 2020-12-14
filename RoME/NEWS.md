@@ -49,4 +49,7 @@ Fixes 0.1.10
 -----
 1. Addressed the ploblem of nested temporary directories in Linux.
 
+Fixes 0.1.11
+-----
+1. Error solved in check_dm.Rd example
 
