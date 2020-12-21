@@ -1056,9 +1056,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   }
     if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
-
-
-  # questo check è nella sezione dei check dei TE ma sembra essere solo per il TC
+    # questo check è nella sezione dei check dei TE ma sembra essere solo per il TC
 
   checkName = "Check consistency of maturity stages in TE by means of spawning period"
   if (check_without_errors == TRUE) {

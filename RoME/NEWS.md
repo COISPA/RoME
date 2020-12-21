@@ -53,3 +53,8 @@ Fixes 0.1.11
 -----
 1. Error solved in check_dm.Rd example
 
+Fixes 0.1.12
+-----
+1. Solved the problems of nested temporary directories in Linux.
+
+

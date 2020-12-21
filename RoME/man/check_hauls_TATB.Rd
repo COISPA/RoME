@@ -14,6 +14,7 @@
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
+\donttest{
     library(RoME)
     library(MEDITS)
     wd <- tempdir()
@@ -23,6 +24,7 @@
     DataTB <- MEDITS::TB
     DataTB <- DataTB[DataTB$YEAR ==2018 , ]
     check_hauls_TATB(DataTA,DataTB,wd,suffix)
+}
 }
 
 \keyword{ error }

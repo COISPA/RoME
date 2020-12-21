@@ -7,7 +7,7 @@
 ############################################################################################################################
 # Check consistency of wing ad vertical opening in TA according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_dm<-  function(DataTA,wd,suffix){
+check_dm<-  function(DataTA,wd=tempdir(),suffix){
 
   if (FALSE){
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
