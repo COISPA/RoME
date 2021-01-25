@@ -27,7 +27,7 @@ check_dm<-  function(DataTA,wd=tempdir(),suffix){
 
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
   numberError = 0
@@ -36,6 +36,7 @@ check_dm<-  function(DataTA,wd=tempdir(),suffix){
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
   if (!file.exists(Errors)){
+    dir.create(file.path(wd,"Logfiles"),recursive = TRUE)
     file.create(Errors)
   }
 
