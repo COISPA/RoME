@@ -57,4 +57,12 @@ Fixes 0.1.12
 -----
 1. Solved the problems of nested temporary directories in Linux.
 
+Fixes 0.1.13
+-----
+1. Solved other problems of nested temporary directories in Linux.
+
+
+Fixes 0.1.14
+-----
+1. Fixed problems of recursive directories creation in Linux with check_dm() function.
 
