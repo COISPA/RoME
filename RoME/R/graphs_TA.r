@@ -46,7 +46,7 @@ graphs_TA<-function(DataTA,wd,suffix){
 
   ResultData = DataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
   ResultData=ResultData[ResultData$VALIDITY=="V",]
-  tiff(filename=file.path(wd,"Graphs",paste("qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",ResultData$AREA[1],".tif",sep="")),width=8, height=12, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
+  tiff(filename=file.path(wd,"Graphs",paste("qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",ResultData$AREA[1],".tif",sep="")),width=8, height=12, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
   par(mfrow=c(2,1), mai=c(0.3,0.8,0.8,0.3), omi=c(0.8,0.8,1,0.8))
   X=ResultData$SHOOTING_DEPTH
   Y=ResultData$WARP_LENGTH

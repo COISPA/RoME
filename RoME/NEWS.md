@@ -5,7 +5,6 @@ Bitetto Isabella - COISPA
 
 Fixes 0.1.1
 -----
-
 1. "windows" was eliminated from NAMESPACE;
 2. The spelling of GSAs, (7:102, 7:427), MEDITS (3:45, 7:80, 7:148, 7:216, 7:320, 7:449), RoME (7:270, 7:388) is verified and its correctness is confirmed;
 3. The time for running examples is due to the number of functions involved in the package.
@@ -61,8 +60,7 @@ Fixes 0.1.13
 -----
 1. Solved other problems of nested temporary directories in Linux.
 
-
 Fixes 0.1.14
 -----
-1. Fixed problems of recursive directories creation in Linux with check_dm() function.
+1. Fixed problems of recursive directories creation in Debian with check_dm() function.
 
