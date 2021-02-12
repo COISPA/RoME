@@ -14,6 +14,6 @@
 \references{http://www.fao.org/gfcm/data/maps/gsas/en/}
 \examples{
 data(MedSea)
-## maybe str(MedSea) ; plot(MedSea) ...
+plot(MedSea)
 }
 \keyword{datasets}

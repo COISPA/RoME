@@ -21,6 +21,6 @@ Table of the length-weight relationship coefficients reported by species, area a
 Table of the length-weight relationship coefficients a and b.}
 \examples{
 data(LW)
-## maybe str(LW) ; plot(LW) ...
+str(LW)
 }
 \keyword{datasets}

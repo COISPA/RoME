@@ -26,6 +26,6 @@ Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{http
 }
 \examples{
 data(assTL)
-## maybe str(assTL) ; plot(assTL) ...
+str(assTL)
 }
 \keyword{datasets}

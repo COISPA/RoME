@@ -33,6 +33,7 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 }
 \examples{
 data(TM_list)
-## maybe str(TM_list) ; plot(TM_list) ...
+str(TM_list)
+head(TM_list)
 }
 \keyword{datasets}

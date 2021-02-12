@@ -20,6 +20,7 @@ http://www.fao.org/gfcm/data/maps/gsas/en/
 http://www.fao.org/gfcm/data/maps/gsas/en/}
 \examples{
 data(GSAs)
-## maybe str(GSAs) ; plot(GSAs) ...
+str(GSAs)
+head(GSAs)
 }
 \keyword{datasets}
