@@ -19,7 +19,7 @@ Maturity_parameters,DataTargetSpecies,wd,suffix)
 \details{
 In this checks are involved the information stored in Maturity_parameters data.frame about the L50 and spawning period is used.)}
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the RoME checks.
+The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks.
 }
 \references{
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm

@@ -11,8 +11,9 @@ The function checks the presence of 0 fields in the following haul data table (T
     }
 
 \value{The function returns a boolean value. It is FALSE in case 0 values are detected in the TA table's fields}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
-\author{I. Bitetto, W. Zupa}
+\references{Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{http://www.sibm.it/MEDITS 2011/principaledownload.htm}{http://www.sibm.it/MEDITS 2011/principaledownload.htm}}
+\author{Isabella Bitetto [aut,cre] <bitetto@coispa.it>;
+        Walter Zupa [aut, cre] <zupa@coispa.it>}
 \examples{
 library(MEDITS)
 wd <- tempdir()

@@ -1,12 +1,3 @@
-############################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
-#   March 2020                                                                                                             #
-############################################################################################################################
-# Check corretness of association between category and sub-category in TL consistent according to INSTRUCTION MANUAL VERSION 9
-# MEDITS 2017
 
 check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
@@ -31,7 +22,7 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
 
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
   numberError = 0

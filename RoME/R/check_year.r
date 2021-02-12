@@ -4,7 +4,7 @@ check_year <- function(TA, TB, TC,TE,TL, years, wd, Errors){
   Format="from_2012"
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)

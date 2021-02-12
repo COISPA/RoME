@@ -1,11 +1,4 @@
-############################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
-#   March 2020                                                                                                             #
-############################################################################################################################
-# Visual check of the haul positions
+
 if (FALSE){
     library(RoME)
     wd <- tempdir()
@@ -21,7 +14,7 @@ check_position<-function(DataTA,wd,suffix){
 
 
   if (!file.exists(file.path(wd,"Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -53,17 +46,20 @@ check_position<-function(DataTA,wd,suffix){
   old_par$fin <-par()$fin
   old_par$mai <- par()$mai
   old_par$omi <- par()$omi
+  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
 
-
+ suppressWarnings(  {
   ### HAUL POSITIONS ###
 
   tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+
       par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
       plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
       maps::map("world", fill=T, col="yellow",add=T)
       points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
       points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
       legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )
+
   dev.off()
 
   ### STARTING POSITIONS ###
@@ -88,8 +84,9 @@ check_position<-function(DataTA,wd,suffix){
 
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
-  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
-  options(warn=-1)
+      }
+  )
+
 
    if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)

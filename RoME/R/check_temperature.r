@@ -32,10 +32,11 @@ check_temperature <- function (ResultDataTA,wd,suffix){
   oldpar$mfrow <- par()$mfrow
   oldpar$mai <- par()$mai
   oldpar$omi <- par()$omi
+  on.exit(par(mfrow=oldpar$mfrow, omi=oldpar$omi, mai=oldpar$mai))
 
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -121,8 +122,6 @@ if (length(end_temp) > 0) {
   text(X+0.1,Y,labels=Dataset$HAUL_NUMBER)
 
   dev.off()
-
-  on.exit(par(mfrow=oldpar$mfrow, omi=oldpar$omi, mai=oldpar$mai))
 
   write("Temperature check: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
   }

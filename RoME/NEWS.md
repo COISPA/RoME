@@ -64,3 +64,8 @@ Fixes 0.1.14
 -----
 1. Fixed problems of recursive directories creation in Debian with check_dm() function.
 
+Fixes 0.1.15
+-----
+1. Revision of Documentation Rd files following the .
+2. Recision of contributors description in Documentation file
+

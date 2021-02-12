@@ -24,10 +24,10 @@ if (FALSE){
 check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   oldpar <- par()
-
+  on.exit(suppressWarnings(par(oldpar)))
 
   if (!file.exists(file.path(wd,"Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
   if (!exists("suffix")){
@@ -162,7 +162,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
-  on.exit(suppressWarnings(par(oldpar)))
+
 
    if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)

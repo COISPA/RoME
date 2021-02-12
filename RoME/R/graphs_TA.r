@@ -1,11 +1,3 @@
-############################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
-#   March 2020                                                                                                             #
-############################################################################################################################
-# Qualitative control (by means of 2 graphs) of relation between shooting depth e warp opening and between warp length e wing opening
 
 graphs_TA<-function(DataTA,wd,suffix){
 
@@ -19,7 +11,7 @@ graphs_TA<-function(DataTA,wd,suffix){
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -40,10 +32,10 @@ graphs_TA<-function(DataTA,wd,suffix){
   old_par$fin <-par()$fin
   old_par$mai <- par()$mai
   old_par$omi <- par()$omi
-
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
-  options(warn=-1)
 
+suppressWarnings(
+{
   ResultData = DataTA #read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
   ResultData=ResultData[ResultData$VALIDITY=="V",]
   tiff(filename=file.path(wd,"Graphs",paste("qualitative_control_TA_", ResultData$YEAR[1], "_AREA_",ResultData$AREA[1],".tif",sep="")),width=8, height=12, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
@@ -59,7 +51,8 @@ graphs_TA<-function(DataTA,wd,suffix){
   text(Z+0.1,H,labels=ResultData$HAUL_NUMBER)
   mtext(paste("Warp length"),side=1)
   dev.off()
-
+}
+)
   write("Qualitative check TA: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
   if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)

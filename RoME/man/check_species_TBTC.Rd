@@ -20,7 +20,7 @@ check_species_TBTC(ResultTB,ResultTC,DataSpecies,wd,suffix)
 This function gives a warning message, thus the execution is not stopped when some target species are lacking in TC; the user is informed in the Logfile.
 }
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the RoME checks.
+The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks.
 }
 \references{
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm

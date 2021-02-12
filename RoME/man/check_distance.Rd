@@ -21,14 +21,13 @@ and
 \cr
 \if{html}{\figure{distance03.png}{options: width="25\%"}}
 \if{latex}{\figure{distance03.png}}\cr
-All the coordinates involved in the formulas above are in decimal degrees; the routine converts automatically the coordinates listed in TA using the package MEDITS.
+All the coordinates involved in the formulas above are in decimal degrees; the routine converts automatically the coordinates listed in TA using the package 'MEDITS'.
 }
-\value{The function returns always TRUE because the outcome of the function is a warning that does not lock the execution of the RoME checks. The presence of inconsistencies between DISTANCE field and computed distance is reported in the logfile stored in the "Logfiles"" subdirectory of the "wd" user-defined directory. For the hauls with a computed distance quite different from the distance recorded in TA a plot is produced and stored in Graphs directory to allow an easier correction.
+\value{The function returns always TRUE because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks. The presence of inconsistencies between DISTANCE field and computed distance is reported in the logfile stored in the "Logfiles"" subdirectory of the "wd" user-defined directory. For the hauls with a computed distance quite different from the distance recorded in TA a plot is produced and stored in Graphs directory to allow an easier correction.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-
 library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time_h17m44s55"

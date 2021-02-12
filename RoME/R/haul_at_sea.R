@@ -1,7 +1,3 @@
-# MedSea <- shapefile("D:\\GIS\\vettori\\GSA\\GFCM - GSA - shp\\GSAs\\gsas (11_unita)2.shp")
-# save(MedSea, file="data/MedSea.rda", compress="xz")
-
-
 
 haul_at_sea <- function(DataTA, seas=RoME::MedSea, verbose=TRUE) {
 
@@ -9,20 +5,20 @@ haul_at_sea <- function(DataTA, seas=RoME::MedSea, verbose=TRUE) {
 
   start_coord <- data[ , colnames(data) %in% c("HAUL_NUMBER","AREA","YEAR","MONTH","DAY","SHOOTING_LONGITUDE","SHOOTING_LATITUDE","SHOOTING_QUADRANT")]
   end_coord <- data[ , colnames(data) %in% c("HAUL_NUMBER","AREA","YEAR","MONTH","DAY","HAULING_LONGITUDE","HAULING_LATITUDE","HAULING_QUADRANT")]
-  sp::coordinates(start_coord) <- ~ SHOOTING_LONGITUDE + SHOOTING_LATITUDE
-  sp::coordinates(end_coord) <- ~ HAULING_LONGITUDE + HAULING_LATITUDE
+  suppressWarnings(sp::coordinates(start_coord) <- ~ SHOOTING_LONGITUDE + SHOOTING_LATITUDE)
+  suppressWarnings(sp::coordinates(end_coord) <- ~ HAULING_LONGITUDE + HAULING_LATITUDE)
   # proj4string(MedSea) <- CRS("+proj=longlat")
-  sp::proj4string(start_coord) <- sp::proj4string(seas)
-  sp::proj4string(end_coord) <- sp::proj4string(seas)
+  suppressWarnings(sp::proj4string(start_coord) <- sp::proj4string(seas))
+  suppressWarnings(sp::proj4string(end_coord) <- sp::proj4string(seas))
 
-  res_start <- sp::over(start_coord,seas)
+  suppressWarnings(res_start <- sp::over(start_coord,seas))
   start_coord$over <- res_start$sel
   start_coord <- as.data.frame(start_coord)
   start_coord <- start_coord[is.na(start_coord$over),]
 
 
 
-  res_end <- sp::over(end_coord, seas)
+  suppressWarnings(res_end <- sp::over(end_coord, seas))
   end_coord$over <- res_end$sel
   end_coord <- as.data.frame(end_coord)
   end_coord <- end_coord[is.na(end_coord$over),]

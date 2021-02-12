@@ -11,7 +11,7 @@ printError(funname,check_without_errors, stop_)
 \arguments{
 \item{funname}{name of the check function.}
 \item{check_without_errors}{TRUE if there is no error, FALSE if there is any error.}
-\item{stop_}{TRUE if the RoME function has to stop, FALSE if the run should continue}
+\item{stop_}{TRUE if the 'RoME' function has to stop, FALSE if the run should continue}
 }
 \value{
 Description of the error is reported in the logfile and/or in the console.

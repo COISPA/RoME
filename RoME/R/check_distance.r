@@ -1,11 +1,4 @@
-############################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
-#   March 2020                                                                                                             #
-############################################################################################################################
-#  Check consistency of the hauls coordinates with the distance
+
 
  if (FALSE){
     #library(MEDITS)
@@ -20,7 +13,7 @@ check_distance<-function(DataTA, wd, suffix){
   # oldpar <- par(no.readonly = TRUE)
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -56,17 +49,9 @@ check_distance<-function(DataTA, wd, suffix){
   oldoptions <- options()$warn
   old_par <- list(deleteFile=TRUE)
   old_par <- par()
-  # old_par$mfrow <- par()$mfrow
-  #
-  # old_par$mar <-par()$mar
-  #
-  # old_par$fin <-par()$fin
-  #
-  # old_par$mai <- par()$mai
-  #
-  # old_par$omi <- par()$omi
-
-
+  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),
+            unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)))
+suppressWarnings(
   if (nrow(ResultData)!=0){
     for (j in 1:nrow(ResultData)){
       if (  (ResultData$DISTANCE[j]<=ResultData$computed_distance[j]-0.3*ResultData$computed_distance[j]) | (ResultData$DISTANCE[j]>=ResultData$computed_distance[j]+0.3*ResultData$computed_distance[j])){
@@ -82,13 +67,13 @@ check_distance<-function(DataTA, wd, suffix){
       }
     }
   }
+)
   write("Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the .tiff files in Graphs directory",file = Errors, append = TRUE)
   write(paste("No error occurred"), file = Errors, append = TRUE)
 
   # on.exit(suppressWarnings(par(oldpar)))
-  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions),
-            unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)))
-  options(warn=-1)
+
+
 
   if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
@@ -102,7 +87,6 @@ check_distance<-function(DataTA, wd, suffix){
 	}
 
   dev.off()
-  #unlink(old_par)
   unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
 
   #  if (file.exists(file.path(tempdir()))){

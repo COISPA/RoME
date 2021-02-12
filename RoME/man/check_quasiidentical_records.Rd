@@ -36,9 +36,15 @@ I. Bitetto, W. Zupa
 library(RoME)
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
+
+# example using TA table
 check_quasiidentical_records(TA,wd,suffix)
-# check_quasiidentical_records(TB,wd,suffix)
-# check_quasiidentical_records(TC,wd,suffix)
+
+# example using TB table
+check_quasiidentical_records(TB,wd,suffix)
+
+# example using TC table
+check_quasiidentical_records(TC,wd,suffix)
 }
 }
 \keyword{quasi-identical}

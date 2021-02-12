@@ -18,7 +18,7 @@ Check if the sub-sample is smaller than the 10 percent of the total weight in th
 This function give a warning, repoted in the Logfile, if the sub-sample is unusually small respect to the total catch of the species.
 }
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that doesnot lock the execution of the RoME checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
+The function returns always TRUE, because the outcome of the function is a warning that doesnot lock the execution of the 'RoME' checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
 }
 \references{
 For the definition of the strata, please refer to:

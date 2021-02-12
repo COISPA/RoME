@@ -1,11 +1,7 @@
-###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, M.T. Facchini, M.T. Spedicato                                                                    #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
-#   March 2013                                                                                                            #
-################################################################################
-# Check consistency between not null weight and not null total number
+
+
+check_weight_tot_nb<-function(ResultDataTB,wd,suffix){
+
 if (FALSE){
   wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\Test Loredana"
   ResultDataTB = read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
@@ -20,13 +16,11 @@ if (FALSE){
 
 }
 
-check_weight_tot_nb<-function(ResultDataTB,wd,suffix){
-
    oldpar <- par(no.readonly = TRUE)
-
+   on.exit(suppressWarnings(par(oldpar)))
 
   if (!file.exists(file.path(wd,"Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
   if (!exists("suffix")){
@@ -68,7 +62,7 @@ check_weight_tot_nb<-function(ResultDataTB,wd,suffix){
     }
 
   }
-  on.exit(suppressWarnings(par(oldpar)))
+
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)

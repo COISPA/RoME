@@ -1,10 +1,4 @@
-####################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)  #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it
-#   August 2020
-####################################################################################################################
+
 
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
@@ -36,7 +30,7 @@ RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,crea
   Format <- "from_2012"
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)

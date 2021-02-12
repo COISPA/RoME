@@ -1,13 +1,4 @@
 
-###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                    #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu                #
-#   March 2020                                                                                                            #
-###########################################################################################################################
-
-# Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
 
 if (FALSE){
 ResultDataTB = RoME::TB # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
@@ -26,7 +17,7 @@ check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
 Format="from_2012"
 
 if (!file.exists(file.path(wd, "Logfiles"))){
-  dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+  dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
 }
 if (!file.exists(file.path(wd,"Graphs"))){
   dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)

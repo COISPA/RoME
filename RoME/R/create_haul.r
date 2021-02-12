@@ -1,25 +1,16 @@
-###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                    #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu                #
-#   March 2020                                                                                                            #
-###########################################################################################################################
-# Creation of R-SUFI files:
 
-# traits.csv
 
-if (FALSE){
+
+create_haul<-function(ResultDataTA,wd,suffix){
+
+   if (FALSE){
   ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
 
   wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
   #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   create_haul(Result,wd)
 }
-
-
-create_haul<-function(ResultDataTA,wd,suffix){
-
+   
    Format="from_2012"
 
 

@@ -33,9 +33,9 @@ stages=RoME::mat_stages,assTL=assTL)
   \item{assTL}{data frame with the association between TL (litter table) categories and sub-categories}
 }
 \details{
-\code{RoME} checks can be used to integrate a list of common quality checks on survey data. This function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The order of the checks in \code{RoME} was implemented in a defined sequence to avoid cascade errors due to the correction of a previous error. No automatic correction is implemented in RoME. RoME stops if an error occurs; then the user has to correct the error and run again the code to continue with the other checks. The function runs on a complete time series dataset, checking year after year, until the end of the time series. After the checks of the mandatory fields and the controlled vocabulary, that are carried out for all the TX tables, the specific checks on each kind of TX table are performed. Finally, \code{RoME} provides a list of cross checks aimed to guarantee the consistency among the data tables.
+\code{RoME} checks can be used to integrate a list of common quality checks on survey data. This function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The order of the checks in \code{RoME} was implemented in a defined sequence to avoid cascade errors due to the correction of a previous error. No automatic correction is implemented in 'RoME'. 'RoME' stops if an error occurs; then the user has to correct the error and run again the code to continue with the other checks. The function runs on a complete time series dataset, checking year after year, until the end of the time series. After the checks of the mandatory fields and the controlled vocabulary, that are carried out for all the TX tables, the specific checks on each kind of TX table are performed. Finally, \code{RoME} provides a list of cross checks aimed to guarantee the consistency among the data tables.
 
-Some functions included in the RoME library and used by \code{RoME} function need specific dictionaries or tables. It is the case of \code{Stratification}, \code{TM_list}, \code{DataTargetSpecies}, \code{Maturity_parameters}, \code{stages} and \code{assTL} tables. All of them are provided by default in this library. Anyway, the user has the possibility to provide \emph{ad hoc} modified versions of these tables adapting the checks to specific needs.
+Some functions included in the 'RoME' library and used by \code{RoME} function need specific dictionaries or tables. It is the case of \code{Stratification}, \code{TM_list}, \code{DataTargetSpecies}, \code{Maturity_parameters}, \code{stages} and \code{assTL} tables. All of them are provided by default in this library. Anyway, the user has the possibility to provide \emph{ad hoc} modified versions of these tables adapting the checks to specific needs.
 }
 \value{
 The function does not correct data, but it detects the errors, warning the user that there is the possibility of one or more errors, specifying the type of the error and easing the data correction. If parameter \code{verbose=TRUE} returns a series of text output in console to let the user to trace the state of the checks. All the output of the functions are stored in the user defined working directory  \code{wd} and in the sub-directory there resident. In the Lofile subfolder are stored the logfiles of each run of the function.
@@ -43,22 +43,21 @@ The function does not correct data, but it detects the errors, warning the user 
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-    \dontrun{
-    library(RoME)
-    wd <- tempdir()
-    suffix=NA
-    DataTA = RoME::TA
-    DataTB = RoME::TB
-    DataTC = RoME::TC
-    DataTE = RoME::TE
-    DataTL = RoME::TL
-    # the run will last more than 10 seconds.
-    # RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,
-    #Stratification=MEDITS::stratification_scheme,
-    #TM_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,
-   # Maturity_parameters=RoME::Maturity_parameters,
-    # stages=RoME::mat_stages,assTL=RoME::assTL)
-    }
+\donttest{
+library(RoME)
+wd <- tempdir()
+suffix=NA
+DataTA = RoME::TA
+DataTB = RoME::TB
+DataTC = RoME::TC
+DataTE = NA
+DataTL = NA
+RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,
+  Stratification=MEDITS::stratification_scheme,
+  TM_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,
+  Maturity_parameters=RoME::Maturity_parameters,
+  stages=RoME::mat_stages,assTL=RoME::assTL)
+}
 }
 
 \keyword{error}

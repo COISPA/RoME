@@ -1,11 +1,4 @@
-############################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.eu #
-#   March 2020                                                                                                             #
-############################################################################################################################
-# Check if weight in TE are consistent with length-weight relationship
+
  if (FALSE){
     library(RoME)
     wd <- tempdir()
@@ -22,10 +15,10 @@
 
 check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
   oldpar <- par(no.readonly = TRUE)
-
+  on.exit(suppressWarnings(par(oldpar)))
 
   if (!file.exists(file.path(wd,"Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -140,7 +133,7 @@ dev.off()
 
     write("For some records the difference between estimated and observed individual weight is greater than 20%. Please verify in the file TE_with_estimated_weights.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }
-  on.exit(suppressWarnings(par(oldpar)))
+
    if (file.exists(file.path(tempdir(), "Logfiles"))){
   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   }

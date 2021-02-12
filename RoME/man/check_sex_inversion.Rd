@@ -18,7 +18,7 @@ check_sex_inversion(Data,Maturity_parameters,wd,suffix)
 This last check is performed only for proteroginic and proterandrous target species; the user will be only informed if information about sex-inversion size for hermaphrodite species (at the moment only for Pagellus spp. and Spicara spp.) is present in Maturity parameters.csv (folder Tables) in order to be used by the user to check the sex data of these species.
 }
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the RoME checks.
+The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks.
 }
 \references{
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
