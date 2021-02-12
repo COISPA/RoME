@@ -1,20 +1,19 @@
-
 if (FALSE){
-    library(RoME)
-    wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
-    DataTA = DataTA[DataTA$YEAR == 2007 , ]
+  library(RoME)
+  wd <- tempdir()
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
+  DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
+  DataTA = DataTA[DataTA$YEAR == 2007 , ]
 
-    DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
-    # check_position(DataTA, wd, suffix)
+  DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
+  # check_position(DataTA, wd, suffix)
 }
 
 check_position<-function(DataTA,wd,suffix){
 
 
   if (!file.exists(file.path(wd,"Logfiles"))){
-    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
+    dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
   }
   if (!file.exists(file.path(wd,"Graphs"))){
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
@@ -48,54 +47,49 @@ check_position<-function(DataTA,wd,suffix){
   old_par$omi <- par()$omi
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
 
- suppressWarnings(  {
   ### HAUL POSITIONS ###
 
-  tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-
-      par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-      plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
-      maps::map("world", fill=T, col="yellow",add=T)
-      points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
-      points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
-      legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )
-
+  tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
+  par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
+  plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
+  maps::map("world", fill=T, col="yellow",add=T)
+  points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
+  points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
+  legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )
   dev.off()
 
   ### STARTING POSITIONS ###
 
-  tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-      par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-      plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls start position- ",ResultData$YEAR[1]))
-      maps::map("world", fill=T, col="yellow",add=T)
-      points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
-      text(ResultData$SHOOTING_LONGITUDE+0.1,ResultData$SHOOTING_LATITUDE,labels=ResultData$HAUL_NUMBER)
+  tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
+  par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
+  plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls start position- ",ResultData$YEAR[1]))
+  maps::map("world", fill=T, col="yellow",add=T)
+  points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
+  text(ResultData$SHOOTING_LONGITUDE+0.1,ResultData$SHOOTING_LATITUDE,labels=ResultData$HAUL_NUMBER)
   dev.off()
 
   ### END POSITIONS ###
 
-  tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-      par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-      plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls end position - ",ResultData$YEAR[1]))
-      maps::map("world", fill=T, col="yellow",add=T)
-      points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
-      text(ResultData$HAULING_LONGITUDE+0.1,ResultData$HAULING_LATITUDE,labels=ResultData$HAUL_NUMBER)
+  tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
+  par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
+  plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls end position - ",ResultData$YEAR[1]))
+  maps::map("world", fill=T, col="yellow",add=T)
+  points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
+  text(ResultData$HAULING_LONGITUDE+0.1,ResultData$HAULING_LATITUDE,labels=ResultData$HAUL_NUMBER)
   dev.off()
 
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
-      }
-  )
 
 
-   if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  if (file.exists(file.path(tempdir(), "Logfiles"))){
+    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   }
   if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-    }
-	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+    unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+    unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+  }
 
 }
