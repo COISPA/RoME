@@ -69,3 +69,10 @@ Fixes 0.1.15
 1. Revision of Documentation Rd files following the .
 2. Recision of contributors description in Documentation file
 
+Fixes 0.1.16
+-----
+1. Inclusion of length-weight dataframe into RoME() parameters
+
+Fixes 0.1.17
+-----
+1. Modification of RoME function to allow estimation of R sufi files from both TC and TE tables

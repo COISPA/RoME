@@ -55,7 +55,7 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
 
   TE=TE[as.character(TE$INDIVIDUAL_WEIGHT)!="ND",] # selection on the weight different from ND
 
-  if (is.na(LW)){
+  if (all(is.na(LW))){
     if (verbose){
       message("a and b parameters extracted from RoME LW table")
     }

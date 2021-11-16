@@ -3,28 +3,28 @@
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
   library(RoME)
-  wd <-  "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
+  wd <-  "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\data\\2021" # tempdir()
   suffix=NA
-  TA <-  read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # RoME::TA
-  TB <-  read.table(file=paste(wd, "\\2019 GSA18 TB.csv",sep=""), sep=";", header=T) # RoME::TB
-  TC <-  read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # RoME::TC
-  TE <-  NA # RoME::TE
-  TL <-  read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # RoME::TL
+  TA <-  read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T) # RoME::TA
+  TB <-  read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T) # RoME::TB
+  TC <-  read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T) # RoME::TC
+  TE <-  read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)
+  TL <-  read.table(file=paste(wd, "\\TL.csv",sep=""), sep=";", header=T) # RoME::TL
   verbose = TRUE
-  create_RSufi_files=TRUE
-  create_global_RSufi_files=TRUE
-  Year_start=2007
-  Year_end=2016
+  create_RSufi_files=FALSE
+  create_global_RSufi_files=FALSE
+  Year_start=2021
+  Year_end=2021
 
 TB$TYPE_OF_FILE <- as.character(TB$TYPE_OF_FILE)
 TB$TYPE_OF_FILE[1] <- "TC"
 
-  # RoME(TA=RoME::TA,TB=RoME::TB,TC=RoME::TC,TE=RoME::TE,TL=RoME::TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
+  RoME(TA=RoME::TA,TB=TB,TC=TC,TE=TE,TL=TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
 }
 # TEST END --------------------------------------------------------
 
 
-RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters,stages=RoME::mat_stages,assTL=assTL){
+RoME <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,create_RSufi_files=FALSE,create_global_RSufi_files=FALSE,Year_start=NA,Year_end=NA, verbose=TRUE,Stratification=MEDITS::stratification_scheme, TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,Maturity_parameters=Maturity_parameters, ab_parameters=RoME::LW,stages=RoME::mat_stages,assTL=assTL){
 
   stringsAsFactors=FALSE
   Format <- "from_2012"
@@ -942,7 +942,7 @@ if (check_without_errors == TRUE) {
 checkName = "Check total weight in the haul in TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_individual_weightTC(ResultDataTC,LW=NA,wd,suffix, verbose=FALSE)
+  check_without_errors = check_individual_weightTC(ResultDataTC,LW=ab_parameters,wd,suffix, verbose=FALSE)
 }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -1063,7 +1063,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   checkName = "Check individual weight in TE"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_individual_weightTE(ResultDataTE,LW=NA,wd,suffix,verbose=FALSE)
+    check_without_errors = check_individual_weightTE(ResultDataTE,LW=ab_parameters,wd,suffix,verbose=FALSE)
   }
   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -1100,7 +1100,7 @@ if (!(all(is.na(TL)) & length(TL)==1)) {
 
 checkName = "Check allowed values for category on Litter data"
 Field = "LITTER_CATEGORY"
-Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8")
+Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8","L9")
 if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
       check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, wd, suffix)
@@ -1175,6 +1175,8 @@ if ((!stop_) & (create_RSufi_files==TRUE)){
   if (!(all(is.na(TE)) & length(TE)==1)) {
     if (nrow(ResultDataTE)>0){
         create_length(ResultDataTE,DataSpecies=TM_list,wd)
+    } else {
+        create_length(ResultDataTC,DataSpecies=TM_list,wd)
     }
   }
   print(paste("R-Sufi files have been created for the ",yea, "and the GSA selected! They have been stored in files R-Sufi directory."),quote=FALSE)

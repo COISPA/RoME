@@ -10,6 +10,7 @@ create_RSufi_files = FALSE, create_global_RSufi_files=FALSE,
 Year_start=NA,Year_end=NA,verbose =TRUE,Stratification=MEDITS::stratification_scheme,
 TM_list=TM_list,DataTargetSpecies=DataTargetSpecies,
 Maturity_parameters=Maturity_parameters,
+ab_parameters=RoME::LW,
 stages=RoME::mat_stages,assTL=assTL)
 }
 \arguments{
@@ -29,6 +30,7 @@ stages=RoME::mat_stages,assTL=assTL)
   \item{TM_list}{TM_list reference list}
   \item{DataTargetSpecies}{Information related to target species.}
   \item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
+  \item{ab_parameters}{dataframe containing the a and b parameters of the length-weight relationships}
   \item{stages}{Table of maturity stages.}
   \item{assTL}{data frame with the association between TL (litter table) categories and sub-categories}
 }
@@ -55,7 +57,7 @@ DataTL = NA
 RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,
   Stratification=MEDITS::stratification_scheme,
   TM_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,
-  Maturity_parameters=RoME::Maturity_parameters,
+  Maturity_parameters=RoME::Maturity_parameters,ab_parameters=RoME::LW,
   stages=RoME::mat_stages,assTL=RoME::assTL)
 }
 }
