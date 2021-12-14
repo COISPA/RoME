@@ -2,11 +2,11 @@
 
 library(RoME)
 
-wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\GSA16"
+wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\DATA_SUFI"
 suffix=NA  # non modificare
-ta <- read.table(file=paste(wd, "\\TA_from_2012.csv",sep=""), sep=";", header=T)
-tb <- read.table(file=paste(wd, "\\TB_from_2012.csv",sep=""), sep=";", header=T)
-tc <- read.table(file=paste(wd, "\\TC_from_2012.csv",sep=""), sep=";", header=T)
+ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
+tb <- read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
+tc <- read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T)
 te <- NA # read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T) # puoi mettere NA
 tl <- NA # read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) # puoi mettere NA
 #
@@ -28,8 +28,8 @@ assTL=RoME::assTL
 verbose = TRUE
 create_RSufi_files=T # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
 create_global_RSufi_files=T # metti FALSE se non vuoi effettuare la produzione dei file Rsufi
-Year_start=2012 # deve essere impostato se vuoi effettuare l'analisi R-sufi
-Year_end=2012 # deve essere impostato se vuoi effettuare l'analisi R-sufi
+Year_start=1994 # deve essere impostato se vuoi effettuare l'analisi R-sufi
+Year_end=2020 # deve essere impostato se vuoi effettuare l'analisi R-sufi
 
 ################ NON MODIFICARE #############
 

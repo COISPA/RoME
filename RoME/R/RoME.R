@@ -3,23 +3,23 @@
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
   library(RoME)
-  wd <-  "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\data\\2021" # tempdir()
+  wd <-  "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\DATA_SUFI" # tempdir()
   suffix=NA
   TA <-  read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T) # RoME::TA
   TB <-  read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T) # RoME::TB
   TC <-  read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T) # RoME::TC
-  TE <-  read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)
-  TL <-  read.table(file=paste(wd, "\\TL.csv",sep=""), sep=";", header=T) # RoME::TL
+  TE <-  NA # read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)
+  TL <-  NA #read.table(file=paste(wd, "\\TL.csv",sep=""), sep=";", header=T) # RoME::TL
   verbose = TRUE
-  create_RSufi_files=FALSE
-  create_global_RSufi_files=FALSE
-  Year_start=2021
-  Year_end=2021
+  create_RSufi_files=TRUE
+  create_global_RSufi_files=TRUE
+  Year_start=1994
+  Year_end=2020
 
-TB$TYPE_OF_FILE <- as.character(TB$TYPE_OF_FILE)
-TB$TYPE_OF_FILE[1] <- "TC"
+# TB$TYPE_OF_FILE <- as.character(TB$TYPE_OF_FILE)
+# TB$TYPE_OF_FILE[1] <- "TC"
 
-  RoME(TA=RoME::TA,TB=TB,TC=TC,TE=TE,TL=TL,wd=tempdir(),suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=2007,Year_end=2016, verbose=TRUE)
+  RoME(TA=RoME::TA,TB=TB,TC=TC,TE=TE,TL=TL,wd=wd,suffix=NA,create_RSufi_files=TRUE,create_global_RSufi_files=TRUE,Year_start=1994,Year_end=2020, verbose=TRUE)
 }
 # TEST END --------------------------------------------------------
 
@@ -111,7 +111,7 @@ if (check_without_errors == TRUE) {
 
 ## CICLO PER ANNO ##
 
-yea <- 2019
+yea <- 1994
 for (yea in years) {
 
 if (check_without_errors == TRUE & verbose==TRUE) {
@@ -1172,13 +1172,16 @@ if ((!stop_) & (create_RSufi_files==TRUE)){
   create_catch(ResultDataTB,wd)
 
 
-  if (!(all(is.na(TE)) & length(TE)==1)) {
-    if (nrow(ResultDataTE)>0){
-        create_length(ResultDataTE,DataSpecies=TM_list,wd)
-    } else {
-        create_length(ResultDataTC,DataSpecies=TM_list,wd)
+  # if (!(all(is.na(TE)) & length(TE)==1)) {
+  #   if (nrow(ResultDataTE)>0){
+  #       create_length(ResultDataTE,DataSpecies=TM_list,wd)
+  #   }
+  # }
+
+    if (nrow(ResultDataTC)>0){
+      create_length(ResultDataTC,DataSpecies=TM_list,wd)
     }
-  }
+
   print(paste("R-Sufi files have been created for the ",yea, "and the GSA selected! They have been stored in files R-Sufi directory."),quote=FALSE)
 }
 
