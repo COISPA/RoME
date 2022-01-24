@@ -5,12 +5,12 @@ Function to check the correct codification of the strata in haul data table (TA)
 \description{
 This function verifies the correctness of the stratum code, following the stratification scheme table in the MEDITS protocol.}
 \usage{
-check_stratum_code(ResultDataTA,Stratification,wd,suffix)
+check_stratum_code(ResultDataTA,Strata,wd,suffix)
 }
 \arguments{
 \item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
 }
-\item{Stratification}{Stratification scheme according to MEDITS protocol.
+\item{Strata}{Stratification scheme according to MEDITS protocol.
 }
 \item{wd}{Working directory selected by the user.
 }
@@ -35,6 +35,6 @@ library(MEDITS)
 library(RoME)
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
-check_stratum_code(TA,stratification_scheme,wd,suffix)
+check_stratum_code(TA,Strata=MEDITS::stratification_scheme,wd,suffix)
 }
 \keyword{stratum code}

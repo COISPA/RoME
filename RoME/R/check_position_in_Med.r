@@ -1,4 +1,11 @@
-
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Check if the coordinates are in the Mediterranean Sea
 
 check_position_in_Med<-function(DataTA,wd,suffix){
 
@@ -35,8 +42,8 @@ check_position_in_Med<-function(DataTA,wd,suffix){
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
 
-  haul_on_land <- haul_at_sea(ResultData, seas=RoME::MedSea, verbose=FALSE)
-  if (length(haul_on_land)>1){
+suppressWarnings(  haul_on_land <- haul_at_sea(ResultData, seas=RoME::MedSea, verbose=FALSE) )
+  if (length(haul_on_land)>1) {
     res_class <- class(haul_on_land)
 
     if (res_class=="data.frame"){

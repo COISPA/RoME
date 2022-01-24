@@ -1,4 +1,10 @@
-
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
 
 scheme_individual_data <- function(DataTC,DataTE,wd,suffix){
 
@@ -12,6 +18,7 @@ scheme_individual_data <- function(DataTC,DataTE,wd,suffix){
     DataTE <- DataTE[DataTE$YEAR == 2012 , ]
     # scheme_individual_data(DataTC,DataTE,wd,suffix)
   }
+
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }

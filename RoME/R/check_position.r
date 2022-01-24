@@ -1,3 +1,12 @@
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Visual check of the haul positions
+
 if (FALSE){
   library(RoME)
   wd <- tempdir()
@@ -11,6 +20,7 @@ if (FALSE){
 
 check_position<-function(DataTA,wd,suffix){
 
+  lon <- lat <- NULL
 
   if (!file.exists(file.path(wd,"Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), showWarnings = FALSE)
@@ -47,39 +57,105 @@ check_position<-function(DataTA,wd,suffix){
   old_par$omi <- par()$omi
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
 
+  if (ratio <= 0.5) {
+    text_size <- 12
+    point_size <- 2
+    legend_title_size <- 12
+    legend_text_size <-  11
+    title_text_size <- 16
+  } else if (ratio >= 0.5 & ratio < 2 ) {
+    text_size <- 20
+    point_size <- 3.5
+    legend_title_size <- 18
+    legend_text_size <-  18
+    title_text_size <- 22
+  } else if (ratio >= 2 ) {
+    text_size <- 40
+    point_size <- 6
+    legend_title_size <- 30
+    legend_text_size <-  30
+    title_text_size <- 40
+  }
+
+  theme_opts<-list(theme(text = element_text(size=text_size),
+                         plot.title = element_text(size=title_text_size),
+                         legend.title = element_text(size = legend_title_size),
+                         legend.text = element_text(size = legend_text_size),
+                         panel.background = element_rect(fill = 'light blue',linetype="solid",color="black"),
+                         panel.grid.major = element_blank(), panel.grid.minor = element_blank()))
   ### HAUL POSITIONS ###
 
-  tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
-  par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-  plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls position - ",ResultData$YEAR[1]))
-  maps::map("world", fill=T, col="yellow",add=T)
-  points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
-  points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
-  legend("topleft", paste(c("start position","end position")), pch=c(16,16), col=c("blue","green")  )
+  points_start <- data.frame(lon=ResultData$SHOOTING_LONGITUDE,lat=ResultData$SHOOTING_LATITUDE, Position ="start")
+  points_end <- data.frame(lon=ResultData$HAULING_LONGITUDE,lat=ResultData$HAULING_LATITUDE, Position ="end")
+  points <- rbind(points_start,points_end)
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+
+  suppressMessages (
+    p <- ggplot(data=world) +
+      geom_sf()+
+      coord_sf(crs ="+proj=longlat +ellps=WGS84") +
+      geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
+      coord_sf(xlim = c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1),
+               ylim = c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1),crs="+proj=longlat +ellps=WGS84")+
+      ggtitle(paste("Hauls position - ",ResultData$YEAR[1]))  +
+      theme_opts +
+      scale_fill_manual(values=c("green", "blue"))
+  )
+
+
+  tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  print(p)
   dev.off()
 
   ### STARTING POSITIONS ###
 
-  tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
-  par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-  plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls start position- ",ResultData$YEAR[1]))
-  maps::map("world", fill=T, col="yellow",add=T)
-  points(ResultData$SHOOTING_LONGITUDE,ResultData$SHOOTING_LATITUDE,col="blue",pch=16)
-  text(ResultData$SHOOTING_LONGITUDE+0.1,ResultData$SHOOTING_LATITUDE,labels=ResultData$HAUL_NUMBER)
+  points_start <- data.frame(lon=ResultData$SHOOTING_LONGITUDE,lat=ResultData$SHOOTING_LATITUDE, Position ="start")
+  points <- rbind(points_start)
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+
+  suppressMessages (
+    p <- ggplot(data=world) +
+      geom_sf()+
+      coord_sf(crs ="+proj=longlat +ellps=WGS84") +
+      geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
+      coord_sf(xlim = c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1),
+               ylim = c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1),crs="+proj=longlat +ellps=WGS84")+
+      ggtitle(paste("Hauls position - ",ResultData$YEAR[1]))  +
+      theme_opts +
+      scale_fill_manual(values=c("blue"))
+  )
+
+  tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  print(p)
   dev.off()
+
 
   ### END POSITIONS ###
 
-  tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1)
-  par(mfrow=c(1,1), mai=c(0.6,0.6,0.6,0.3), omi=c(0.6,0.8,0.8,0.8))
-  plot(1,1,type="p",xlim=c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1), ylim=c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1), xlab="Longitude", ylab="Latitude",main=paste("Hauls end position - ",ResultData$YEAR[1]))
-  maps::map("world", fill=T, col="yellow",add=T)
-  points(ResultData$HAULING_LONGITUDE,ResultData$HAULING_LATITUDE,col="green",pch=16)
-  text(ResultData$HAULING_LONGITUDE+0.1,ResultData$HAULING_LATITUDE,labels=ResultData$HAUL_NUMBER)
+  points_end <- data.frame(lon=ResultData$HAULING_LONGITUDE,lat=ResultData$HAULING_LATITUDE, Position ="end")
+  points <- rbind(points_end)
+  world <- ne_countries(scale = "medium", returnclass = "sf")
+
+  suppressMessages (
+    p <- ggplot(data=world) +
+      geom_sf()+
+      coord_sf(crs ="+proj=longlat +ellps=WGS84") +
+      geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
+      coord_sf(xlim = c(min(ResultData$SHOOTING_LONGITUDE)-0.1, max(ResultData$SHOOTING_LONGITUDE)+0.1),
+               ylim = c(min(ResultData$SHOOTING_LATITUDE)-0.1, max(ResultData$SHOOTING_LATITUDE)+0.1),crs="+proj=longlat +ellps=WGS84")+
+      ggtitle(paste("Hauls position - ",ResultData$YEAR[1]))  +
+      theme_opts +
+      scale_fill_manual(values=c("green"))
+  )
+
+
+  tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  print(p)
   dev.off()
 
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
+  options(warn=-1)
 
 
   if (file.exists(file.path(tempdir(), "Logfiles"))){

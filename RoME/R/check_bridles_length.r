@@ -1,4 +1,12 @@
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
 
+# Check if the value of bridles length is consistent according to the mean depth (see INSTRUCTION MANUAL VERSION 5 MEDITS 2007)	   
 
 check_bridles_length<-function(DataTA, wd, suffix){
 

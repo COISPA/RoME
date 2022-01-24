@@ -76,3 +76,7 @@ Fixes 0.1.16
 Fixes 0.1.17
 -----
 1. Modification of RoME function to allow estimation of R sufi files from both TC and TE tables
+
+Fixes 0.1.18
+-----
+1. Improvement of output plots using functions of ggplot2 package 

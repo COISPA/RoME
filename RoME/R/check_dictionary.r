@@ -1,3 +1,11 @@
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Check if the values in several fields belong to the allowed ranges according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 
 check_dictionary<-function(ResultData,Field,Values, wd, suffix){

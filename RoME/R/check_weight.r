@@ -1,22 +1,23 @@
-###########################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files - old and new MEDITS formats)                                   #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                    #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                              #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it                #
-#   March 2020
-################################################################################
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+
 
 # Check if weights and numbers in TB are consistent
 
 
 
 if (FALSE){
-  wd <- "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\"
-  ResultDataTB = read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
-  #ResultDataTB= MEDITS::TB # ResultDataTB[ResultDataTB$YEAR==2017,]
-
+  wd <- tempdir() # "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\"
+  ResultDataTB = read.table(file="D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\SAMA18\\R_MEFH\\MEDITS data\\GSA18\\TB_GSA18_1994-2020.csv", sep=";", header=T) # MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
+  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR==2017, ]
+  DataTargetSpecies <- RoME::DataTargetSpecies
   suffix=NA
-  check_weight(ResultDataTB,DataTargetSpecies,wd,suffix)
+  check_weight(ResultDataTB,RoME::DataTargetSpecies,wd,suffix)
 
   }
 
@@ -72,9 +73,10 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
   nb_graphs=0
   nb_graphs_to_be_printed=0
 
+  i=26
   for (i in 1:nrow(ResultData)){
     FoundInTable=Weight[as.character(Weight$SPECIES)==as.character(ResultData$species[i]),]
-    FoundInTable=FoundInTable[is.na(FoundInTable$MIN_WEIGHT)==FALSE,]
+    FoundInTable=FoundInTable[is.na(FoundInTable$MIN_WEIGHT)==FALSE ,]
     if (nrow(FoundInTable)!=0){
       if (((ResultData$mean_weight[i]<FoundInTable$MIN_WEIGHT[1]) | (ResultData$mean_weight[i]>FoundInTable$MAX_WEIGHT[1]))==TRUE)
       {
@@ -85,7 +87,8 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
         nb_graphs_to_be_printed = nb_graphs_to_be_printed + 1
         present[present$species==ResultData$species[i],]$present=TRUE
 
-        X=ResultData[ResultData$species==ResultData$species[i] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
+        xlabels <- ResultData[ResultData$species==ResultData$species[i] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
+        X= 1:length(ResultData[ResultData$species==ResultData$species[i] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER)
         Y=ResultData[ResultData$species==ResultData$species[i]& !is.infinite(ResultData$mean_weight),]$mean_weight
 
 
@@ -95,7 +98,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
               dev.new(width=60, height=60)
 
             plot(X,Y,main=paste(ResultData$species[i],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
-            text(X,Y,labels=X)
+            text(X,Y,labels=xlabels)
             nb_graphs= nb_graphs+1
           }
         }
@@ -126,6 +129,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
     }
 
     # number of plots in the current .tif
+    i=1
     for (i in 1:nb_sheets) {
 
       if ((6*i)>nrow(present_true) ){
@@ -138,11 +142,12 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
         tiff(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
         par(mfrow=c(3,2), mai=c(0.6,0.6,0.6,0.6), omi=c(0.8,0.8,1,0.8))
         for (m in (6*i-5):(nb_loops)) {
-          X=ResultData[ResultData$species==present_true$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
-          Y=ResultData[ResultData$species==present_true$species[m] & !is.infinite(ResultData$mean_weight),]$mean_weight
+          xlabels <- ResultData[ResultData$species==ResultData$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
+          X= 1:length(ResultData[ResultData$species==ResultData$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER)
+          Y=ResultData[ResultData$species==ResultData$species[m]& !is.infinite(ResultData$mean_weight),]$mean_weight
           if (length(X)!=0){
-            plot(X,Y,main=paste(present_true$species[m],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
-            text(X,Y,labels=X)
+            plot(X,Y,main=paste(ResultData$species[m],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
+            text(X,Y,labels=xlabels)
           }
         }
 

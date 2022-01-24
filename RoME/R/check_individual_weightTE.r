@@ -1,4 +1,11 @@
-
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Check if weight in TE are consistent with length-weight relationship													  
  if (FALSE){
     library(RoME)
     wd <- tempdir()
@@ -55,12 +62,14 @@ check_individual_weightTE<- function (DataTE,LW=NA,wd,suffix,verbose=FALSE){
 
   TE=TE[as.character(TE$INDIVIDUAL_WEIGHT)!="ND",] # selection on the weight different from ND
 
-  if (all(is.na(LW))){
+  if (class(LW) != "data.frame"){
+   if (all(is.na(LW))){
     if (verbose){
       message("a and b parameters extracted from RoME LW table")
     }
       LW = RoME::LW
-  }
+   }
+ }
   TE$mean_weight = NA
   TE$perc_diff = NA
 

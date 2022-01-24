@@ -1,4 +1,11 @@
-
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Check consistency of wing ad vertical opening in TA according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 check_dm<-  function(DataTA,wd=tempdir(),suffix){
 
@@ -20,7 +27,7 @@ check_dm<-  function(DataTA,wd=tempdir(),suffix){
 
 
   if (!file.exists(file.path(wd, "Logfiles"))){
-    suppressWarnings(dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE))
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
   numberError = 0

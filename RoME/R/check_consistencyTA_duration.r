@@ -1,4 +1,11 @@
-
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Check consistency among duration, start time and end time of the haul in TA
 
 check_consistencyTA_duration<-function(DataTA, wd, suffix){
 
@@ -36,7 +43,7 @@ check_consistencyTA_duration<-function(DataTA, wd, suffix){
   for (i in 1:nrow(Matrix)){
     Matrix$End[i]= timeDate(paste(paste(ifelse(str_length(Matrix$DAY[i])==1,paste("0",Matrix$DAY[i],sep=""),Matrix$DAY[i]),ifelse(str_length(Matrix$MONTH[i])==1,paste("0",Matrix$MONTH[i],sep=""),Matrix$MONTH[i]),Matrix$YEAR[i],sep="-"),ifelse(str_length(Matrix$HAULING_TIME[i])==3,paste("0",Matrix$HAULING_TIME[i],sep=""),Matrix$HAULING_TIME[i]),sep="."), format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
   }
-  Matrix$difference=Matrix$End-Matrix$Start
+  Matrix$difference=difftimeDate(Matrix$End,Matrix$Start, units="mins")
 
     j=1
   for (j in nrow(Matrix))  {

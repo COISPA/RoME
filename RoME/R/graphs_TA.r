@@ -1,3 +1,11 @@
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Qualitative control (by means of 2 graphs) of relation between shooting depth e warp opening and between warp length e wing opening
 
 graphs_TA<-function(DataTA,wd,suffix){
 
@@ -32,7 +40,9 @@ graphs_TA<-function(DataTA,wd,suffix){
   old_par$fin <-par()$fin
   old_par$mai <- par()$mai
   old_par$omi <- par()$omi
+
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))
+  options(warn=-1)
 
 suppressWarnings(
 {

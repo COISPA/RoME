@@ -1,4 +1,11 @@
-
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   January 2022                                                                                                           #
+############################################################################################################################
+# Check if weight of the sample in TC is consistent with length-weight relationship																	   
 
 check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
 
@@ -28,11 +35,13 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
 
   write(paste("\n----------- check consistency total weight in the haul in TC - ",TC$YEAR[1]), file = Errors, append = TRUE)
 
-  if ( all(is.na(LW)) ){
+  if (class(LW) != "data.frame"){
+    if (is.na(LW)){
     if (verbose){
-    message("a and b parameters extracted from RoME LW table")
+    message("a and b parameters extracted from RoMEBS LW table")
     }
     LW <- RoME::LW
+    }
   }
 
   TC$mean_weight = NA

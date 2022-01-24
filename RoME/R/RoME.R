@@ -779,7 +779,7 @@ if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 checkName = "Check consistency of stratum code in TA"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_stratum_code(ResultDataTA,Stratification=MEDITS::stratification_scheme,wd,suffix)
+    check_without_errors = check_stratum_code(ResultDataTA,Strata=Stratification,wd,suffix)
   }
 if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -1167,7 +1167,7 @@ if (!stop_) {
 
 if ((!stop_) & (create_RSufi_files==TRUE)){
   AREA <- ResultDataTA[1,"AREA"]
-  create_strata(Stratification=MEDITS::stratification_scheme,AREA,wd)
+  create_strata(Stratification=Stratification,AREA,wd)
   create_haul(ResultDataTA,wd,suffix)
   create_catch(ResultDataTB,wd)
 
