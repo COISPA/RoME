@@ -1,0 +1,36 @@
+{
+    "type": [
+        2,
+        2,
+        0,
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        0,
+        1,
+        2
+    ],
+    "data": [
+        "\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-w64-mingw32/x64 (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R.\n\n",
+        "[Workspace loaded from D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/RoME/.RData]\r\n\r\n\nRestarting R session...\n\n",
+        "> ",
+        "library(RoME)",
+        "Caricamento del pacchetto richiesto: timeDate\n",
+        "Caricamento del pacchetto richiesto: stringr\n",
+        "Caricamento del pacchetto richiesto: ggplot2\n",
+        "Caricamento del pacchetto richiesto: rnaturalearth\n",
+        "Caricamento del pacchetto richiesto: rnaturalearthdata\n",
+        "\nCaricamento pacchetto: ‘RoME’\n\n",
+        "I seguenti oggetti sono mascherati _da_ ‘.GlobalEnv’:\n\n    check_area, check_individual_weightTE, TA, TB, TC, TE, TL\n\n",
+        "\nRestarting R session...\n\n",
+        "> ",
+        "library(RoME)",
+        "\nRestarting R session...\n\n"
+    ]
+}

@@ -1,0 +1,9 @@
+"0","```r
+imp <- importance(rf)
+impvar <- rownames(imp)[order(imp[, 1], decreasing=TRUE)]
+op <- par(mfrow=c(4,4))
+for (i in seq_along(impvar)) {
+    partialPlot(rf, dd, impvar[i], xlab=impvar[i],
+                main=paste0(impvar[i]))
+}
+```"

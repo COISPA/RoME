@@ -1,0 +1,37 @@
+"0","library(randomForest)"
+"2","randomForest 4.6-14
+"
+"2","Type rfNews() to see new features/changes/bug fixes.
+"
+"0","library(dplyr)"
+"2","
+Caricamento pacchetto: ‘dplyr’
+
+"
+"2","Il seguente oggetto è mascherato da ‘package:randomForest’:
+
+    combine
+
+"
+"2","I seguenti oggetti sono mascherati da ‘package:stats’:
+
+    filter, lag
+
+"
+"2","I seguenti oggetti sono mascherati da ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(ggplot2)"
+"2","
+Caricamento pacchetto: ‘ggplot2’
+
+"
+"2","Il seguente oggetto è mascherato da ‘package:randomForest’:
+
+    margin
+
+"
+"0","library(patchwork)"
+"0","library(reshape2)"

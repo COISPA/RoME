@@ -1,0 +1,4 @@
+"0","```r
+
+dd <- rbind.data.frame(test_set, training_set)
+```"

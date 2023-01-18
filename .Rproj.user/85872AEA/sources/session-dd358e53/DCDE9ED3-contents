@@ -1,0 +1,205 @@
+lib <- c("dplyr", "ggplot2", "rworldmap", "sp", "rworldxtra", "pander", "data.table", "grDevices", "magrittr", "tictoc","tidyverse", "fishmethods","tidyr","gridExtra")
+lapply(lib, require, character.only = TRUE)
+
+
+library(roxygen2)
+roxygenise()
+
+#######################
+#  CREAZIONE MANUALE  #
+#######################
+devtools::build_manual(pkg = ".", path = NULL)
+
+#############################
+###  source with VIGNETTE ###
+#############################
+devtools::build(binary=FALSE, manual=TRUE, vignette=TRUE) # source package do not include vignettes
+
+#############################
+devtools::check()
+devtools::check(args = c('--as-cran'))
+devtools::check(build_args = "--no-build-vignettes", args = "--no-vignettes", document=FALSE)
+
+# install package from GitHub. It works with public repositories.
+library(devtools)
+install_github("COISPA/aPost")
+########################
+
+
+
+landing <- fread("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\SCRIPT Mannini - a posteriori\\data\\landings.csv", stringsAsFactors = FALSE)
+landing <- landing[landing$country %in% c("ITA","GRC","BRG","ROU"), ]
+save(landing,file="data/landing.rda",compress="xz",compression_level=9)
+
+discards <- fread("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\SCRIPT Mannini - a posteriori\\data\\discards.csv", stringsAsFactors = FALSE)
+save(discards,file="data/discards.rda",compress="xz",compression_level=9)
+
+save(SL_tab_example,file="data/SL_tab_example.rda",compress="xz",compression_level=9)
+
+ALK_tab_example <- read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RDBqc/ALK_MUT18.csv",sep=";",header=TRUE)
+save(ALK_tab_example,file="data/ALK_tab_example.rda",compress="xz",compression_level=9)
+
+
+fdi_a_catch
+#----------------------
+fdi_a_catch <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\APPOGGIO\\tables\\fdi_a_catch.csv", sep=";", header=TRUE)
+
+# write.table(fdi_a_catch,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_a_catch.csv",sep=";",row.names=FALSE)
+# fdi_a_catch <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_a_catch.csv", header=TRUE,sep=";")
+save(fdi_a_catch,file="data/fdi_a_catch.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+#----------------------
+write.table(fdi_g_effort,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_g_effort.csv",sep=";",row.names=FALSE)
+fdi_g_effort <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_g_effort.csv", header=TRUE,sep=";")
+save(fdi_g_effort,file="data/fdi_g_effort.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+write.table(fdi_i_spatial_effort,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\APPOGGIO\\FDI_9_functions\\fdi_i_spatial_effort.csv",sep=";",row.names=FALSE)
+fdi_i_spatial_effort <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\APPOGGIO\\FDI_9_functions\\fdi_i_spatial_effort.csv", header=TRUE,sep=";")
+save(fdi_i_spatial_effort,file="data/fdi_i_spatial_effort.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+#----------------------
+write.table(fdi_i_spatial_fe,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_i_spatial_fe.csv",sep=";",row.names=FALSE)
+fdi_i_spatial_effort <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_i_spatial_effort.csv", header=TRUE,sep=";")
+save(fdi_g_effort,file="data/fdi_i_spatial_effort.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+#----------------------
+write.table(fdi_h_spatial_landings,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_h_spatial_landings.csv",sep=";",row.names=FALSE)
+fdi_h_spatial_landings <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\FDI_9_functions\\fdi_h_spatial_landings.csv", header=TRUE,sep=";")
+save(fdi_h_spatial_landings,file="data/fdi_h_spatial_landings.rda",compress="xz",compression_level=9)
+#----------------------
+
+save(fdi_j_capacity,file="data/fdi_j_capacity.rda",compress="xz",compression_level=9)
+
+
+
+
+
+
+catch[is.na(catch$VESSEL_LENGTH),"VESSEL_LENGTH"] <- "NA"
+catch[is.na(catch$GEAR),"GEAR"] <- "NA"
+catch[is.na(catch$MESH_SIZE_RANGE),"MESH_SIZE_RANGE"] <- "NA"
+catch[is.na(catch$FISHERY),"FISHERY"] <- "NA"
+
+
+data[is.na(data$VESSEL_LENGTH),"VESSEL_LENGTH"] <- "NA"
+data[is.na(data$GEAR),"GEAR"] <- "NA"
+data[is.na(data$MESH_SIZE_RANGE),"MESH_SIZE_RANGE"] <- "NA"
+data[is.na(data$FISHERY),"FISHERY"] <- "NA"
+
+
+#----------------------
+write.table(data_ex,"D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\data\\data_ex.csv",sep=";",row.names=FALSE)
+data_ex <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\data\\data_ex.csv", header=TRUE,sep=";")
+save(data_ex,file="data/data_ex.rda",compress="xz",compression_level=9)
+ #----------------------
+
+
+write.table(catfau_check,"D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\data\\catfau_check.csv",sep=";",row.names=FALSE)
+catfau_check <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\data\\catfau_check_REV.csv", header=TRUE,sep=";")
+save(catfau_check,file="data/catfau_check.rda",compress="xz",compression_level=9)
+
+
+
+#----------------------
+colnames(Catch_tab_example) <- tolower(colnames(Catch_tab_example))
+save(Catch_tab_example,file="data/Catch_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+colnames(ML_tab_example) <- tolower(colnames(ML_tab_example))
+save(ML_tab_example,file="data/ML_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+colnames(MA_tab_example) <- tolower(colnames(MA_tab_example))
+save(MA_tab_example,file="data/MA_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+colnames(SL_tab_example) <- tolower(colnames(SL_tab_example))
+save(SL_tab_example,file="data/SL_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+colnames(SA_tab_example) <- tolower(colnames(SA_tab_example))
+save(SA_tab_example,file="data/SA_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+colnames(GP_tab_example) <- tolower(colnames(GP_tab_example))
+save(GP_tab_example,file="data/GP_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+colnames(ALK_tab_example) <- tolower(colnames(ALK_tab_example))
+save(ALK_tab_example,file="data/ALK_tab_example.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+
+#----------------------
+write.table(list_g1_g2,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\list_g1_g2.csv",sep=";",row.names=FALSE)
+list_g1_g2 <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\list_g1_g2.csv", header=TRUE,sep=";")
+save(list_g1_g2,file="data/list_g1_g2.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+
+#----------------------
+write.table(classes,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\classes.csv",sep=";",row.names=FALSE)
+classes <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\classes.csv", header=TRUE,sep=";")
+save(classes,file="data/classes.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+
+#----------------------
+write.table(RoME::TA,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TA.csv",sep=";",row.names=FALSE)
+TA <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TA.csv", header=TRUE,sep=";")
+TA$BOTTOM_SALINITY_BEGINNING <- as.numeric(TA$BOTTOM_SALINITY_BEGINNING)
+TA$BOTTOM_SALINITY_END <- as.numeric(TA$BOTTOM_SALINITY_END)
+TA$MEASURING_SYSTEM_SALINITY <- as.character(TA$MEASURING_SYSTEM_SALINITY)
+save(TA,file="data/TA.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+#----------------------
+write.table(RoME::TB,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TB.csv",sep=";",row.names=FALSE)
+TB <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TB.csv", header=TRUE,sep=";")
+save(TB,file="data/TB.rda",compress="xz",compression_level=9)
+#----------------------
+
+#----------------------
+write.table(RoME::TC,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TC.csv",sep=";",row.names=FALSE)
+TC <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TC.csv", header=TRUE,sep=";")
+save(TC,file="data/TC.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+#----------------------
+write.table(RoME::TE,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv",sep=";",row.names=FALSE)
+TE <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv", header=TRUE,sep=";")
+save(TE,file="data/TE.rda",compress="xz",compression_level=9)
+#----------------------
+
+
+
+#----------------------
+write.table(RoME::TL,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv",sep=";",row.names=FALSE)
+TL <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv", header=TRUE,sep=";")
+save(TL,file="data/TL.rda",compress="xz",compression_level=9)
+#----------------------
+
+load("D:\\Documents and Settings\\Utente\\Downloads\\data_exampleCL.rda")
+data_exampleCL$species <- "Parapenaeus longirostris"
+data_exampleCL$flag_country <- "COUNTRY1"
+save(data_exampleCL,file="data/data_exampleCL.rda",compress="xz",compression_level=9)
+

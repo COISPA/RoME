@@ -1,0 +1,6 @@
+"0","```r
+training_set <- d %>% slice_sample(prop=0.75, replace = F)
+test_set <- anti_join(d, training_set)
+```"
+"1","Joining, by = c(\"id\", \"code\", \"date\", \"hour\", \"hours\", \"month\", \"year\", \"Instr\", \"MinDepth\", \"MaxDepth\", \"temp_tag\", \"MinTemp\", \"MaxTemp\", \"X\", \"Y\", \"depth\", \"moon_phase\", \"temp\", \"nppv\", \"curx\", \"cury\", \"cur\", \"salinity\", \"height\", \"mld\", \"Delta.Light\", \"time\")
+"

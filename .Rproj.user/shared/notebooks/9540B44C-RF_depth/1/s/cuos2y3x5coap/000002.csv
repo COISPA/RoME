@@ -1,0 +1,5 @@
+"0","```r
+VIM_gini <- VIM_gini[order(VIM_gini$IncNodePurity , decreasing = T),]
+VIM_gini$name = factor(VIM_gini$name, levels = VIM_gini$name)
+VIM_gini
+```"

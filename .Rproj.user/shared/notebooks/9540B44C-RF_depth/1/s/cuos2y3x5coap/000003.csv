@@ -1,0 +1,7 @@
+"0","```r
+
+gini <- ggplot(data=VIM_gini, aes(x=name, y=IncNodePurity )) + #@#@ TOMMASO!!!
+        geom_bar(stat=\"identity\", color=\"blue\", fill=\"blue\")  
+
+gini
+```"

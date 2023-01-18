@@ -1,0 +1,5 @@
+"0","```r
+colnames(tra)==colnames(tes)
+```"
+"1"," [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+"

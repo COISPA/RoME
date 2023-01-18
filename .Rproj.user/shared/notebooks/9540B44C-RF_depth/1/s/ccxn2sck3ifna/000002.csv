@@ -1,0 +1,6 @@
+"0","```r
+VIM_perm <- as.data.frame(rf$importanceSD)
+colnames(VIM_perm) <- \"perm_values\"
+VIM_perm$name <- rownames(VIM_perm)
+VIM_perm 
+```"

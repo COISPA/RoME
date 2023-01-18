@@ -1,0 +1,9 @@
+"0","setwd(""D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\PL\\SQUALI WWF\\Modello_GAM_GIORNO_NOTTE"")"
+"0","d <- read.csv(""data_hours.csv"",sep="";"") "
+"2","Warning in file(file, ""rt"") :"
+"2","
+ "
+"2"," cannot open file 'data_hours.csv': No such file or directory
+"
+"2","Error in file(file, ""rt"") : cannot open the connection
+"

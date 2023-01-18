@@ -1,0 +1,2 @@
+"0","d$code <- as.factor(d$code)"
+"0","d$moon_phase <- as.factor(d$moon_phase)"

@@ -1,0 +1,23 @@
+"0","```r
+nrow(d) == (nrow(training_set)+nrow(test_set))
+```"
+"1","[1] TRUE
+"
+"0","```r
+colnames(d)
+```"
+"1"," [1] \"id\"          \"code\"        \"date\"        \"hour\"        \"hours\"       \"month\"      
+ [7] \"year\"        \"Instr\"       \"MinDepth\"    \"MaxDepth\"    \"temp_tag\"    \"MinTemp\"    
+[13] \"MaxTemp\"     \"X\"           \"Y\"           \"depth\"       \"moon_phase\"  \"temp\"       
+[19] \"nppv\"        \"curx\"        \"cury\"        \"cur\"         \"salinity\"    \"height\"     
+[25] \"mld\"         \"Delta.Light\" \"time\"       
+"
+"0","```r
+colnames(training_set)
+```"
+"1"," [1] \"id\"          \"code\"        \"date\"        \"hour\"        \"hours\"       \"month\"      
+ [7] \"year\"        \"Instr\"       \"MinDepth\"    \"MaxDepth\"    \"temp_tag\"    \"MinTemp\"    
+[13] \"MaxTemp\"     \"X\"           \"Y\"           \"depth\"       \"moon_phase\"  \"temp\"       
+[19] \"nppv\"        \"curx\"        \"cury\"        \"cur\"         \"salinity\"    \"height\"     
+[25] \"mld\"         \"Delta.Light\" \"time\"       
+"

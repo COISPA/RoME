@@ -1,0 +1,9 @@
+"0","```r
+
+
+training_set <- cbind(training_set, pred_tra)
+nc <- ncol(training_set)
+colnames(training_set)[nc] <- \"pred_sqrt\"
+training_set$pred_2 <- (pred_tra)^2
+head(training_set)
+```"

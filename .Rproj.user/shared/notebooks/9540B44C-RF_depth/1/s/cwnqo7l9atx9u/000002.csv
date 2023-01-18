@@ -1,0 +1,5 @@
+"0","```r
+VIM_perm <- VIM_perm[order(VIM_perm$perm_values, decreasing = T),]
+VIM_perm$name = factor(VIM_perm$name, levels = VIM_perm$name)
+VIM_perm
+```"

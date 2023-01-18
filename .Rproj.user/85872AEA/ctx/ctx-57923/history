@@ -1,0 +1,512 @@
+# }
+#   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+# check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+# check.df <- check.list[[1]]
+# check_without_errors <- check.list[[2]]
+# check_without_warnings <- check.list[[3]]
+# checkName = "Check consistency of sex data TC by means of sex-inversion size"
+# if (check_without_errors == TRUE) {
+#   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#   check_without_errors = check_sex_inversion(ResultDataTC,Maturity_parameters,wd,suffix)
+# }
+#   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+# check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+# check.df <- check.list[[1]]
+# check_without_errors <- check.list[[2]]
+# check_without_warnings <- check.list[[3]]
+checkName = "Check consistency of length distribution TC"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_step_length_distr(ResultDataTC,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check total weight in the haul in TC"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_individual_weightTC(ResultDataTC,LW=ab_parameters,year=yea,wd,suffix, verbose=FALSE)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check correctness of species codes TC"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_rubincode(ResultDataTC,year=yea,TM_list=Ref_list,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check presence of lengths for G1 and G2 Medits species in TC"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_G1_G2(ResultDataTC, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+# cross checks
+table <- "TB-TA"
+checkName = "Check presence in TB of TA hauls"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_hauls_TATB(ResultDataTA,ResultDataTB,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TA-TB"
+checkName = "Check presence in TA of TB hauls"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_hauls_TBTA(ResultDataTA,ResultDataTB,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TC-TB"
+checkName = "Check presence in TC of TB target species"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_species_TBTC(ResultDataTB,ResultDataTC,year=yea,DataSpecies=DataTargetSpecies,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TB-TC"
+checkName = "Check presence in TB of TC species"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_haul_species_TCTB(ResultDataTB,ResultDataTC,year=yea,wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check correctness of the number per sex in TB in case of sub-sampling in TC  "
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_raising(ResultDataTB,ResultDataTC,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TA-TB"
+checkName = "Check on date by haul TB"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_date_haul(ResultDataTA, ResultDataTB, year=yea, wd, suffix)
+}
+if(verbose){stop_ =printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TA-TC"
+checkName = "Check on date by haul TC"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_date_haul(ResultDataTA, ResultDataTC, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+#Check on TE
+if (!(all(is.na(TE)) & length(TE)==1)) {
+if (nrow(ResultDataTE)>0){
+table <- "TA-TE"
+checkName = "Check on date by haul TE"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_date_haul(ResultDataTA,ResultDataTE, year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TE"
+checkName = "Check consistency of maturity stages TE"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_mat_stages(ResultDataTE,year=yea, wd, suffix, stages = stages_list)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TC-TE"
+checkName = "Cross check on number between TC and TE"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_TE_TC(ResultDataTC,ResultDataTE,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TE"
+checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_smallest_mature(ResultDataTE,year=yea,Maturity_parameters=Maturity,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+## questo check è nella sezione dei check dei TE ma sembra essere solo per il TC
+# table <- "TA-TE"
+# checkName = "Check consistency of maturity stages in TE by means of spawning period"
+# if (check_without_errors == TRUE) {
+#   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#   check_without_errors = check_spawning_period(ResultDataTA,ResultDataTE,year=yea,Maturity_parameters=Maturity,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+# }
+#   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+# check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+# check.df <- check.list[[1]]
+# check_without_errors <- check.list[[2]]
+# check_without_warnings <- check.list[[3]]
+table <- "TE"
+checkName = "Check individual weight in TE"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_individual_weightTE(ResultDataTE,LW=ab_parameters,year=yea,wd,suffix,verbose=FALSE)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check correctness of species codes TE"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_rubincode(ResultDataTE,year=yea,TM_list=Ref_list,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check consistency TE check-fields"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_nb_TE(ResultDataTE,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TC-TE"
+checkName = "Summary individual data sampling"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = scheme_individual_data(DataTC=ResultDataTC,DataTE=ResultDataTE,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+}
+}
+# Checks on TL
+if (!(all(is.na(TL)) & length(TL)==1)) {
+if (nrow(ResultDataTL)>0){
+table <- "TL"
+checkName = "Check allowed values for category on Litter data"
+Field = "LITTER_CATEGORY"
+Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8","L9")
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+checkName = "Check allowed values for sub-category on Litter data"
+Field = "LITTER_SUB-CATEGORY"
+Values = c("0","A","B","C","D","E","F","G","H","I","J")
+colnames(ResultDataTL)[10]="LITTER_SUB-CATEGORY"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+Field <- NA
+checkName = "Check correctness of associations between category and sub-category on Litter data"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_associations_category_TL(ResultDataTL,assTL, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+# checkName = "Check if the number is always filled in on Litter data"
+# if (check_without_errors == TRUE) {
+#       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#       check_without_errors = check_no_empty_fields(ResultDataTL,year=yea,wd,suffix)
+#     }
+#     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+# check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+# check.df <- check.list[[1]]
+# check_without_errors <- check.list[[2]]
+# check_without_warnings <- check.list[[3]]
+table <- "TA-TL"
+checkName = "Check if the hauls in TL are present in TA"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_hauls_TLTA(ResultDataTA,ResultDataTL,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TA-TL"
+checkName = "Check if the hauls in TA are present in TL"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_hauls_TATL(ResultDataTA,ResultDataTL,year=yea,wd,suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+table <- "TA-TL"
+checkName = "Check if the date in TL is consistent with TA"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+check_without_errors = check_date_haul(ResultDataTA, ResultDataTL, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+}
+}
+if (!stop_) {
+if(verbose){print("All the checks have been performed!",quote=FALSE)}
+}
+# # Create files for R_Sufi
+#
+# if ((!stop_) & (create_RSufi_files==TRUE)){
+#   AREA <- ResultDataTA[1,"AREA"]
+#   create_strata(Stratification=Stratification,AREA,wd,save=TRUE)
+#   create_haul(ResultDataTA,year=yea,wd,save=TRUE)
+#   create_catch(ResultDataTB,year=yea,wd,save=TRUE)
+#
+#
+#   # if (!(all(is.na(TE)) & length(TE)==1)) {
+#   #   if (nrow(ResultDataTE)>0){
+#   #       create_length(ResultDataTE,DataSpecies=Ref_list,wd)
+#   #   }
+#   # }
+#
+#     if (nrow(ResultDataTC)>0){
+#       create_length(ResultDataTC,year=yea,DataSpecies=Ref_list,wd,save=TRUE)
+#     }
+#
+#   print(paste("R-Sufi files have been created for the ",yea, "and the GSA selected! They have been stored in files R-Sufi directory."),quote=FALSE)
+# }
+} # ciclo years
+} # year_without_error | TYPE_OF_FILE_without_error are FALSE
+} # check_header
+### CHECK CLASS
+table <- "TA"
+checkName = "Check CLASS of fields"
+if (check_without_errors == TRUE) {
+if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
+check_without_errors =   check_class(data=TA,tab="TA",wd=wd,suffix=suffix)
+if (class_without_error){
+class_without_error <- check_without_errors
+}
+}
+classes <- read.csv("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/TX_classes.csv", sep=";")
+classes
+classes <- read.csv("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/TX_classes.csv", sep=";")
+classes
+save(classes,file="data/classes.rda",compress="xz",compression_level=9)
+library(RoME)
+source("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/Test_RoMEcc.R", echo=TRUE)
+library(RoME)
+source("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/Test_RoMEcc.R", echo=TRUE)
+library(RoME)
+devtools::build_manual(pkg = ".", path = NULL)
+tempdir()
+check_class(data=TA, "TA", wd=tempdir(),suffix="test_file")
+wd
+check_class(data=TA, "TA", wd=wd,suffix="test_file")
+check_class(data=RoME::TA, "TA", wd=wd,suffix="test_file")
+#----------------------
+write.table(TA,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TA.csv",sep=";",row.names=FALSE)
+TA <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TA.csv", header=TRUE,sep=";")
+TA
+str(TA)
+TA$BOTTOM_SALINITY_BEGINNING <- as.numeric(TA$BOTTOM_SALINITY_BEGINNING)
+TA$BOTTOM_SALINITY_END <- as.numeric(TA$BOTTOM_SALINITY_END)
+TA$MEASURING_SYSTEM_SALINITY <- as.character(TA$MEASURING_SYSTEM_SALINITY)
+save(TA,file="data/TA.rda",compress="xz",compression_level=9)
+library(RoME)
+check_class(data=RoME::TA, "TA", wd=wd,suffix="test_file")
+RoME::TA
+str(RoME::TA)
+check_class(data=RoME::TB, "TB", wd=wd,suffix="test_file")
+wd
+#----------------------
+write.table(TB,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TB.csv",sep=";",row.names=FALSE)
+TB <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TB.csv", header=TRUE,sep=";")
+str(TB)
+save(TB,file="data/TB.rda",compress="xz",compression_level=9)
+library(RoME)
+source("~/GitHub/Test_package.R", echo=TRUE)
+check_class(data=RoME::TB, "TB", wd=wd,suffix="test_file")
+check_class(data=RoME::TC, "TC", wd=wd,suffix="test_file")
+check_class(data=RoME::TE, "TE", wd=wd,suffix="test_file")
+#----------------------
+write.table(TE,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv",sep=";",row.names=FALSE)
+library(RoME)
+#----------------------
+write.table(classes,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\classes.csv",sep=";",row.names=FALSE)
+classes <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\classes.csv", header=TRUE,sep=";")
+save(classes,file="data/classes.rda",compress="xz",compression_level=9)
+#----------------------
+check_class(data=RoME::TE, "TE", wd=wd,suffix="test_file")
+check_class(data=RoME::TE, "TE", wd=wd,suffix="test_file")
+#----------------------
+write.table(TE,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv",sep=";",row.names=FALSE)
+TE <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv", header=TRUE,sep=";")
+#----------------------
+write.table(TE,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv",sep=";",row.names=FALSE)
+TE <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv", header=TRUE,sep=";")
+save(TE,file="data/TE.rda",compress="xz",compression_level=9)
+str(TE)
+save(TE[,c(1:25)],file="data/TE.rda",compress="xz",compression_level=9)
+TE <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv", header=TRUE,sep=";")
+save(TE,file="data/TE.rda",compress="xz",compression_level=9)
+library(RoME)
+check_class(data=RoME::TE, "TE", wd=wd,suffix="test_file")
+check_class(data=RoME::TL, "TL", wd=wd,suffix="test_file")
+#----------------------
+write.table(TL,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv",sep=";",row.names=FALSE)
+#----------------------
+write.table(TL,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv",sep=";",row.names=FALSE)
+TL
+#----------------------
+write.table(RoME::TL,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv",sep=";",row.names=FALSE)
+TL <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv", header=TRUE,sep=";")
+TL
+str(RoME)
+str(TL)
+save(TL,file="data/TL.rda",compress="xz",compression_level=9)
+library(RoME)
+TA
+TL <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv", header=TRUE,sep=";")
+save(TL,file="data/TL.rda",compress="xz",compression_level=9)
+check_class(data=RoME::TL, "TL", wd=wd,suffix="test_file")
+library(RoME)
+library(RoME)
+check_class(data=RoME::TL, "TL", wd=wd,suffix="test_file")
+classes <- RoME::classes
+classes
+library(RoME)
+RoME::TA
+RoME::TA
+unique(RoME::TA$YEAR)
+library(RoME)
+RoME::TA
+#----------------------
+write.table(RoME::TA,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TA.csv",sep=";",row.names=FALSE)
+check_class(data=RoME::TA, "TA", wd=wd,suffix="test_file")
+TA <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TA.csv", header=TRUE,sep=";")
+str(TA)
+TA$BOTTOM_SALINITY_BEGINNING <- as.numeric(TA$BOTTOM_SALINITY_BEGINNING)
+TA$BOTTOM_SALINITY_END <- as.numeric(TA$BOTTOM_SALINITY_END)
+TA$MEASURING_SYSTEM_SALINITY <- as.character(TA$MEASURING_SYSTEM_SALINITY)
+check_class(data=RoME::TA, "TA", wd=wd,suffix="test_file")
+check_class(data=RoME::TA, "TA", wd=wd,suffix="test_file")
+check_class(data=TA, "TA", wd=wd,suffix="test_file")
+save(TA,file="data/TA.rda",compress="xz",compression_level=9)
+#----------------------
+write.table(RoME::TB,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TB.csv",sep=";",row.names=FALSE)
+TB <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TB.csv", header=TRUE,sep=";")
+check_class(data=TB, "TB", wd=wd,suffix="test_file")
+save(TB,file="data/TB.rda",compress="xz",compression_level=9)
+#----------------------
+write.table(RoME::TC,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TC.csv",sep=";",row.names=FALSE)
+TC <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TC.csv", header=TRUE,sep=";")
+save(TC,file="data/TC.rda",compress="xz",compression_level=9)
+#----------------------
+write.table(RoME::TE,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv",sep=";",row.names=FALSE)
+TE <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TE.csv", header=TRUE,sep=";")
+save(TE,file="data/TE.rda",compress="xz",compression_level=9)
+#----------------------
+write.table(RoME::TL,"D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv",sep=";",row.names=FALSE)
+TL <- read.table("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\_appoggio_\\TL.csv", header=TRUE,sep=";")
+save(TL,file="data/TL.rda",compress="xz",compression_level=9)
+TL
+#### CHECK TL FIELDS ####
+{
+if ("LITTER_SUB.CATEGORY" %in% colnames(TL)){
+colnames(TL)[which(colnames(TL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
+}
+if ("TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(TL)){
+colnames(TL)[which(colnames(TL)=="TOTAL_WEIGHT_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_WEIGHT_IN_THE_SUB-CATEGORY_HAUL"
+}
+if ("TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL" %in% colnames(TL)){
+colnames(TL)[which(colnames(TL)=="TOTAL_NUMBER_IN_THE_SUB.CATEGORY_HAUL")] <- "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
+}
+}
+colnames(TL)
+save(TL,file="data/TL.rda",compress="xz",compression_level=9)
+library(RoME)
+library(RoME)
+source("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/RoME/R/check_numeric_range.R", echo=TRUE)
+library(RoME)
+RoME::TA
+year <- unique(DataTA$YEAR)[1]
+year
+wd <- tempdir()
+suffix="2020-03-05_time_h17m44s55"
+Field = "SHOOTING_DEPTH"
+Values = c(10,800,0)
+DataTA = RoME::TA
+year <- unique(DataTA$YEAR)[1]
+check_numeric_range(DataTA, Field, Values, year, wd, suffix)
+library(RoME)
+library(RoME)
+library(RoME)

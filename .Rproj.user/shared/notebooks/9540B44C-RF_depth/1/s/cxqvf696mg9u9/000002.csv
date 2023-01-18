@@ -1,0 +1,23 @@
+"0","```r
+rf$importance
+```"
+"1","              %IncMSE IncNodePurity
+code       10404.3863   482662339.3
+hours       1022.8159    19491100.9
+month        733.9851     4055420.0
+year          57.1474      600352.1
+X           1893.4108    24684177.3
+Y           2497.4236    24055632.8
+moon_phase   897.4199     6361167.1
+temp       81396.0827  1159926873.5
+nppv       60389.2885  1086667206.5
+cur         4364.6723   145719028.8
+salinity   16895.7130   392481088.1
+height      2626.9252    28450260.5
+mld         1840.5736    55160558.4
+"
+"0","```r
+VIM_gini <-  as.data.frame(rf$importance)
+VIM_gini$name <- rownames(VIM_gini)
+VIM_gini 
+```"

@@ -1,0 +1,66 @@
+library(RoME)
+
+## RoME package needs TA, TB and TC mandatory files to work. In case TE and TL are not provided TE and TL should be NA.
+## change the following lines to load TX table data from local folder
+## Comment the following lines if TX file are loaded on the fly from RDBFIS
+
+# Set working directory were all the results will be stored
+wd <- "D:/Documents and Settings/Utente/Downloads/MED/2"
+
+# # load TX tables for a unique GSA per time
+ta <- read.csv(file.path(wd,"meditsta.csv"), sep=",")
+tb <- read.csv(file.path(wd,"meditstb.csv"), sep=",")
+tc <- read.csv(file.path(wd,"meditstc.csv"), sep=",")
+te <- NA
+tl <- NA
+
+# te <- read.csv("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\APPOGGIO\\Ioannis\\MEDITS\\medits_te.csv", sep=";")
+# tl <- read.csv("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RDBqc\\APPOGGIO\\Ioannis\\MEDITS\\medits_tl.csv", sep=";")
+
+# conversion of RDBFIS headers of MEDITS tables to MEDITS format
+ta <- headers.conversion(ta,"TA")
+tb <- headers.conversion(tb,"TB")
+tc <- headers.conversion(tc,"TC")
+
+if ((all(is.na(te)) & length(te)==1) | (all(is.na(te))))
+{
+  te <- NA
+} else {
+  te <- headers.conversion(te,"TE")
+}
+
+if ((all(is.na(tl)) & length(tl)==1) | (all(is.na(tl)) ))
+{
+  tl <- NA
+} else {
+  tl <- headers.conversion(tl,"TL")
+}
+
+# variables definition
+suffix <- NA
+Stratification= RoME::stratification_scheme
+Ref_list= RoME::TM_list
+DataTargetSpecies=RoME::DataTargetSpecies
+Maturity=RoME::Maturity_parameters
+ab_parameters=RoME::LW
+stages=RoME::mat_stages
+assTL=RoME::assTL
+verbose = TRUE
+################ NON MODIFICARE #############
+
+
+RoMEcc(TA=ta,
+     TB=tb,
+     TC=tc,
+     TE=te,
+     TL=tl,
+     wd=wd,
+     suffix=suffix,
+     verbose=verbose,
+     Stratification=Stratification,
+     Ref_list=TM_list,
+     DataTargetSpecies=DataTargetSpecies,
+     Maturity=Maturity_parameters,
+     ab_parameters=ab_parameters,
+     stages_list=stages,
+     assTL=assTL)

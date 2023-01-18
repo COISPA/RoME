@@ -1,0 +1,57 @@
+
+
+library(RoME)
+
+wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\_CONDIVISA con COSMIDANO_\\RoME_2022\\CHECK_WZ_CN"
+suffix=NA
+
+ta <- read.csv("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/_CONDIVISA con COSMIDANO_/RoME_2022/CHECK_WZ_CN/TA.csv", sep=";")
+
+tb <- read.csv("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/_CONDIVISA con COSMIDANO_/RoME_2022/CHECK_WZ_CN/TB.csv", sep=";")
+
+tc <- read.csv("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/_CONDIVISA con COSMIDANO_/RoME_2022/CHECK_WZ_CN/TC.csv", sep=";")
+
+
+te <- NA # read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)
+
+tl <- NA # read.table(file=paste(wd, "\\TL.csv",sep=""), sep=";", header=T)
+
+
+
+Stratification= RoME::stratification_scheme # oppure = read.table(file=paste(wd,"\\Tables\\Stratification_Scheme.csv",sep=""), sep=";", header=T)
+Ref_list= RoME::TM_list #read.csv(file=paste(wd,"\\Tables\\TM_list.csv",sep=""), sep=";", header=T)  # oppure RoME::TM_list
+DataTargetSpecies=RoME::DataTargetSpecies # oppure = read.table(file=paste(wd,"\\Tables\\DataTargetSpecies.csv",sep=""), sep=";", header=T)
+Maturity=RoME::Maturity_parameters # oppure = read.table(file=paste(wd,"\\Tables\\Maturity_parameters.csv",sep=""), sep=";", header=T)
+ab_parameters=RoME::LW
+stages=RoME::mat_stages
+assTL=RoME::assTL
+
+verbose = TRUE
+
+unique(ta$AREA)
+unique(tb$AREA)
+unique(tc$AREA)
+
+
+ta <- headers.conversion(ta,"TA")
+tb <- headers.conversion(tb,"TB")
+tc <- headers.conversion(tc,"TC")
+
+################ NON MODIFICARE #############
+
+
+RoMEcc(TA=ta,
+     TB=tb,
+     TC=tc,
+     TE=te,
+     TL=tl,
+     wd=wd,
+     suffix=suffix,
+     verbose=verbose,
+     Stratification=Stratification,
+     Ref_list=TM_list,
+     DataTargetSpecies=DataTargetSpecies,
+     Maturity=Maturity_parameters,
+     ab_parameters=ab_parameters,
+     stages_list=stages,
+     assTL=assTL)

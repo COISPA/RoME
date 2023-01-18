@@ -1,0 +1,112 @@
+"0","```r
+rf <- randomForest(tra[[7]] ~.,  # response
+                   data=tra[,-(7)], #predictors
+                   ntree=nt, #total num of trees in forest
+                   mtry= m,   #mtry
+                   nodesize= nd, #nodesize
+                   importance=T, #computing the importance of predictive variables? Y/N
+                   keep.forest=T #retaining the forest in the output object? Y/N
+                   )
+rf
+```"
+"1","
+Call:
+ randomForest(formula = tra[[7]] ~ ., data = tra[, -(7)], ntree = nt,      mtry = m, nodesize = nd, importance = T, keep.forest = T) 
+               Type of random forest: regression
+                     Number of trees: 100
+No. of variables tried at each split: 4
+
+          Mean of squared residuals: 563.8995
+                    % Var explained: 99.5
+"
+"0","```r
+summary(rf)
+```"
+"1","                Length Class  Mode     
+call                8  -none- call     
+type                1  -none- character
+predicted       30408  -none- numeric  
+mse               100  -none- numeric  
+rsq               100  -none- numeric  
+oob.times       30408  -none- numeric  
+importance         26  -none- numeric  
+importanceSD       13  -none- numeric  
+localImportance     0  -none- NULL     
+proximity           0  -none- NULL     
+ntree               1  -none- numeric  
+mtry                1  -none- numeric  
+forest             11  -none- list     
+coefs               0  -none- NULL     
+y               30408  -none- numeric  
+test                0  -none- NULL     
+inbag               0  -none- NULL     
+terms               3  terms  call     
+"
+"0","```r
+str(rf)
+```"
+"1","List of 18
+ $ call           : language randomForest(formula = tra[[7]] ~ ., data = tra[, -(7)], ntree = nt, mtry = m, nodesize = nd,      importance = T| __truncated__
+ $ type           : chr \"regression\"
+ $ predicted      : Named num [1:30408] 19.59 4.5 7.51 448.46 532.06 ...
+  ..- attr(*, \"names\")= chr [1:30408] \"1\" \"2\" \"3\" \"4\" ...
+ $ mse            : num [1:100] 866 818 798 788 726 ...
+ $ rsq            : num [1:100] 0.992 0.993 0.993 0.993 0.994 ...
+ $ oob.times      : int [1:30408] 28 34 42 31 38 47 34 27 40 36 ...
+ $ importance     : num [1:13, 1:2] 10404.4 1022.8 734 57.1 1893.4 ...
+  ..- attr(*, \"dimnames\")=List of 2
+  .. ..$ : chr [1:13] \"code\" \"hours\" \"month\" \"year\" ...
+  .. ..$ : chr [1:2] \"%IncMSE\" \"IncNodePurity\"
+ $ importanceSD   : Named num [1:13] 1473.8 57.7 306.8 13.6 268.1 ...
+  ..- attr(*, \"names\")= chr [1:13] \"code\" \"hours\" \"month\" \"year\" ...
+ $ localImportance: NULL
+ $ proximity      : NULL
+ $ ntree          : num 100
+ $ mtry           : num 4
+ $ forest         :List of 11
+  ..$ ndbigtree    : int [1:100] 9405 9099 8765 8975 8787 8535 8771 8709 9473 8841 ...
+  ..$ nodestatus   : int [1:9613, 1:100] -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 ...
+  ..$ leftDaughter : int [1:9613, 1:100] 2 4 6 8 10 12 14 16 18 20 ...
+  ..$ rightDaughter: int [1:9613, 1:100] 3 5 7 9 11 13 15 17 19 21 ...
+  ..$ nodepred     : num [1:9613, 1:100] 255.4 725.6 64.5 543.8 896.1 ...
+  ..$ bestvar      : int [1:9613, 1:100] 8 9 9 1 12 12 2 6 6 5 ...
+  ..$ xbestsplit   : num [1:9613, 1:100] 1.45e+01 -9.42e-07 3.62e-04 6.45e+04 -4.51e-01 ...
+  ..$ ncat         : Named int [1:13] 16 1 1 1 1 1 4 1 1 1 ...
+  .. ..- attr(*, \"names\")= chr [1:13] \"code\" \"hours\" \"month\" \"year\" ...
+  ..$ nrnodes      : int 9613
+  ..$ ntree        : num 100
+  ..$ xlevels      :List of 13
+  .. ..$ code      : chr [1:16] \"67857\" \"67858\" \"197076\" \"201522\" ...
+  .. ..$ hours     : num 0
+  .. ..$ month     : num 0
+  .. ..$ year      : num 0
+  .. ..$ X         : num 0
+  .. ..$ Y         : num 0
+  .. ..$ moon_phase: chr [1:4] \"First Quarter\" \"Full Moon\" \"New Moon\" \"Third Quarter\"
+  .. ..$ temp      : num 0
+  .. ..$ nppv      : num 0
+  .. ..$ cur       : num 0
+  .. ..$ salinity  : num 0
+  .. ..$ height    : num 0
+  .. ..$ mld       : num 0
+ $ coefs          : NULL
+ $ y              : Named num [1:30408] 18 4.5 7.5 448.5 531 ...
+  ..- attr(*, \"names\")= chr [1:30408] \"1\" \"2\" \"3\" \"4\" ...
+ $ test           : NULL
+ $ inbag          : NULL
+ $ terms          :Classes 'terms', 'formula'  language tra[[7]] ~ code + hours + month + year + X + Y + moon_phase + temp + nppv + cur + salinity +      height + mld
+  .. ..- attr(*, \"variables\")= language list(tra[[7]], code, hours, month, year, X, Y, moon_phase, temp, nppv, cur, salinity, height,      mld)
+  .. ..- attr(*, \"factors\")= int [1:14, 1:13] 0 1 0 0 0 0 0 0 0 0 ...
+  .. .. ..- attr(*, \"dimnames\")=List of 2
+  .. .. .. ..$ : chr [1:14] \"tra[[7]]\" \"code\" \"hours\" \"month\" ...
+  .. .. .. ..$ : chr [1:13] \"code\" \"hours\" \"month\" \"year\" ...
+  .. ..- attr(*, \"term.labels\")= chr [1:13] \"code\" \"hours\" \"month\" \"year\" ...
+  .. ..- attr(*, \"order\")= int [1:13] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..- attr(*, \"intercept\")= num 0
+  .. ..- attr(*, \"response\")= int 1
+  .. ..- attr(*, \".Environment\")=<environment: R_GlobalEnv> 
+  .. ..- attr(*, \"predvars\")= language list(tra[[7]], code, hours, month, year, X, Y, moon_phase, temp, nppv, cur, salinity, height,      mld)
+  .. ..- attr(*, \"dataClasses\")= Named chr [1:14] \"numeric\" \"factor\" \"numeric\" \"numeric\" ...
+  .. .. ..- attr(*, \"names\")= chr [1:14] \"tra[[7]]\" \"code\" \"hours\" \"month\" ...
+ - attr(*, \"class\")= chr [1:2] \"randomForest.formula\" \"randomForest\"
+"

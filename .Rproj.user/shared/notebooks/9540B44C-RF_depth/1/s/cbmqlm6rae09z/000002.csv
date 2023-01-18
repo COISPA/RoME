@@ -1,0 +1,6 @@
+"0","```r
+test_set <- cbind(test_set, pred_test)
+nc <- ncol(test_set)
+colnames(test_set)[nc] <-\"pred_sqrt\"
+head(test_set)
+```"
