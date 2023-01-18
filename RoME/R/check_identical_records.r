@@ -7,24 +7,27 @@
 ############################################################################################################################
 #  Check identical records
 
-check_identical_records<-function(Data,wd,suffix){
+check_identical_records<-function(Data,year,wd,suffix){
 
-  check_without_errors = FALSE
+
 
   if (FALSE){
-    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
+    wd <- tempdir() # "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
     # suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     # Data = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     # Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     # Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
-    Data = read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
-    Data$MATURITY [28] <- 2
-    Data$MATSUB[28] <- "D"
+    Data = RoME::TC # read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T)
+    year=2007
+    Data$LENGTH_CLASS [1] <- 130
+    Data$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE[1] <- 2
     # Data <- Data[Data$YEAR ==2018 , ]
 
-    # check_identical_records(Data, wd, suffix)
+    # check_identical_records(Data, year, wd, suffix)
   }
+
+  check_without_errors = FALSE
 
   if (!file.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
@@ -37,6 +40,18 @@ check_identical_records<-function(Data,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  Data <- Data[Data$YEAR == year, ]
+  ########################################
 
   Result = Data
 

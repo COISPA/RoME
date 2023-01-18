@@ -10,20 +10,18 @@
 
 
 if (FALSE){
-  # ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA= read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # ResultDataTA[ResultDataTA$YEAR==2017,]
-  ResultDataTA <-  ResultDataTA[c(-91,-92),]
-  nrow(ResultDataTA)
-  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
+  ResultDataTA <-  RoME::TA
+  year=2012
+  wd <- tempdir()
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
   #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_unique_valid_haul(ResultDataTA,wd,suffix)
+  check_unique_valid_haul(ResultDataTA,year,wd,suffix)
 }
 
 
-check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
+check_unique_valid_haul<-function(ResultDataTA,year,wd,suffix){
   Format="from_2012"
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -40,6 +38,18 @@ check_unique_valid_haul<-function(ResultDataTA,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultDataTA <- ResultDataTA[ResultDataTA$YEAR == year, ]
+  ########################################
 
   Result = ResultDataTA # read.csv(paste(DataTA,".csv",sep=""), sep=";", header=TRUE)
   write(paste("\n----------- check uniqueness of valid hauls TA - ",Result$YEAR[1]), file = Errors, append = TRUE)

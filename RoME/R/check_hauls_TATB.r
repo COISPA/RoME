@@ -5,19 +5,18 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-# Check if all the hauls in TA are in TB	
+# Check if all the hauls in TA are in TB
 
-check_hauls_TATB<-function(DataTA,DataTB,wd,suffix){
+check_hauls_TATB<-function(DataTA,DataTB,year,wd,suffix){
 
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA <- read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # DataTA[DataTA$YEAR == 2018, ]
-    DataTA <- DataTA[DataTA$YEAR ==2018 , ]
-    DataTB <- read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";") # DataTB[DataTB$YEAR == 2018, ]
-    DataTB <- DataTB[DataTB$YEAR ==2018 , ]
-    # check_hauls_TATB(DataTA,DataTB,wd,suffix)
+    DataTA <- RoME::TA # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # DataTA[DataTA$YEAR == 2018, ]
+    DataTB <- RoME::TB # read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";") # DataTB[DataTB$YEAR == 2018, ]
+    year=2007
+    # check_hauls_TATB(DataTA,DataTB,year,wd,suffix)
   }
 
 
@@ -33,6 +32,19 @@ check_hauls_TATB<-function(DataTA,DataTB,wd,suffix){
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  DataTB <- DataTB[DataTB$YEAR == year, ]
+  ########################################
+
   ResultTA = DataTA
   write(paste("\n----------- check presence in TB of TA hauls - ",ResultTA$YEAR[1]), file = Errors, append = TRUE)
 
@@ -41,7 +53,7 @@ check_hauls_TATB<-function(DataTA,DataTB,wd,suffix){
   ResultTB = DataTB
 
   if (nrow(ResultTA)!=0){
-    j=1
+    j=2
     for (j in 1:nrow(ResultTA)){
 
       ResultTB_temp=ResultTB[which(ResultTB$HAUL_NUMBER==ResultTA$HAUL_NUMBER[j]),]

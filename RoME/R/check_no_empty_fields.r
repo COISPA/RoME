@@ -7,21 +7,16 @@
 ############################################################################################################################
 # Check empty fields in TA,TB,TC
 
-check_no_empty_fields<-function(Data,wd,suffix){
+check_no_empty_fields<-function(Data,year,wd,suffix){
   if (FALSE){
-    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
+    wd <- tempdir()
     suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    # Data = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    # Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
-    # Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    # Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
-    # Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
-    Data <- read.table(file=paste(wd, "\\2019 GSA18 TE.csv",sep=""), sep=";", header=T)
 
-    Data$FAUNISTIC_CATEGORY[1] <- NA
-    # Data <- Data[Data$YEAR ==2018 , ]
-
-    # check_no_empty_fields(Data, wd, suffix)
+    Data <- ta #RoME::TA
+    Data[1,"TYPE_OF_FILE"] <- NA
+    # Data[1,"CODEND_CLOSING"] <- "S"
+    year=2015
+    check_no_empty_fields(Data, year, wd, suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -36,12 +31,30 @@ check_no_empty_fields<-function(Data,wd,suffix){
     file.create(Errors)
   }
 
-  Matrix = Data
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  Data <- Data[Data$YEAR == year, ]
+  ########################################
+
+  Matrix = Data # [!is.na(Data$LENGTH_CLASS),]
+
+  if (any(is.na(Matrix$TYPE_OF_FILE))) {
+    write(paste("Empty records detected in the 'TYPE_OF_FILE' field in the table. The check could not be further performed on the other fields of the table before the error is corrected."), file = Errors, append = TRUE)
+    numberError = numberError + 1
+  } else {
+
   if ((Data[1,"TYPE_OF_FILE"] == "TA") == TRUE)  {
     write(paste("\n----------- check no empty fields"), file = Errors, append = TRUE)
     write(paste("TA - ",Matrix$YEAR[1]), file = Errors, append = TRUE)
 
-    Matrix=Matrix[Matrix$VALIDITY=="V",]
+    Matrix=Matrix[is.na(Matrix$VALIDITY) |Matrix$VALIDITY=="V",]
     Mat=Matrix[,c(1:34)]
 
   } else if ((Data[1,"TYPE_OF_FILE"] == "TB") == TRUE) {
@@ -52,13 +65,13 @@ check_no_empty_fields<-function(Data,wd,suffix){
     Mat=Matrix[,c(1:20,22)]   #
   } else if ((Data[1,"TYPE_OF_FILE"] == "TE") == TRUE) {
     write(paste("TE- ",Matrix$YEAR[1]), file = Errors, append = TRUE)
-    Mat=Matrix[,c(1:16,18:23)]  # c(1:23)
+    Mat=Matrix[,c(1:23,25)]  # c(1:23)
   } else if ((Data[1,"TYPE_OF_FILE"] == "TL") == TRUE){
     write(paste("TL- ",Matrix$YEAR[1]), file = Errors, append = TRUE)
-    Mat=Matrix[,c(1:10,12,14)]
+    Mat=Matrix[,c(1:10,12)]
   }
 
-  empty_X=which((is.na(Mat) | Mat ==""),arr.ind=TRUE)
+  empty_X=which((is.na(Mat) | Mat =="" | Mat =="NA"),arr.ind=TRUE)
 
   if (nrow(empty_X)!=0) {
     i=1
@@ -67,13 +80,13 @@ check_no_empty_fields<-function(Data,wd,suffix){
       if (names(Mat)[empty_X[i,2]]!="PART_OF_THE_CODEND"){
         write(paste("Haul ",Mat$HAUL_NUMBER[empty_X[i,1]],"no value for ", names(Mat)[empty_X[i,2]]," in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         numberError = numberError + 1
-      } else if (Mat$CODEND_CLOSING[empty_X[i,1]+1] == "C") {
+      } else if (Mat$CODEND_CLOSING[empty_X[i,1]] == "C" & !is.na(Mat$CODEND_CLOSING[empty_X[i,1]])) {
         write(paste("Haul ",Mat$HAUL_NUMBER[empty_X[i,1]],"no value for ", names(Mat)[empty_X[i,2]]," in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         numberError = numberError + 1
       }
     }
   }
-
+}
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }

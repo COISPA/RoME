@@ -3,11 +3,12 @@
 \title{Checks the presence of 0 fields in TA}
 \description{
 The function checks the presence of 0 fields in the following haul data table (TA, according to MEDITS protocol) fields: WING_OPENING, WARP_DIAMETER  and VERTICAL_OPENING}
-\usage{check_0_fieldsTA(DataTA,wd,suffix)}
+\usage{check_0_fieldsTA(DataTA,wd,suffix,year)}
 \arguments{
     \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
+    \item{year}{reference year for the analysis}
     }
 
 \value{The function returns a boolean value. It is FALSE in case 0 values are detected in the TA table's fields}
@@ -15,11 +16,9 @@ The function checks the presence of 0 fields in the following haul data table (T
 \author{Isabella Bitetto [aut,cre] <bitetto@coispa.it>;
         Walter Zupa [aut, cre] <zupa@coispa.it>}
 \examples{
-library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time_h17m44s55"
-library(RoME)
-check_0_fieldsTA(MEDITS::TA,wd,suffix)
+check_0_fieldsTA(RoME::TA,wd,suffix, year=2007)
 }
 
 \keyword{ error }

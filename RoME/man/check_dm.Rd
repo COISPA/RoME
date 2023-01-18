@@ -7,10 +7,11 @@ Check of "WING_OPENING" and "VERTICAL_OPENING" fields
 The function checks the values in "WING_OPENING" and "VERTICAL_OPENING" field are in the allowed ranges (see INSTRUCTION MANUAL VERSION 9 MEDITS 2017).
 }
 \usage{
-check_dm(DataTA, wd, suffix)
+check_dm(DataTA, year, wd, suffix)
 }
 \arguments{
     \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
+    \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
@@ -19,9 +20,9 @@ check_dm(DataTA, wd, suffix)
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-
+wd=tempdir()
 suffix="2020-12-16_time_h10m52s55"
-check_dm(MEDITS::TA,wd=tempdir(),suffix)
+check_dm(RoME::TA,year=2007,wd,suffix)
 
 }
 \keyword{ error }

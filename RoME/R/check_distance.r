@@ -11,12 +11,13 @@
     #library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = MEDITS::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    DataTA = ta # RoME::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    year=2018
     #DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
-    check_distance(DataTA,wd,suffix)
+    check_distance(DataTA,year,wd,suffix)
  }
 
-check_distance<-function(DataTA, wd, suffix){
+check_distance<-function(DataTA,year, wd, suffix){
   # oldpar <- par(no.readonly = TRUE)
 
 
@@ -39,15 +40,31 @@ check_distance<-function(DataTA, wd, suffix){
     file.create(Errors)
   }
 
-  ResultData = DataTA
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
+
+  ResultData = DataTA[!is.na(DataTA$DISTANCE),]
   write(paste("\n----------- check consistency of the hauls coordinates with the distance - ", ResultData$YEAR[1]), file = Errors, append = TRUE)
 
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
-  ResultData=MEDITS::MEDITS.to.dd(ResultData)
+  ResultData=MEDITS.to.dd(ResultData)
 
+  i=1
   for (i in 1:nrow(ResultData)){
-    ResultData$computed_distance[i]= MEDITS::dd.distance(ResultData[i,], unit = "m", verbose=FALSE)
+    ResultData$computed_distance[i]= dd.distance(ResultData[i,], unit = "m", verbose=FALSE)
+    if (is.nan(ResultData$computed_distance[i])) {
+      ResultData$computed_distance[i] = 0
+    }
   }
 
   lx = (max(ResultData$SHOOTING_LONGITUDE)+0.1) - (min(ResultData$SHOOTING_LONGITUDE)-0.1)
@@ -103,7 +120,7 @@ check_distance<-function(DataTA, wd, suffix){
                                panel.grid.major = element_blank(), panel.grid.minor = element_blank()))
 
         suppressMessages (
-        p <- ggplot(data=world) +
+        ggplot(data=world) +
           geom_sf()+
           coord_sf(crs ="+proj=longlat +ellps=WGS84") +
           geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
@@ -115,17 +132,18 @@ check_distance<-function(DataTA, wd, suffix){
         )
 
 
-        tiff(file.path(wd,"Graphs",paste("haul ", ResultData[j,"HAUL_NUMBER"], " AREA ",ResultData[1,"AREA"],"_",ResultData[1,"YEAR"],".tiff",sep="")),
-             width=img_width, height=img_height,
-             bg="white", units="in", res=300,pointsize = 1/300, compression = "lzw")
-        print(p)
-        dev.off()
+        # tiff(file.path(wd,"Graphs",paste("haul ", ResultData[j,"HAUL_NUMBER"], " AREA ",ResultData[1,"AREA"],"_",ResultData[1,"YEAR"],".tiff",sep="")),
+        #      width=img_width, height=img_height,
+        #      bg="white", units="in", res=300,pointsize = 1/300, compression = "lzw")
+        # print(p)
+        ggsave(file.path(wd,"Graphs",paste("haul ", ResultData[j,"HAUL_NUMBER"], " AREA ",ResultData[1,"AREA"],"_",ResultData[1,"YEAR"],".jpeg",sep="")),width=img_width, height=img_height,dpi = 300, units="in")
+        # dev.off()
 
       }
     }
   }
 
-  write("Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the .tiff files in Graphs directory",file = Errors, append = TRUE)
+  write("Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the jpeg files in Graphs directory",file = Errors, append = TRUE)
   write(paste("No error occurred"), file = Errors, append = TRUE)
 
   # on.exit(suppressWarnings(par(oldpar)))

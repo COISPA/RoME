@@ -9,16 +9,16 @@
 # Check consistency of the length of smallest mature, comparing with literature
 
 if (FALSE){
-  ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  check_smallest_mature(ResultData,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+  ResultData = tc # RoME::TC
+  year=2015
+  wd <- tempdir()
+  suffix=NA
+  check_smallest_mature(ResultData,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
   }
 
 
 
-check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+check_smallest_mature<-function(ResultData,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -33,6 +33,20 @@ check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_paramete
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultData <- ResultData[ResultData$YEAR == year, ]
+  ########################################
+  ResultData <- ResultData[!is.na(ResultData$LENGTH_CLASS),]
+
+
     write(paste("\n----------- check consistency of maturity stages", ResultData$TYPE_OF_FILE[1]," by means of the comparison with the lenght of smallest mature individuals in bibliography - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
   ResultData$Species = paste(ResultData$GENUS,ResultData$SPECIES)
   ResultData$Maturity = paste(as.character(ResultData$MATURITY),ifelse(is.na(ResultData$MATSUB),"",as.character(ResultData$MATSUB)), sep="")
@@ -41,7 +55,9 @@ check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_paramete
 
     species_list = DataTargetSpecies
     mat_lmin = maturity_table[as.character(maturity_table$smallest_mature_individual_observed)!="n.a.",]
-
+    mat_lmin$Species <- as.character(mat_lmin$Species)
+    species_list$FAUNISTIC_CATEGORY <- as.character(species_list$FAUNISTIC_CATEGORY)
+    i <- "MULL BAR"
   for (i in unique(mat_lmin$Species)){
     cau_fau_temp =  species_list$FAUNISTIC_CATEGORY[paste(substring(species_list$SPECIES,1,4),substring(species_list$SPECIES,5,7)) == i]
     mat_lmin_temp = mat_lmin[mat_lmin$Species == i,]
@@ -67,6 +83,7 @@ check_smallest_mature<-function(ResultData,Maturity_parameters=Maturity_paramete
       if (nrow(Error_matrix)!=0)  {
         for (k in 1:nrow(Error_matrix)){
           write(paste("Warning: Haul ",Error_matrix$HAUL_NUMBER[k],Error_matrix$Species[k],Error_matrix$SEX[k],"length",Error_matrix$LENGTH_CLASS[k],": specimen mature with size smaller than the smallest size reported in bibliography(",(as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))*10),").Please see Maturity_parameters.csv (folder 'Tables')"), file = Errors, append = TRUE)
+          print(i)
         }
       }
     }

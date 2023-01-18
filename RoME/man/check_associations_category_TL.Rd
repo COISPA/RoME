@@ -2,10 +2,11 @@
 \alias{check_associations_category_TL}
 \title{Check corretness of TL categories}
 \description{Check corretness of association between category and sub-category in TL consistent according to INSTRUCTION MANUAL VERSION 9}
-\usage{check_associations_category_TL(DataTL, assTL, wd, suffix)}
+\usage{check_associations_category_TL(DataTL, assTL, year, wd, suffix)}
 \arguments{
   \item{DataTL}{Litter data table (TL) according to MEDITS protocol.}
   \item{assTL}{data frame with the association between TL (litter table) categories and sub-categories}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -23,11 +24,10 @@ I. Bitetto, W. Zupa
 }
 \examples{
 \donttest{
-    library(RoME)
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
     DataTL = RoME::TL
-    check_associations_category_TL(DataTL, assTL, wd, suffix)
+    check_associations_category_TL(DataTL, assTL, year=2012, wd, suffix)
 }
 }
 \keyword{error}

@@ -8,16 +8,16 @@
 # Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 if (FALSE){
-  # ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-  ResultData = TB[TB$YEAR==2012,] #read.table(file=paste(wd, "\\2019 GSA18 TC.csv",sep=""), sep=";", header=T) # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultData$SPECIES[28]  <- "SUP"
-  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-load("C:\\Users\\Bitetto Isabella\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\Rome\\RoME\\RoME\\data\\TM_list.rda")
-}
+  ResultData = RoME::TB
+  # ResultData$SPECIES[28]  <- "ZZZ"
+  wd <- tempdir()
+  suffix= NA
+  year=2007
+  check_rubincode(ResultData,year,TM_list=TM_list,wd,suffix)
+  }
 
 
-check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
+check_rubincode<-function(ResultData,year,TM_list=TM_list,wd,suffix){
   numberError = 0
 
   Format="from_2012"
@@ -32,6 +32,18 @@ check_rubincode<-function(ResultData,TM_list=TM_list,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultData <- ResultData[ResultData$YEAR == year, ]
+  ########################################
 
   if (ResultData$TYPE_OF_FILE[1] == "TB") {
      write(paste("\n----------- check correctness of species codes in TB - ", ResultData$YEAR[1]), file = Errors, append = TRUE)

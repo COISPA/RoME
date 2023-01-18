@@ -12,22 +12,18 @@
 
 
 if (FALSE){
-  ResultData = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultData=ResultData[ResultData$YEAR==1994,]
-  #ResultTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_step_length_distr(ResultData,wd,suffix)
+  ResultData = tc #RoME::TC
+  tc[83,"LENGTH_CLASS"] <- 100.3
+  year=2015
+  wd <- tempdir()
+  suffix=NA
+  check_step_length_distr(ResultData,year,wd,suffix)
 }
 
 
 
 
-check_step_length_distr<-function(ResultData,wd,suffix){
+check_step_length_distr<-function(ResultData,year,wd,suffix){
   Format="from_2012"
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -42,6 +38,19 @@ check_step_length_distr<-function(ResultData,wd,suffix){
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultData <- ResultData[ResultData$YEAR == year, ]
+  ########################################
+
+  ResultData <- ResultData[!is.na(ResultData$LENGTH_CLASS),]
   write(paste("\n----------- check consistency of length distribution TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
   fishes_cefalopods= ResultData[ResultData$LENGTH_CLASSES_CODE!="m",]

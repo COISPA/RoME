@@ -5,16 +5,17 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-# Check between duration of the haul and distance (tolerance of 15%)	
+# Check between duration of the haul and distance (tolerance of 15%)
 
-check_consistencyTA_distance<-function(DataTA, wd, suffix){
+check_consistencyTA_distance<-function(DataTA, year, wd, suffix){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = MEDITS::TA
-    # check_consistencyTA_distance(DataTA, wd, suffix)
+    DataTA = ta # RoME::TA
+    DataTA[1,"DISTANCE"] <- NA
+    check_consistencyTA_distance(DataTA, year=2012, wd, suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -31,7 +32,20 @@ check_consistencyTA_distance<-function(DataTA, wd, suffix){
     file.create(Errors)
   }
 
-  Matrix = DataTA
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
+
+  Matrix = DataTA[!is.na(DataTA$DISTANCE), ]
   write(paste("\n----------- check consistency between duration and distance TA - ",Matrix$YEAR[1]), file = Errors, append = TRUE)
 
   Matrix$mean_distance=1852*Matrix$HAUL_DURATION/20

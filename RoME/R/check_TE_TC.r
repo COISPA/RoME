@@ -10,20 +10,18 @@
 # Check about the consistency of the number of individuals by length, sex and stage between TC and TE
 
 if (FALSE){
-  # ResultDataTC = RoME::TC # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultDataTC = read.table(file="c:\\Appoggio\\TC.csv", sep=";", header=T) #ResultDataTC[ResultDataTC$YEAR==2007,]
-  # ResultDataTE = RoME::TE # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TE_2012-2018 _GSA18.csv", sep=";")
-  ResultDataTE = read.table(file="c:\\Appoggio\\TE.csv", sep=";", header=T)# ResultDataTE[ResultDataTE$YEAR==2012,]
+  # ResultDataTC = RoME::TC
+  # ResultDataTE = RoME::TE
+  ResultDataTC = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TC GSA18 2017-2020.csv", sep=";",header=TRUE)
+  ResultDataTE = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TE GSA18 2017-2020.csv", sep=";",header=TRUE)
+  year=2017
+  wd = "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\check_RoME\\Logfiles"
+  suffix= NA
 
-  wd = "C:\\Appoggio" # tempdir() #"C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_TE_TC(ResultDataTC,ResultDataTC,wd,suffix)
+  check_TE_TC(ResultDataTC,ResultDataTC,year,wd,suffix)
 }
 
-check_TE_TC <- function (ResultDataTC,ResultDataTE,wd,suffix){
+check_TE_TC <- function (ResultDataTC,ResultDataTE,year,wd,suffix){
 
   Format="from_2012"
 
@@ -42,12 +40,37 @@ check_TE_TC <- function (ResultDataTC,ResultDataTE,wd,suffix){
     file.create(Errors)
   }
 
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultDataTC <- ResultDataTC[ResultDataTC$YEAR == year, ]
+  ResultDataTE <- ResultDataTE[ResultDataTE$YEAR == year, ]
+  ########################################
+
+  id<- seq(1:nrow(ResultDataTC))
+  ResultDataTC <- cbind(id,ResultDataTC)
+
+  id <- seq(1:nrow(ResultDataTE))
+  ResultDataTE <- cbind(id,ResultDataTE)
+
   TC = ResultDataTC
   TE = ResultDataTE
 
-if (nrow(TE[which(TE$MATSUB=="O"),])!=0){
-  TE[which(TE$MATSUB=="O"),]$MATSUB="ND"
-}
+  TC$MATURITY <- as.character(TC$MATURITY)
+  TC$MATSUB <- as.character(TC$MATSUB)
+  TC[is.na(TC$MATSUB) | TC$MATSUB =="","MATSUB"] <- "ND"
+
+  TE$MATURITY <- as.character(TE$MATURITY)
+  TE$MATSUB <- as.character(TE$MATSUB)
+  TE[is.na(TE$MATSUB) | TE$MATSUB =="","MATSUB"] <- "ND"
+  TE[TE$MATSUB =="O","MATSUB"] <- "ND"
 
   write(paste("\n----------- check consistency nb of individuals TC and TE - ",TC$YEAR[1]), file = Errors, append = TRUE)
   i=1
@@ -55,12 +78,13 @@ if (nrow(TE[which(TE$MATSUB=="O"),])!=0){
     TE$SEX[i]=ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i]))
   }
 
-  # modifica 17/06/2020
-  TC$MATSUB <- as.character(TC$MATSUB)
-  TE$MATSUB <- as.character(TE$MATSUB)
-  TC[is.na(TC$MATSUB), "MATSUB"] <- "NA"
-  TE[is.na(TE$MATSUB), "MATSUB"] <- "NA"
-  #########>
+  # # modifica 17/06/2020
+  # TC$MATSUB <- as.character(TC$MATSUB)
+  # TE$MATSUB <- as.character(TE$MATSUB)
+  # TC[is.na(TC$MATSUB), "MATSUB"] <- "NA"
+  # TE[is.na(TE$MATSUB), "MATSUB"] <- "NA"
+  #########
+  i=1
   for (i in 1:nrow(TE)){
   # check if the individual in TE is in TC
     TC_temp = TC[which((TC$HAUL_NUMBER==TE$HAUL_NUMBER[i]) &
@@ -73,14 +97,14 @@ if (nrow(TE[which(TE$MATSUB=="O"),])!=0){
     nb_TC= sum(TC_temp[,ncol(TC)])
 
     if (nrow(TC_temp)==0) { # record not present in TC
-  write(paste("Haul ",TE$HAUL_NUMBER[i],as.character(TE$GENUS[i]),as.character(TE$SPECIES[i]),", sex ",ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i])),", length ",TE$LENGTH_CLASS[i],"mm, maturity",as.character(TE$MATURITY[i]),as.character(TE$MATSUB[i])," : record not present in TC"), file = Errors, append = TRUE)
+  write(paste("Haul ",TE$HAUL_NUMBER[i],as.character(TE$GENUS[i]),as.character(TE$SPECIES[i]),", sex ",ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i])),", length ",TE$LENGTH_CLASS[i],"mm, maturity",as.character(TE$MATURITY[i]),as.character(ResultDataTE[ResultDataTE$id==TE$id[i],"MATSUB"])," : record not present in TC"), file = Errors, append = TRUE)
   numberError=numberError+1
 
   } else { # record present: check on the number (must be <= the number in TC)
   # sum of individuals in TE:
     nb_TE = nrow(TE[which((TE$HAUL_NUMBER==TE$HAUL_NUMBER[i])& (as.character(TE$GENUS)==as.character(TE$GENUS[i]))& (as.character(TE$SPECIES)==as.character(TE$SPECIES[i]))& (as.character(TE$SEX)==as.character(TE$SEX[i]))& (TE$LENGTH_CLASS==TE$LENGTH_CLASS[i])& (as.character(TE$MATURITY)==as.character(TE$MATURITY[i]))& (as.character(TE$MATSUB)==as.character(TE$MATSUB[i]))),])
    if (nb_TC<nb_TE){
-     write(paste("Haul ",TE$HAUL_NUMBER[i],as.character(TE$GENUS[i]),as.character(TE$SPECIES[i]),", sex ",ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i])),", length ",TE$LENGTH_CLASS[i],"mm, maturity",as.character(TE$MATURITY[i]),as.character(TE$MATSUB[i])," : the number of individuals in TE (=",nb_TE,") is greater than the number reported in TC(=",nb_TC,")"), file = Errors, append = TRUE)
+     write(paste("Haul ",TE$HAUL_NUMBER[i],as.character(TE$GENUS[i]),as.character(TE$SPECIES[i]),", sex ",ifelse(as.character(TE$SEX[i])=="FALSE","F",as.character(TE$SEX[i])),", length ",TE$LENGTH_CLASS[i],"mm, maturity",as.character(TE$MATURITY[i]),as.character(ResultDataTE[ResultDataTE$id==TE$id[i],"MATSUB"])," : the number of individuals in TE (=",nb_TE,") is greater than the number reported in TC(=",nb_TC,")"), file = Errors, append = TRUE)
     numberError=numberError+1
    }
   }

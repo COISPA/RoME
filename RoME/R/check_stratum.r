@@ -11,20 +11,15 @@
 
 
 if (FALSE){
-  ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA=ResultDataTA[ResultDataTA$YEAR==1994,]
-  #ResultTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  ResultDataTA = RoME::TA
+  wd <- tempdir()
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_stratum(ResultDataTA,wd,suffix)
+  year=2007
+  check_stratum(ResultDataTA,year,wd,suffix)
 }
 
 
-check_stratum<-function(ResultData,wd,suffix){
+check_stratum<-function(ResultData,year,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -38,6 +33,18 @@ check_stratum<-function(ResultData,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultData <- ResultData[ResultData$YEAR == year, ]
+  ########################################
 
   #ResultData = read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
   write(paste("\n----------- check start depth and end depth in the same stratum TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)

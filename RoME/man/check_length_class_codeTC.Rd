@@ -2,11 +2,11 @@
 \alias{check_length_class_codeTC}
 \title{Consistency check of LENGTH_CLASS}
 \description{The function checks the consistency of field LENGTH_CLASSES_CODE in TC}
-\usage{check_length_class_codeTC(DataTC,Specieslist=RoME::TM_list,wd,suffix)}
-%- maybe also 'usage' for other objects documented here.
+\usage{check_length_class_codeTC(DataTC,Specieslist=RoME::TM_list,year,wd,suffix)}
 \arguments{
     \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
     \item{Specieslist}{Information related to target species as reported in the TM list}
+    \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
@@ -20,12 +20,10 @@ If the LENGTH_CLASS_CODE in TC table (biological data table) are not consistent 
 \author{I. Bitetto, W. Zupa}
 \examples{
 \dontrun{
-library(MEDITS)
-library(RoME)
-DataTC <- MEDITS::TC
+DataTC <- RoME::TC
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
-check_length_class_codeTC(DataTC,Specieslist=NA,wd,suffix)
+check_length_class_codeTC(DataTC,Specieslist=NA,year=2007,wd,suffix)
 }
 }
 \keyword{error}

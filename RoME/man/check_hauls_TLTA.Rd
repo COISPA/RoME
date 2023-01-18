@@ -4,11 +4,12 @@
 \description{
 Check if the hauls in TL are present in TA}
 \usage{
-check_hauls_TLTA(DataTA, DataTL,wd, suffix)
+check_hauls_TLTA(DataTA,DataTL,year,wd,suffix)
 }
 \arguments{
   \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
   \item{DataTL}{Litter data table according to MEDITS protocol (TL)}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -18,12 +19,12 @@ check_hauls_TLTA(DataTA, DataTL,wd, suffix)
 \author{I. Bitetto, W. Zupa}
 \examples{
 \donttest{
-    library(RoME)
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
-    DataTA = MEDITS::TA
+    DataTA = RoME::TA
     DataTL = RoME::TL
-    check_hauls_TLTA(DataTA,DataTL,wd,suffix)
+    year=2008
+    check_hauls_TLTA(DataTA,DataTL,year,wd,suffix)
 }
 }
 \keyword{ error }

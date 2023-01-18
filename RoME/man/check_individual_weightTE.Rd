@@ -4,11 +4,12 @@
 \description{
 The finction checks the difference between observed and estimated individual weight in percentage.}
 \usage{
-check_individual_weightTE(DataTE,LW, wd, suffix,verbose=FALSE)
+check_individual_weightTE(DataTE,LW,year, wd, suffix,verbose=FALSE)
 }
 \arguments{
   \item{DataTE}{Individual biological data table according to MEDITS protocol (TE)}
   \item{LW}{data frame of the length-weight parameters by species, area and sex}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
   \item{verbose}{bulean parameter, if TRUE returns messages about the progress of the elaboration}
@@ -26,7 +27,7 @@ If for at least one record the difference between observed and estimated individ
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
     DataTE = RoME::TE[1:6,]
-    check_individual_weightTE(DataTE, wd=wd, suffix=suffix,verbose=TRUE)
+    check_individual_weightTE(DataTE,year=2012, wd=wd, suffix=suffix,verbose=TRUE)
     }
 }
 \keyword{ warning }

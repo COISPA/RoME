@@ -3,11 +3,12 @@
 \title{Summary of the individual data collected by species}
 \description{Check for summarize the individual data collection (goodness of individual data sampling)}
 \usage{
-scheme_individual_data(DataTC, DataTE, wd, suffix)
+scheme_individual_data(DataTC, DataTE, year, wd, suffix)
 }
 \arguments{
   \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
   \item{DataTE}{Individual biological data table according to MEDITS protocol (TE)}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -28,9 +29,10 @@ I. Bitetto, W. Zupa
 \donttest{
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
-    DataTC = TC
-    DataTE = TE
-    check_date_haul(DataTC,DataTE, wd, suffix)
+    DataTC = RoME::TC
+    DataTE = RoME::TE
+    year=2012
+    scheme_individual_data(DataTC,DataTE,year, wd, suffix)
 }
 }
 

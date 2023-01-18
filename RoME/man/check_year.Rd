@@ -4,7 +4,7 @@
 Consistency check of YEAR field
 }
 \description{
-THe function check if the currect value for YEAR field is reported in each data table.
+THe function check if the currect value for YEAR field is reported in each data table. This is a global function that runs with the data frames not filtered by year.
 }
 \usage{
 check_year(TA, TB, TC, TE, TL, years, wd, Errors)
@@ -32,7 +32,6 @@ The function returns FALSE when errors are detected in the YEAR field of the dat
     wd <- tempdir()
     years <- unique(RoME::TA$YEAR)
     Errors <- file.path(wd,"Logfiles","Logfile.dat")
-
     check_year(TA=RoME::TA, TB=RoME::TB,
     TC=RoME::TC, TE=NA, TL=NA, years=years,
     wd=wd, Errors=Errors)

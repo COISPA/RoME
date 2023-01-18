@@ -4,10 +4,11 @@
 \description{
 The function checks the consistency of the number of individuals by sex measured (NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED field in the biological data table, TC) with the sum of the individuals by sex, length class and maturity stage (NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE field in TC)}
 \usage{
-check_nb_per_sexTC(DataTC, wd, suffix)
+check_nb_per_sexTC(DataTC, year, wd, suffix)
 }
 \arguments{
     \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
+    \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
@@ -18,10 +19,10 @@ The function returns TRUE if no error occurs, while FALSE is returned when there
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-    library(RoME)
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
-    DataTC = MEDITS::TC
-    check_nb_per_sexTC(DataTC,wd,suffix)
+    DataTC = RoME::TC
+    year=2007
+    check_nb_per_sexTC(DataTC,year,wd,suffix)
 }
 \keyword{error}

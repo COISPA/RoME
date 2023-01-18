@@ -10,16 +10,17 @@
 # Check maturity stages using spawning season
 
 if (FALSE){
-  ResultDataTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
+  ResultDataTC = tc #RoME::TC
+  ResultDataTA = ta #RoME::TA
+  year=2015
+  wd <- tempdir()
+  suffix="NA"
+  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
+  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
+  check_spawning_period(ResultDataTA,ResultDataTC,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 }
 
-check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+check_spawning_period<-function(ResultDataTA,ResultDataTC,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
 
@@ -35,12 +36,25 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,Maturity_parameters=Ma
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultDataTA <- ResultDataTA[ResultDataTA$YEAR == year, ]
+  ResultDataTC <- ResultDataTC[ResultDataTC$YEAR == year, ]
+  ########################################
+
     write(paste("\n----------- check consistency of maturity stages",ResultDataTC$TYPE_OF_FILE[1],"by means of spawning season information - ",ResultDataTA$YEAR[1]), file = Errors, append = TRUE)
 
   ResultDataTC$Species = paste(ResultDataTC$GENUS,ResultDataTC$SPECIES)
   ResultDataTC$Maturity = paste(as.character(ResultDataTC$MATURITY),ifelse(is.na(ResultDataTC$MATSUB),"",as.character(ResultDataTC$MATSUB)), sep="")
 
-    maturity_table = Maturity_parameters
+  maturity_table = Maturity_parameters
   species_list = DataTargetSpecies #read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)
   for (i in unique(ResultDataTC$Species)){
     ResultData_temp =ResultDataTC[ResultDataTC$Species == i,]

@@ -10,18 +10,30 @@
 
 
 
-create_catch<-function(ResultDataTB,wd){
+create_catch<-function(ResultDataTB,year,wd,save=TRUE){
 
 if (FALSE){
-  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-
-  #wd <- "C:/Users/Utente/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  #create_catch(Result,wd)
+  Result = RoME::TB
+  year=2012
+  wd <- tempdir()
+  create_catch(Result,year,wd,save=FALSE)
 }
 
   if (!file.exists(file.path(wd,"files R-Sufi"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
+  ########################################
 
   ResultData = ResultDataTB
 
@@ -31,11 +43,14 @@ if (FALSE){
   capt[,2]=as.character(ResultData$YEAR[1])
   capt[,3]=ResultData$HAUL_NUMBER
   capt[,4]=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
-
   capt[,5]=as.numeric(as.character(ResultData$TOTAL_NUMBER_IN_THE_HAUL))
   capt[,6]=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/1000,3)
 
-write.table(capt,file=file.path(wd,"files R-Sufi",paste("captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+  if (save) {
+    write.table(capt,file=file.path(wd,"files R-Sufi",paste("captures_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+  } else {
+    return(as.data.frame(capt))
+  }
  if (file.exists(file.path(tempdir(),"files R-Sufi"))){
 unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 }

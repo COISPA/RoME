@@ -7,16 +7,16 @@
 ############################################################################################################################
 #  Check if LENGTH_CLASSES_CODE is correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list, wd,suffix){
+check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list,year, wd,suffix){
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir()
     Specieslist=NA
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    # DataTC <- DataTC[DataTC$YEAR == 2018, ]
-    DataTC$GENUS[1] <- "ENGH"
-    # check_length_class_codeTC(DataTC,Specieslist=NA,wd,suffix)
+    # DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    DataTC <- RoME::TC
+    # DataTC$GENUS[1] <- "ENGH"
+    # check_length_class_codeTC(DataTC,Specieslist=NA,year=2007,wd,suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -31,8 +31,26 @@ check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list, wd,suffix)
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTC <- DataTC[DataTC$YEAR == year, ]
+  ########################################
+
   ResultData = DataTC
   write(paste("\n----------- check correctness of LENGTH_CLASSES_CODE in TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
+
+  if (class(Specieslist) != "data.frame"){
+    if (all(is.na(Specieslist))){
+      Specieslist = RoME::TM_list
+    }
+  }
 
     ResultSpecies <- Specieslist
 

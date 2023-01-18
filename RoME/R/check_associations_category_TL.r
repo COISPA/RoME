@@ -6,13 +6,13 @@
 #   January 2022                                                                                                           #
 ############################################################################################################################
 # Check corretness of association between category and sub-category in TL consistent according to INSTRUCTION MANUAL VERSION 9
-# MEDITS 2017	 
+# MEDITS 2017
 
-check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
+check_associations_category_TL<-function(DataTL,assTL, year, wd, suffix){
 
   if (FALSE){
     library(RoME)
-    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
+    wd <- temdir() #"C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # tempdir()
 
     # assTL <- read.csv("D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\RoME versione aperta 1.4\\Tables\\Associations_cat_TL.csv", sep=";")
     # str(assTL)
@@ -23,9 +23,8 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
     # save(assTL, file="data/assTL.rda")
 
     suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTL = read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) #read.table("D:\\Documents and Settings\\Utente\\Documenti\\__ DATI MEDITS AGGIORNATI __\\BKP\\GSA18 - 2018\\NUOVI\\2018 completo TL.csv", sep=";", header=T)
-    # colnames(DataTL)[which(colnames(DataTL)=="LITTER_SUB.CATEGORY")] <- "LITTER_SUB-CATEGORY"
-    # check_associations_category_TL(DataTL, assTL, wd, suffix)
+    DataTL = RoME::TL# read.table(file=paste(wd,"\\2019 GSA18 TL.csv",sep=""), sep=";", header=T) #read.table("D:\\Documents and Settings\\Utente\\Documenti\\__ DATI MEDITS AGGIORNATI __\\BKP\\GSA18 - 2018\\NUOVI\\2018 completo TL.csv", sep=";", header=T)
+    # check_associations_category_TL(DataTL, assTL, year=2012, wd, suffix)
   }
 
 
@@ -57,6 +56,18 @@ check_associations_category_TL<-function(DataTL,assTL, wd, suffix){
   }
   #### CHECK TL FIELDS - END ####
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+
+  DataTL <- DataTL[DataTL$YEAR == year, ]
+  ########################################
 
   ResultData = DataTL
   write(paste("\n----------- check consistency of category/subcategory codes in ",ResultData$TYPE_OF_FILE[1],"-", ResultData$YEAR[1]), file = Errors, append = TRUE)

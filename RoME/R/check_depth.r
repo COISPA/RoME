@@ -5,15 +5,16 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-# Check if that difference between start depth and end depth is not greater than 20%	
+# Check if that difference between start depth and end depth is not greater than 20%
 
-check_depth<-function(DataTA, wd, suffix){
+check_depth<-function(DataTA, year, wd, suffix){
   if (FALSE){
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    year <- 2007
+    DataTA = RoME::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
 
-    # check_depth(DataTA,wd,suffix)
+    # check_depth(DataTA,year,wd,suffix)
   }
 
 
@@ -28,6 +29,19 @@ check_depth<-function(DataTA, wd, suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
 
   ResultData = DataTA #read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
 

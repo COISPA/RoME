@@ -8,15 +8,15 @@
 # Creation of R-SUFI files:
 # tailles.csv
 
-create_length<-function(ResultData,DataSpecies=RoME::TM_list,wd){
+create_length<-function(ResultData,year,DataSpecies=RoME::TM_list,wd,save=TRUE){
 
 if (FALSE){
-  Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  Result =Result[Result$YEAR==1994,]
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #DataTE=""
-  create_length(Result,TM_list,wd)
+  ResultData = RoME::TC
+  year=2012
+  DataSpecies=RoME::TM_list
+  wd <- tempdir()
+  save=FALSE
+  create_length(Result,year,DataSpecies,wd,save=FALSE)
 }
 
   #if (is.na(DataSpecies)){
@@ -26,6 +26,18 @@ if (FALSE){
   if (!file.exists(file.path(wd,"files R-Sufi"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultData <- ResultData[ResultData$YEAR == year, ]
+  ########################################
 
   ResultData= ResultData[as.character(ResultData$MATURITY)!="ND" & as.character(ResultData$MATURITY)!="",]
 
@@ -203,10 +215,15 @@ if (FALSE){
 
   if(file.exists(paste(rSufiString,sep=""))) file.remove(paste(rSufiString,sep=""))
 
+  if (save) {
+    write.table(Matrix,file=rSufiString, col.names=TRUE, row.names=FALSE, quote=FALSE, sep=";", append=FALSE)
+    if (file.exists(file.path(tempdir(),"files R-Sufi"))){
+      unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
+  } else {
+    return(Matrix)
+  }
 
-  write.table(Matrix,file=rSufiString, col.names=TRUE, row.names=FALSE, quote=FALSE, sep=";", append=FALSE)
-  if (file.exists(file.path(tempdir(),"files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-}
+
   #write.csv(Matrix,file=rSufiString, row.names=FALSE, quote=FALSE, sep=";")
   }

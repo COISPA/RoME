@@ -5,8 +5,31 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-checkHeader <- function(dataframe, template)
+checkHeader <- function(dataframe, template, wd, suffix)
 {
+
+    Format="from_2012"
+
+  if (!file.exists(file.path(wd, "Logfiles"))){
+    dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
+  }
+  if (!file.exists(file.path(wd,"Graphs"))){
+    dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
+  }
+  if (is.na(suffix)){
+    suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
+  }
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+
+  if (!file.exists(Errors)){
+    file.create(Errors)
+  }
+
+  numberError = 0
+
+  write(paste("\n----------- check of HEADERS"), file = Errors, append = TRUE)
+
+
 
   # Header after 2012
 
@@ -70,7 +93,8 @@ checkHeader <- function(dataframe, template)
     if (isTRUE(all.equal( colnames(dataframe), TA_after_2012))) {
       # colonne corrette
     } else{
-      stop("ERROR: wrong TA headers.")
+      write(paste("ERROR: wrong TA headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
+      numberError=numberError+1
     }
   }
 
@@ -79,7 +103,8 @@ checkHeader <- function(dataframe, template)
     if (isTRUE(all.equal( colnames(dataframe), TB_after_2012))) {
       # colonne corrette
     } else{
-      stop("ERROR: wrong TB headers.")
+      write(paste("ERROR: wrong TB headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
+      numberError=numberError+1
     }
   }
 
@@ -88,7 +113,8 @@ checkHeader <- function(dataframe, template)
     if (isTRUE(all.equal( colnames(dataframe), TC_after_2012))) {
       # colonne corrette
     } else{
-      stop("ERROR: wrong TC headers.")
+      write(paste("ERROR: wrong TC headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
+      numberError=numberError+1
     }
   }
 
@@ -97,7 +123,8 @@ checkHeader <- function(dataframe, template)
     if (isTRUE(all.equal( colnames(dataframe), TE_after_2012))) {
       # colonne corrette
     } else{
-      stop("ERROR: wrong TE headers.")
+      write(paste("ERROR: wrong TE headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
+      numberError=numberError+1
     }
   }
 
@@ -106,7 +133,27 @@ checkHeader <- function(dataframe, template)
     if (isTRUE(all.equal(colnames(dataframe), TL_after_2012))) {
       # colonne corrette
     } else{
-      stop("ERROR: wrong TL headers.")
+      write(paste("ERROR: wrong TL headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
+      numberError=numberError+1
     }
   }
+
+  if (numberError ==0) {
+    write(paste("No error occurred"), file = Errors, append = TRUE)
+  }
+  if (file.exists(file.path(tempdir(), "Logfiles"))){
+    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "Graphs"))){
+    unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  }
+  if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+    unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+  }
+  if (numberError ==0) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+
 }

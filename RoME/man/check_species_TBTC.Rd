@@ -7,11 +7,12 @@ Function checking if all the target species in the catch data table (TB) are in 
 \description{
 This function verifies the presence of the target species (that is a subset of the all the species caught, reported in TB), in the TC table, where additional information (apart from number and weight) are collected.}
 \usage{
-check_species_TBTC(ResultTB,ResultTC,DataSpecies,wd,suffix)
+check_species_TBTC(ResultTB,ResultTC,year,DataSpecies,wd,suffix)
 }
 \arguments{
 \item{ResultTB}{Catch data table(TB).}
 \item{ResultTC}{Biological data table (TC).}
+\item{year}{reference year for the analysis}
 \item{DataSpecies}{Information related to target species.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
@@ -29,10 +30,11 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
-suffix= "2020-03-05_time_h17m44s55"
-check_species_TBTC(TB,TC,DataTargetSpecies,wd,suffix)
+suffix = "2020-03-05_time_h17m44s55"
+year=2007
+ResultTB=RoME::TB
+ResultTC=RoME::TC
+check_species_TBTC(ResultTB,ResultTC,year,RoME::DataTargetSpecies,wd,suffix)
 }
 \keyword{cross-check TBTC}

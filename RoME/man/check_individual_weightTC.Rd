@@ -5,12 +5,13 @@
 The function compares the obserbed
 }
 \usage{
-check_individual_weightTC(DataTC,LW=NA,wd,suffix,verbose=FALSE)
+check_individual_weightTC(DataTC,LW=NA,year,wd,suffix,verbose=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
   \item{LW}{data frame of the a and b parameters by species, area and sex}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
   \item{verbose}{bulean parameter, if TRUE returns messages about the progress of the elaboration}
@@ -26,7 +27,7 @@ The file Comparison_estimated_observed_weight_in_TC.csv is automatically saved i
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
     TC = RoME::TC[1:20,]
-    check_individual_weightTC(DataTC=TC, wd=wd, suffix=suffix)
+    check_individual_weightTC(DataTC=TC,year=2007, wd=wd, suffix=suffix)
 }
 
 \keyword{warning}

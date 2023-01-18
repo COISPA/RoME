@@ -7,21 +7,23 @@
 ############################################################################################################################
 # Check if in TE the total number sampled for weight and for ageing are consistent with individual data in TE
 
-check_nb_TE<- function (DataTE,wd,suffix){
+check_nb_TE<- function (DataTE,year,wd,suffix){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTE = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
-    DataTE = DataTE[DataTE$YEAR == 2012 ,   ]
+    DataTE = read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)# RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+   DataTE[1,"NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT"] <- 131
+    year=2015
+    # DataTE = DataTE[DataTE$YEAR == 2012 ,   ]
     # SPECIES=NA
     # SEX=NA
     # AREA=NA
     # a=NA
     # b=NA
     # verbose=FALSE
-    # check_nb_TE(DataTE, wd, suffix)
+    check_nb_TE(DataTE,year, wd, suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -35,6 +37,18 @@ check_nb_TE<- function (DataTE,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTE <- DataTE[DataTE$YEAR == year, ]
+  ########################################
 
   TE <- DataTE
 
@@ -70,7 +84,7 @@ check_nb_TE<- function (DataTE,wd,suffix){
 
     for (j in 1:nrow(TE_temp2)){
       if(TE_temp2$NB[j]!=TE_temp2$NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT[j]){
-        write(paste(TE_temp2$HAUL_NUMBER[j],TE_temp2$GENUS[j],TE_temp2$SPECIES[j], TE_temp2$SEX[j],"inconsistent value for the field NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT"), file = Errors, append = TRUE)
+        write(paste("Haul",TE_temp2$HAUL_NUMBER[j],TE_temp2$GENUS[j],TE_temp2$SPECIES[j], TE_temp2$SEX[j],"inconsistent value for the field NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT"), file = Errors, append = TRUE)
         numberError =   numberError +1
       }
     }

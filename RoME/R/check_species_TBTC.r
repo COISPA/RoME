@@ -12,19 +12,20 @@
 
 
 if (FALSE){
-  ResultTC = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-  ResultTB = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+  ResultTC = RoME::TC
+  ResultTB = RoME::TB
+  year=2007
+  wd <- tempdir()
+  DataSpecies=RoME::DataTargetSpecies
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_species_TBTC(ResultTB,ResultTC,DataTargetSpecies,wd,suffix)
+  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
+  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
+  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
+  check_species_TBTC(ResultTB,ResultTC,year,DataSpecies,wd,suffix)
   }
 
-check_species_TBTC<-function(ResultTB,ResultTC,DataSpecies=DataTargetSpecies,wd,suffix){
-DataTargetSpecies=RoME::DataTargetSpecies
+check_species_TBTC<-function(ResultTB,ResultTC,year,DataSpecies=RoME::DataTargetSpecies ,wd,suffix){
+
 
   Format="from_2012"
 
@@ -40,10 +41,23 @@ DataTargetSpecies=RoME::DataTargetSpecies
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultTB <- ResultTB[ResultTB$YEAR == year, ]
+  ResultTC <- ResultTC[ResultTC$YEAR == year, ]
+  ########################################
+
   write(paste("\n----------- check presence in TC of TB target species - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
 
   ResultTB= ResultTB[,which(names(ResultTB)=="YEAR" | names(ResultTB)=="HAUL_NUMBER" | names(ResultTB)=="GENUS" | names(ResultTB)=="SPECIES")]
-  ResultTC=ResultTC[,which(names(ResultTC)=="YEAR" | names(ResultTC)=="HAUL_NUMBER" | names(ResultTC)=="GENUS" | names(ResultTC)=="SPECIES")]
+  ResultTC= ResultTC[,which(names(ResultTC)=="YEAR" | names(ResultTC)=="HAUL_NUMBER" | names(ResultTC)=="GENUS" | names(ResultTC)=="SPECIES")]
 
   ResultSpecies=DataSpecies
 

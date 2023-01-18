@@ -7,19 +7,16 @@
 ############################################################################################################################
 # Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
 if (FALSE){
-ResultDataTB = RoME::TB # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-ResultDataTC = RoME::TC # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-ResultDataTB = ResultDataTB[ResultDataTB$YEAR==2007,]
-ResultDataTC = ResultDataTC[ResultDataTC$YEAR==2007,]
-
-
-  wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #check_raising(ResultDataTB,ResultDataTC,wd,suffix)
+       ResultDataTB = tb # RoME::TB
+       ResultDataTC = tc # RoME::TC
+       year=2015
+       wd <- tempdir()
+       suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
+       # check_raising(ResultDataTB,ResultDataTC,year,wd,suffix)
 }
 
 
-check_raising<-function(ResultDataTB,ResultDataTC,wd,suffix){
+check_raising<-function(ResultDataTB,ResultDataTC,year,wd,suffix){
 Format="from_2012"
 
 if (!file.exists(file.path(wd, "Logfiles"))){
@@ -36,6 +33,19 @@ Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
 if (!file.exists(Errors)){
   file.create(Errors)
 }
+
+### FILTERING DATA FOR THE SELECTED YEAR
+arg <- "year"
+if (!exists(arg)) {
+  stop(paste0("'", arg, "' argument should be provided"))
+} else if (length(year) != 1) {
+  stop(paste0("only one value should be provided for '", arg, "' argument"))
+} else if (is.na(year)) {
+  stop(paste0(arg, " argument should be a numeric value"))
+}
+ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
+ResultDataTC <- ResultDataTC[ResultDataTC$YEAR == year, ]
+########################################
 
   ResultTC = ResultDataTC
   write(paste("\n----------- check correctness of the number per sex in TB in case of sub-sampling in TC - ",ResultTC$YEAR[1]), file = Errors, append = TRUE)
@@ -96,6 +106,7 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
   #odbcClose(channel)
   #unlink(ResultTCpivotSexFile)
 
+  ResultTCpivotSex[ResultTCpivotSex$WEIGHT_OF_THE_SAMPLE_MEASURED==0,"WEIGHT_OF_THE_SAMPLE_MEASURED"] <- 0.0000000000000001
   molt= as.numeric(as.character(ResultTCpivotSex$WEIGHT_OF_THE_FRACTION))/ as.numeric(as.character(ResultTCpivotSex$WEIGHT_OF_THE_SAMPLE_MEASURED))
 
   ResultTCpivotSex$raising=ResultTCpivotSex$SumSexTotal *  molt
@@ -121,6 +132,9 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
       oneRowTB = ResultTB[as.character(ResultTB$GENUS)==as.character(ResultTCpivotSex$GENUS[j])
                           & as.character(ResultTB$SPECIES)==as.character(ResultTCpivotSex$SPECIES[j])
                           & as.numeric(ResultTB$HAUL_NUMBER)==as.numeric(ResultTCpivotSex$HAUL_NUMBER[j]),]
+
+      if (nrow(oneRowTB)!=0) {
+
       if (as.character(ResultTCpivotSex$SEX[j])=="F") {
         TotalNumberTBSex = ifelse(Format=="before_2012",oneRowTB$NUMBER_OF_FEMALES[1],oneRowTB$NB_OF_FEMALES[1])
       } else if (as.character(ResultTCpivotSex$SEX[j])=="M") {
@@ -142,7 +156,14 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
         }
         write(paste("Haul ",ResultTCpivotSex$HAUL_NUMBER[j], " ",  ResultTCpivotSex$GENUS[j], " ",  ResultTCpivotSex$SPECIES[j], " NUMBER_OF_", labelsex, " in TB (", round(TotalNumberTBSex,0),") not consistent with the sum of individuals raised per sex (",round(ResultTCpivotSex$Sum[j],0) ,") in TC", sep=""), file = Errors, append = TRUE)
       }
-    } }else {
+
+      } else {
+        write(paste("Haul ",ResultTCpivotSex$HAUL_NUMBER[j], " ",  ResultTCpivotSex$GENUS[j], " ",  ResultTCpivotSex$SPECIES[j], ": number of individuals in TB (", round(TotalNumberTBSex,0),") not consistent with the sum of individuals raised per sex (",round(ResultTCpivotSex$Sum[j],0) ,") in TC", sep=""), file = Errors, append = TRUE)
+        numberError = numberError+1
+      }
+
+    }
+    }else {
       write(paste("Found errors in TC! Check raising not executed"), file = Errors, append = TRUE)
     }
 

@@ -6,14 +6,14 @@
 #   January 2022                                                                                                           #
 ############################################################################################################################
 
-check_0_fieldsTA<-function(DataTA,wd, suffix){
+check_0_fieldsTA<-function(DataTA,wd, suffix, year){
 
   if (FALSE){
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    DataTA[1,"WING_OPENING"] <- 0.1
-    # check_0_fieldsTA(DataTA,wd,suffix)
+    DataTA = ta # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    DataTA[1,"WARP_DIAMETER"] <-0
+    # check_0_fieldsTA(DataTA,wd,suffix, year=2015)
   }
 
 
@@ -29,9 +29,23 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
     file.create(Errors)
   }
 
-  write(paste("\n----------- check 0 fields TA"), file = Errors, append = TRUE)
-  Matrix = DataTA # read.csv(paste(Data,".csv",sep=""), sep=";", header=TRUE)
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+     stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+     stop(paste0(arg," argument should be a numeric value"))
+  }
 
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
+
+
+
+  write(paste("\n----------- check 0 fields TA"), file = Errors, append = TRUE)
+  Matrix = DataTA
   ## VERTICAL_OPENING
   empty_X=which(Matrix$VERTICAL_OPENING==0)
   if (length(empty_X)!=0) {
@@ -56,7 +70,7 @@ check_0_fieldsTA<-function(DataTA,wd, suffix){
   if (length(empty3_X)!=0) {
     for (k in 1:length(empty3_X)){
       write(paste("Warning: Haul ",Matrix$HAUL_NUMBER[empty3_X[k]],"0 value for WARP_DIAMETER in", Matrix$TYPE_OF_FILE[1],"-", Matrix$YEAR[1] ), file = Errors, append = TRUE)
-
+      numberError = numberError +1
     }
   }
 

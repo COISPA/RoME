@@ -2,10 +2,11 @@
 \alias{check_date_haul}
 \title{Check of date consistency}
 \description{Check if in TB, TC and TE the date by haul is the same of the one reported in TA}
-\usage{check_date_haul(DataTA, Data, wd, suffix)}
+\usage{check_date_haul(DataTA, Data, year, wd, suffix)}
 \arguments{
   \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
   \item{Data}{Data frame of one of the following TX table: TB, TC, TE, TL}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -18,12 +19,12 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(RoME)
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
-    DataTA = MEDITS::TA
-    Data = MEDITS::TB
-    check_date_haul(DataTA, Data, wd, suffix)
+    DataTA = RoME::TA
+    Data = RoME::TB
+    year=2009
+    check_date_haul(DataTA, Data, year, wd, suffix)
 }
 
 \keyword{error}

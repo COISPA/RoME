@@ -4,7 +4,7 @@
 Consistency check of TYPE_OF_FILE field
 }
 \description{
-THe function check if the currect value for TYPE_OF_FILE field is reported in each data table.
+The function checks if the currect value for TYPE_OF_FILE field is reported in each data table. This is a global function that runs with the data frames not filtered by year.
 }
 \usage{
 check_type(TA, TB, TC, TE, TL, years, wd, Errors)

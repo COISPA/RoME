@@ -7,19 +7,20 @@
 ############################################################################################################################
 #  Check if all the species in TC are listed in TB
 
-check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
+check_haul_species_TCTB<-function(DataTB,DataTC,year,wd, suffix){
 
   #library(RODBC)
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTB = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
-    DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    DataTB <- DataTB[DataTB$YEAR == 2018, ]
-    DataTC <- DataTC[DataTC$YEAR == 2018, ]
+    year=2008
+    DataTB = RoME::TB # read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
+    DataTC = RoME::TC # read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    # DataTB <- DataTB[DataTB$YEAR == 2008, ]
+    # DataTC <- DataTC[DataTC$YEAR == 2008, ]
 
-    # check_haul_species_TCTB(DataTB,DataTC,wd,suffix)
+    # check_haul_species_TCTB(DataTB,DataTC, year,wd,suffix)
   }
 
 
@@ -38,6 +39,17 @@ check_haul_species_TCTB<-function(DataTB,DataTC,wd, suffix){
     file.create(Errors)
     }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+  DataTC <- DataTC[DataTC$YEAR == year, ]
+  ########################################
 
   ResultTC = DataTC
   write(paste("\n----------- check presence in TB of TC species - ", ResultTC$YEAR[1]), file = Errors, append = TRUE)

@@ -5,11 +5,12 @@ Function to verify the consistency between individual data table (TE) and biolog
 \description{
 Check if the individuals by species, length, sex and maturity stage reported in TE are less than the number reported in TC}
 \usage{
-check_TE_TC(ResultDataTC,ResultDataTE,wd,suffix)
+check_TE_TC(ResultDataTC,ResultDataTE,year,wd,suffix)
 }
 \arguments{
 \item{ResultDataTC}{Biological data table(TC).}
 \item{ResultDataTE}{Individual data table (TE).}
+\item{year}{reference year for the analysis.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }
@@ -26,14 +27,11 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
 tc <- RoME::TC
-tc <- tc[tc$YEAR == 2012, ]
 te <- RoME::TE
-te <- te[te$YEAR == 2012, ]
-check_TE_TC(tc,te,wd,suffix)
+year=2012
+check_TE_TC(tc,te,year,wd,suffix)
 }
 \keyword{cross-check TETC}

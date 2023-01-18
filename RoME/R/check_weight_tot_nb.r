@@ -7,19 +7,14 @@
 ############################################################################################################################
 # Check consistency between not null weight and not null total number
 
-check_weight_tot_nb<-function(ResultDataTB,wd,suffix){
+check_weight_tot_nb<-function(ResultDataTB,year,wd,suffix){
 
 if (FALSE){
-  wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\Test Loredana"
-  ResultDataTB = read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
-  #ResultDataTB= MEDITS::TB # ResultDataTB[ResultDataTB$YEAR==2017,]
-
-  # wd <- tempdir() # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  suffix=NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_weight_tot_nb(ResultDataTB,wd,suffix)
+  wd <- tempdir()
+  ResultDataTB = tb # RoME::TB
+  year=2015
+  suffix=NA
+  check_weight_tot_nb(ResultDataTB,year,wd,suffix)
 
 }
 
@@ -43,6 +38,20 @@ if (FALSE){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
+  ########################################
+
+  ResultDataTB <- ResultDataTB[!is.na(ResultDataTB$TOTAL_WEIGHT_IN_THE_HAUL) & !is.na(ResultDataTB$TOTAL_NUMBER_IN_THE_HAUL),]
 
   numberError = 0
   ResultData = ResultDataTB #read.csv(paste(DataTB,".csv",sep=""), sep=";", header=TRUE)

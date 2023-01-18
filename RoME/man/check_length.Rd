@@ -2,10 +2,11 @@
 \alias{check_length}
 \title{Check of length classes in TC}
 \description{The function checks the consistency of length classes in TC.}
-\usage{check_length(DataTC,DataSpecies=NA,wd,suffix)}
+\usage{check_length(DataTC,DataSpecies=NA,year,wd,suffix)}
 \arguments{
     \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
     \item{DataSpecies}{Information related to target species}
+    \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
@@ -16,12 +17,10 @@ The function returns TRUE (warning message in logfile) in case of LENGTH_CLASS v
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
 DataTC <- RoME::TC[1:20,]
 DataSpecies=NA
 suffix= "2020-03-05_time_h17m44s55"
-check_length(DataTC,DataSpecies,wd,suffix)
+check_length(DataTC,DataSpecies=NA,year=2007,wd,suffix)
 }
 \keyword{warning}

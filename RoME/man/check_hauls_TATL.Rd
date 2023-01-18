@@ -2,10 +2,11 @@
 \alias{check_hauls_TATL}
 \title{Check presence of TA hauls in TL}
 \description{Check if the hauls in TA are present in TL}
-\usage{check_hauls_TATL(DataTA, DataTL, wd, suffix)}
+\usage{check_hauls_TATL(DataTA, DataTL, year, wd, suffix)}
 \arguments{
   \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
   \item{DataTL}{Litter data table according to MEDITS protocol (TL)}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -17,12 +18,12 @@ The function returns always TRUE because the outcome of the function is a warnin
 \author{I. Bitetto, W. Zupa}
 \examples{
 \donttest{
-    library(RoME)
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
     DataTA = RoME::TA
     DataTL = RoME::TL
-    check_hauls_TATL(DataTA,DataTL,wd,suffix)
+    year=2008
+    check_hauls_TATL(DataTA,DataTL,year,wd,suffix)
 }
 }
 

@@ -8,7 +8,20 @@
 # MedSea <- shapefile("D:\\GIS\\vettori\\GSA\\GFCM - GSA - shp\\GSAs\\gsas (11_unita)2.shp")
 # save(MedSea, file="data/MedSea.rda", compress="xz")
 
-haul_at_sea <- function(DataTA, seas=RoME::MedSea, verbose=TRUE) {
+haul_at_sea <- function(DataTA, year, seas=RoME::MedSea, verbose=TRUE) {
+
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
 
   data <- MEDITS.to.dd(DataTA)
 

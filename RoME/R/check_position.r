@@ -11,14 +11,13 @@ if (FALSE){
   library(RoME)
   wd <- tempdir()
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
-  DataTA = DataTA[DataTA$YEAR == 2007 , ]
-
-  DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
-  # check_position(DataTA, wd, suffix)
+  DataTA = RoME::TA
+  year=2007
+  # DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
+  # check_position(DataTA,year, wd, suffix)
 }
 
-check_position<-function(DataTA,wd,suffix){
+check_position<-function(DataTA,year,wd,suffix){
 
   lon <- lat <- NULL
 
@@ -38,9 +37,21 @@ check_position<-function(DataTA,wd,suffix){
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
+
   ResultData = DataTA
   ResultData=ResultData[ResultData$VALIDITY=="V",]
-  ResultData=MEDITS::MEDITS.to.dd(ResultData)
+  ResultData=MEDITS.to.dd(ResultData)
 
   lx = (max(ResultData$SHOOTING_LONGITUDE)+0.1) - (min(ResultData$SHOOTING_LONGITUDE)-0.1)
   ly = (max(ResultData$SHOOTING_LATITUDE)+0.1) - (min(ResultData$SHOOTING_LATITUDE)-0.1)
@@ -91,7 +102,7 @@ check_position<-function(DataTA,wd,suffix){
   world <- ne_countries(scale = "medium", returnclass = "sf")
 
   suppressMessages (
-    p <- ggplot(data=world) +
+    ggplot(data=world) +
       geom_sf()+
       coord_sf(crs ="+proj=longlat +ellps=WGS84") +
       geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
@@ -102,10 +113,11 @@ check_position<-function(DataTA,wd,suffix){
       scale_fill_manual(values=c("green", "blue"))
   )
 
+  ggsave(file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".jpeg",sep="")),width=img_width, height=img_height,dpi = 300, units="in")
 
-  tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-  print(p)
-  dev.off()
+  # tiff(filename=file.path(wd,"Graphs",paste("hauls_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  # print(p)
+  # dev.off()
 
   ### STARTING POSITIONS ###
 
@@ -114,7 +126,7 @@ check_position<-function(DataTA,wd,suffix){
   world <- ne_countries(scale = "medium", returnclass = "sf")
 
   suppressMessages (
-    p <- ggplot(data=world) +
+    ggplot(data=world) +
       geom_sf()+
       coord_sf(crs ="+proj=longlat +ellps=WGS84") +
       geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
@@ -125,10 +137,12 @@ check_position<-function(DataTA,wd,suffix){
       scale_fill_manual(values=c("blue"))
   )
 
-  tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-  print(p)
-  dev.off()
 
+  # tiff(filename=file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  # print(p)
+  # dev.off()
+
+  ggsave(file.path(wd,"Graphs",paste("Start_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".jpeg",sep="")),width=img_width, height=img_height,dpi = 300, units="in")
 
   ### END POSITIONS ###
 
@@ -137,7 +151,7 @@ check_position<-function(DataTA,wd,suffix){
   world <- ne_countries(scale = "medium", returnclass = "sf")
 
   suppressMessages (
-    p <- ggplot(data=world) +
+    ggplot(data=world) +
       geom_sf()+
       coord_sf(crs ="+proj=longlat +ellps=WGS84") +
       geom_point(data=points, aes(lon, lat, fill=Position),shape=21,color="black",size=point_size) +
@@ -149,10 +163,10 @@ check_position<-function(DataTA,wd,suffix){
   )
 
 
-  tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-  print(p)
-  dev.off()
-
+  # tiff(filename=file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".tiff",sep="")),width=img_width, height=img_height, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+  # print(p)
+  # dev.off()
+  ggsave(file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".jpeg",sep="")),width=img_width, height=img_height,dpi = 300, units="in")
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
   options(warn=-1)

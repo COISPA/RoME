@@ -9,20 +9,17 @@
 
 # Check if weights and numbers in TB are consistent
 
-
-
 if (FALSE){
-  wd <- tempdir() # "D:\\COISPA\\_DATI MEDITS_\\GSA18 - 2019\\"
-  ResultDataTB = read.table(file="D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\SAMA18\\R_MEFH\\MEDITS data\\GSA18\\TB_GSA18_1994-2020.csv", sep=";", header=T) # MEDITS::TA # ResultDataTA[ResultDataTA$YEAR==2017,]
-  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR==2017, ]
-  DataTargetSpecies <- RoME::DataTargetSpecies
-  suffix=NA
-  check_weight(ResultDataTB,RoME::DataTargetSpecies,wd,suffix)
-
+    wd <- tempdir()
+    ResultDataTB = tb # RoME::TB
+    year=2015
+    DataTargetSpecies <- RoME::DataTargetSpecies
+    suffix=NA
+    check_weight(ResultDataTB, year, RoME::DataTargetSpecies, wd, suffix)
   }
 
 
-check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,suffix){
 
   oldpar <- par()
   on.exit(suppressWarnings(par(oldpar)))
@@ -45,6 +42,17 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
+  ########################################
 
    numberError = 0
    Result = ResultDataTB
@@ -59,7 +67,7 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
   ResultData$species=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
 
 
-    ResultData =  ResultData[ResultData$TOTAL_NUMBER_IN_THE_HAUL!=0,]
+    ResultData =  ResultData[ResultData$TOTAL_NUMBER_IN_THE_HAUL!=0 & !is.na(ResultData$TOTAL_NUMBER_IN_THE_HAUL),]
     ResultData$mean_weight=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/ResultData$TOTAL_NUMBER_IN_THE_HAUL,3)
 
     #queryData2= paste("SELECT count(*) as occurrence, GENUS, SPECIES from Result where HAUL_NUMBER is not null group by GENUS, SPECIES", sep="")
@@ -139,7 +147,8 @@ check_weight<-function(ResultDataTB,DataTargetSpecies=DataTargetSpecies,wd,suffi
       }
 
       if (i<=20){
-        tiff(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+        # tiff(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
+		jpeg(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".jpeg",sep="")),width=12, height=8, bg="white", units="in", res=300,quality=80)
         par(mfrow=c(3,2), mai=c(0.6,0.6,0.6,0.6), omi=c(0.8,0.8,1,0.8))
         for (m in (6*i-5):(nb_loops)) {
           xlabels <- ResultData[ResultData$species==ResultData$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER

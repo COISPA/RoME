@@ -5,15 +5,13 @@
 Function checking that among hauls with the same code, only one must be valid.}
 \description{Check the presence of unique valid haul codes.}
 \usage{
-check_unique_valid_haul(ResultDataTA,wd,suffix)
+check_unique_valid_haul(ResultDataTA,year,wd,suffix)
 }
 \arguments{
-\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
-}
-\item{wd}{Working directory selected by the user.
-}
-\item{suffix}{Suffix string of the Logfile.
-}
+\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).}
+\item{year}{reference year for the analysis.}
+\item{wd}{Working directory selected by the user.}
+\item{suffix}{Suffix string of the Logfile.}
 }
 \details{
 This function produce an error, stopping the check procedure to avoid cascade errors.
@@ -27,10 +25,10 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
+TA = RoME::TA
+year=2012
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
-check_unique_valid_haul(TA,wd,suffix)
+check_unique_valid_haul(TA,year,wd,suffix)
 }
 \keyword{valid hauls}

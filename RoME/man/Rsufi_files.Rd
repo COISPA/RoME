@@ -21,15 +21,18 @@ Rochet M. J., V. M. Trenkel, J. A. Bertrand & J.-C. Poulard, 2004. R routines fo
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-library(MEDITS)
-library(RoME)
+TA = RoME::TA
+TB = RoME::TB
+TC = RoME::TC
+DataSpecies=RoME::TM_list
+Stratification=RoME::stratification_scheme
+year = 2012
 wd <- tempdir()
-
-create_haul(TA,wd)
-create_catch(TB,wd)
-create_length(TC,TM_list,wd)
-create_strata(stratification_scheme,"10",wd)
-\donttest{RSufi_files(2007,2007,"10",wd)} # run only if you are working outside a temporary directory
+create_haul(TA,year,wd,save=TRUE)
+create_catch(TB,year,wd,save=TRUE)
+create_length(TC,year,DataSpecies,wd,save=TRUE)
+create_strata(Stratification,"10",wd,save=TRUE)
+\donttest{RSufi_files(2012,2012,"10",wd)} # run only if you are working outside a temporary directory
 }
 \keyword{R-sufi}
 \keyword{global files}

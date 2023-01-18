@@ -4,15 +4,13 @@
 \description{
 Start depth and end depth of each haul should be in the same stratum. }
 \usage{
-check_stratum(ResultData,wd,suffix)
+check_stratum(ResultData,year,wd,suffix)
 }
 \arguments{
-\item{ResultData}{Haul data table according to MEDITS protocol (TA).
-}
-\item{wd}{Working directory selected by the user.
-}
-\item{suffix}{Suffix string of the Logfile.
-}
+\item{ResultData}{Haul data table according to MEDITS protocol (TA).}
+\item{year}{reference year for the analysis}
+\item{wd}{Working directory selected by the user.}
+\item{suffix}{Suffix string of the Logfile.}
 
 }
 \details{
@@ -28,10 +26,10 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
+year=2007
+TA = RoME::TA
 suffix= "2020-03-05_time_h17m44s55"
-check_stratum(TA,wd,suffix)
+check_stratum(TA,year,wd,suffix)
 }
 \keyword{stratum}

@@ -9,16 +9,15 @@
 
 # Check quasi-identical records
 if (FALSE){
-    Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-    Result = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TB_GSA18_1994-2018.csv", sep=";")
-    Result = read.table(file=paste(wd, "\\2019 GSA18 TA.csv",sep=""), sep=";", header=T) # read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TC_GSA18_1994-2018.csv", sep=";")
-
-    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
+    Result = RoME::TA
+    # Result = RoME::TB
+    wd <- tempdir()
+    year=2007
     suffix= NA # "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    check_quasiidentical_records(Result,wd,suffix)
+    # check_quasiidentical_records(Result,year,wd,suffix)
 }
 
-check_quasiidentical_records<-function(Result,wd,suffix){
+check_quasiidentical_records<-function(Result,year,wd,suffix){
 
   Table=as.character(Result[1,1])
   check_without_errors = FALSE
@@ -35,6 +34,18 @@ check_quasiidentical_records<-function(Result,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  Result <- Result[Result$YEAR == year, ]
+  ########################################
 
   #### CHECK TL FIELDS ####
   {
@@ -79,7 +90,7 @@ check_quasiidentical_records<-function(Result,wd,suffix){
 
 
         for( k in 1:nrow(Err)){
-          write(paste("Haul ",Err$HAUL_NUMBER[k],
+          write(paste("Warning: Haul ",Err$HAUL_NUMBER[k],
                       "there is an inconsistent value in one or more of the fields that should be always identical in",
                       Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         }
@@ -111,7 +122,7 @@ ResultData = Result[!is.na(Result$HAUL_NUMBER),]
 
         for( k in 1:nrow(Err)){
           if (Err$YEAR[k] == Matrix2$YEAR[i]){
-            write(paste("Haul ",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+            write(paste("Warning: Haul ",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
           }
         }
       }
@@ -143,7 +154,7 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
         for( k in 1:nrow(Err)){
           if (Err$YEAR[k] == Matrix2$YEAR[i]){
-            write(paste("Haul",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],ifelse(Err$SEX[k]=="FALSE","F", "M"),"length",Err$LENGTH_CLASS[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+            write(paste("Warning: Haul",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],ifelse(Err$SEX[k]=="FALSE","F", "M"),"length",Err$LENGTH_CLASS[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
           }
         }
       }
@@ -177,7 +188,7 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
         for( k in 1:nrow(Err)){
           if (Err$YEAR[k] == Matrix2$YEAR[i]){
-            write(paste("Haul",Err$HAUL_NUMBER[k],Err$LITTER_CATEGORY[k],Err[k,"LITTER_SUB-CATEGORY"],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+            write(paste("Warning: Haul",Err$HAUL_NUMBER[k],Err$LITTER_CATEGORY[k],Err[k,"LITTER_SUB-CATEGORY"],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
 
             }
         }
@@ -212,7 +223,7 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
         for( k in 1:nrow(Err)){
           if (Err$YEAR[k] == Matrix2$YEAR[i]){
-            write(paste("Haul",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],ifelse(Err$SEX[k]=="FALSE","F", "M"),"length",Err$LENGTH_CLASS[k],Err$INDIVIDUAL_WEIGHT[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+            write(paste("Warning: Haul",Err$HAUL_NUMBER[k],Err$GENUS[k],Err$SPECIES[k],ifelse(Err$SEX[k]=="FALSE","F", "M"),"length",Err$LENGTH_CLASS[k],Err$INDIVIDUAL_WEIGHT[k],"there is an inconsistent value in one or more of the fields that should be always identical in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
 
           }
         }

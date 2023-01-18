@@ -5,23 +5,24 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-# Check if in TB, TC and TE the date by haul is the same of the one reported in TA									  
+# Check if in TB, TC or TE the date by haul is the same of the one reported in TA
 
-check_date_haul <- function (DataTA, Data, wd, suffix){
+check_date_haul <- function (DataTA, Data, year, wd, suffix){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
-    DataTA[12,]
-    DataTA[12,"DAY"] <- 24
+    DataTA = RoME::TA
+    DataTA[107,]
+    DataTA[107,"DAY"] <- 24
 
-    Data = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
-    Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
-    Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";") # MEDITS::TA
-    Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";") # MEDITS::TA
-    # check_date_haul(DataTA, Data, wd, suffix)
+    Data = RoME::TB
+    year=2009
+    # Data = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+    # Data = read.csv("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";")
+    # check_date_haul(DataTA=DataTA, Data=Data, year, wd, suffix)
   }
 
   #### CHECK TL FIELDS ####
@@ -51,6 +52,23 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  Data <- Data[Data$YEAR == year, ]
+  ########################################
+
+  DataTA <- DataTA[!is.na(DataTA$AREA),]
+  Data <- Data[!is.na(Data$AREA),]
+
   Dataset = Data
 
          if (as.character(Dataset$TYPE_OF_FILE[1]) == "TB") {
@@ -64,10 +82,11 @@ check_date_haul <- function (DataTA, Data, wd, suffix){
   }
 
 
-Dataset$Date = paste (Dataset$HAUL_NUMBER, "-",Dataset$DAY,"-",Dataset$MONTH,"-",Dataset$YEAR ,sep="")
+Dataset$Date = paste (Dataset$AREA, "-",Dataset$COUNTRY, "-",Dataset$HAUL_NUMBER, "-",Dataset$DAY,"-",Dataset$MONTH,"-",Dataset$YEAR ,sep="")
 TA_df =DataTA
-TA_df$Date = paste (TA_df$HAUL_NUMBER,"-",TA_df$DAY,"-",TA_df$MONTH,"-",TA_df$YEAR,sep="")
-i=463
+TA_df$Date = paste (TA_df$AREA, "-",TA_df$COUNTRY, "-",TA_df$HAUL_NUMBER,"-",TA_df$DAY,"-",TA_df$MONTH,"-",TA_df$YEAR,sep="")
+# TA_df$hauls_by_gsa <- paste(TA_df$COUNTRY,TA_df$AREA,TA_df$HAUL_NUMBER,sep="_")
+i=1
 for (i in 1:nrow(Dataset)){
   if ( !(Dataset$Date[i] %in% TA_df$Date)) {
   if (Dataset$TYPE_OF_FILE[1] != "TL"){
@@ -79,6 +98,9 @@ for (i in 1:nrow(Dataset)){
   }
 }
 }
+
+# pivot_TA <- aggregate(TA_df$Date, by=list(TA_df$hauls_by_gsa), FUN="length")
+
 
  if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)

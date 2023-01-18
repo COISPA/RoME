@@ -80,3 +80,15 @@ Fixes 0.1.17
 Fixes 0.1.18
 -----
 1. Improvement of output plots using functions of ggplot2 package 
+
+Fixes 0.1.19
+-----
+1. issue in check_area function corrected
+
+Fixes 0.1.20
+-----
+1. inclusion of new functions (e.g. RoMEcc) to adapt the package to work with the RDBFID database
+
+Fixes 0.1.21
+-----
+1. inclusion of new function to convert RDBFIS headers to MEDITS format

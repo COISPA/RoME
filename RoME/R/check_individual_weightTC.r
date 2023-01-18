@@ -5,17 +5,18 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-# Check if weight of the sample in TC is consistent with length-weight relationship																	   
+# Check if weight of the sample in TC is consistent with length-weight relationship
 
-check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
+check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTC = MEDITS::TC
+    DataTC = RoME::TC
+    year=2007
     verbose=TRUE
-    # check_individual_weightTC(DataTC=DataTC, wd=wd, suffix=suffix, verbose=TRUE)
+    # check_individual_weightTC(DataTC=DataTC,year, wd=wd, suffix=suffix, verbose=TRUE)
   }
 
 
@@ -30,6 +31,18 @@ check_individual_weightTC<- function (DataTC,LW=NA,wd,suffix, verbose=FALSE){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTC <- DataTC[DataTC$YEAR == year, ]
+  ########################################
 
   TC = DataTC
 

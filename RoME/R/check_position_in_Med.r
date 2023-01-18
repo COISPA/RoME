@@ -7,20 +7,20 @@
 ############################################################################################################################
 # Check if the coordinates are in the Mediterranean Sea
 
-check_position_in_Med<-function(DataTA,wd,suffix){
+check_position_in_Med<-function(DataTA,year,wd,suffix){
 
   if (FALSE){
-    library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") #     MEDITS::TA   #
-    DataTA = DataTA[DataTA$YEAR ==2008 , ]
-    DataTA[1,"SHOOTING_LONGITUDE"] <- 2300
-    DataTA[1,"SHOOTING_LATITUDE"] <- 4700
-    DataTA[1,"HAULING_LONGITUDE"] <- 2300
-    DataTA[1,"HAULING_LATITUDE"] <- 4700
-    DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
-    # check_position_in_Med(DataTA, wd, suffix)
+    DataTA = RoME::TA
+    year=2007
+    # DataTA = DataTA[DataTA$YEAR ==2008 , ]
+    # DataTA[1,"SHOOTING_LONGITUDE"] <- 2300
+    # DataTA[1,"SHOOTING_LATITUDE"] <- 4700
+    # DataTA[1,"HAULING_LONGITUDE"] <- 2300
+    # DataTA[1,"HAULING_LATITUDE"] <- 4700
+    # DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
+    # check_position_in_Med(DataTA, year, wd, suffix)
   }
 
 
@@ -36,13 +36,25 @@ check_position_in_Med<-function(DataTA,wd,suffix){
     file.create(Errors)
   }
 
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
+
   ResultData = DataTA
 
-  write(paste("\n----------- check if the hauls positions are in Mediterranean Sea - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
+  write(paste("\n----------- check if the hauls positions are in Mediterranean  or Black Sea - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
 
-suppressWarnings(  haul_on_land <- haul_at_sea(ResultData, seas=RoME::MedSea, verbose=FALSE) )
+suppressWarnings(  haul_on_land <- haul_at_sea(ResultData,year, seas=RoME::MedSea, verbose=FALSE) )
   if (length(haul_on_land)>1) {
     res_class <- class(haul_on_land)
 

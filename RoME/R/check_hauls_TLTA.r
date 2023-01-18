@@ -7,15 +7,16 @@
 ############################################################################################################################
 #  Check if all the hauls in TL are in TA
 
-check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix){
+check_hauls_TLTA<-function(DataTA,DataTL,year,wd,suffix){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTL = read.table("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";", header=T)
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    # check_hauls_TLTA(DataTA,DataTL,wd,suffix)
+    DataTL = RoME::TL # read.table("~/GitHub/RoME/data/TL_GSA18 2012-2018.csv", sep=";", header=T)
+    DataTA = RoME::TA # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
+    year=2008
+    # check_hauls_TLTA(DataTA,DataTL,year,wd,suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -29,6 +30,19 @@ check_hauls_TLTA<-function(DataTA,DataTL,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  DataTL <- DataTL[DataTL$YEAR == year, ]
+  ########################################
 
   #### CHECK TL FIELDS ####
   {

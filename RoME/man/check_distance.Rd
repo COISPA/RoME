@@ -4,10 +4,11 @@
 \description{
 The function checks wherther there are inconsistencies between the DISTANCE field values and the computed distance.}
 \usage{
-check_distance(DataTA, wd, suffix)
+check_distance(DataTA, year, wd, suffix)
 }
 \arguments{
     \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
+    \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
@@ -28,10 +29,9 @@ All the coordinates involved in the formulas above are in decimal degrees; the r
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-library(MEDITS)
 wd <- tempdir()
 suffix="2020-03-05_time_h17m44s55"
-library(RoME)
-check_distance(MEDITS::TA,wd,suffix)
+year=2007
+check_distance(RoME::TA,year,wd,suffix)
 }
 \keyword{ warning }

@@ -7,14 +7,14 @@
 ############################################################################################################################
 # Check consistency among duration, start time and end time of the haul in TA
 
-check_consistencyTA_duration<-function(DataTA, wd, suffix){
+check_consistencyTA_duration<-function(DataTA, year, wd, suffix){
 
   if (FALSE){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # MEDITS::TA
-    # check_consistencyTA_duration(DataTA, wd, suffix)
+    DataTA = RoME::TA # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") 
+    # check_consistencyTA_duration(DataTA, year=2012, wd, suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -29,6 +29,19 @@ check_consistencyTA_duration<-function(DataTA, wd, suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+
+  DataTA <- DataTA[DataTA$YEAR == year, ]
+  ########################################
 
   Matrix = DataTA
   write(paste("\n----------- check consistency between duration and time TA - ", Matrix$YEAR[1]), file = Errors, append = TRUE)

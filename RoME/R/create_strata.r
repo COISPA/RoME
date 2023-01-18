@@ -10,20 +10,19 @@
 # strates.csv
 
 if (FALSE){
-  #ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  create_strata(stratification_scheme,"18",wd)
+  Stratification=RoME::stratification_scheme
+  wd <- tempdir()
+  AREA = 18
+  create_strata(Stratification,"18",wd,save=TRUE)
 }
 
 
-create_strata<-function(Stratification=MEDITS::stratification_scheme,AREA,wd){
+create_strata<-function(Stratification=RoME::stratification_scheme,AREA,wd,save=TRUE){
 
   if (!file.exists(file.path(wd,"files R-Sufi"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
-  Strata = Stratification[Stratification$GSA==AREA,] # MEDITS::stratification_scheme #read.csv(paste(Stratification,".csv",sep=""), sep=";", header=TRUE)
+  Strata = Stratification[Stratification$GSA==AREA,] 
 
   #write.xlsx(Strata,file=paste(Stratification,".xls", sep = ""))
   #channel <- odbcConnectExcel(paste(Stratification,".xls", sep = ""))
@@ -41,11 +40,16 @@ create_strata<-function(Stratification=MEDITS::stratification_scheme,AREA,wd){
   Campagne=rep(paste("MEDITS-GSA",AREA,sep=""),6)
   strates=cbind(Campagne,strates)
 #   write.table(strates,file=paste("./files R-Sufi/strates_GSA",AREA,".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
-  write.table(strates,file=file.path(wd,"files R-Sufi",paste("strates_GSA",AREA,".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+  if (save) {
+      write.table(strates,file=file.path(wd,"files R-Sufi",paste("strates_GSA",AREA,".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+      if (file.exists(file.path(tempdir(),"files R-Sufi"))){
+         unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+      }
+  } else {
+      return(strates)
+  }
   #odbcClose(channel)
   #unlink(paste(Stratification,".xls", sep = ""))
-  if (file.exists(file.path(tempdir(),"files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-}
+
 }
 ###########################################################################################################################

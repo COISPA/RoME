@@ -4,13 +4,14 @@
 \description{
 The function identify the hauls that don't fall in the user defined sea area.}
 \usage{
-haul_at_sea(DataTA, seas = RoME::MedSea, verbose = TRUE)
+haul_at_sea(DataTA,year,seas=RoME::MedSea,verbose = TRUE)
 }
 
 \arguments{
     \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
-  \item{seas}{polygon shapefile defining the extension of the sea area. The default \code{MedSea} dataset is referred to the Mediterranean and Black Sea area.}
-  \item{verbose}{boolean varable returning verbose output if TRUE}
+    \item{year}{reference year for the analysis}
+    \item{seas}{polygon shapefile defining the extension of the sea area. The default \code{MedSea} dataset is referred to the Mediterranean and Black Sea area.}
+    \item{verbose}{boolean varable returning verbose output if TRUE}
 }
 \details{
 The function check whether the haul position falls in the polygon \code{seas} defining the extension of the reference sea area.
@@ -25,9 +26,10 @@ The function returns the list of the hauls out of the \code{seas} polygon. In ca
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
-library(MEDITS)
+TA = RoME::TA
+year = 2012
 wd <- tempdir()
 suffix="2020-03-05_time_h17m44s55"
-haul_at_sea(MEDITS::TA, seas = MedSea, verbose = TRUE)
+haul_at_sea(TA,year, seas = MedSea, verbose = TRUE)
 }
 \keyword{list}

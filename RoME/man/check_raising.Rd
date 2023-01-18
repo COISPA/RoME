@@ -8,16 +8,14 @@ The word "Fraction" means any sub-group of individual from the total catch of a 
 In the check check_raising the comparison between the number in TB and the raised number in TC has been not taking into account decimals, but comparing the integer numbers.
 }
 \usage{
-check_raising(ResultDataTB,ResultDataTC,wd,suffix)
+check_raising(ResultDataTB,ResultDataTC,year,wd,suffix)
 }
 \arguments{
-\item{ResultDataTB}{Catch data table (TB) .
-}\item{ResultDataTC}{Biological data table (TC).
-}
-\item{wd}{Working directory selected by the user.
-}
-\item{suffix}{Suffix string of the Logfile.
-}
+\item{ResultDataTB}{Catch data table (TB) .}
+\item{ResultDataTC}{Biological data table (TC).}
+\item{year}{reference year for the analysis}
+\item{wd}{Working directory selected by the user.}
+\item{suffix}{Suffix string of the Logfile.}
 }
 \details{
 The check must be executed year by year.
@@ -33,11 +31,10 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
-check_raising(TB,TC,wd,suffix)
+year=2007
+check_raising(RoME::TB,RoME::TC,year,wd,suffix)
 }
 \keyword{raising}
 \keyword{sub-sampling}

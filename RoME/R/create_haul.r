@@ -12,25 +12,36 @@
 
 
 
-create_haul<-function(ResultDataTA,wd,suffix){
+create_haul<-function(ResultDataTA,year,wd,save=TRUE){
 
    if (FALSE){
-  ResultDataTA = read.csv("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/data/TA_GSA18_1994-2018.csv", sep=";")
-
-  wd <- "C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  #suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  create_haul(Result,wd)
-}
+     ResultDataTA = RoME::TA
+     year=2007
+     wd <- tempdir()
+     create_haul(ResultDataTA,year,wd,save=FALSE)
+    }
 
    Format="from_2012"
 
 
 
 
-   
+
    if (!file.exists(file.path(wd,"files R-Sufi"))){
      dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
    }
+
+   ### FILTERING DATA FOR THE SELECTED YEAR
+   arg <- "year"
+   if (!exists(arg)) {
+     stop(paste0("'", arg, "' argument should be provided"))
+   } else if (length(year) != 1) {
+     stop(paste0("only one value should be provided for '", arg, "' argument"))
+   } else if (is.na(year)) {
+     stop(paste0(arg, " argument should be a numeric value"))
+   }
+   ResultDataTA <- ResultDataTA[ResultDataTA$YEAR == year, ]
+   ########################################
 
   ResultData = ResultDataTA
 
@@ -69,10 +80,16 @@ create_haul<-function(ResultDataTA,wd,suffix){
      }
     }
   }
-  write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
-  
-if (file.exists(file.path(tempdir(),"files R-Sufi"))){
 
-unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-}
+  if(save) {
+    write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
+    if (file.exists(file.path(tempdir(),"files R-Sufi"))){
+      unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    }
+  } else {
+    return(as.data.frame(traits))
+  }
+
+
+
   }

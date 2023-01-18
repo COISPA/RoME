@@ -7,10 +7,11 @@ Function to warn the user about the presence of subsamples <0.1 of the total cat
 Check if the sub-sample is smaller than the 10 percent of the total weight in the haul.
 }
 \usage{
- check_subsampling(ResultTC,wd,suffix)
+ check_subsampling(ResultTC,year,wd,suffix)
 }
 \arguments{
 \item{ResultTC}{Biological data table (TC).}
+\item{year}{reference year for the analysis.}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }
@@ -28,10 +29,10 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
+TC = RoME::TC
+year=2007
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
-check_subsampling(TC,wd,suffix)
+check_subsampling(TC,year,wd,suffix)
 }
 \keyword{sub-sampling}

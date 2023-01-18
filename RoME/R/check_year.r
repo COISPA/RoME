@@ -9,6 +9,14 @@
 
 check_year <- function(TA, TB, TC,TE,TL, years, wd, Errors){
 
+  if (FALSE) {
+    TA <- ta[ta$AREA ==22, ]
+    TB <- tb[tb$AREA ==22, ]
+    TC <- tc[tc$AREA ==22, ]
+    TE <- NA
+    TL <- NA
+    years = unique (TA$YEAR)
+  }
 
   Format="from_2012"
 
@@ -44,6 +52,12 @@ if (any(!(TB$YEAR %in% seq(1900,2100,1)))) {
 if (any(!(unique(TB$YEAR) %in% years))){
   write("YEAR value in TB not included in TA table", file = Errors, append = TRUE)
   numberError=numberError+1
+} else {
+  int <- intersect(unique(TB$YEAR),  years)
+  if (length(int) != length(years)) {
+    write(paste("missing YEAR/s in TB"), file = Errors, append = TRUE)
+    numberError=numberError+1
+  }
 }
 
 # TC
@@ -54,6 +68,12 @@ if (any(!(TC$YEAR %in% seq(1900,2100,1)))) {
 if (any(!(unique(TC$YEAR) %in% years))){
   write("YEAR value in TC not included in TA table", file = Errors, append = TRUE)
   numberError=numberError+1
+}  else {
+  int <- intersect(unique(TC$YEAR),  years)
+  if (length(int) != length(years)) {
+    write(paste("missing YEAR/s in TC"), file = Errors, append = TRUE)
+    numberError=numberError+1
+  }
 }
 
 
@@ -68,6 +88,12 @@ if (any(!(TE$YEAR %in% seq(1900,2100,1)))) {
 if (any(!(unique(TE$YEAR) %in% years))){
   write("YEAR value in TE not included in TA table", file = Errors, append = TRUE)
   numberError=numberError+1
+}  else {
+  int <- intersect(unique(TE$YEAR),  years)
+  if (length(int) != length(years)) {
+    write(paste("missing YEAR/s in TE"), file = Errors, append = TRUE)
+    numberError=numberError+1
+  }
 }
 }
 
@@ -82,6 +108,12 @@ if (!(all(is.na(TL)) & length(TL)==1)){
   if (any(!(unique(TL$YEAR) %in% years))){
     write("YEAR value in TL not included in TA table", file = Errors, append = TRUE)
     numberError=numberError+1
+  }  else {
+    int <- intersect(unique(TL$YEAR),  years)
+    if (length(int) != length(years)) {
+      write(paste("missing YEAR/s in TL"), file = Errors, append = TRUE)
+      numberError=numberError+1
+    }
   }
 }
 

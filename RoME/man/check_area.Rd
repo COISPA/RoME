@@ -6,7 +6,7 @@
 \description{
  The function works with data of a single year of survey and checks if TX files have the same area code.}
 \usage{
-check_area(DataTA, DataTB, DataTC, DataTE=NA, DataTL=NA, wd, suffix)
+check_area(DataTA, DataTB, DataTC, DataTE=NA, DataTL=NA, year, wd, suffix)
 }
 \arguments{
   \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
@@ -14,6 +14,7 @@ check_area(DataTA, DataTB, DataTC, DataTE=NA, DataTL=NA, wd, suffix)
   \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
   \item{DataTE}{Individual biological data table according to MEDITS protocol (TE)}
   \item{DataTL}{Litter data table according to MEDITS protocol (TL)}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -32,8 +33,7 @@ The function returns TRUE if no error occurs, while FALSE is returned when there
     DataTC = RoME::TC
     DataTE = RoME::TE
     DataTL = RoME::TL
-    library(RoME)
-    check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA, wd, suffix)
+    check_area(DataTA, DataTB,DataTC,DataTE=NA,DataTL=NA,year=2012, wd, suffix)
 }
 
 \keyword{error}

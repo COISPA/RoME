@@ -3,11 +3,11 @@
 \title{Check of consistency in number per sex set "not mandatory" in TB}
 \description{Check if in TB there are the total number, number of females, males and undetermined for species G1}
 \usage{
-check_nm_TB(DataTB, DataTC, wd, suffix)
+check_nm_TB(DataTB, year, wd, suffix)
 }
 \arguments{
  \item{DataTB}{Catch data table according to MEDITS protocol (TB)}
- \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
+ \item{year}{reference year for the analysis}
  \item{wd}{working directory path defined by the user}
  \item{suffix}{Suffix string of the Logfile}
 }
@@ -22,8 +22,8 @@ The function returns TRUE if no error occurs, FALSE if one or more inconsistence
 \examples{
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
-    DataTB = MEDITS::TB
-    DataTC = MEDITS::TC
-    check_nm_TB(DataTB,DataTC, wd, suffix)
+    DataTB = RoME::TB
+    year=2007
+    check_nm_TB(DataTB, year, wd, suffix)
 }
 \keyword{ error }

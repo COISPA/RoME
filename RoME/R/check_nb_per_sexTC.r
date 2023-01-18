@@ -7,17 +7,18 @@
 ############################################################################################################################
 #  Internal check  in TC (the number per sex must be equal to the sum of nb per length per sex)
 
-check_nb_per_sexTC <- function(DataTC,wd,suffix){
+check_nb_per_sexTC <- function(DataTC,year,wd,suffix){
 
   if (FALSE){
     #library(MEDITS)
     wd <- tempdir()
     DataSpecies=NA
+    year=2007
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    DataTC <- DataTC[DataTC$YEAR == 2018 , ]
+    DataTC = RoME::TC # read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
+    # DataTC <- DataTC[DataTC$YEAR == 2018 , ]
 
-    # check_nb_per_sexTC(DataTC,wd,suffix)
+    # check_nb_per_sexTC(DataTC,year,wd,suffix)
   }
 
 
@@ -32,6 +33,18 @@ check_nb_per_sexTC <- function(DataTC,wd,suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'", arg, "' argument should be provided"))
+  } else if (length(year) != 1) {
+    stop(paste0("only one value should be provided for '", arg, "' argument"))
+  } else if (is.na(year)) {
+    stop(paste0(arg, " argument should be a numeric value"))
+  }
+  DataTC <- DataTC[DataTC$YEAR == year, ]
+  ########################################
 
   Result = DataTC
   write(paste("\n----------- check consistency of number per sex in TC - ", Result$YEAR[1]), file = Errors, append = TRUE)

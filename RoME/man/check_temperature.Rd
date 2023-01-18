@@ -5,15 +5,13 @@ Function to check the consistency of the temperature data stored in haul data ta
 \description{
 This function checks if the temperature by haul is in the range 10-30 Celsius degrees; moreover, a plot depth versus temperature is produced and stored in the Graph folder.}
 \usage{
-check_temperature(ResultDataTA,wd,suffix)
+check_temperature(ResultDataTA,year,wd,suffix)
 }
 \arguments{
-\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).
-}
-\item{wd}{Working directory selected by the user.
-}
-\item{suffix}{Suffix string of the Logfile.
-}
+\item{ResultDataTA}{Haul data table according to MEDITS protocol (TA).}
+\item{year}{reference year for the analysis.}
+\item{wd}{Working directory selected by the user.}
+\item{suffix}{Suffix string of the Logfile.}
 }
 \details{
 This check uses the temperature range 10-30 Celsius degrees to provide quantitative warning and a plot, automatically stored in Graphs, for a qualitative inspection  of tha temperature data respectto depth. }
@@ -27,10 +25,10 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
+TA = RoME::TA
+year=2012
 wd=tempdir()
-    suffix="2020-03-05_time_h17m44s55"
-check_temperature(TA,wd,suffix)
+suffix="2020-03-05_time_h17m44s55"
+check_temperature(TA,year,wd,suffix)
 }
 \keyword{temperature}

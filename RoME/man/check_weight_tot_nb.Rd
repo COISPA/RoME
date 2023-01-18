@@ -8,10 +8,11 @@ Function to check if, when the weight is not null, also the number is not null.
 If total weight is different from 0, total number must be different from 0 (only if the category of the species is different from "E") and vice versa (for all faunistic categories).
 }
 \usage{
-check_weight_tot_nb(ResultDataTB,wd,suffix)
+check_weight_tot_nb(ResultDataTB,year,wd,suffix)
 }
 \arguments{
   \item{ResultDataTB}{Catch data table according to MEDITS protocol (TB)}
+  \item{year}{reference year for the analysis}
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
@@ -28,11 +29,11 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
+year=2012
+TB = RoME::TB
 suffix= "2020-03-05_time_h17m44s55"
-check_weight_tot_nb(TB,wd,suffix)
+check_weight_tot_nb(TB,year,wd,suffix)
 }
 \keyword{numberl}
 \keyword{weight}

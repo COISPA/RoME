@@ -2,11 +2,12 @@
 \alias{check_dictionary}
 \title{Check of the dictionary of specific fields}
 \description{The function checks whether the values contained in specific fields are consistent with the allowed values of the dictionaries.}
-\usage{check_dictionary(ResultData, Field, Values, wd, suffix)}
+\usage{check_dictionary(ResultData, Field, Values, year, wd, suffix)}
 \arguments{
     \item{ResultData}{Haul data table according to MEDITS protocol (TA)}
     \item{Field}{Name of the specific field of the selected TX table}
     \item{Values}{Vector of the allowed values for the field to be checked}
+    \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
@@ -19,9 +20,9 @@
     suffix="2020-03-05_time_h17m44s55"
     Field = "COURSE"
     Values = c("R","N")
-    DataTA = MEDITS::TA
-    library(RoME)
-    check_dictionary(ResultData = DataTA, Field, Values, wd, suffix)
+    DataTA = RoME::TA
+    year = 2007
+    check_dictionary(ResultData = DataTA, Field, Values, year, wd, suffix)
 }
 
 \keyword{ error }

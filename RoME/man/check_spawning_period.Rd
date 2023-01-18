@@ -5,12 +5,13 @@ Function to check the consistency of the maturity stages according to the spawni
 \description{
 The mature individuals caught outside the spawning are detected; moreover, the mature individuals caught outside the spawning with size smaller than the size of smallest mature individual in bibliography and the immature individuals caught during the reproductive period, but with size greater than maximum L50 + 0.2 * L50 are detected.}
 \usage{
-check_spawning_period(ResultDataTA,ResultDataTC,
+check_spawning_period(ResultDataTA,ResultDataTC,year,
 Maturity_parameters,DataTargetSpecies,wd,suffix)
 }
 \arguments{
   \item{ResultDataTA}{Haul data table(TA).}
   \item{ResultDataTC}{alternatively: Biological data table (TC) and Individual data table (TE).}
+  \item{year}{reference year for the analysis}
   \item{Maturity_parameters}{Information related to sex and maturity from literature or other sources.}
   \item{DataTargetSpecies}{Information related to reference species.}
 \item{wd}{Working directory selected by the user.}
@@ -28,10 +29,11 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. htt
 I. Bitetto, W. Zupa
 }
 \examples{
-library(MEDITS)
-library(RoME)
 wd=tempdir()
 suffix= "2020-03-05_time_h17m44s55"
-check_spawning_period(TA,TC,Maturity_parameters,DataTargetSpecies,wd,suffix)
+year=2007
+TA <- RoME::TA
+TA <- RoME::TC
+check_spawning_period(TA,TC,year,Maturity_parameters,DataTargetSpecies,wd,suffix)
 }
 \keyword{smallest mature}

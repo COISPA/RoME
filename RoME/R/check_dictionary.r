@@ -8,10 +8,10 @@
 # Check if the values in several fields belong to the allowed ranges according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 
-check_dictionary<-function(ResultData,Field,Values, wd, suffix){
+check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
 
   if (FALSE){
-    wd <- "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
+    wd <- tempdir() #"C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
     suffix=NA  # non modificare
 
     Field = "LITTER_CATEGORY"
@@ -20,12 +20,12 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
     # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    ResultData = read.table(file=paste(wd, "\\2019 GSA18 TL.csv",sep=""), sep=";", header=T)
-
+    ResultData = RoME::TL # read.table(file=paste(wd, "\\2019 GSA18 TL.csv",sep=""), sep=";", header=T)
+    year=2012
     ResultData$CODEND_CLOSING[1] <- NA
 
 
-    # check_dictionary(ResultData,Field,Values, wd, suffix)
+    # check_dictionary(ResultData,Field,Values, year, wd, suffix)
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -39,6 +39,19 @@ check_dictionary<-function(ResultData,Field,Values, wd, suffix){
   if (!file.exists(Errors)){
     file.create(Errors)
   }
+
+  ### FILTERING DATA FOR THE SELECTED YEAR
+  arg <- "year"
+  if (!exists(arg)) {
+    stop(paste0("'",arg,"' argument should be provided"))
+  } else if (length(year)!= 1) {
+    stop(paste0("only one value should be provided for '",arg,"' argument"))
+  } else if (is.na(year)){
+    stop(paste0(arg," argument should be a numeric value"))
+  }
+
+  ResultData <- ResultData[ResultData$YEAR == year, ]
+  ########################################
 
   Result = ResultData
     write(paste("\n----------- check dictionary for field:", Field, "-", Result$YEAR[1]), file = Errors, append = TRUE)
