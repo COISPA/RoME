@@ -17,7 +17,7 @@ check_rubincode(ResultData,year,TM_list,wd,suffix)
 \details{
 The checks execution is stopped if any mismatching record was found.}
 \value{
-The function returns always TRUE if used to check TB tables, indicating in the logfile the species codes not present in TM list. If unexpected rubin codes are detected in both TC and TE tables and error (FALSE value) is reported in the logfile, interrumpting the function running.
+The function returns always TRUE if used to check TB tables, indicating in the logfile the species codes not present in TM list. If unexpected rubin codes are detected in both TC and TE tables an error (FALSE value) is reported in the logfile, interrumpting the function running.
 }
 \references{
 Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
