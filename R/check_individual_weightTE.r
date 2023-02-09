@@ -10,7 +10,7 @@ if (FALSE) {
   # library(RoME)
   wd <- tempdir()
   suffix <- NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  year <- 2015
+  year <- 2021
 
   DataTE <- te # RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
   SPECIES <- NA
@@ -89,9 +89,15 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
 
   species_to_plot <- as.character(unique(LW[, "SPECIES"])) # LW$AREA == TE$AREA[1]
 
-  i <- 26
+  i <- 1
   for (i in 1:nrow(TE)) {
+
     ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i])) & (LW$AREA==TE$AREA[1]), ] #
+
+    if (nrow(ab)==0) {
+      ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i]))  , ] #
+    }
+
 
     if (nrow(ab) != 0) {
       A <- ab$a[1]
@@ -125,11 +131,16 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
       par(mfrow = c(3, 1))
     }
 
-    sex="F"
+    sex="M"
     for (sex in c("M", "F", "I")) {
       TE_temp <- TE[paste(TE$GENUS, TE$SPECIES) == species_to_plot[ii] & as.character(TE$SEX) == sex, ]
       if (nrow(TE_temp) != 0) {
-        ab <- LW[(LW$SPECIES == paste(TE_temp$GENUS[1], TE_temp$SPECIES[1])) & (as.character(LW$SEX) == as.character(TE_temp$SEX[1])), ] # & (LW$AREA==TE$AREA[1])
+
+          ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i])) & (LW$AREA==TE$AREA[1]), ]
+        if (nrow(ab)==0) {
+          ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i]))  , ] #
+        }
+
         if (nrow(ab) != 0) {
           A <- ab$a[1]
           B <- ab$b[1]
