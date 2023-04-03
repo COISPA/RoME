@@ -12,14 +12,14 @@ if (FALSE) {
   suffix <- NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   year <- 2021
 
-  DataTE <- te # RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+  DataTE <- TE # RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
   SPECIES <- NA
   SEX <- NA
   AREA <- NA
   a <- NA
   b <- NA
   verbose <- FALSE
-  check_individual_weightTE(DataTE = te, LW = ab_parameters, year, wd = wd, suffix = suffix, verbose = TRUE)
+  check_individual_weightTE(DataTE = TE, LW = ab_parameters, year, wd = wd, suffix = suffix, verbose = TRUE)
 }
 
 check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose = FALSE) {
@@ -132,7 +132,7 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
     }
 
     sex="M"
-    for (sex in c("M", "F", "I")) {
+    for (sex in c("M", "F", "I", "N")) {
       TE_temp <- TE[paste(TE$GENUS, TE$SPECIES) == species_to_plot[ii] & as.character(TE$SEX) == sex, ]
       if (nrow(TE_temp) != 0) {
 
