@@ -2105,7 +2105,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
         checkName <- "Check allowed values for sub-category on Litter data"
         Field <- "LITTER_SUB-CATEGORY"
-        Values <- c("0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
+        Values <- c("0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J","a","b","c","d","e","f","g","h","i","j")
         colnames(ResultDataTL)[10] <- "LITTER_SUB-CATEGORY"
 
         if (check_without_errors == TRUE) {
