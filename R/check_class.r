@@ -58,7 +58,7 @@ check_class <- function(data, tab, suffix, wd) {
       # check 'numeric' fields
       numerics <- classes[classes$type %in% c("numeric"), ]
       for (i in 1:ncols) {
-         if (colnames(data)[i] %in% numerics$MEDITS){
+         if (colnames(data)[i] %in% numerics[numerics$table==tab,"MEDITS"]){ #numeric$MEDITS
            index <- which(numerics$MEDITS == colnames(data)[i] & numerics$table== tab)
          } else {
            index <- NA
@@ -76,7 +76,7 @@ check_class <- function(data, tab, suffix, wd) {
      integers <- classes[classes$type %in% c("integer"), ]
 
      for (i in 1:ncols) {
-        if (colnames(data)[i] %in% integers$MEDITS){
+        if (colnames(data)[i] %in% integers[integers$table==tab,"MEDITS"]){ #integers$MEDITS
           index <- which(integers$MEDITS == colnames(data)[i] & integers$table== tab)
         } else {
           index <- NA

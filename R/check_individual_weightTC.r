@@ -13,8 +13,8 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTC = RoME::TC
-    year=2007
+    DataTC = ResultDataTC # RoME::TC
+    year=2017
     verbose=TRUE
     # check_individual_weightTC(DataTC=DataTC,year, wd=wd, suffix=suffix, verbose=TRUE)
   }
@@ -65,19 +65,23 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
     if (nrow(ab)!=0){
       A= ab$a[1]
       B= ab$b[1]
-      if(as.character(TC$LENGTH_CLASSES_CODE[i])=="m"){
+      if (!TC$LENGTH_CLASSES_CODE[i] %in% c("m","0","1")) {
+        write(paste("LENGTH_CLASSES_CODE value '",TC$LENGTH_CLASSES_CODE[i],"' not expected in HAUL ",TC$HAUL_NUMBER[i],", ",TC$YEAR[i]), file = Errors, append = TRUE)
+        numberError=numberError+1
+      } else if(as.character(TC$LENGTH_CLASSES_CODE[i])=="m"){
         mean_length =TC$LENGTH_CLASS[i] +0.5
+        mean_weight = A*mean_length^B
+        TC$mean_weight[i] = mean_weight * TC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE[i]
       } else if (as.character(TC$LENGTH_CLASSES_CODE[i])=="0"){ # step: 0.5 cm
         mean_length =(TC$LENGTH_CLASS[i] +2.5)/10
+        mean_weight = A*mean_length^B
+        TC$mean_weight[i] = mean_weight * TC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE[i]
       } else if (as.character(TC$LENGTH_CLASSES_CODE[i])=="1"){ # step: 1 cm
         mean_length =(TC$LENGTH_CLASS[i] +5)/10
-      }
-      mean_weight = A*mean_length^B
-
+        mean_weight = A*mean_length^B
       TC$mean_weight[i] = mean_weight * TC$NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE[i] # estimated weight
-
+      }
     }
-
   }
 
   TC_w= aggregate(TC$mean_weight, by=list(TC$HAUL_NUMBER,TC$GENUS, TC$SPECIES,TC$WEIGHT_OF_THE_SAMPLE_MEASURED), FUN="sum")
@@ -90,7 +94,7 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
 
   for (i in 1:nrow(TC_w)){
   if (!is.na(TC_w$perc_diff[i]) & abs(TC_w$perc_diff[i])>50){
-  numberError=numberError+1
+  # numberError=numberError+1
   }
   }
 

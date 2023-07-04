@@ -3,14 +3,14 @@
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
   library(RoME)
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\_CONDIVISA con COSMIDANO_\\RoME_2022\\CHECK_WZ_CN"
-  suffix=NA  # non modificare
-  ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
-  ta[1,"TYPE_OF_FILE"] <- NA
-  tb <- read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
-  tc <- read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T)
-  te <- NA
-  tl <- NA
+  # wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\_CONDIVISA con COSMIDANO_\\RoME_2022\\CHECK_WZ_CN"
+  # suffix=NA  # non modificare
+  # ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
+  # ta[1,"TYPE_OF_FILE"] <- NA
+  # tb <- read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
+  # tc <- read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T)
+  # te <- NA
+  # tl <- NA
 
 
   # ta <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TA GSA18 2017-2020.csv", sep=";",header=TRUE)
