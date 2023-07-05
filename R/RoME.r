@@ -211,7 +211,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
   ### CHECK YEAR
 
-  years <- unique(TA$YEAR)
+  years <- sort(unique(TA$YEAR))
 
   checkName <- "Check YEAR"
   if (check_without_errors == TRUE) {
@@ -242,6 +242,11 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
   yea <- 1994
   for (yea in years) {
+
+    cat(paste0("\n########################"))
+    cat(paste0("\n###       ",yea,"       ###"))
+    cat(paste0("\n########################"))
+
     if (check_without_errors == TRUE & verbose == TRUE) {
       print(paste("Checking year ", yea), quote = F)
     }

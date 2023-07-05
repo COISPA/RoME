@@ -313,7 +313,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
 
   ### CHECK YEAR
 
-  years = unique (TA$YEAR)
+  years = sort(unique (TA$YEAR))
 
 table <- "ALL"
 
@@ -351,6 +351,10 @@ if (class_without_error & year_without_error & TYPE_OF_FILE_without_error){
 
 yea <- years[1]
 for (yea in years) {
+
+  cat(paste0("\n########################"))
+  cat(paste0("\n###       ",yea,"       ###"))
+  cat(paste0("\n########################"))
 
 if (check_without_errors == TRUE & verbose==TRUE) {
 print(paste("Checking year ",yea ),quote=F)
