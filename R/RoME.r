@@ -752,7 +752,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
 
     Field <- "MEASURING_SYSTEM"
-    Values <- c("VA", "SO", "XA", "SA", "SI", "CT", "SB")
+    Values <- c("VA", "SO", "XA", "SA", "SI", "CT", "SB",NA)
     if (check_without_errors == TRUE) {
       if (verbose) {
         print(paste(checkName, Field, "in progress..."), quote = FALSE)
