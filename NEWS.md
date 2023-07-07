@@ -92,3 +92,7 @@ Fixes 0.1.20
 Fixes 0.1.21
 -----
 1. inclusion of new function to convert RDBFIS headers to MEDITS format
+
+Fixes 0.1.23
+-----
+1. check dictionary function allows also NA values

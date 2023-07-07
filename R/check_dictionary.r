@@ -13,9 +13,12 @@ check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
   if (FALSE){
     wd <- tempdir() #"C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
     suffix=NA  # non modificare
-
-    Field = "LITTER_CATEGORY"
-    Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8")
+    Field = "MEASURING_SYSTEM"
+    Values = c("VA","SO","XA","SA","SI","CT","SB",NA)
+    ResultData=ta
+    year=2019
+    # Field = "LITTER_CATEGORY"
+    # Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8")
 
     # ResultData = read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # ResultData = read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
@@ -62,9 +65,11 @@ check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
     if (any(is.na(Result[, which(colnames(Result)==Field)]))){
           na.results <- Result[ is.na(Result[, which(colnames(Result)==Field)]) , ]
           l.na <- nrow(na.results)
+          if (!any(is.na(Valuesf))){
         for (x.na in 1:l.na){
               write(paste("Haul",na.results$HAUL_NUMBER[x.na], ": value not allowed for", Field, "in",  na.results$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
               numberError = numberError +1
+        }
             }
     }
 
@@ -96,7 +101,7 @@ check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
   if ( (nrow(Result)!=0)){
     k=1
     for (k in 1:nrow(Result)){
-      if ((is.na(as.character(Result[k,indexcol]))==TRUE )| (as.character(Result[k,indexcol])=="")){
+      if (is.na(as.character(Result[k,indexcol])) & !any(is.na(Valuesf))){
         if (Result$TYPE_OF_FILE[1] == "TA") {
          #          if (!is.na(Result$VALIDITY[k])) {
          #            if (Result$VALIDITY[k]=="V") {
@@ -119,9 +124,32 @@ check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
                   write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
                   numberError = numberError +1
                 }
+      } else if (!is.na(as.character(Result[k,indexcol])) & as.character(Result[k,indexcol])==""){
+        if (Result$TYPE_OF_FILE[1] == "TA") {
+          #          if (!is.na(Result$VALIDITY[k])) {
+          #            if (Result$VALIDITY[k]=="V") {
+          #                             if (!is.na(as.character(Result$BOTTOM_TEMPERATURE_BEGINNING[k])) & !is.na(as.character(Result$BOTTOM_TEMPERATURE_END[k])) ){
+          write(paste("Haul",as.character(Result$HAUL_NUMBER[k]), ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          numberError = numberError +1
+          #                                }
+          #          }
+          # }
+        } else if (Result$TYPE_OF_FILE[1] == "TB") {
+          write(paste("Haul",Result$HAUL_NUMBER[k],Result$GENUS[k], Result$SPECIES[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          numberError = numberError +1
+        } else if (Result$TYPE_OF_FILE[1] == "TC") {
+          write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          numberError = numberError +1
+        } else if (Result$TYPE_OF_FILE[1] == "TE") {
+          write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          numberError = numberError +1
+        } else if (Result$TYPE_OF_FILE[1] == "TL") {
+          write(paste("Haul",Result$HAUL_NUMBER[k], Result$GENUS[k], Result$SPECIES[k], Result$SEX[k], Result$LENGTH_CLASS[k], ": the field", Field, "is empty in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          numberError = numberError +1
+        }
       } else {  #  if ((is.na(as.character(Result[k,indexcol]))==TRUE )
 
-        if (any(as.character(Result[k,indexcol])==Valuesf) == FALSE) {
+        if (any(as.character(Result[k,indexcol])==Valuesf) == FALSE & !is.na(as.character(Result[k,indexcol]))) {
           if (Result$TYPE_OF_FILE[1] == "TA") {
 
             write(paste("Haul",Result$HAUL_NUMBER[k], ": value not allowed for", Field, "in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
