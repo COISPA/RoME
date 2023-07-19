@@ -96,3 +96,7 @@ Fixes 0.1.21
 Fixes 0.1.23
 -----
 1. check dictionary function allows also NA values
+
+Fixes 0.1.24
+-----
+1. included country in filtering TB and TC data in check_raising

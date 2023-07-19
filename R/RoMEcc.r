@@ -2303,7 +2303,7 @@ check_without_warnings <- check.list[[3]]
 
 
 
-checkName = "Check correctness of the number per sex in TB in case of sub-sampling in TC  "
+checkName = "Check correctness of the number per sex in TB in case of sub-sampling in TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
   check_without_errors = check_raising(ResultDataTB,ResultDataTC,year=yea,wd,suffix)
