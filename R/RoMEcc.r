@@ -904,7 +904,7 @@ check_without_warnings <- check.list[[3]]
 
 
   Field = "MEASURING_SYSTEM"
-  Values = c("VA","SO","XA","SA","SI","CT","SB",NA)
+  Values = c("VA","SO","XA","SA","SI","CT","CD","SB",NA)
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
