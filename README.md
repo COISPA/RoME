@@ -33,10 +33,12 @@ logfiles of each run of the function.
 ## Installation
 
 You can install the released version of *RoME* package from
-[CRAN](https://CRAN.R-project.org) with:
+GitHub with:
 
 ``` r
-install.packages("RoME")
+library(remotes)
+remotes::install_git("https://github.com/COISPA/RoME/tree/master")
+
 ```
 
 ## References
