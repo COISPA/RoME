@@ -13,10 +13,10 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTC = ResultDataTC # RoME::TC
-    year=2017
+    DataTC = RoME::TC
+    year=2007
     verbose=TRUE
-    # check_individual_weightTC(DataTC=DataTC,year, wd=wd, suffix=suffix, verbose=TRUE)
+    # check_individual_weightTC(DataTC=DataTC,year=2007, wd=wd, suffix=suffix, verbose=TRUE)
   }
 
 
@@ -60,7 +60,14 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
   TC$mean_weight = NA
  i=1
   for (i in 1:nrow(TC)){
-    ab=LW[(LW$SPECIES== paste(TC$GENUS[i],TC$SPECIES[i])) &(as.character(LW$SEX)==as.character(TC$SEX[i])) & (LW$AREA==TC$AREA[1]),]
+
+    if (!unique(TC$AREA) %in% unique(LW$AREA) ) {
+      ab=LW[(LW$SPECIES== paste(TC$GENUS[i],TC$SPECIES[i])) &(as.character(LW$SEX)==as.character(TC$SEX[i])) & (LW$AREA==18),]
+      # write(paste("Warning: a e b parameters not available for GSA ",unique(TC$AREA),". GSA18 values were used for the analysis."), file = Errors, append = TRUE)
+    } else {
+      ab=LW[(LW$SPECIES== paste(TC$GENUS[i],TC$SPECIES[i])) &(as.character(LW$SEX)==as.character(TC$SEX[i])) & (LW$AREA==TC$AREA[1]),]
+    }
+
 
     if (nrow(ab)!=0){
       A= ab$a[1]

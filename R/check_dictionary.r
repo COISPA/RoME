@@ -14,9 +14,9 @@ check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
     wd <- tempdir() #"C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia"
     suffix=NA  # non modificare
     Field = "MEASURING_SYSTEM"
-    Values = c("VA","SO","XA","SA","SI","CT","SB",NA)
+    Values = c("VA","SO","XA","SA","SI","CD","CT","SB",NA)
     ResultData=ta
-    year=2019
+    year=2021
     # Field = "LITTER_CATEGORY"
     # Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8")
 

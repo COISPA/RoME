@@ -18,7 +18,7 @@ if (FALSE){
 
 }
 
-   oldpar <- par(no.readonly = TRUE)
+   oldpar <- par() # no.readonly = TRUE
    on.exit(suppressWarnings(par(oldpar)))
 
   if (!file.exists(file.path(wd,"Logfiles"))){

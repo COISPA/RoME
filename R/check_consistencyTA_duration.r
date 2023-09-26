@@ -13,8 +13,9 @@ check_consistencyTA_duration<-function(DataTA, year, wd, suffix){
     library(RoME)
     wd <- tempdir()
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = RoME::TA # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") 
+    DataTA = ta # RoME::TA # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
     # check_consistencyTA_duration(DataTA, year=2012, wd, suffix)
+    year=2005
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){

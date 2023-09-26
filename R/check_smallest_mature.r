@@ -9,16 +9,18 @@
 # Check consistency of the length of smallest mature, comparing with literature
 
 if (FALSE){
-  ResultData = tc # RoME::TC
-  year=2015
+  ResultData = DataTC # tc # RoME::TC
+  year=2012
+  MaturityParameters=RoME::Maturity_parameters
+  TargetSpecies=RoME::DataTargetSpecies
   wd <- tempdir()
   suffix=NA
-  check_smallest_mature(ResultData,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+  check_smallest_mature(ResultData,year,MaturityParameters=RoME::Maturity_parameters,TargetSpecies=RoME::DataTargetSpecies,wd,suffix)
   }
 
 
 
-check_smallest_mature<-function(ResultData,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+check_smallest_mature<-function(ResultData,year,MaturityParameters=RoME::Maturity_parameters,TargetSpecies=RoME::DataTargetSpecies,wd,suffix){
 
   Format="from_2012"
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -51,9 +53,9 @@ check_smallest_mature<-function(ResultData,year,Maturity_parameters=Maturity_par
   ResultData$Species = paste(ResultData$GENUS,ResultData$SPECIES)
   ResultData$Maturity = paste(as.character(ResultData$MATURITY),ifelse(is.na(ResultData$MATSUB),"",as.character(ResultData$MATSUB)), sep="")
 
-    maturity_table = Maturity_parameters
+    maturity_table = MaturityParameters
 
-    species_list = DataTargetSpecies
+    species_list = TargetSpecies
     mat_lmin = maturity_table[as.character(maturity_table$smallest_mature_individual_observed)!="n.a.",]
     mat_lmin$Species <- as.character(mat_lmin$Species)
     species_list$FAUNISTIC_CATEGORY <- as.character(species_list$FAUNISTIC_CATEGORY)

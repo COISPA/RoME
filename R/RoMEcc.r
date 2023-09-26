@@ -2017,7 +2017,7 @@ table <- "TB"
 checkName = "Check correctness of species codes TB"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_rubincode(ResultDataTB,year=yea,TM_list=Ref_list,wd,suffix)
+  check_without_errors = check_rubincode(ResultDataTB,year=yea,TMlist=Ref_list,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
@@ -2084,7 +2084,7 @@ table <- "TC"
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_rubincode(ResultDataTC,year=yea,TM_list=Ref_list,wd,suffix)
+  check_without_errors = check_rubincode(ResultDataTC,year=yea,TMlist=Ref_list,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
@@ -2161,7 +2161,7 @@ check_without_warnings <- check.list[[3]]
 checkName = "Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_smallest_mature(ResultDataTC,year=yea,Maturity_parameters=Maturity,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+  check_without_errors = check_smallest_mature(ResultDataTC,year=yea,MaturityParameters=Maturity,TargetSpecies=DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
@@ -2226,7 +2226,7 @@ check_without_warnings <- check.list[[3]]
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-  check_without_errors = check_rubincode(ResultDataTC,year=yea,TM_list=Ref_list,wd,suffix)
+  check_without_errors = check_rubincode(ResultDataTC,year=yea,TMlist=Ref_list,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
@@ -2390,7 +2390,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_smallest_mature(ResultDataTE,year=yea,Maturity_parameters=Maturity,DataTargetSpecies=DataTargetSpecies,wd,suffix)
+    check_without_errors = check_smallest_mature(ResultDataTE,year=yea,MaturityParameters=Maturity,TargetSpecies=DataTargetSpecies,wd,suffix)
   }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
   check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
@@ -2427,7 +2427,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   checkName = "Check correctness of species codes TE"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    check_without_errors = check_rubincode(ResultDataTE,year=yea,TM_list=Ref_list,wd,suffix)
+    check_without_errors = check_rubincode(ResultDataTE,year=yea,TMlist=Ref_list,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
   check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)

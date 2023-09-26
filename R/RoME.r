@@ -5,26 +5,29 @@ if (FALSE) {
   library(RoME)
   wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\check_RoME\\files_to_checks" # tempdir()
   suffix <- NA
-  TA <- read.table(file = paste(wd, "\\TA.csv", sep = ""), sep = ";", header = T) # RoME::TA
-  TB <- read.table(file = paste(wd, "\\TB.csv", sep = ""), sep = ";", header = T) # RoME::TB
-  TC <- read.table(file = paste(wd, "\\TC.csv", sep = ""), sep = ";", header = T) # RoME::TC
+  TA <- DataTA # read.table(file = paste(wd, "\\TA.csv", sep = ""), sep = ";", header = T) # RoME::TA
+  TB <- DataTB # read.table(file = paste(wd, "\\TB.csv", sep = ""), sep = ";", header = T) # RoME::TB
+  TC <- DataTC # read.table(file = paste(wd, "\\TC.csv", sep = ""), sep = ";", header = T) # RoME::TC
   TE <- NA # read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)
   TL <- NA # read.table(file=paste(wd, "\\TL.csv",sep=""), sep=";", header=T) # RoME::TL
   verbose <- TRUE
   create_RSufi_files <- TRUE
   create_global_RSufi_files <- TRUE
-  Year_start <- 1994
-  Year_end <- 2020
+  Year_start <- 2012
+  Year_end <- 2012
 
   # TB$TYPE_OF_FILE <- as.character(TB$TYPE_OF_FILE)
   # TB$TYPE_OF_FILE[1] <- "TC"
 
   RoME(TA = RoME::TA, TB = TB, TC = TC, TE = TE, TL = TL, wd = wd, suffix = NA, create_RSufi_files = TRUE, create_global_RSufi_files = TRUE, Year_start = 1994, Year_end = 2020, verbose = TRUE)
+
+  RoME(TA = DataTA, TB = DataTB, TC = DataTC, TE = TE, TL = TL, wd = wd, suffix = NA, create_RSufi_files = TRUE, create_global_RSufi_files = TRUE, Year_start = 1994, Year_end = 2020, verbose = TRUE)
+
 }
 # TEST END --------------------------------------------------------
 
 
-RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_files = FALSE, create_global_RSufi_files = FALSE, Year_start = NA, Year_end = NA, verbose = TRUE, Stratification = RoME::stratification_scheme, TM_list = TM_list, DataTargetSpecies = DataTargetSpecies, Maturity_parameters = Maturity_parameters, ab_parameters = RoME::LW, stages_list = RoME::mat_stages, assTL = assTL) {
+RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_files = FALSE, create_global_RSufi_files = FALSE, Year_start = NA, Year_end = NA, verbose = TRUE, Stratification = RoME::stratification_scheme, Ref_list = RoME::TM_list, DataTargetSpecies = RoME::DataTargetSpecies, Maturity = RoME::Maturity_parameters, ab_parameters = RoME::LW, stages_list = RoME::mat_stages, assTL = assTL) {
   stringsAsFactors <- FALSE
   Format <- "from_2012"
 
@@ -240,7 +243,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
   ## CICLO PER ANNO ##
 
-  yea <- 1994
+  yea <- years[1]
   for (yea in years) {
 
     cat(paste0("\n########################"))
@@ -1703,7 +1706,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (verbose) {
         print(paste(checkName, "in progress..."), quote = FALSE)
       }
-      check_without_errors <- check_rubincode(ResultDataTB, year = yea, TM_list = TM_list, wd, suffix)
+      check_without_errors <- check_rubincode(ResultData=ResultDataTB, year = yea, TMlist = Ref_list, wd, suffix)
     }
     if (verbose) {
       stop_ <- printError(checkName, check_without_errors, stop_)
@@ -1762,7 +1765,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (verbose) {
         print(paste(checkName, "in progress..."), quote = FALSE)
       }
-      check_without_errors <- check_rubincode(ResultDataTC, year = yea, TM_list = TM_list, wd, suffix)
+      check_without_errors <- check_rubincode(ResultDataTC, year = yea, TMlist = Ref_list, wd, suffix)
     }
     if (verbose) {
       stop_ <- printError(checkName, check_without_errors, stop_)
@@ -1774,7 +1777,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (verbose) {
         print(paste(checkName, "in progress..."), quote = FALSE)
       }
-      check_without_errors <- check_length_class_codeTC(ResultDataTC, Specieslist = TM_list, year = yea, wd, suffix)
+      check_without_errors <- check_length_class_codeTC(ResultDataTC, Specieslist = Ref_list, year = yea, wd, suffix)
     }
     if (verbose) {
       stop_ <- printError(checkName, check_without_errors, stop_)
@@ -1829,7 +1832,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (verbose) {
         print(paste(checkName, "in progress..."), quote = FALSE)
       }
-      check_without_errors <- check_smallest_mature(ResultDataTC, year = yea, Maturity_parameters = Maturity_parameters, DataTargetSpecies = DataTargetSpecies, wd, suffix)
+      check_without_errors <- check_smallest_mature(ResultDataTC, year = yea, MaturityParameters = Maturity, TargetSpecies = DataTargetSpecies, wd, suffix)
     }
     if (verbose) {
       stop_ <- printError(checkName, check_without_errors, stop_)
@@ -1840,7 +1843,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (verbose) {
         print(paste(checkName, "in progress..."), quote = FALSE)
       }
-      check_without_errors <- check_spawning_period(ResultDataTA, ResultDataTC, year = yea, Maturity_parameters = Maturity_parameters, DataTargetSpecies = DataTargetSpecies, wd, suffix)
+      check_without_errors <- check_spawning_period(ResultDataTA, ResultDataTC, year = yea, Maturity_parameters = Maturity, DataTargetSpecies = DataTargetSpecies, wd, suffix)
     }
     if (verbose) {
       stop_ <- printError(checkName, check_without_errors, stop_)
@@ -1849,7 +1852,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
     # checkName = "Check consistency of sex data TC by means of sex-inversion size"
     # if (check_without_errors == TRUE) {
     #   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
-    #   check_without_errors = check_sex_inversion(ResultDataTC,Maturity_parameters,wd,suffix)
+    #   check_without_errors = check_sex_inversion(ResultDataTC,Maturity,wd,suffix)
     # }
     #   if(verbose){stop_ = printError(checkName,check_without_errors, stop_)}
 
@@ -1880,7 +1883,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (verbose) {
         print(paste(checkName, "in progress..."), quote = FALSE)
       }
-      check_without_errors <- check_rubincode(ResultDataTC, year = yea, TM_list = TM_list, wd, suffix)
+      check_without_errors <- check_rubincode(ResultDataTC, year = yea, TMlist = Ref_list, wd, suffix)
     }
     if (verbose) {
       stop_ <- printError(checkName, check_without_errors, stop_)
@@ -2025,7 +2028,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
           if (verbose) {
             print(paste(checkName, "in progress..."), quote = FALSE)
           }
-          check_without_errors <- check_smallest_mature(ResultDataTE, year = yea, Maturity_parameters = Maturity_parameters, DataTargetSpecies = DataTargetSpecies, wd, suffix)
+          check_without_errors <- check_smallest_mature(ResultDataTE, year = yea, MaturityParameters = Maturity, TargetSpecies = DataTargetSpecies, wd, suffix)
         }
         if (verbose) {
           stop_ <- printError(checkName, check_without_errors, stop_)
@@ -2037,7 +2040,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
           if (verbose) {
             print(paste(checkName, "in progress..."), quote = FALSE)
           }
-          check_without_errors <- check_spawning_period(ResultDataTA, ResultDataTE, year = yea, Maturity_parameters = Maturity_parameters, DataTargetSpecies = DataTargetSpecies, wd, suffix)
+          check_without_errors <- check_spawning_period(ResultDataTA, ResultDataTE, year = yea, Maturity_parameters = Maturity, DataTargetSpecies = DataTargetSpecies, wd, suffix)
         }
         if (verbose) {
           stop_ <- printError(checkName, check_without_errors, stop_)
@@ -2060,7 +2063,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
           if (verbose) {
             print(paste(checkName, "in progress..."), quote = FALSE)
           }
-          check_without_errors <- check_rubincode(ResultDataTE, year = yea, TM_list = TM_list, wd, suffix)
+          check_without_errors <- check_rubincode(ResultDataTE, year = yea, TMlist = Ref_list, wd, suffix)
         }
         if (verbose) {
           stop_ <- printError(checkName, check_without_errors, stop_)
@@ -2196,12 +2199,12 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
       # if (!(all(is.na(TE)) & length(TE)==1)) {
       #   if (nrow(ResultDataTE)>0){
-      #       create_length(ResultDataTE,DataSpecies=TM_list,wd)
+      #       create_length(ResultDataTE,DataSpecies=Ref_list,wd)
       #   }
       # }
 
       if (nrow(ResultDataTC) > 0) {
-        create_length(ResultDataTC, year = yea, DataSpecies = TM_list, wd, save = TRUE)
+        create_length(ResultDataTC, year = yea, DataSpecies = Ref_list, wd, save = TRUE)
       }
 
       print(paste("R-Sufi files have been created for the ", yea, "and the GSA selected! They have been stored in files R-Sufi directory."), quote = FALSE)

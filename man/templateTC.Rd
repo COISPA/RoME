@@ -14,9 +14,12 @@ Dataframe containing the headers of TC, according to the MEDITS manual.}
     \item{\code{AREA}}{a logical vector}
     \item{\code{VESSEL}}{a logical vector}
     \item{\code{YEAR}}{a logical vector}
+    \item{\code{MONTH}}{a logical vector}
+    \item{\code{DAY}}{a logical vector}
     \item{\code{HAUL_NUMBER}}{a logical vector}
     \item{\code{CODEND_CLOSING}}{a logical vector}
     \item{\code{PART_OF_THE_CODEND}}{a logical vector}
+    \item{\code{FAUNISTIC_CATEGORY}}{a logical vector}
     \item{\code{GENUS}}{a logical vector}
     \item{\code{SPECIES}}{a logical vector}
     \item{\code{LENGTH_CLASSES_CODE}}{a logical vector}

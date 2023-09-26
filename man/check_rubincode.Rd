@@ -5,12 +5,12 @@ Function checking the correctness of species MEDITS code and faunistic category 
 \description{
 The TM list contained in the INSTRUCTION MANUAL VERSION 9 MEDITS 2017 is taken as reference to check the correctness of species code and category.The function is applied to catch data table (TB), Biological data table (TC) and Individual data table (TE).}
 \usage{
-check_rubincode(ResultData,year,TM_list,wd,suffix)
+check_rubincode(ResultData,year,TMlist,wd,suffix)
 }
 \arguments{
 \item{ResultData}{alternatively: Catch data table (TB), Biological data table (TC) and Individual data table (TE).}
 \item{year}{reference year for the analysis}
-\item{TM_list}{TM_list reference list}
+\item{TMlist}{TM_list reference list}
 \item{wd}{Working directory selected by the user.}
 \item{suffix}{Suffix string of the Logfile.}
 }

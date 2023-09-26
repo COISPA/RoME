@@ -8,16 +8,16 @@
 # Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 if (FALSE){
-  ResultData = RoME::TB
+  ResultData = RoME::TB[RoME::TB$YEAR==2012 ,]
   # ResultData$SPECIES[28]  <- "ZZZ"
   wd <- tempdir()
   suffix= NA
-  year=2007
-  check_rubincode(ResultData,year,TM_list=TM_list,wd,suffix)
+  year=2012
+  check_rubincode(ResultData,year,TMlist=TM_list,wd,suffix)
   }
 
 
-check_rubincode<-function(ResultData,year,TM_list=TM_list,wd,suffix){
+check_rubincode<-function(ResultData,year,TMlist=RoME::TM_list,wd,suffix){
   numberError = 0
 
   Format="from_2012"
@@ -60,7 +60,7 @@ check_rubincode<-function(ResultData,year,TM_list=TM_list,wd,suffix){
   }
 
   # data species
-  ResultSpecies = TM_list
+  ResultSpecies = TMlist
   ResultSpecies=ResultSpecies[,c(which(names(ResultSpecies)=="MeditsCode"),which(names(ResultSpecies)=="CATFAU"))]
 
   if (nrow(ResultData)!=0){
