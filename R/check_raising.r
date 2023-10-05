@@ -9,7 +9,7 @@
 if (FALSE){
        ResultDataTB = tb # RoME::TB
        ResultDataTC = tc # RoME::TC
-       year=2002
+       year=2015
        wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME_appoggio\\temp" # tempdir()
        suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
        check_raising(ResultDataTB,ResultDataTC,year,wd,suffix)
@@ -129,7 +129,7 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
   #unlink(ResultTCpivotSexFile)
 
   if ( (nrow(ResultTCpivotSex)!=0) & (numberError== 0)){
-    j=1
+    j=17
     for (j in 1:nrow(ResultTCpivotSex)){
 
       oneRowTB = ResultTB[as.character(ResultTB$COUNTRY)==as.character(ResultTCpivotSex$COUNTRY[j])
@@ -137,8 +137,9 @@ class(ResultTC$WEIGHT_OF_THE_SAMPLE_MEASURED)="numeric"
                           & as.character(ResultTB$SPECIES)==as.character(ResultTCpivotSex$SPECIES[j])
                           & as.numeric(ResultTB$HAUL_NUMBER)==as.numeric(ResultTCpivotSex$HAUL_NUMBER[j]),]
 
-      if (nrow(oneRowTB)!=0) {
+TotalNumberTBSex=NA
 
+      if (nrow(oneRowTB)!=0) {
       if (as.character(ResultTCpivotSex$SEX[j])=="F") {
         TotalNumberTBSex = ifelse(Format=="before_2012",oneRowTB$NUMBER_OF_FEMALES[1],oneRowTB$NB_OF_FEMALES[1])
       } else if (as.character(ResultTCpivotSex$SEX[j])=="M") {

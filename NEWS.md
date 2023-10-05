@@ -100,3 +100,7 @@ Fixes 0.1.23
 Fixes 0.1.24
 -----
 1. included country in filtering TB and TC data in check_raising
+
+Fixes 0.1.26
+-----
+1. improvement of check_raising outputs
