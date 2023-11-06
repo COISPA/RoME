@@ -104,3 +104,8 @@ Fixes 0.1.24
 Fixes 0.1.26
 -----
 1. improvement of check_raising outputs
+
+Fixes 0.1.27
+-----
+1. bugs fixed
+

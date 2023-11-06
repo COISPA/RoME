@@ -1157,6 +1157,15 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
     if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
 
 
+    Field = "MATURITY"
+    Values = c(0:4,"ND")
+    if (check_without_errors == TRUE) {
+      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
+    }
+    if(verbose){stop_ = printError(paste(checkName,Field),check_without_errors, stop_)}
+
+
 
     # TE
 

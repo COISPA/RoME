@@ -1375,6 +1375,19 @@ check_without_errors <- check.list[[2]]
 check_without_warnings <- check.list[[3]]
 
 
+Field = "MATURITY"
+Values = c(0:4,"ND")
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+
+
 #TE
 checkName = "Check dictionary"
 table <- "TE"
@@ -1590,7 +1603,7 @@ table <- "TE"
     check_without_warnings <- check.list[[3]]
 
     Field = "AGE"
-    Values = c(seq(-1,99,0.1),"UR","NR")
+    Values = c(paste(as.character(seq(-1,99,1)),".0",sep=""),round(seq(-1,99,0.1),1),"UR","NR")
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
@@ -2052,7 +2065,6 @@ check_without_errors <- check.list[[2]]
 check_without_warnings <- check.list[[3]]
 
 
-
 checkName = "Check consistency between not null weight and not null total number"
 if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
@@ -2384,7 +2396,6 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   check.df <- check.list[[1]]
   check_without_errors <- check.list[[2]]
   check_without_warnings <- check.list[[3]]
-
 
   table <- "TE"
   checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"

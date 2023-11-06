@@ -12,10 +12,12 @@ check_no_empty_fields<-function(Data,year,wd,suffix){
     wd <- tempdir()
     suffix= NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
 
-    Data <- ta #RoME::TA
-    Data[1,"TYPE_OF_FILE"] <- NA
+    te[1,"LENGTH_CLASS"] <- NA
+    Data <- te #RoME::TA
+
+    # Data[1,"TYPE_OF_FILE"] <- NA
     # Data[1,"CODEND_CLOSING"] <- "S"
-    year=2015
+    year=2023
     check_no_empty_fields(Data, year, wd, suffix)
   }
 

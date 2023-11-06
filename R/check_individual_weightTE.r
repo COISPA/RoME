@@ -10,9 +10,9 @@ if (FALSE) {
   # library(RoME)
   wd <- tempdir()
   suffix <- NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  year <- 2021
+  year <- 2023
 
-  DataTE <- TE # RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
+  DataTE <- te # RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
   SPECIES <- NA
   SEX <- NA
   AREA <- NA
@@ -54,6 +54,7 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
   ########################################
 
   TE <- DataTE[!is.na(DataTE$AREA),]
+  TE <- TE[!is.na(TE$LENGTH_CLASS), ]
 
   write(paste("\n----------- check consistency individual weights in TE - ", TE$YEAR[1]), file = Errors, append = TRUE)
   numberError <- 0

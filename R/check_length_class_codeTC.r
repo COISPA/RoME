@@ -14,7 +14,7 @@ check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list,year, wd,su
     Specieslist=NA
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     # DataTC = read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    DataTC <- RoME::TC
+    DataTC <- tc
     # DataTC$GENUS[1] <- "ENGH"
     # check_length_class_codeTC(DataTC,Specieslist=NA,year=2007,wd,suffix)
   }
@@ -55,14 +55,21 @@ check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list,year, wd,su
     ResultSpecies <- Specieslist
 
   if (nrow(ResultData)!=0){
-    j=1
+    j=2161
     for (j in 1:nrow(ResultData)){
       FoundSpecies=ResultSpecies[as.character(ResultSpecies$MeditsCode)==paste(as.character(ResultData$GENUS[j]),as.character(ResultData$SPECIES[j]),sep=""),]
       if (nrow(FoundSpecies)!=0){
+
+        if (!is.na(FoundSpecies$CODLON[1]) & FoundSpecies$CODLON[1]!=""){
+
         if (as.character(FoundSpecies$CODLON[1])!=as.character(ResultData$LENGTH_CLASSES_CODE[j]))   {
           write(paste("Haul",ResultData$HAUL_NUMBER[j],", code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ,"wrong LENGTH_CLASSES_CODE according to MEDITS FM list in Tables directory"), file = Errors, append = TRUE)
           numberError = numberError+1
         }
+
+        } else {
+          write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],", code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ," CODELON not specified in TM list."), file = Errors, append = TRUE)
+          }
       } else {
         write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],", code species", as.character(ResultData$GENUS[j]) , as.character(ResultData$SPECIES[j]) ," species not present in TM list: LENGTH_CLASSES_CODE not verified."), file = Errors, append = TRUE)
       }
