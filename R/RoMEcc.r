@@ -2644,13 +2644,13 @@ write.table(check.df, file.path(wd, paste0("ERRORS_summary_",suffix,".csv")), se
 if (wd != tempdir()){
   old_wd <- getwd()
   setwd(wd)
-  files2zip <- dir(wd, full.names = TRUE, include.dirs = TRUE, recursive=T) # list.files(wd) #
+  files2zip <- dir(wd, full.names = FALSE, include.dirs = TRUE, recursive=T) # list.files(wd) #
   exclude <- grep(".zip",files2zip)
   if (length(exclude)>0){
     files2zip <- files2zip[-exclude]
   }
   named<-paste0(suffix,".zip")
-  utils::zip(zipfile = file.path(wd,named), files = files2zip)
+  zip::zip(zipfile = named, files = files2zip)
   setwd(old_wd)
 }
 
