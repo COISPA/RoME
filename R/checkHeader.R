@@ -20,7 +20,7 @@ checkHeader <- function(dataframe, template, wd, suffix)
     suffix <- paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
-
+  Critical_Errors <- file.path(wd,paste("Critical_errors_",suffix,".dat",sep=""))
   if (!file.exists(Errors)){
     file.create(Errors)
   }
@@ -95,6 +95,13 @@ checkHeader <- function(dataframe, template, wd, suffix)
     } else{
       write(paste("ERROR: wrong TA headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
       numberError=numberError+1
+
+      if (!file.exists(Critical_Errors)){
+        file.create(Critical_Errors)
+      }
+
+      write(paste("ERROR: wrong TA headers."), file = Critical_Errors, append = TRUE)
+
     }
   }
 
@@ -105,6 +112,12 @@ checkHeader <- function(dataframe, template, wd, suffix)
     } else{
       write(paste("ERROR: wrong TB headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
       numberError=numberError+1
+
+      if (!file.exists(Critical_Errors)){
+        file.create(Critical_Errors)
+      }
+
+      write(paste("ERROR: wrong TB headers."), file = Critical_Errors, append = TRUE)
     }
   }
 
@@ -115,6 +128,12 @@ checkHeader <- function(dataframe, template, wd, suffix)
     } else{
       write(paste("ERROR: wrong TC headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
       numberError=numberError+1
+
+      if (!file.exists(Critical_Errors)){
+        file.create(Critical_Errors)
+      }
+
+      write(paste("ERROR: wrong TC headers."), file = Critical_Errors, append = TRUE)
     }
   }
 
@@ -125,6 +144,12 @@ checkHeader <- function(dataframe, template, wd, suffix)
     } else{
       write(paste("ERROR: wrong TE headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
       numberError=numberError+1
+
+      if (!file.exists(Critical_Errors)){
+        file.create(Critical_Errors)
+      }
+
+      write(paste("ERROR: wrong TE headers."), file = Critical_Errors, append = TRUE)
     }
   }
 
@@ -135,6 +160,12 @@ checkHeader <- function(dataframe, template, wd, suffix)
     } else{
       write(paste("ERROR: wrong TL headers. RoME checks will not be performed further until the error is corrected."), file = Errors, append = TRUE)
       numberError=numberError+1
+
+      if (!file.exists(Critical_Errors)){
+        file.create(Critical_Errors)
+      }
+
+      write(paste("ERROR: wrong TL headers."), file = Critical_Errors, append = TRUE)
     }
   }
 

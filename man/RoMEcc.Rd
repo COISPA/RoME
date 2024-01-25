@@ -10,7 +10,7 @@ verbose =TRUE,Stratification=RoME::stratification_scheme,
 Ref_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,
 Maturity=RoME::Maturity_parameters,
 ab_parameters=RoME::LW,
-stages_list=RoME::mat_stages,assTL=RoME::assTL)
+stages_list=RoME::mat_stages,assTL=RoME::assTL, zip=TRUE)
 }
 \arguments{
   \item{TA}{Haul data table according to MEDITS protocol (TA)}
@@ -28,6 +28,7 @@ stages_list=RoME::mat_stages,assTL=RoME::assTL)
   \item{ab_parameters}{dataframe containing the a and b parameters of the length-weight relationships}
   \item{stages_list}{Table of maturity stages.}
   \item{assTL}{data frame with the association between TL (litter table) categories and sub-categories}
+  \item{zip}{boolean, if TRUE a zip file containing the results is generated}
 }
 \details{
 \code{RoMEcc} checks can be used to integrate a list of common quality checks on survey data. This function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The order of the checks in \code{RoME} was implemented in a defined sequence to avoid cascade errors due to the correction of a previous error. No automatic correction is implemented in 'RoME'. 'RoME' stops if an error occurs; then the user has to correct the error and run again the code to continue with the other checks. The function runs on a complete time series dataset, checking year after year, until the end of the time series. After the checks of the mandatory fields and the controlled vocabulary, that are carried out for all the TX tables, the specific checks on each kind of TX table are performed. Finally, \code{RoME} provides a list of cross checks aimed to guarantee the consistency among the data tables.

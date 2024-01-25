@@ -30,6 +30,7 @@ check_class <- function(data, tab, suffix, wd) {
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
   Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
+  Critical_Errors <- file.path(wd,paste("Critical_errors_", suffix ,".dat",sep=""))
   if (!file.exists(Errors)){
     file.create(Errors)
   }
@@ -67,6 +68,11 @@ check_class <- function(data, tab, suffix, wd) {
            if ((!(class(data[,colnames(data)[i]]) == "numeric") & !(class(data[,colnames(data)[i]]) == "integer"))) {
              write(paste("The class (",class(data[,colnames(data)[i]]),") of column ",colnames(data)[i] ," in ",tab," is inconsistent with the expected one (", numerics[index,"type"],")"), file = Errors, append = TRUE)
              numberError = numberError +1
+
+             if (!file.exists(Critical_Errors)){
+               file.create(Critical_Errors)
+             }
+             write(paste("The class (",class(data[,colnames(data)[i]]),") of column ",colnames(data)[i] ," in ",tab," is inconsistent with the expected one (", numerics[index,"type"],")"), file = Critical_Errors, append = TRUE)
            }
         }
       }

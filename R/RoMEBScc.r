@@ -3,25 +3,25 @@
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
   library(RoME)
-  # wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\_CONDIVISA con COSMIDANO_\\RoME_2022\\CHECK_WZ_CN"
-  # suffix=NA  # non modificare
+  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\BS"
+  suffix= "Test_RoMEBScc"
   # ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
   # ta[1,"TYPE_OF_FILE"] <- NA
   # tb <- read.table(file=paste(wd, "\\TB.csv",sep=""), sep=";", header=T)
   # tc <- read.table(file=paste(wd, "\\TC.csv",sep=""), sep=";", header=T)
-  # te <- NA
-  # tl <- NA
+  te <- NA
+  tl <- NA
 
 
-  # ta <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TA GSA18 2017-2020.csv", sep=";",header=TRUE)
-  # tb <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TB GSA18 2017-2020.csv", sep=";",header=TRUE)
-  # tc <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TC GSA18 2017-2020.csv", sep=";",header=TRUE)
+  ta <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\BS\\TA_BGR_BTSBS-AUT_HANDBOOK_test.csv", sep=";",header=TRUE)
+  tb <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\BS\\TB_BGR_BTSBS-AUT_HANDBOOK_test.csv", sep=";",header=TRUE)
+  tc <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\BS\\TC_BGR_BTSBS-AUT_HANDBOOK_test.csv", sep=";",header=TRUE)
   # te <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TE GSA18 2017-2020.csv", sep=";",header=TRUE)
   # tl <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TL GSA18 2017-2020.csv", sep=";",header=TRUE)
   #
-  # ta <- ta[ta$YEAR==2017,]
-  # tb <- tb[tb$YEAR==2017,]
-  # tc <- tc[tc$YEAR==2017,]
+  ta <- ta[ta$YEAR==2022,]
+  tb <- tb[tb$YEAR==2022,]
+  tc <- tc[tc$YEAR==2022,]
   # te <- te[te$YEAR==2017,]
   # tl <- tl[tl$YEAR==2017,]
 
@@ -65,7 +65,7 @@ if (FALSE) {
   TE=te
   TL=tl
 
-  res <- RoMEcc(TA=ta,TB=tb,TC=tc,TE=te,TL=tl,wd=wd,suffix=NA,
+  res <- RoMEBScc(TA=ta,TB=tb,TC=tc,TE=te,TL=tl,wd=wd,suffix=NA,
          verbose=TRUE,
          Stratification=RoME::stratification_scheme,
          Ref_list=RoME::TM_list,
@@ -79,7 +79,7 @@ if (FALSE) {
 # TEST END --------------------------------------------------------
 
 
-RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification=RoME::stratification_scheme, Ref_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,Maturity=RoME::Maturity_parameters, ab_parameters=RoME::LW,stages_list=RoME::mat_stages,assTL=RoME::assTL, zip=TRUE){
+RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification=RoME::stratification_scheme, Ref_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,Maturity=RoME::Maturity_parameters, ab_parameters=RoME::LW,stages_list=RoME::mat_stages,assTL=RoME::assTL, zip=TRUE){
 
   stringsAsFactors=FALSE
   Format <- "from_2012"
@@ -126,7 +126,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
 
   # check degli header ------------------------------------------------------
   table <- "TA"
-  checkName = "Check Headers"
+  checkName = "Check Headers TA"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
     check_without_errors =   checkHeader(TA,"TA",wd,suffix)
@@ -142,7 +142,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
 
 
   table <- "TB"
-  checkName = "Check Headers"
+  checkName = "Check Headers TB"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
     check_without_errors =   checkHeader(TB,"TB",wd,suffix)
@@ -158,7 +158,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
 
 
   table <- "TC"
-  checkName = "Check Headers"
+  checkName = "Check Headers TC"
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
     check_without_errors =   checkHeader(TC,"TC",wd,suffix)
@@ -181,7 +181,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
   if (!(all(is.na(TE)) & length(TE)==1))
   {
     table <- "TE"
-    checkName = "Check Headers"
+    checkName = "Check Headers TE"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
       check_without_errors =   checkHeader(TE,"TE",wd,suffix)
@@ -201,7 +201,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
   if (!(all(is.na(TL)) & length(TL)==1))
   {
     table <- "TL"
-    checkName = "Check Headers"
+    checkName = "Check Headers TL"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
       check_without_errors =   checkHeader(TL,"TL",wd,suffix)
@@ -589,7 +589,7 @@ if (check_without_errors == TRUE) {
 
 
      Field = "GEAR"
-     Values = c("GOC73")
+     Values = c("GOC73","TRAWL","BOTTR","OTB")
      if (check_without_errors == TRUE) {
        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -602,7 +602,7 @@ if (check_without_errors == TRUE) {
 
 
      Field = "RIGGING"
-     Values = c("GC73")
+     Values = c("GC73","TRW")
      if (check_without_errors == TRUE) {
        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -615,7 +615,7 @@ if (check_without_errors == TRUE) {
 
 
      Field = "DOORS"
-     Values = c("WHS8")
+     Values = c("WHS8","WHS0","TRW","ND","W2")
      if (check_without_errors == TRUE) {
        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -719,7 +719,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check numeric range"
 Field = "SHOOTING_LATITUDE"
-Values = c(3400,4600)
+Values = c(4086,4730)
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -732,7 +732,7 @@ check_without_warnings <- check.list[[3]]
 
 
 Field = "SHOOTING_LONGITUDE"
-Values = c(0,3500)
+Values = c(2740,4180)
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -745,7 +745,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check dictionary"
 Field = "SHOOTING_DEPTH"
-Values = c(0,10:800)
+Values = c(0:100)
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -771,7 +771,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check numeric range"
 Field = "HAULING_LATITUDE"
-Values = c(3400,4600)
+Values = c(4086,4730)
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -784,7 +784,7 @@ check_without_warnings <- check.list[[3]]
 
 
 Field = "HAULING_LONGITUDE"
-Values = c(0,3500)
+Values = c(2740, 4180)
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -876,7 +876,7 @@ check_without_warnings <- check.list[[3]]
 
 
 Field = "VERTICAL_OPENING"
-Values = c(10:100)
+Values = c(-1, 10:100)
 if (check_without_errors == TRUE) {
   if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
@@ -943,7 +943,7 @@ check_without_warnings <- check.list[[3]]
 
 
   Field = "WARP_LENGTH"
-  Values = seq(100,2200,1)
+  Values = c(-1,seq(700,2200,1))
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)

@@ -14,17 +14,18 @@ check_haul_species_TCTB<-function(DataTB,DataTC,year,wd, suffix){
     #library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    year=2008
+    year=2007
     DataTB = RoME::TB # read.csv("~/GitHub/RoME/data/TB_GSA18_1994-2018.csv", sep=";")
+    DataTB <- DataTB[-6, ]
     DataTC = RoME::TC # read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
-    # DataTB <- DataTB[DataTB$YEAR == 2008, ]
-    # DataTC <- DataTC[DataTC$YEAR == 2008, ]
+    DataTB <- DataTB[DataTB$YEAR == 2007, ]
+    DataTC <- DataTC[DataTC$YEAR == 2007, ]
 
     # check_haul_species_TCTB(DataTB,DataTC, year,wd,suffix)
   }
 
 
-  if (!file.exists(file.path(wd, "Logfiles"))){
+  if (!dir.exists(file.path(wd, "Logfiles"))){
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
@@ -34,6 +35,8 @@ check_haul_species_TCTB<-function(DataTB,DataTC,year,wd, suffix){
   }
 
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+  Critical_Errors <- file.path(wd,paste("Critical_errors_",suffix,".dat",sep=""))
+
 
   if (!file.exists(Errors)){
     file.create(Errors)
@@ -70,6 +73,11 @@ check_haul_species_TCTB<-function(DataTB,DataTC,year,wd, suffix){
       if (nrow(FoundInTB) == 0) {
         numberError = numberError+1
         write(paste("Haul",ResultTC$HAUL_NUMBER[j],ResultTC$GENUS[j], ResultTC$SPECIES[j], "not found in TB"), file = Errors, append = TRUE)
+
+        if (!file.exists(Critical_Errors)){
+          file.create(Critical_Errors)
+        }
+        write(paste("Haul",ResultTC$HAUL_NUMBER[j], "YEAR", ResultTC$YEAR[j],ResultTC$GENUS[j], ResultTC$SPECIES[j], "not found in TB"), file = Critical_Errors, append = TRUE)
       }
 
     }

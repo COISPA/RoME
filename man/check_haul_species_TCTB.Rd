@@ -16,7 +16,7 @@ check_haul_species_TCTB(DataTB, DataTC, year, wd, suffix)
 }
 \details{The function returns a worning message in the logfile.}
 \value{
-The function returns always TRUE because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks. If a species present in the TC table (biological data table) is not reported in the TB (catch data table) a warning message is given in the logfile.
+If a species present in the TC table (biological data table) is not reported in the TB (catch data table) an error message is reported in the logfile and a "Critical_errors" file is saved in the working directory reporting details on the errors.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}

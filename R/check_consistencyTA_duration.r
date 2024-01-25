@@ -11,11 +11,13 @@ check_consistencyTA_duration<-function(DataTA, year, wd, suffix){
 
   if (FALSE){
     library(RoME)
-    wd <- tempdir()
+    wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = ta # RoME::TA # read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    # check_consistencyTA_duration(DataTA, year=2012, wd, suffix)
-    year=2005
+    # DataTA = read.csv("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\medits_ta_REV.csv", sep=";")
+    DataTA <-   read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\BS\\TA_BGR_BTSBS-AUT_HANDBOOK_test.csv", sep=";",header=TRUE)
+    year=2015
+    # check_consistencyTA_duration(DataTA, year=2016, wd, suffix)
+
   }
 
   if (!file.exists(file.path(wd, "Logfiles"))){
@@ -43,20 +45,78 @@ check_consistencyTA_duration<-function(DataTA, year, wd, suffix){
 
   DataTA <- DataTA[DataTA$YEAR == year, ]
   ########################################
-
+  not_integer=FALSE
   Matrix = DataTA
   write(paste("\n----------- check consistency between duration and time TA - ", Matrix$YEAR[1]), file = Errors, append = TRUE)
 
   Matrix=Matrix[Matrix$VALIDITY=="V",]
   Matrix$Start=timeDate("01-01-2001.0000", format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
-  i=1
-  for (i in 1:nrow(Matrix)){
-    Matrix$Start[i]= timeDate(paste(paste(ifelse(str_length(Matrix$DAY[i])==1,paste("0",Matrix$DAY[i],sep=""),Matrix$DAY[i]),ifelse(str_length(Matrix$MONTH[i])==1,paste("0",Matrix$MONTH[i],sep=""),Matrix$MONTH[i]),Matrix$YEAR[i],sep="-"),ifelse(str_length(Matrix$SHOOTING_TIME[i])==3,paste("0",Matrix$SHOOTING_TIME[i],sep=""),Matrix$SHOOTING_TIME[i]),sep="."), format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
-  }
   Matrix$End=timeDate("01-01-2001.0000", format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
-  for (i in 1:nrow(Matrix)){
-    Matrix$End[i]= timeDate(paste(paste(ifelse(str_length(Matrix$DAY[i])==1,paste("0",Matrix$DAY[i],sep=""),Matrix$DAY[i]),ifelse(str_length(Matrix$MONTH[i])==1,paste("0",Matrix$MONTH[i],sep=""),Matrix$MONTH[i]),Matrix$YEAR[i],sep="-"),ifelse(str_length(Matrix$HAULING_TIME[i])==3,paste("0",Matrix$HAULING_TIME[i],sep=""),Matrix$HAULING_TIME[i]),sep="."), format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
+
+  minutes <- c("00","01","02","03","04","05","06","07","08","09", as.character(seq(10,59,1)))
+  h=0
+  for (h in 0:23) {
+    ht <- as.integer(paste(h, minutes,sep=""))
+    if (h==0){
+      time=minutes
+    } else {
+      time <- as.integer(c(t,ht))
+    }
   }
+
+  if ((is.integer(Matrix$SHOOTING_TIME) & all(Matrix$SHOOTING_TIME %in% time)) & (is.integer(Matrix$HAULING_TIME) & all(Matrix$HAULING_TIME %in% time) )) {
+
+  i=25
+  for (i in 1:nrow(Matrix)){
+
+    #----  Shooting time
+
+    if (str_length(Matrix$SHOOTING_TIME[i])==3) {
+      time0 <- paste("0",Matrix$SHOOTING_TIME[i],sep="")
+    } else if (str_length(Matrix$SHOOTING_TIME[i])==4) {
+      time0 <- Matrix$SHOOTING_TIME[i]
+    } else if (str_length(Matrix$SHOOTING_TIME[i])==2) {
+      time0 <- paste("00",Matrix$SHOOTING_TIME[i],sep="")
+    } else if (str_length(Matrix$SHOOTING_TIME[i])==1) {
+      time0 <- paste("000",Matrix$SHOOTING_TIME[i],sep="")
+    }
+
+    Matrix$Start[i]= timeDate(paste(paste(
+      ifelse(str_length(Matrix$DAY[i])==1,paste("0",Matrix$DAY[i],sep=""),Matrix$DAY[i]),
+      ifelse(str_length(Matrix$MONTH[i])==1,paste("0",Matrix$MONTH[i],sep=""),Matrix$MONTH[i]),Matrix$YEAR[i],sep="-"),
+      # ifelse(str_length(Matrix$SHOOTING_TIME[i])==3,paste("0",Matrix$SHOOTING_TIME[i],sep=""),Matrix$SHOOTING_TIME[i]),
+      time0,
+      sep="."),
+      format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
+
+    #----  Hauling time
+
+    if (str_length(Matrix$HAULING_TIME[i])==3) {
+      time <- paste("0",Matrix$HAULING_TIME[i],sep="")
+    } else if (str_length(Matrix$HAULING_TIME[i])==4) {
+      time <- Matrix$HAULING_TIME[i]
+    } else if (str_length(Matrix$HAULING_TIME[i])==2) {
+      time <- paste("00",Matrix$HAULING_TIME[i],sep="")
+    } else if (str_length(Matrix$HAULING_TIME[i])==1) {
+      time <- paste("000",Matrix$HAULING_TIME[i],sep="")
+    }
+
+
+    Matrix$End[i]= timeDate(paste(paste(
+      ifelse(str_length(Matrix$DAY[i])==1,paste("0",Matrix$DAY[i],sep=""),Matrix$DAY[i]),
+      ifelse(str_length(Matrix$MONTH[i])==1,paste("0",Matrix$MONTH[i],sep=""),
+             Matrix$MONTH[i]),Matrix$YEAR[i],sep="-"),
+      # ifelse(str_length(Matrix$HAULING_TIME[i])==3,paste("0",Matrix$HAULING_TIME[i],sep=""),Matrix$HAULING_TIME[i]),
+      time,
+      sep="."),
+      format = "%d-%m-%Y.%H%M", zone = "GMT", FinCenter = "GMT")
+
+    if (Matrix$End[i] < Matrix$Start[i]) {
+      Matrix$End[i] <- Matrix$End[i] + 24*3600
+    }
+
+  }
+
   Matrix$difference=difftimeDate(Matrix$End,Matrix$Start, units="mins")
 
     j=1
@@ -74,6 +134,11 @@ check_consistencyTA_duration<-function(DataTA, year, wd, suffix){
       write(paste("Haul ",Matrix$HAUL_NUMBER[duration[j]],"inconsistency between SHOOTING-HAULING_TIME and HAUL_DURATION in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
       numberError = numberError +1
     }
+  }
+
+  } else {
+    write(paste("Error: not integer values in either SHOOTING_TIME or HAULING_TIME or unexpected time values. Hauls duration not estimated"), file = Errors, append = TRUE)
+    numberError = numberError +1
   }
 
   if (numberError ==0) {

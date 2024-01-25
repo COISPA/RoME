@@ -428,6 +428,17 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
     # Dictionary checks
     #--------------------------------------------------
 
+    minutes <- c("00","01","02","03","04","05","06","07","08","09", as.character(seq(10,59,1)))
+    h=0
+    for (h in 0:23) {
+      ht <- as.integer(paste(h, minutes,sep=""))
+      if (h==0){
+        time=minutes
+      } else {
+        time <- as.integer(c(t,ht))
+      }
+    }
+
     # TA
 
     checkName <- "Check dictionary for field:"
@@ -560,7 +571,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
 
     Field = "SHOOTING_TIME"
-    Values = seq(0,2400,1)
+    Values = time # seq(0,2400,1)
     if (check_without_errors == TRUE) {
       if(verbose){
         print(paste(checkName,Field,"in progress..."), quote = FALSE)
@@ -652,7 +663,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
 
 
     Field <- "HAULING_TIME"
-    Values <- seq(0, 2400, 1)
+    Values <- time # seq(0, 2400, 1)
     if (check_without_errors == TRUE) {
       if (verbose) {
         print(paste(checkName, Field, "in progress..."), quote = FALSE)
