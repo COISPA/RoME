@@ -3,7 +3,7 @@
 # TEST INIZIALIZING --------------------------------------------------------
 if (FALSE) {
   library(RoME)
-  # wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\_CONDIVISA con COSMIDANO_\\RoME_2022\\CHECK_WZ_CN"
+  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS"
   # suffix=NA  # non modificare
   # ta <- read.table(file=paste(wd, "\\TA.csv",sep=""), sep=";", header=T)
   # ta[1,"TYPE_OF_FILE"] <- NA
@@ -553,7 +553,7 @@ if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
        if (h==0){
          time=minutes
        } else {
-         time <- as.integer(c(t,ht))
+         time <- as.integer(c(time,ht))
        }
      }
 

@@ -435,7 +435,7 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       if (h==0){
         time=minutes
       } else {
-        time <- as.integer(c(t,ht))
+        time <- as.integer(c(time,ht))
       }
     }
 

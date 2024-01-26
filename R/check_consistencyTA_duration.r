@@ -60,7 +60,7 @@ check_consistencyTA_duration<-function(DataTA, year, wd, suffix){
     if (h==0){
       time=minutes
     } else {
-      time <- as.integer(c(t,ht))
+      time <- as.integer(c(time,ht))
     }
   }
 
