@@ -9,9 +9,10 @@
 # Check if the stratum code in TA (or TT) is consistent with the stratification code table
 
 if (FALSE){
-  ResultDataTA = RoME::TA
-  year=2007
-  wd <- tempdir()
+  ResultDataTA = ta # RoME::TA
+  year=2019
+  ResultDataTA$NUMBER_OF_THE_STRATUM[1] <- "pippo"
+  # wd <- tempdir()
   suffix= NA
 
   check_stratum_code(ResultDataTA,year,Strata=RoME::stratification_scheme,wd,suffix)
@@ -62,48 +63,29 @@ check_stratum_code <- function (ResultDataTA,year,Strata=RoME::stratification_sc
   i=1
   for (i in 1:nrow(Dataset))
   {
-    # check if the stratum code in TA is one of the codes in the Stratification table
+    row <- Dataset[i,]
+    country <- row$COUNTRY
+    gsa <- row$AREA
+    depth <- mean_depth[i]
+    stratum <- row$NUMBER_OF_THE_STRATUM
+    tab <- Strat_table[Strat_table$GSA ==gsa & Strat_table$COUNTRY==country, ]
+    if (!stratum %in% tab$STRATUM | nrow(tab)== 0) {
+        numberError = numberError+1
+        write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", wrong stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],"), check the most recent version of MEDITS codes"), file = Errors, append = TRUE)
+    } else {
+      row2 <- tab[which(stratum == tab$STRATUM), ]
 
-  if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in%  as.character(Strat_table$STRATUM)) & !(Dataset$NUMBER_OF_THE_STRATUM[i] %in%  as.character(strata.no.letter$STRATUM))) {
-    numberError = numberError+1
-    write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", wrong stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],"), check the most recent version of MEDITS codes"), file = Errors, append = TRUE)
-    }
+      if (!is.na(depth)){
 
+      if (!((depth > row2$MIN_DEPTH) & (depth <= row2$MAX_DEPTH))) {
+        write(paste("Warning: Haul ",row$HAUL_NUMBER[1],", stratum code (",row$NUMBER_OF_THE_STRATUM[1],") not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
+      }
+      } else {
+        write(paste("Warning: Haul ",row$HAUL_NUMBER[1],", not numeric mean depth"), file = Errors, append = TRUE)
+      }
 
-  if ((mean_depth[i] >=10) & (mean_depth[i] <=50)) {
-    Strat_table_temp = Strat_table[Strat_table$CODE==1,]
-    Strat_table_temp.no.lettera = strata.no.letter[strata.no.letter$CODE ==1, ]
-    if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp$STRATUM) | Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp.no.lettera$STRATUM)  )){
-    write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],") not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-    }
-  }  else if ((mean_depth[i] >50) & (mean_depth[i] <=100)){
-    Strat_table_temp = Strat_table[Strat_table$CODE==2,]
-    Strat_table_temp.no.lettera = strata.no.letter[strata.no.letter$CODE ==2, ]
-    if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp$STRATUM) | Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp.no.lettera$STRATUM)  )){
-      write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],") not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-    }
-  } else if ((mean_depth[i] >100) & (mean_depth[i] <=200)){
-    Strat_table_temp = Strat_table[Strat_table$CODE==3,]
-    Strat_table_temp.no.lettera = strata.no.letter[strata.no.letter$CODE ==3, ]
-    if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp$STRATUM)  | Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp.no.lettera$STRATUM)  )){
-      write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],") not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-    }
-  } else if ((mean_depth[i] >200) & (mean_depth[i] <=500)){
-    Strat_table_temp = Strat_table[Strat_table$CODE==4,]
-    Strat_table_temp.no.lettera = strata.no.letter[strata.no.letter$CODE ==4, ]
-    if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp$STRATUM)  | Dataset$NUMBER_OF_THE_STRATUM[i] %in% (Strat_table_temp.no.lettera$STRATUM)  )){
-      write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],") not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
-    }
-  } else if ((mean_depth[i] >500) & (mean_depth[i] <=800)){
-    Strat_table_temp = Strat_table[Strat_table$CODE==5,]
-    Strat_table_temp.no.lettera = strata.no.letter[strata.no.letter$CODE ==5, ]
-    if (!(Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp$STRATUM)  | Dataset$NUMBER_OF_THE_STRATUM[i] %in% as.character(Strat_table_temp.no.lettera$STRATUM)  )){
-      write(paste("Warning: Haul ",Dataset$HAUL_NUMBER[i],", stratum code (",Dataset$NUMBER_OF_THE_STRATUM[i],") not consistent with the mean detph of the haul"), file = Errors, append = TRUE)
     }
   }
-
-  }
-
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
