@@ -572,8 +572,6 @@ if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, s
      check_without_errors <- check.list[[2]]
      check_without_warnings <- check.list[[3]]
 
-
-table <- "TA"
 checkName = "Check dictionary"
 Field = "AREA"
 Values = as.character(unique(Stratification$GSA))
@@ -915,6 +913,19 @@ check_without_warnings <- check.list[[3]]
 
 
   Field = "MEASURING_SYSTEM"
+  Values = c("VA","SO","XA","SA","SI","CT","CD","SB",NA)
+  if (check_without_errors == TRUE) {
+    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
+  }
+  if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
+  check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+  check.df <- check.list[[1]]
+  check_without_errors <- check.list[[2]]
+  check_without_warnings <- check.list[[3]]
+
+
+  Field = "MEASURING_SYSTEM_SALINITY"
   Values = c("VA","SO","XA","SA","SI","CT","CD","SB",NA)
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
