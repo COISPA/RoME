@@ -121,3 +121,8 @@ Fixes 0.1.29
 3. check_class function modified to produce Critical_Error file
 4. check_consistencyTA_duration: identify errors if SHOOTING_TIME or HAULING_TIME fields are not integer
 5. inclusion of the function RoMEBScc specifically working on Black Sea MEDITS-like data
+
+
+Fixes 0.1.30
+-----
+1. New stratification_ _scheme table
