@@ -11,8 +11,9 @@
 
 if (FALSE){
     wd <- tempdir()
-    ResultDataTB = tb # RoME::TB
-    year=2015
+    ResultDataTB = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS\\medits_tb_1.csv",sep=";",header=TRUE)# tb # RoME::TB
+    # ResultDataTB$TOTAL_NUMBER_IN_THE_HAUL[27]=0
+    year=2012
     DataTargetSpecies <- RoME::DataTargetSpecies
     suffix=NA
     check_weight(ResultDataTB, year, RoME::DataTargetSpecies, wd, suffix)
@@ -69,6 +70,9 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
 
     ResultData =  ResultData[ResultData$TOTAL_NUMBER_IN_THE_HAUL!=0 & !is.na(ResultData$TOTAL_NUMBER_IN_THE_HAUL),]
     ResultData$mean_weight=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/ResultData$TOTAL_NUMBER_IN_THE_HAUL,3)
+
+    if (nrow(ResultData)>0){
+
 
     #queryData2= paste("SELECT count(*) as occurrence, GENUS, SPECIES from Result where HAUL_NUMBER is not null group by GENUS, SPECIES", sep="")
     present= aggregate(Result$GENUS,by=list(Result$GENUS, Result$SPECIES),FUN="length")
@@ -171,7 +175,7 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
   if (nb_graphs> 0) {
     write(paste("Warning: See graphs generated and saved in working directory about the species without mean weight range"), file = Errors, append = TRUE)
   }
-
+ }
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }

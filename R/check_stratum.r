@@ -11,11 +11,11 @@
 
 
 if (FALSE){
-  ResultDataTA = RoME::TA
-  wd <- tempdir()
+  ResultData = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS\\ROU_Med&BS_MEDITS_TA(rev).csv",sep=";", header=TRUE)# RoME::TA
+  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  year=2007
-  check_stratum(ResultDataTA,year,wd,suffix)
+  year=2019
+  check_stratum(ResultData,year,wd,suffix)
 }
 
 
@@ -50,52 +50,62 @@ check_stratum<-function(ResultData,year,wd,suffix){
   write(paste("\n----------- check start depth and end depth in the same stratum TA - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
   ResultData=ResultData[ResultData$VALIDITY=="V",]
+  ResultData$stratum_s <- NA
+  ResultData$stratum_e <- NA
+  GSA  <- unique(ResultData$AREA)[1]
+  strata <- stratification_scheme[stratification_scheme$GSA == GSA, ]
+
+
+
+  i=1
   for (i in 1:nrow(ResultData)){
-    if ((ResultData$SHOOTING_DEPTH[i]>=10) & (ResultData$SHOOTING_DEPTH[i]<=50))
-    {ResultData$stratum_s[i]="10-50"
-    } else {
-      if ((ResultData$SHOOTING_DEPTH[i]>50) & (ResultData$SHOOTING_DEPTH[i]<=100)){
-        ResultData$stratum_s[i]="51-100"
-      } else {
-        if ((ResultData$SHOOTING_DEPTH[i]>100) & (ResultData$SHOOTING_DEPTH[i]<=200)){
-          ResultData$stratum_s[i]="101-200"
-        } else {
-          if ((ResultData$SHOOTING_DEPTH[i]>200) & (ResultData$SHOOTING_DEPTH[i]<=500)){
-            ResultData$stratum_s[i]="201-500"
-          } else {
-            if (ResultData$SHOOTING_DEPTH[i]>=500 ){
-              ResultData$stratum_s[i]="501-800"
-            }
-          }
-        }
-      }
+    if (
+      1 %in% strata[strata$COUNTRY==ResultData$COUNTRY[i],"CODE"] &
+        (ResultData$SHOOTING_DEPTH[i]>= strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==1,"MIN_DEPTH"][1]) &
+        (ResultData$SHOOTING_DEPTH[i]<=strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==1,"MAX_DEPTH"][1])
+        ){
+      ResultData$stratum_s[i]="1"
+    } else if (
+      2 %in% strata[strata$COUNTRY==ResultData$COUNTRY[i],"CODE"] &
+      (ResultData$SHOOTING_DEPTH[i]>= strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==2,"MIN_DEPTH"][1]) &
+      (ResultData$SHOOTING_DEPTH[i]<=strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==2,"MAX_DEPTH"][1])
+      ){
+      ResultData$stratum_s[i]="2"
+    } else if (3 %in% strata[strata$COUNTRY==ResultData$COUNTRY[i],"CODE"] & (ResultData$SHOOTING_DEPTH[i]>= strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==3,"MIN_DEPTH"][1]) & (ResultData$SHOOTING_DEPTH[i]<=strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==3,"MAX_DEPTH"][1])){
+      ResultData$stratum_s[i]="3"
+    } else if (4 %in% strata[strata$COUNTRY==ResultData$COUNTRY[i],"CODE"] & (ResultData$SHOOTING_DEPTH[i]>= strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==4,"MIN_DEPTH"][1]) & (ResultData$SHOOTING_DEPTH[i]<=strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==4,"MAX_DEPTH"][1])){
+      ResultData$stratum_s[i]="4"
+    } else if (5 %in% strata[strata$COUNTRY==ResultData$COUNTRY[i],"CODE"] & (ResultData$SHOOTING_DEPTH[i]>= strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==5,"MIN_DEPTH"][1]) & (ResultData$SHOOTING_DEPTH[i]<=strata[strata$COUNTRY==ResultData$COUNTRY[i] & strata$CODE==5,"MAX_DEPTH"][1])){
+      ResultData$stratum_s[i]="5"
     }
   }
+
   for (j in 1:nrow(ResultData)){
-    if ((ResultData$HAULING_DEPTH[j]>=10) & (ResultData$HAULING_DEPTH[j]<=50))
-    {ResultData$stratum_e[j]="10-50"
-    } else {
-      if ((ResultData$HAULING_DEPTH[j]>50) & (ResultData$HAULING_DEPTH[j]<=100)){
-        ResultData$stratum_e[j]="51-100"
-      } else {
-        if ((ResultData$HAULING_DEPTH[j]>100) & (ResultData$HAULING_DEPTH[j]<=200)){
-          ResultData$stratum_e[j]="101-200"
-        } else {
-          if ((ResultData$HAULING_DEPTH[j]>200) & (ResultData$HAULING_DEPTH[j]<=500)){
-            ResultData$stratum_e[j]="201-500"
-          } else {
-            if ((ResultData$HAULING_DEPTH[j]>500)){
-              ResultData$stratum_e[j]="501-800"
-            }
-          }
-        }
-      }
+    if (1 %in% strata[strata$COUNTRY==ResultData$COUNTRY[j],"CODE"] & (ResultData$HAULING_DEPTH[j]>= strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==1,"MIN_DEPTH"][1]) & (ResultData$HAULING_DEPTH[j]<=strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==1,"MAX_DEPTH"][1])){
+      ResultData$stratum_e[j]="1"
+    } else if (2 %in% strata[strata$COUNTRY==ResultData$COUNTRY[j],"CODE"] & (ResultData$HAULING_DEPTH[j]>= strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==2,"MIN_DEPTH"][1]) & (ResultData$HAULING_DEPTH[j]<=strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==2,"MAX_DEPTH"][1])){
+      ResultData$stratum_e[j]="2"
+    } else if (3 %in% strata[strata$COUNTRY==ResultData$COUNTRY[j],"CODE"] & (ResultData$HAULING_DEPTH[j]>= strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==3,"MIN_DEPTH"][1]) & (ResultData$HAULING_DEPTH[j]<=strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==3,"MAX_DEPTH"][1])){
+      ResultData$stratum_e[j]="3"
+    } else if (4 %in% strata[strata$COUNTRY==ResultData$COUNTRY[j],"CODE"] & (ResultData$HAULING_DEPTH[j]>= strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==4,"MIN_DEPTH"][1]) & (ResultData$HAULING_DEPTH[j]<=strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==4,"MAX_DEPTH"][1])){
+      ResultData$stratum_e[j]="4"
+    } else if (5 %in% strata[strata$COUNTRY==ResultData$COUNTRY[j],"CODE"] & (ResultData$HAULING_DEPTH[j]>= strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==5,"MIN_DEPTH"][1]) & (ResultData$HAULING_DEPTH[j]<=strata[strata$COUNTRY==ResultData$COUNTRY[j] & strata$CODE==5,"MAX_DEPTH"][1])){
+      ResultData$stratum_e[j]="5"
     }
   }
+
+  k=1
   for (k in 1:nrow(ResultData)){
-    if (ResultData$stratum_s[k]!= ResultData$stratum_e[k]){
-      write(paste("Warning: Haul",ResultData$HAUL_NUMBER[k]," starts in the stratum",ResultData$stratum_s[k],"(",ResultData$SHOOTING_DEPTH[k],"m ) and finishes in the stratum", ResultData$stratum_e[k],"(",ResultData$HAULING_DEPTH[k],"m ) in",ResultData$TYPE_OF_FILE[k]), file = Errors, append = TRUE)}
+    if (any(is.na(c(ResultData$stratum_s[k],ResultData$stratum_e[k])))){
+      write(paste("Error: Haul",ResultData$HAUL_NUMBER[k]," one between SHOOTING_DEPTH or HAULING_DEPTH is out of the stratification range"), file = Errors, append = TRUE)
+      numberError <- numberError + 1
+    }
+
+    if ((ResultData$stratum_s[k]!= ResultData$stratum_e[k]) & all(!is.na(c(ResultData$stratum_s[k],ResultData$stratum_e[k]))) ){
+      write(paste("Warning: Haul",ResultData$HAUL_NUMBER[k]," starts in the stratum",ResultData$stratum_s[k],"(",ResultData$SHOOTING_DEPTH[k],"m ) and finishes in the stratum", ResultData$stratum_e[k],"(",ResultData$HAULING_DEPTH[k],"m ) in",ResultData$TYPE_OF_FILE[k]), file = Errors, append = TRUE)
+    }
   }
+
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
