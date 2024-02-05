@@ -147,24 +147,23 @@ check_distance<-function(DataTA,year, wd, suffix){
   write(paste("No error occurred"), file = Errors, append = TRUE)
 
   # on.exit(suppressWarnings(par(oldpar)))
-  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions),
-            unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)))
+  on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))  # , unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
   options(warn=-1)
 
-  if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  }
-
-	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-	}
+#   if (file.exists(file.path(tempdir(), "Logfiles"))){
+#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+#   }
+#   if (file.exists(file.path(tempdir(), "Graphs"))){
+#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+#   }
+#
+# 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+# 	}
 
   dev.off()
   #unlink(old_par)
-  unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
+  # unlink(file.path(tempdir(),list.files(file.path(tempdir()))),recursive=T)
 
   #  if (file.exists(file.path(tempdir()))){
   #    wd <- getwd()

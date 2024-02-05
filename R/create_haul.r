@@ -83,9 +83,9 @@ create_haul<-function(ResultDataTA,year,wd,save=TRUE){
 
   if(save) {
     write.table(traits,file=file.path(wd,"files R-Sufi",paste("traits_",ResultData$YEAR[1],"_GSA",ResultData$AREA[1],".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
-    if (file.exists(file.path(tempdir(),"files R-Sufi"))){
-      unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+    # if (file.exists(file.path(tempdir(),"files R-Sufi"))){
+    #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+    # }
   } else {
     return(as.data.frame(traits))
   }

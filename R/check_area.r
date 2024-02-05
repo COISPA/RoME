@@ -208,9 +208,9 @@ if (  (all(is.na(DataTE)) & length(DataTE)==1  ) & (all(is.na(DataTL)) & length(
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
-    if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
+  #   if (file.exists(file.path(tempdir(), "Logfiles"))){
+  # unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  # }
 
   if (numberError ==0) {
     return(TRUE)

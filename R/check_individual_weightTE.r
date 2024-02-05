@@ -169,17 +169,17 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
     write("For some records the difference between estimated and observed individual weight is greater than 20%. Please verify in the file TE_with_estimated_weights.csv automatically produced in the working directory", file = Errors, append = TRUE)
   }
 
-  if (file.exists(file.path(tempdir(), "Logfiles"))) {
-    unlink(file.path(tempdir(), "Logfiles"), recursive = T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))) {
-    unlink(file.path(tempdir(), "Graphs"), recursive = T)
-  }
-  if (file.exists(file.path(tempdir(), "files R-Sufi"))) {
-    unlink(file.path(tempdir(), "files R-Sufi"), recursive = T)
-  }
-
-  unlink(file.path(tempdir(), list.files(file.path(tempdir()))), recursive = T)
+  # if (file.exists(file.path(tempdir(), "Logfiles"))) {
+  #   unlink(file.path(tempdir(), "Logfiles"), recursive = T)
+  # }
+  # if (file.exists(file.path(tempdir(), "Graphs"))) {
+  #   unlink(file.path(tempdir(), "Graphs"), recursive = T)
+  # }
+  # if (file.exists(file.path(tempdir(), "files R-Sufi"))) {
+  #   unlink(file.path(tempdir(), "files R-Sufi"), recursive = T)
+  # }
+  #
+  # unlink(file.path(tempdir(), list.files(file.path(tempdir()))), recursive = T)
 
   if (numberError_ == 0) {
     return(TRUE)

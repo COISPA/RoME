@@ -94,8 +94,8 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   #unlink(file.path(tempdir(),"Logfiles"),recursive=T)
   #unlink(file.path(tempdir(),"Graphs"),recursive=T)
 
-	if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+# 	if (file.exists(file.path(tempdir(), "Graphs"))){
+#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+#     }
 
   }

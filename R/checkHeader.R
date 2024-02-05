@@ -172,15 +172,15 @@ checkHeader <- function(dataframe, template, wd, suffix)
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
-  if (file.exists(file.path(tempdir(), "Logfiles"))){
-    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-    unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-    unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-  }
+  # if (file.exists(file.path(tempdir(), "Logfiles"))){
+  #   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  # }
+  # if (file.exists(file.path(tempdir(), "Graphs"))){
+  #   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  # }
+  # if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+  # }
   if (numberError ==0) {
     return(TRUE)
   } else {

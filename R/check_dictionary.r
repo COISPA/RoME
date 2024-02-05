@@ -203,15 +203,15 @@ check_dictionary<-function(ResultData,Field,Values,year, wd, suffix){
     write(paste("No error occurred for field", Field, "in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
   }
 
-  if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-    }
-	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+#   if (file.exists(file.path(tempdir(), "Logfiles"))){
+#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+#   }
+#   if (file.exists(file.path(tempdir(), "Graphs"))){
+#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+#     }
+# 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+#     }
 
 if (numberError ==0) {
     return(TRUE)

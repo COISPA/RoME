@@ -1,9 +1,9 @@
 {
-    "path": "~/GitHub/RoME",
+    "path": "~/GitHub/RoME/R",
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": true
+            "ascending": false
         }
     ]
 }

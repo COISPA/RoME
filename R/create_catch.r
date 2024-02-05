@@ -51,7 +51,7 @@ if (FALSE){
   } else {
     return(as.data.frame(capt))
   }
- if (file.exists(file.path(tempdir(),"files R-Sufi"))){
-unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-}
+#  if (file.exists(file.path(tempdir(),"files R-Sufi"))){
+# unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+# }
 }

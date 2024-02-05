@@ -4,11 +4,12 @@ check_numeric_range <- function(Data, Field, Values, year, wd, suffix) {
 
 
   if (FALSE) {
-    Data = te #ResultDataTA
-    Field = "INDIVIDUAL_WEIGHT"
-    Values = c(0.1,999999) #c(3400,4600)
+    Data = ta #ResultDataTA
+    Field = "SHOOTING_LONGITUDE"
+    Values = c(0,3500) #c(3400,4600)
     suffix=NA
-    check_numeric_range(Data, Field, Values, year=2015, wd, suffix=suffix)
+    year=2017
+    check_numeric_range(Data, Field, Values, year=2017, wd, suffix=suffix)
   }
 
 
@@ -98,15 +99,15 @@ check_numeric_range <- function(Data, Field, Values, year, wd, suffix) {
     write(paste("No error occurred for field", Field, "in",  Result$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
   }
 
-  if (file.exists(file.path(tempdir(), "Logfiles"))){
-    unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-    unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-    unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-  }
+  # if (file.exists(file.path(tempdir(), "Logfiles"))){
+  #   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+  # }
+  # if (file.exists(file.path(tempdir(), "Graphs"))){
+  #   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+  # }
+  # if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+  #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+  # }
 
   if (numberError ==0) {
     return(TRUE)

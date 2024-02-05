@@ -2664,7 +2664,7 @@ write.table(check.df, file.path(wd, paste0("ERRORS_summary_",suffix,".csv")), se
 
   ## save zip file of the outputs
   if (zip){
-if (wd != tempdir()){
+
   old_wd <- getwd()
   setwd(wd)
   files2zip <- dir(wd, full.names = FALSE, include.dirs = TRUE, recursive=T) # list.files(wd) #
@@ -2675,14 +2675,15 @@ if (wd != tempdir()){
   named<-paste0(suffix,".zip")
   zip::zip(zipfile = named, files = files2zip)
   setwd(old_wd)
+
 }
-}
-if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-  }
+# if (file.exists(file.path(tempdir(), "Logfiles"))){
+#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+#   }
+#   if (file.exists(file.path(tempdir(), "Graphs"))){
+#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+#   }
+
 # 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
 #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 #     }

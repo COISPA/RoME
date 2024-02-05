@@ -105,17 +105,17 @@ check_length<-function(DataTC,DataSpecies=NA,year,wd,suffix){
     unlink("length.csv")
   }
 
-   if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-    }
-	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
-  if (numberError ==0) {
-    return(TRUE)
-  } else { return(FALSE) }
+#    if (file.exists(file.path(tempdir(), "Logfiles"))){
+#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+#   }
+#   if (file.exists(file.path(tempdir(), "Graphs"))){
+#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+#     }
+# 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+#     }
+#   if (numberError ==0) {
+#     return(TRUE)
+#   } else { return(FALSE) }
 
 }

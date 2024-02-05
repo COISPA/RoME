@@ -2249,13 +2249,13 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
     }
   }
   # -------------------------------------------------------
-  if (file.exists(file.path(tempdir(), "Logfiles"))) {
-    unlink(file.path(tempdir(), "Logfiles"), recursive = T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))) {
-    unlink(file.path(tempdir(), "Graphs"), recursive = T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))) {
-    unlink(file.path(tempdir(), "files R-Sufi"), recursive = T)
-  }
+  # if (file.exists(file.path(tempdir(), "Logfiles"))) {
+  #   unlink(file.path(tempdir(), "Logfiles"), recursive = T)
+  # }
+  # if (file.exists(file.path(tempdir(), "Graphs"))) {
+  #   unlink(file.path(tempdir(), "Graphs"), recursive = T)
+  # }
+  # if (file.exists(file.path(tempdir(), "Graphs"))) {
+  #   unlink(file.path(tempdir(), "files R-Sufi"), recursive = T)
+  # }
 } # funzione RoME

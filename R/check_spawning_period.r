@@ -145,15 +145,15 @@ check_spawning_period<-function(ResultDataTA,ResultDataTC,year,Maturity_paramete
   if (numberError ==0) {
     write(paste("Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC."), file = Errors, append = TRUE)
   }
-  if (file.exists(file.path(tempdir(), "Logfiles"))){
-  unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-  }
-  if (file.exists(file.path(tempdir(), "Graphs"))){
-  unlink(file.path(tempdir(),"Graphs"),recursive=T)
-    }
-	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-  unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-    }
+#   if (file.exists(file.path(tempdir(), "Logfiles"))){
+#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
+#   }
+#   if (file.exists(file.path(tempdir(), "Graphs"))){
+#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
+#     }
+# 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
+#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+#     }
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }

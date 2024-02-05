@@ -22,7 +22,7 @@ create_strata<-function(Stratification=RoME::stratification_scheme,AREA,wd,save=
   if (!file.exists(file.path(wd,"files R-Sufi"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)
   }
-  Strata = Stratification[Stratification$GSA==AREA,] 
+  Strata = Stratification[Stratification$GSA==AREA,]
 
   #write.xlsx(Strata,file=paste(Stratification,".xls", sep = ""))
   #channel <- odbcConnectExcel(paste(Stratification,".xls", sep = ""))
@@ -42,9 +42,9 @@ create_strata<-function(Stratification=RoME::stratification_scheme,AREA,wd,save=
 #   write.table(strates,file=paste("./files R-Sufi/strates_GSA",AREA,".csv",sep=""),row.names=FALSE,quote=FALSE,sep=";")
   if (save) {
       write.table(strates,file=file.path(wd,"files R-Sufi",paste("strates_GSA",AREA,".csv",sep="")),row.names=FALSE,quote=FALSE,sep=";")
-      if (file.exists(file.path(tempdir(),"files R-Sufi"))){
-         unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-      }
+      # if (file.exists(file.path(tempdir(),"files R-Sufi"))){
+      #    unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
+      # }
   } else {
       return(strates)
   }
