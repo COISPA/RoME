@@ -12,7 +12,7 @@
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTA = ta # RoME::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    year=2018
+    year=2015
     #DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
     check_distance(DataTA,year,wd,suffix)
  }
