@@ -943,7 +943,7 @@ check_without_warnings <- check.list[[3]]
 
 
   Field = "WARP_LENGTH"
-  Values = c(-1,seq(700,2200,1))
+  Values = c(-1,seq(100,2200,1))
   if (check_without_errors == TRUE) {
     if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)

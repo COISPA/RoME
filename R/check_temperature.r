@@ -133,7 +133,7 @@ if (nrow(temps[!is.na(temps$BOTTOM_TEMPERATURE_END),]) > 0 ){
   for (j in 1:nrow(end_temp)){
 # check end temperature
   if((end_temp[j,3] > 30) | (end_temp[j,3] < 10)){
-    write(paste("Warning: Haul",end_temp[j,1], ": the end temperature is out of the range (10,30) in",  Dataset$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+    write(paste("Warning: Haul",end_temp[j,1], ": the end temperature is out of the range (0,30) in",  Dataset$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
    # numberError = numberError + 1
     }
 }
