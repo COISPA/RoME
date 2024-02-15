@@ -13,7 +13,7 @@
 if (FALSE){
   wd <- tempdir()
   ResultDataTA= ta #RoME::TA
-  year=2012
+  year=2015
   suffix= NA
 
   check_temperature(ResultDataTA,year,wd,suffix)
@@ -74,6 +74,16 @@ check_temperature <- function (ResultDataTA,year,wd,suffix){
   #   }
   # }
 
+  GSA <- unique(ResultDataTA$AREA)[1]
+
+  if (GSA == 29) {
+    minTemp <- 0
+    maxTemp <- 30
+  } else {
+    minTemp <- 10
+    maxTemp <- 30
+  }
+
   temps <- data.frame(
                       HAUL_NUMBER=Dataset$HAUL_NUMBER,BOTTOM_TEMPERATURE_BEGINNING=as.numeric(Dataset$BOTTOM_TEMPERATURE_BEGINNING),
                       BOTTOM_TEMPERATURE_END=as.numeric(Dataset$BOTTOM_TEMPERATURE_END), MEAN_TEMP = NA,
@@ -109,15 +119,15 @@ if (all(is.na(Dataset$BOTTOM_TEMPERATURE_BEGINNING))) {
 
 # if (exists("start_temp")){
 # if (!is.na(start_temp)){
-if (nrow(temps[!is.na(temps$BOTTOM_TEMPERATURE_BEGINNING),]) > 0 ){
+if (nrow(temps[!is.na(temps$BOTTOM_TEMPERATURE_BEGINNING),]) > minTemp ){
 indices_start = which(!is.na(temps[,"BOTTOM_TEMPERATURE_BEGINNING"]))
 start_temp  <- temps[indices_start,]
 
 
 for (i in 1:nrow(start_temp)){
   # check beginning temperature
-  if((start_temp[i,2] > 30) | (start_temp[i,2] < 10)){
-    write(paste("Warning: Haul",start_temp[i,1], ": the beginning temperature is out of the range (10,30) in",  Dataset$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+  if((start_temp[i,2] > maxTemp) | (start_temp[i,2] < minTemp)){
+    write(paste("Warning: Haul",start_temp[i,1], ": the beginning temperature is out of the range (",minTemp,",",maxTemp,") in",  Dataset$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
     # numberError = numberError +1
   }
 }
@@ -127,13 +137,13 @@ for (i in 1:nrow(start_temp)){
 
 # if (exists("end_temp")) {
 # if (!is.na(end_temp)) {
-if (nrow(temps[!is.na(temps$BOTTOM_TEMPERATURE_END),]) > 0 ){
+if (nrow(temps[!is.na(temps$BOTTOM_TEMPERATURE_END),]) > minTemp ){
   indices_end = which(!is.na(temps[,"BOTTOM_TEMPERATURE_END"]))
   end_temp  <- temps[indices_end,]
   for (j in 1:nrow(end_temp)){
 # check end temperature
-  if((end_temp[j,3] > 30) | (end_temp[j,3] < 10)){
-    write(paste("Warning: Haul",end_temp[j,1], ": the end temperature is out of the range (0,30) in",  Dataset$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+  if((end_temp[j,3] > maxTemp) | (end_temp[j,3] < minTemp)){
+    write(paste("Warning: Haul",end_temp[j,1], ": the end temperature is out of the range (",minTemp,",",maxTemp,") in",  Dataset$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
    # numberError = numberError + 1
     }
 }
