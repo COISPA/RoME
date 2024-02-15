@@ -66,8 +66,8 @@ check_distance<-function(DataTA,year, wd, suffix){
       ResultData$computed_distance[i] = 0
     }
 
-    if (ResultData$computed_distance[i]==0 & ResultData$SHOOTING_LATITUDE == ResultData$HAULING_LATITUDE) {
-      write(paste("Warning: Haul",ResultData$HAUL_NUMBER[j],": the values of the SHOOTING and HAULING LATITUDE are the same. Please, check the consistency of the latitude values."), file = Errors, append = TRUE)
+    if (ResultData$computed_distance[i]==0 & ResultData$SHOOTING_LATITUDE[i] == ResultData$HAULING_LATITUDE[i]) {
+      write(paste("Warning: Haul",ResultData$HAUL_NUMBER[i],": the values of the SHOOTING and HAULING LATITUDE are the same. Please, check the consistency of the latitude values."), file = Errors, append = TRUE)
     }
 
   }
