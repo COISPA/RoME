@@ -74,7 +74,7 @@ check_temperature <- function (ResultDataTA,year,wd,suffix){
   #   }
   # }
 
-  GSA <- unique(ResultDataTA$AREA)[1]
+  GSA <- unique(Dataset$AREA)[1]
 
   if (GSA == 29) {
     minTemp <- 0
