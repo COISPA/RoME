@@ -2678,7 +2678,8 @@ write.table(check.df, file.path(wd, paste0("ERRORS_summary_",suffix,".csv")), se
 #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 #     }
 
-
+  lll <- list.files(tempdir())
+  unlink(file.path(tempdir(),lll),recursive=T)
 
 return(check.df)
 

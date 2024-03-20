@@ -10,7 +10,7 @@
 # Check if weights and numbers in TB are consistent
 
 if (FALSE){
-    wd <- tempdir()
+    wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME_appoggio\\data\\test"
     ResultDataTB = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS\\medits_tb_1.csv",sep=";",header=TRUE)# tb # RoME::TB
     # ResultDataTB$TOTAL_NUMBER_IN_THE_HAUL[27]=0
     year=2012
@@ -85,9 +85,9 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
   nb_graphs=0
   nb_graphs_to_be_printed=0
 
-  i=26
+  i=108
   for (i in 1:nrow(ResultData)){
-    FoundInTable=Weight[as.character(Weight$SPECIES)==as.character(ResultData$species[i]),]
+    FoundInTable=Weight[which(as.character(Weight$SPECIES)==as.character(ResultData$species[i])),]
     FoundInTable=FoundInTable[is.na(FoundInTable$MIN_WEIGHT)==FALSE ,]
     if (nrow(FoundInTable)!=0){
       if (((ResultData$mean_weight[i]<FoundInTable$MIN_WEIGHT[1]) | (ResultData$mean_weight[i]>FoundInTable$MAX_WEIGHT[1]))==TRUE)
@@ -103,15 +103,16 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
         X= 1:length(ResultData[ResultData$species==ResultData$species[i] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER)
         Y=ResultData[ResultData$species==ResultData$species[i]& !is.infinite(ResultData$mean_weight),]$mean_weight
 
-
+        pp <- 0
         if (length(X)>=10) {
           if ( nb_graphs<20) {
-
-              dev.new(width=60, height=60)
-
+            dev.new(width=60, height=60)
             plot(X,Y,main=paste(ResultData$species[i],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
             text(X,Y,labels=xlabels)
+            dev.off()
             nb_graphs= nb_graphs+1
+            ll <- list.files(tempdir())
+            unlink(file.path(tempdir(),ll),recursive=T)
           }
         }
       }
@@ -127,9 +128,6 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
 
   if (nb_graphs!=0){
     present_true = present[present$present == TRUE, ]
-
-
-
     x=nb_graphs_to_be_printed
     m=6
     t1<-floor(x/m)
@@ -171,7 +169,6 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
 
   }
 
-
   if (nb_graphs> 0) {
     write(paste("Warning: See graphs generated and saved in working directory about the species without mean weight range"), file = Errors, append = TRUE)
   }
@@ -180,21 +177,18 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
     write(paste("No error occurred"), file = Errors, append = TRUE)
   }
 
-
-
-#    if (file.exists(file.path(tempdir(), "Logfiles"))){
-#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-#   }
-#   if (file.exists(file.path(tempdir(), "Graphs"))){
-#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
-#     }
-# 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-#     }
-
   if (numberError ==0) {
     return(TRUE)
   } else { return(FALSE) }
+
+    if (dev.cur()>1){
+      while( dev.cur()>1 ){
+        dev.off()
+        print(dev.cur())
+      }
+    }
+    ll <- list.files(tempdir())
+    unlink(file.path(tempdir(),ll),recursive=T)
 
 }
 

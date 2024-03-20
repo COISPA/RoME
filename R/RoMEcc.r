@@ -81,6 +81,8 @@ if (FALSE) {
 
 RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification=RoME::stratification_scheme, Ref_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,Maturity=RoME::Maturity_parameters, ab_parameters=RoME::LW,stages_list=RoME::mat_stages,assTL=RoME::assTL, zip=TRUE){
 
+  pdf(NULL)
+
   stringsAsFactors=FALSE
   Format <- "from_2012"
 
@@ -2688,7 +2690,8 @@ write.table(check.df, file.path(wd, paste0("ERRORS_summary_",suffix,".csv")), se
 #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 #     }
 
-
+  lll <- list.files(tempdir())
+  unlink(file.path(tempdir(),lll),recursive=T)
 
 return(check.df)
 
