@@ -23,7 +23,7 @@ check_length<-function(DataTC,DataSpecies=NA,year,wd,suffix){
     DataTC <- RoME::TC[1:20,]
     DataSpecies=NA
     suffix= "2020-03-05_time_h17m44s55"
-    check_length(DataTC,DataSpecies=NA,year=2008,wd,suffix)
+    check_length(DataTC,DataSpecies=NA,year=2012,wd,suffix)
 
     # check_length(DataTC,DataSpecies=NA,year=2007,wd,suffix)
   }
@@ -79,11 +79,13 @@ check_length<-function(DataTC,DataSpecies=NA,year,wd,suffix){
     if (is.na(ResultData$LENGTH_CLASS[i]) | (ResultData$LENGTH_CLASS[i]=="")){
       write(paste("Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," sex ",ResultData$SEX[i]," length ",ResultData$LENGTH_CLASS[i]," : unexpected value in LENGTH_CLASS ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
       numberError = numberError +1
+      # print(paste(numberError,i))
     }
 
     if ((ResultData$LENGTH_CLASS[i] < 0)==TRUE){
       write(paste("Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," sex ",ResultData$SEX[i]," length ",ResultData$LENGTH_CLASS[i]," : negative value in LENGTH_CLASS in ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
       numberError = numberError +1
+      # print(paste(numberError,i))
     }
 
     FoundInTable=Target[as.character(Target$SPECIES)==as.character(ResultData$species[i]),]
@@ -103,7 +105,8 @@ check_length<-function(DataTC,DataSpecies=NA,year,wd,suffix){
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
     unlink("length.csv")
-  }
+    return(TRUE)
+  } else { return(FALSE) }
 
 #    if (file.exists(file.path(tempdir(), "Logfiles"))){
 #   unlink(file.path(tempdir(),"Logfiles"),recursive=T)

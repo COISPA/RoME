@@ -13,7 +13,7 @@ check_nb_per_sexTC <- function(DataTC,year,wd,suffix){
     #library(MEDITS)
     wd <- tempdir()
     DataSpecies=NA
-    year=2007
+    year=2012
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
     DataTC = RoME::TC # read.csv("~/GitHub/RoME/data/TC_GSA18_1994-2018.csv", sep=";")
     # DataTC <- DataTC[DataTC$YEAR == 2018 , ]

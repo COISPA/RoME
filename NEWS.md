@@ -130,3 +130,12 @@ Fixes 0.1.31
 -----
 1. generalization of check_stratum
 2. optimization of check_weight
+
+Fixes 0.1.34
+-----
+1. optimization of zip saving
+2. optimization of temporary directory use
+
+Fixes 0.1.35
+-----
+1. improved management of errors in check_length function
