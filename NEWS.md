@@ -139,3 +139,7 @@ Fixes 0.1.34
 Fixes 0.1.35
 -----
 1. improved management of errors in check_length function
+
+Fixes 0.1.36
+-----
+1. quasi-identical records' check output changed in warning message instead of error

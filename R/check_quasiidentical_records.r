@@ -246,5 +246,5 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 #   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
 #     }
 
-return(check_without_errors)
+return(TRUE) # check_without_errors
 }
