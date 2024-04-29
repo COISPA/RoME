@@ -37,7 +37,7 @@ GitHub with:
 
 ``` r
 library(remotes)
-remotes::install_git("https://github.com/COISPA/RoME/tree/master")
+remotes::install_git("https://github.com/COISPA/RoME")
 
 ```
 
