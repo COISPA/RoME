@@ -1,7 +1,7 @@
 NEWS
 ================
-Bitetto Isabella - COISPA
-25 August 2020
+Walter Zupa - COISPA
+05/06/2024
 
 Fixes 0.1.1
 -----
