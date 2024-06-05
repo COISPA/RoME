@@ -68,13 +68,13 @@ check_step_length_distr<-function(ResultData,year,wd,suffix){
     if (as.character(fishes_cefalopods$LENGTH_CLASSES_CODE[j])=="1"){
       if ((fishes_cefalopods$LENGTH_CLASS[j]/10)!=round((fishes_cefalopods$LENGTH_CLASS[j]/10),0))
       {
-       write(paste("Haul",fishes_cefalopods$HAUL_NUMBER[j],fishes_cefalopods$GENUS[j],fishes_cefalopods$SPECIES[j],fishes_cefalopods$SEX[j],fishes_cefalopods$LENGTH_CLASS[j],": in", ResultData$TYPE_OF_FILE[1],"LENGTH_CLASS value for fishes and cefalopods must have a full step, because LENGTH_CLASSES_CODE=1"), file = Errors, append = TRUE)
+       write(paste("Haul",fishes_cefalopods$HAUL_NUMBER[j],fishes_cefalopods$GENUS[j],fishes_cefalopods$SPECIES[j],fishes_cefalopods$SEX[j],fishes_cefalopods$LENGTH_CLASS[j],": in", ResultData$TYPE_OF_FILE[1],"LENGTH_CLASS value for fishes and cephalopods must have a full step, because LENGTH_CLASSES_CODE=1"), file = Errors, append = TRUE)
        numberError = numberError +1
       }
     } else {
       if ((fishes_cefalopods$LENGTH_CLASS[j]/5)!=round((fishes_cefalopods$LENGTH_CLASS[j]/5),0))
       {
-        write(paste("Haul",fishes_cefalopods$HAUL_NUMBER[j],fishes_cefalopods$GENUS[j],fishes_cefalopods$SPECIES[j],fishes_cefalopods$SEX[j],fishes_cefalopods$LENGTH_CLASS[j],": in", ResultData$TYPE_OF_FILE[1],"LENGTH_CLASS value for fishes and cefalopods must have a full or half step"), file = Errors, append = TRUE)
+        write(paste("Haul",fishes_cefalopods$HAUL_NUMBER[j],fishes_cefalopods$GENUS[j],fishes_cefalopods$SPECIES[j],fishes_cefalopods$SEX[j],fishes_cefalopods$LENGTH_CLASS[j],": in", ResultData$TYPE_OF_FILE[1],"LENGTH_CLASS value for fishes and cephalopods must have a full or half step"), file = Errors, append = TRUE)
         numberError = numberError +1
       }
     }

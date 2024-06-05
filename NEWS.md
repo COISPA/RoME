@@ -143,3 +143,7 @@ Fixes 0.1.35
 Fixes 0.1.36
 -----
 1. quasi-identical records' check output changed in warning message instead of error
+
+Fixes 0.1.37
+-----
+1. warning messages modified in check_bridles_length function

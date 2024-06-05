@@ -63,7 +63,7 @@ check_bridles_length<-function(DataTA, year, wd, suffix){
     for (i in 1:nrow(ResultData)){
     if ( ( (ResultData$mean_depth[i]>=0) & (ResultData$mean_depth[i]<200) & (ResultData$BRIDLES_LENGTH[i]!=100) ) | ( (ResultData$mean_depth[i]>=200) & ((ResultData$BRIDLES_LENGTH[i]!=150)&(ResultData$BRIDLES_LENGTH[i]!=200)) )   )
     {
-      write(paste("Haul",ResultData$HAUL_NUMBER[i],": BRIDLES_LENGTH not correct"), file = Errors, append = TRUE)
+      write(paste("Warning: Haul",ResultData$HAUL_NUMBER[i],": BRIDLES_LENGTH not correct"), file = Errors, append = TRUE)
       numberError = numberError +1
     }
     if  ( (ResultData$mean_depth[i]>=500) & (ResultData$BRIDLES_LENGTH[i]!=200) ){
