@@ -32,7 +32,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
     "wing_opening", "geometrical_precision", "bridles_length", "warp_length",
     "warp_diameter", "hydrological_station", "observations", "bottom_temperature_beginning",
     "bottom_temperature_end", "measuring_system", "number_of_the_stratum",
-    "bottom_salinity_beginning", "bottom_salinity_end", "sal_measuring_system",
+    "bottom_salinity_beginning", "bottom_salinity_end", "measuring_system_salinity",
     "name_of_survey", "type_of_file", "country", "area", "vessel",
     "year", "month", "day", "haul_number", "codend_closing", "part_of_the_codend",
     "faunistic_category", "genus", "species", "name_of_the_reference_list",

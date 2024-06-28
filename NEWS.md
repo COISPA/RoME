@@ -147,3 +147,7 @@ Fixes 0.1.36
 Fixes 0.1.37
 -----
 1. warning messages modified in check_bridles_length function
+
+Fixes 0.1.38
+-----
+1. header.conversion function modified for the measuring_system_salinity field in input file (TA)

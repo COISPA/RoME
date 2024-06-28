@@ -1,7 +1,7 @@
 Package: RoME
 Type: Package
 Title: R Code to Perform Multiple Checks on MEDITS Survey Data
-Version: 0.1.37
+Version: 0.1.38
 Author: Walter Zupa [aut, cre] <zupa@fondazionecoispa.org>, 
         Isabella Bitetto [aut,cre] <bitetto@fondazionecoispa.org>, 
         Maria Teresa Spedicato [aut] <spedicato@fondazionecoispa.org>, 
