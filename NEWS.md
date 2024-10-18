@@ -151,3 +151,7 @@ Fixes 0.1.37
 Fixes 0.1.38
 -----
 1. header.conversion function modified for the measuring_system_salinity field in input file (TA)
+
+Fixes 0.1.39
+-----
+1. improvement of check_individual_weightTE function
