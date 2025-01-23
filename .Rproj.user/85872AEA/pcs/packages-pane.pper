@@ -1,7 +1,7 @@
 {
     "installOptions": {
         "installFromRepository": true,
-        "libraryPath": "D:/Documents and Settings/Utente/Documenti/R/win-library/4.1",
+        "libraryPath": "C:/Users/Walter/AppData/Local/R/win-library/4.3",
         "installDependencies": true
     }
 }
