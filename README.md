@@ -63,12 +63,12 @@ pp.[https://www.sibm.it/MEDITS
 ``` r
  library(RoME)
 
-    wd <- tempdir()
-    suffix=NA
-    DataTA = data.frame(RoME::TA[RoME::TA$YEAR==2012 ,])
-    DataTB = data.frame(RoME::TB[RoME::TB$YEAR==2012 ,])
-    DataTC = data.frame(RoME::TC[RoME::TC$YEAR==2012 ,])
-    DataTE = NA
-    DataTL = NA
-    RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix, verbose=FALSE)
+wd <- tempdir()
+suffix=NA
+DataTA = data.frame(RoME::TA[RoME::TA$YEAR==2012 ,])
+DataTB = data.frame(RoME::TB[RoME::TB$YEAR==2012 ,])
+DataTC = data.frame(RoME::TC[RoME::TC$YEAR==2012 ,])
+DataTE = NA
+DataTL = NA
+RoMEcc(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix, verbose=FALSE)
 ```
