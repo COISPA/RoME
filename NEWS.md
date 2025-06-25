@@ -155,3 +155,7 @@ Fixes 0.1.38
 Fixes 0.1.39
 -----
 1. improvement of check_individual_weightTE function
+
+Fixes 0.2.0
+-----
+0. RDBFIS III Fixes 

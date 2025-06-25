@@ -44,16 +44,16 @@ The function does not correct data, but it detects the errors, warning the user 
 \donttest{
 wd <- tempdir()
 suffix=NA
-DataTA = RoME::TA
-DataTB = RoME::TB
-DataTC = RoME::TC
+DataTA = data.frame(RoME::TA[RoME::TA$YEAR==2012 ,])
+DataTB = data.frame(RoME::TB[RoME::TB$YEAR==2012 ,])
+DataTC = data.frame(RoME::TC[RoME::TC$YEAR==2012 ,])
 DataTE = NA
 DataTL = NA
 RoMEcc(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix,
   Stratification=RoME::stratification_scheme,
   Ref_list=RoME::TM_list,DataTargetSpecies=RoME::DataTargetSpecies,
   Maturity=RoME::Maturity_parameters,ab_parameters=RoME::LW,
-  stages_list=RoME::mat_stages,assTL=RoME::assTL)
+  stages_list=RoME::mat_stages,assTL=RoME::assTL, verbose=FALSE)
 }
 }
 
