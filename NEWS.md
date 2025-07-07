@@ -159,3 +159,6 @@ Fixes 0.1.39
 Fixes 0.2.0
 -----
 0. RDBFIS III Fixes 
+1. check_weight function modified to include an updated version of DataTargetSpecies table containing reference values of individual weights and lengths estimated from MEDITS TB table considering the percentile ranges: 10-90th and 25-75th.
+
+

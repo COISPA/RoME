@@ -10,13 +10,13 @@
 # Check if weights and numbers in TB are consistent
 
 if (FALSE){
-    wd <- "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME_appoggio\\data\\test"
-    ResultDataTB = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS\\medits_tb_1.csv",sep=";",header=TRUE)# tb # RoME::TB
-    # ResultDataTB$TOTAL_NUMBER_IN_THE_HAUL[27]=0
-    year=2012
+    wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
+    ResultDataTB = RoME::TB # RoME::TB
+    ResultDataTB <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\______ MEDITS DATA __OFFICIAL___\\MEDBSsurvey\\Demersal\\TB_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
+    year=2015
     DataTargetSpecies <- RoME::DataTargetSpecies
-    suffix=NA
-    check_weight(ResultDataTB, year, RoME::DataTargetSpecies, wd, suffix)
+    suffix="CHeck_Weight"
+    check_weight(ResultDataTB, year, DataTargetSpecies, wd, suffix)
   }
 
 
@@ -85,14 +85,14 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
   nb_graphs=0
   nb_graphs_to_be_printed=0
 
-  i=108
+  i=1
   for (i in 1:nrow(ResultData)){
     FoundInTable=Weight[which(as.character(Weight$SPECIES)==as.character(ResultData$species[i])),]
-    FoundInTable=FoundInTable[is.na(FoundInTable$MIN_WEIGHT)==FALSE ,]
+    FoundInTable=FoundInTable[!is.na(FoundInTable$WMIN05),]
     if (nrow(FoundInTable)!=0){
-      if (((ResultData$mean_weight[i]<FoundInTable$MIN_WEIGHT[1]) | (ResultData$mean_weight[i]>FoundInTable$MAX_WEIGHT[1]))==TRUE)
+      if (((ResultData$mean_weight[i]<FoundInTable$WMIN05[1]) | (ResultData$mean_weight[i]>FoundInTable$WMAX95[1]))==TRUE)
       {
-        write(paste("Warning: Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," : mean weight= ", ResultData$mean_weight[i]," out of boundaries (",FoundInTable$MIN_WEIGHT[1],",",FoundInTable$MAX_WEIGHT[1],") in ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
+        write(paste("Warning: Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," : mean weight= ", ResultData$mean_weight[i],"g out of boundaries (",round(FoundInTable$WMIN05[1], 2),"-",round(FoundInTable$WMAX95[1],2),"g; 5th-95th percentile) in ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
       }
     } else {
       if((present[present$species==ResultData$species[i],]$present==FALSE) & (present[present$species==ResultData$species[i],]$occurrence>=10)){
@@ -107,7 +107,7 @@ check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,
         if (length(X)>=10) {
           if ( nb_graphs<20) {
             dev.new(width=60, height=60)
-            plot(X,Y,main=paste(ResultData$species[i],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
+            plot(X,Y,main=paste(ResultData$species[i],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=16)
             text(X,Y,labels=xlabels)
             dev.off()
             nb_graphs= nb_graphs+1
