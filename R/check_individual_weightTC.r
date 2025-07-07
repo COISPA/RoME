@@ -16,7 +16,7 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
     DataTC = RoME::TC
     year=2007
     verbose=TRUE
-    # check_individual_weightTC(DataTC=DataTC,year=2007, wd=wd, suffix=suffix, verbose=TRUE)
+    check_individual_weightTC(DataTC=DataTC,year=2007, wd=wd, suffix=suffix, verbose=TRUE)
   }
 
 
@@ -107,6 +107,8 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
 
   if (numberError ==0) {
     write(paste("No error occurred"), file = Errors, append = TRUE)
+    filename <- paste("Comparison_estimated_observed_weight_in_TC_",  TC$YEAR[1],".csv",sep="")
+    write.table(TC_w,file=file.path(wd,filename),sep=";",row.names=F)
   } else {
   filename <- paste("Comparison_estimated_observed_weight_in_TC_",  TC$YEAR[1],".csv",sep="")
   write.table(TC_w,file=file.path(wd,filename),sep=";",row.names=F)
