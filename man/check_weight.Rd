@@ -1,37 +1,90 @@
 \name{check_weight}
 \alias{check_weight}
 \title{
-Function that checks if number of individuals and total weight collected in the haul are consistent.
+Check consistency between total weight and number of individuals in MEDITS TB data.
 }
 \description{
-The total weight and total number in the haul have to be consistent. The check is quantitative if there is information related to average individual weight. Alternatively the check is qualitative (through a plot).}
+This function performs quality checks on the consistency between the total weight and the total number of individuals recorded in the MEDITS TB table. The consistency check is carried out both quantitatively-using known reference ranges of mean weights for each species-and qualitatively-via plots displaying the observed mean weights for each species across hauls.
+}
 \usage{
-  check_weight(ResultDataTB,year,DataTargetSpecies,wd,suffix)
+  check_weight(ResultDataTB, year, DataTargetSpecies, wd, suffix)
 }
 \arguments{
-\item{ResultDataTB}{Catch data table according to MEDITS protocol (TB).}
-\item{year}{reference year for the analysis.}
-\item{DataTargetSpecies}{Information related to individual weight of target and not target species.}
-\item{wd}{Working directory selected by the user.}
-\item{suffix}{Suffix string of the Logfile.}
+\item{ResultDataTB}{
+Catch data table formatted according to the MEDITS protocol (table TB). This data includes information on species, number of individuals, and total weight per haul.
+}
+\item{year}{
+Reference year for the analysis. Only hauls from the specified year will be analysed.
+}
+\item{DataTargetSpecies}{
+Table providing reference weight ranges for species. It contains the lower (5th percentile) and upper (95th percentile) bounds for the mean weight of individuals per species, based on historical data collected from 2012 to 2022 across all surveyed GSAs. This table should be kept updated to reflect the latest knowledge about species biology in the Mediterranean Sea.
+}
+\item{wd}{
+Working directory chosen by the user. This directory will contain subfolders where logs and plots will be saved.
+}
+\item{suffix}{
+Suffix string appended to the filenames of the log files. Useful for distinguishing outputs from multiple runs.
+}
 }
 \details{
-The check of the consistency of total weight and total number in TB is performed after computing the mean weight for each species in each haul; a list of the weight intervals is provided in the package (DataTargetSpecies); this list was created in on the basis of the data collected in GSA 10 and 18 from 1994 to 2014. Of course, the user should update and complete as much as possible the table in order to allow 'RoME' to detect errors on the basis of the updated weight intervals. This check is divided in a quantitative control (using the ranges mentioned above) and a qualitative control (using plots of the mean weight). The function gives a warning message. A maximum of 20 graphs will have been displayed in the R console and a maximum of 20 .tif files (6 plots per file) will have been stored in Graphs directory. The species with at least an occurrence of 10 hauls are plotted and saved.
+The function operates in two phases:
+
+\strong{1. Quantitative Check:}
+
+\itemize{
+  \item For each record in the TB table, the mean individual weight is computed.
+
+  \item If the species is listed in \code{DataTargetSpecies}, the mean weight is compared to its 5th-95th percentile reference range.
+
+  \item If the mean weight falls outside this interval, a record is saved in a CSV file reporting:
+    \itemize{
+      \item GSA
+      \item Year
+      \item Species
+      \item Haul number
+      \item Observed mean weight
+      \item Reference minimum (5th percentile)
+      \item Reference maximum (95th percentile)
+      \item Type of file
+    }
+}
+
+\strong{2. Qualitative Check (Plots):}
+
+\itemize{
+  \item For all species present in the dataset, the function generates plots of mean weight by haul, to visually check for possible outliers or abnormal variability.
+
+  \item To avoid excessive plotting, only species with at least 5 observations are plotted.
+
+  \item Plots display the mean weight for each haul, with haul numbers shown as labels.
+
+  \item If many species qualify for plotting, the function automatically splits the plots into multiple pages, each saved as a separate JPEG file. Each JPEG file contains up to 6 plots.
+}
+
+\strong{Files Produced:}
+
+\itemize{
+  \item \emph{Logfile (.dat)}: Contains a short message summarising whether any outliers were detected. Detailed warnings are no longer written here but are instead stored in the CSV file.
+
+  \item \emph{CSV File}: Named as \code{Check_Mean_Weights_Logfile_GSA<AREA>_Year<YEAR>_<suffix>.csv}. Contains all observations where the mean weight falls outside the expected reference range.
+
+  \item \emph{Plots}: Saved in JPEG format in the \code{Graphs} subdirectory. Filenames include GSA, year, and a page number.
+}
 }
 \value{
-The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
+This function always returns \code{TRUE}. The purpose of the function is to perform checks and report inconsistencies, but it does not interrupt the execution of other routines in the \code{RoME} package.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
 }
 \author{
-I. Bitetto, W. Zupa
+W. Zupa, I. Bitetto
 }
 \examples{
-TB = RoME::TB
-year=2012
-wd=tempdir()
-suffix= "2020-03-05_time_h17m44s55"
-check_weight(TB,year,DataTargetSpecies,wd,suffix)
+TB <- RoME::TB
+year <- 2012
+wd <- tempdir()
+suffix <- "2020-03-05_time_h17m44s55"
+check_weight(TB, year, DataTargetSpecies, wd, suffix)
 }
-\keyword{weight}
+\keyword{quality control}

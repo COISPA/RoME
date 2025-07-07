@@ -13,184 +13,270 @@ if (FALSE){
     wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
     ResultDataTB = RoME::TB # RoME::TB
     ResultDataTB <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\______ MEDITS DATA __OFFICIAL___\\MEDBSsurvey\\Demersal\\TB_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
+    ResultDataTB <- ResultDataTB[ResultDataTB$AREA==18, ]
     year=2015
     DataTargetSpecies <- RoME::DataTargetSpecies
-    suffix="CHeck_Weight"
+    suffix="Check_Weight"
     check_weight(ResultDataTB, year, DataTargetSpecies, wd, suffix)
   }
 
 
-check_weight<-function(ResultDataTB,year,DataTargetSpecies=DataTargetSpecies,wd,suffix){
+############################################################################################################################
+#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
+#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
+#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
+#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
+#   Modified: July 2025                                                                                                    #
+############################################################################################################################
+
+if (FALSE){
+  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
+  ResultDataTB <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\______ MEDITS DATA __OFFICIAL___\\MEDBSsurvey\\Demersal\\TB_MEDITS_FORMAT_2025.csv", sep=";", header=TRUE)
+  ResultDataTB <- ResultDataTB[ResultDataTB$AREA == 18, ]
+  year <- 2015
+  DataTargetSpecies <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\data\\pesi_medi_per_specie.csv", sep=";", header=TRUE)
+  suffix <- "Check_Weight"
+  check_weight(ResultDataTB, year, DataTargetSpecies, wd, suffix)
+}
+
+check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpecies, wd, suffix) {
 
   oldpar <- par()
   on.exit(suppressWarnings(par(oldpar)))
 
-  if (!file.exists(file.path(wd,"Logfiles"))){
+  if (!file.exists(file.path(wd, "Logfiles"))) {
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
 
-  if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
+  if (!exists("suffix")) {
+    suffix <- paste(as.character(Sys.Date()), format(Sys.time(), "_time_h%Hm%Ms%OS0"), sep = "")
   }
 
-  if (!file.exists(file.path(wd,"Graphs"))){
+  if (!file.exists(file.path(wd, "Graphs"))) {
     dir.create(file.path(wd, "Graphs"), showWarnings = FALSE)
   }
 
+  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
+  AREA <- unique(ResultDataTB$AREA)[1]
 
-  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
-  if (!file.exists(Errors)){
+  Errors <- file.path(wd, "Logfiles", paste("Logfile_GSA", AREA, "_Year", year, "_", suffix, ".dat", sep = ""))
+  if (!file.exists(Errors)) {
     file.create(Errors)
   }
 
-  ### FILTERING DATA FOR THE SELECTED YEAR
-  arg <- "year"
-  if (!exists(arg)) {
-    stop(paste0("'", arg, "' argument should be provided"))
-  } else if (length(year) != 1) {
-    stop(paste0("only one value should be provided for '", arg, "' argument"))
-  } else if (is.na(year)) {
-    stop(paste0(arg, " argument should be a numeric value"))
-  }
-  ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
-  ########################################
+  ErrorsCSV <- file.path(wd, "Logfiles", paste("Check_Mean_Weights_Logfile_GSA", AREA, "_Year", year, "_", suffix, ".csv", sep = ""))
 
-   numberError = 0
-   Result = ResultDataTB
-  write(paste("\n----------- check consistency of weight and number TB - ",Result$YEAR[1]), file = Errors, append = TRUE)
+  # prepare list to collect CSV rows
+  warnings_list <- list()
 
+  # header for CSV file
+  csv_header <- data.frame(
+    GSA = integer(),
+    Year = integer(),
+    Species = character(),
+    Haul = integer(),
+    Mean_Weight = numeric(),
+    WMIN05 = numeric(),
+    WMAX95 = numeric(),
+    TYPE_OF_FILE = character(),
+    stringsAsFactors = FALSE
+  )
 
-  Weight=DataTargetSpecies #read.csv(file=paste(DataTargetSpecies,".csv",sep=""),sep=";",header=TRUE)
+  # write header to CSV
+  write.table(
+    csv_header,
+    file = ErrorsCSV,
+    sep = ";",
+    row.names = FALSE,
+    col.names = TRUE
+  )
 
-  #queryData= paste("SELECT TYPE_OF_FILE, HAUL_NUMBER, GENUS, SPECIES,TOTAL_WEIGHT_IN_THE_HAUL,TOTAL_NUMBER_IN_THE_HAUL from Result where HAUL_NUMBER is not null order by HAUL_NUMBER", sep="")
-  ResultData = Result[order(Result$HAUL_NUMBER),c("TYPE_OF_FILE", "HAUL_NUMBER", "GENUS", "SPECIES","TOTAL_WEIGHT_IN_THE_HAUL","TOTAL_NUMBER_IN_THE_HAUL")] #sqldf(queryData)
+  Result <- ResultDataTB
 
-  ResultData$species=paste(ResultData$GENUS,ResultData$SPECIES,sep="")
+  write(paste("\n----------- check consistency of weight and number TB - ", year), file = Errors, append = TRUE)
 
+  Weight <- DataTargetSpecies
 
-    ResultData =  ResultData[ResultData$TOTAL_NUMBER_IN_THE_HAUL!=0 & !is.na(ResultData$TOTAL_NUMBER_IN_THE_HAUL),]
-    ResultData$mean_weight=round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL/ResultData$TOTAL_NUMBER_IN_THE_HAUL,3)
+  ResultData <- Result[order(Result$HAUL_NUMBER), c("TYPE_OF_FILE", "HAUL_NUMBER", "GENUS", "SPECIES", "TOTAL_WEIGHT_IN_THE_HAUL", "TOTAL_NUMBER_IN_THE_HAUL")]
+  ResultData$species <- paste(ResultData$GENUS, ResultData$SPECIES, sep = "")
 
-    if (nrow(ResultData)>0){
+  ResultData <- ResultData[ResultData$TOTAL_NUMBER_IN_THE_HAUL != 0 & !is.na(ResultData$TOTAL_NUMBER_IN_THE_HAUL), ]
+  ResultData$mean_weight <- round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL / ResultData$TOTAL_NUMBER_IN_THE_HAUL, 3)
 
+  if (nrow(ResultData) > 0) {
 
-    #queryData2= paste("SELECT count(*) as occurrence, GENUS, SPECIES from Result where HAUL_NUMBER is not null group by GENUS, SPECIES", sep="")
-    present= aggregate(Result$GENUS,by=list(Result$GENUS, Result$SPECIES),FUN="length")
-    colnames(present)=c("GENUS","SPECIES","occurrence")
-    #sqldf(queryData2)
+    present <- aggregate(Result$GENUS, by = list(Result$GENUS, Result$SPECIES), FUN = "length")
+    colnames(present) <- c("GENUS", "SPECIES", "occurrence")
+    present$species <- paste(present$GENUS, present$SPECIES, sep = "")
+    present$present <- FALSE
 
-  present$species=paste(present$GENUS,present$SPECIES,sep="")
-  present$present=FALSE
-#   odbcClose(channelData)
-  nb_graphs=0
-  nb_graphs_to_be_printed=0
+    nb_graphs <- 0
+    nb_graphs_to_be_printed <- 0
 
-  i=1
-  for (i in 1:nrow(ResultData)){
-    FoundInTable=Weight[which(as.character(Weight$SPECIES)==as.character(ResultData$species[i])),]
-    FoundInTable=FoundInTable[!is.na(FoundInTable$WMIN05),]
-    if (nrow(FoundInTable)!=0){
-      if (((ResultData$mean_weight[i]<FoundInTable$WMIN05[1]) | (ResultData$mean_weight[i]>FoundInTable$WMAX95[1]))==TRUE)
-      {
-        write(paste("Warning: Haul ",ResultData$HAUL_NUMBER[i]," ",ResultData$species[i]," : mean weight= ", ResultData$mean_weight[i],"g out of boundaries (",round(FoundInTable$WMIN05[1], 2),"-",round(FoundInTable$WMAX95[1],2),"g; 5th-95th percentile) in ", ResultData$TYPE_OF_FILE[1],sep=""), file = Errors, append = TRUE)
+    species_list <- sort(unique(ResultData$species))
+
+    for (spec in species_list) {
+
+      # subset per specie
+      species_data <- ResultData[ResultData$species == spec & !is.infinite(ResultData$mean_weight), ]
+      FoundInTable <- Weight[Weight$SPECIES == spec, ]
+      FoundInTable <- FoundInTable[!is.na(FoundInTable$WMIN05), ]
+
+      # Check all hauls of this species
+      if (nrow(FoundInTable) != 0) {
+        for (j in 1:nrow(species_data)) {
+          if (species_data$mean_weight[j] < FoundInTable$WMIN05[1] |
+              species_data$mean_weight[j] > FoundInTable$WMAX95[1]) {
+
+            # write(
+            #   paste(
+            #     "Warning: Haul", species_data$HAUL_NUMBER[j],
+            #     species_data$species[j],
+            #     ": mean weight =", species_data$mean_weight[j], "g out of boundaries (",
+            #     round(FoundInTable$WMIN05[1], 2), "-", round(FoundInTable$WMAX95[1], 2),
+            #     "g; 5th-95th percentile) in", species_data$TYPE_OF_FILE[j]
+            #   ),
+            #   file = Errors, append = TRUE
+            # )
+
+            # collect row for CSV
+            warnings_list[[length(warnings_list) + 1]] <- data.frame(
+              GSA = AREA,
+              Year = year,
+              Species = species_data$species[j],
+              Haul = species_data$HAUL_NUMBER[j],
+              Mean_Weight = species_data$mean_weight[j],
+              WMIN05 = FoundInTable$WMIN05[1],
+              WMAX95 = FoundInTable$WMAX95[1],
+              TYPE_OF_FILE = species_data$TYPE_OF_FILE[j],
+              stringsAsFactors = FALSE
+            )
+          }
+        }
       }
+
+      # plotting block (limit to species with ??? 5 observations)
+      if (nrow(species_data) >= 5) {
+        if (present[present$species == spec, ]$present == FALSE) {
+          nb_graphs_to_be_printed <- nb_graphs_to_be_printed + 1
+          present[present$species == spec, ]$present <- TRUE
+        }
+      }
+    }
+
+    # Write warnings to CSV file sorted
+    if (length(warnings_list) > 0) {
+
+      # Convert the list of warning rows into a single data frame
+      warnings_df <- do.call(rbind, warnings_list)
+
+      # Sort the CSV rows alphabetically by Species and then by Haul number
+      warnings_df <- warnings_df[order(warnings_df$Species, warnings_df$Haul), ]
+
+      # Write the data frame to CSV, appending the rows without writing the header again
+      write.table(
+        warnings_df,
+        file = ErrorsCSV,
+        sep = ";",
+        row.names = FALSE,
+        col.names = FALSE,
+        append = TRUE
+      )
+
+      # Write a summary message into the .dat file indicating how many rows were written
+      write(
+        paste(
+          nrow(warnings_df), "rows written to CSV file",
+          basename(ErrorsCSV),
+          "- species with mean weights outside reference ranges."
+        ),
+        file = Errors,
+        append = TRUE
+      )
+
     } else {
-      if((present[present$species==ResultData$species[i],]$present==FALSE) & (present[present$species==ResultData$species[i],]$occurrence>=10)){
-        nb_graphs_to_be_printed = nb_graphs_to_be_printed + 1
-        present[present$species==ResultData$species[i],]$present=TRUE
 
-        xlabels <- ResultData[ResultData$species==ResultData$species[i] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
-        X= 1:length(ResultData[ResultData$species==ResultData$species[i] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER)
-        Y=ResultData[ResultData$species==ResultData$species[i]& !is.infinite(ResultData$mean_weight),]$mean_weight
-
-        pp <- 0
-        if (length(X)>=10) {
-          if ( nb_graphs<20) {
-            dev.new(width=60, height=60)
-            plot(X,Y,main=paste(ResultData$species[i],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=16)
-            text(X,Y,labels=xlabels)
-            dev.off()
-            nb_graphs= nb_graphs+1
-            ll <- list.files(tempdir())
-            unlink(file.path(tempdir(),ll),recursive=T)
-          }
-        }
-      }
-
+      # Write a message indicating no outliers were found
+      write("No outliers detected. All mean weights within reference ranges.", file = Errors, append = TRUE)
     }
 
-  }
+    # Create paginated JPEGs
+    if (nb_graphs_to_be_printed > 0) {
+      present_true <- present[present$present == TRUE, ]
+      present_true <- present_true[order(present_true$species), ]
 
-  if (nb_graphs_to_be_printed >20){
-    write(paste("Too many graphs to be displayed: all the graphs have been saved (up to a max of 120) in .tif file stored in Graphs directory",sep=""), file = Errors, append = TRUE)
-    print(paste("Too many graphs to be displayed: all the graphs have been saved (up to a max of 120) in .tif file stored in Graphs directory",sep=""),quote=FALSE)
-  }
+      x <- nb_graphs_to_be_printed
+      m <- 6
+      nb_sheets <- ceiling(x / m)
 
-  if (nb_graphs!=0){
-    present_true = present[present$present == TRUE, ]
-    x=nb_graphs_to_be_printed
-    m=6
-    t1<-floor(x/m)
+      for (i in 1:nb_sheets) {
 
-    if ((x-t1*m) ==0){
-      nb_sheets= as.integer(nb_graphs_to_be_printed/6)
-    }  else {
-      nb_sheets= as.integer(nb_graphs_to_be_printed/6)+1
-    }
+        from_idx <- (6 * i - 5)
+        to_idx <- min(6 * i, nrow(present_true))
 
-    # number of plots in the current .tif
-    i=1
-    for (i in 1:nb_sheets) {
+        jpeg(filename = file.path(wd, "Graphs",
+                                  paste("check_mean_weight_GSA", AREA, "_", year, "_", i, ".jpeg", sep = "")),
+             width = 12, height = 8, units = "in", res = 150, quality = 75)
 
-      if ((6*i)>nrow(present_true) ){
-        nb_loops = nrow(present_true)
-      }  else {
-        nb_loops = 6*i
-      }
+        par(
+          mfrow = c(3, 2),
+          mar = c(2.5, 2.5, 2, 1),
+          oma = c(0.5, 0.5, 3.5, 0.5)
+        )
 
-      if (i<=20){
-        # tiff(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".tif",sep="")),width=12, height=8, bg="white", units="in", res=300, compression = 'lzw', pointsize = 1/300)
-		jpeg(filename=file.path(wd,"Graphs",paste("check_mean_weight_",Result$AREA[1],"_",Result$YEAR[1],"_", i,".jpeg",sep="")),width=12, height=8, bg="white", units="in", res=300,quality=80)
-        par(mfrow=c(3,2), mai=c(0.6,0.6,0.6,0.6), omi=c(0.8,0.8,1,0.8))
-        for (m in (6*i-5):(nb_loops)) {
-          xlabels <- ResultData[ResultData$species==ResultData$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER
-          X= 1:length(ResultData[ResultData$species==ResultData$species[m] & !is.infinite(ResultData$mean_weight),]$HAUL_NUMBER)
-          Y=ResultData[ResultData$species==ResultData$species[m]& !is.infinite(ResultData$mean_weight),]$mean_weight
-          if (length(X)!=0){
-            plot(X,Y,main=paste(ResultData$species[m],"-",Result$YEAR[1]),xlab="HAUL number",ylab="mean weight",type="b",pch=".")
-            text(X,Y,labels=xlabels)
+        for (m in from_idx:to_idx) {
+          species_name <- present_true$species[m]
+          species_data <- ResultData[ResultData$species == species_name & !is.infinite(ResultData$mean_weight), ]
+          xlabels <- species_data$HAUL_NUMBER
+          X <- 1:length(xlabels)
+          Y <- species_data$mean_weight
+
+          if (length(X) != 0) {
+            plot(X, Y,
+                 main = paste(species_name, "-", year),
+                 xlab = "HAUL number",
+                 ylab = "mean weight",
+                 type = "b",
+                 pch = ".")
+            text(X, Y, labels = xlabels)
           }
         }
 
+        title_text <- paste("Check mean weight - GSA", AREA, "- Year", year, "- plot", i)
+        mtext(
+          title_text,
+          outer = TRUE,
+          side = 3,
+          line = 1.2,
+          cex = 1.4,
+          font = 2
+        )
 
+        dev.off()
       }
+    }
+
+    if (nb_graphs > 0) {
+      write("Warning: See graphs generated and saved in working directory about the species mean weight.", file = Errors, append = TRUE)
+    }
+  }
+
+  write("No error occurred", file = Errors, append = TRUE)
+
+  if (dev.cur() > 1) {
+    while (dev.cur() > 1) {
       dev.off()
     }
-
   }
 
-  if (nb_graphs> 0) {
-    write(paste("Warning: See graphs generated and saved in working directory about the species without mean weight range"), file = Errors, append = TRUE)
-  }
- }
-  if (numberError ==0) {
-    write(paste("No error occurred"), file = Errors, append = TRUE)
+  ll <- list.files(tempdir())
+  if (length(ll) > 0) {
+    unlink(file.path(tempdir(), ll), recursive = TRUE)
   }
 
-  if (numberError ==0) {
-    return(TRUE)
-  } else { return(FALSE) }
-
-    if (dev.cur()>1){
-      while( dev.cur()>1 ){
-        dev.off()
-        print(dev.cur())
-      }
-    }
-    ll <- list.files(tempdir())
-    unlink(file.path(tempdir(),ll),recursive=T)
-
+  return(TRUE)
 }
+
 
 ###############################################################################
 

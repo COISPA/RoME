@@ -159,6 +159,12 @@ Fixes 0.1.39
 Fixes 0.2.0
 -----
 0. RDBFIS III Fixes 
-1. check_weight function modified to include an updated version of DataTargetSpecies table containing reference values of individual weights and lengths estimated from MEDITS TB table considering the percentile ranges: 10-90th and 25-75th.
+1. check_weight() now logs detailed records of species with mean weights outside reference ranges into a CSV file instead of writing extensive messages in the .dat log, ensuring clearer logs and easier downstream analysis. Plots are now saved exclusively to files and are no longer displayed interactively, and species plots are limited to those with at least 5 observations to reduce unnecessary graph generation. The function was adapted to work with the updated DataTargetSpecies table
+
+2. check_length() now saves all detailed inconsistencies into a CSV file instead of writing verbose messages in the .dat log, improving clarity and data traceability, using the new updated DataTargetSpecies table.
+
+3. check_individual_weightTC changed to save the table for the comparison between the estimated  vs observed weights in TC.
+
+4. the check_smallest_mature function was adapted to work with the updated DataTargetSpecies table
 
 
