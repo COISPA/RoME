@@ -59,10 +59,11 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
   ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
   AREA <- unique(ResultDataTB$AREA)[1]
 
-  Errors <- file.path(wd, "Logfiles", paste("Logfile_GSA", AREA, "_Year", year, "_", suffix, ".dat", sep = ""))
-  if (!file.exists(Errors)) {
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
+  if (!file.exists(Errors)){
     file.create(Errors)
   }
+
 
   ErrorsCSV <- file.path(wd, "Logfiles", paste("Check_Mean_Weights_Logfile_GSA", AREA, "_Year", year, "_", suffix, ".csv", sep = ""))
 

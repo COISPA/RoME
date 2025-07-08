@@ -36,8 +36,8 @@ check_length <- function(DataTC, DataSpecies = NA, year, wd, suffix, DataTargetS
   }
 
   # Define paths for log files
-  Errors <- file.path(wd, "Logfiles", paste("Logfile_", suffix, ".dat", sep = ""))
-  if (!file.exists(Errors)) {
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
+  if (!file.exists(Errors)){
     file.create(Errors)
   }
 

@@ -1,109 +1,216 @@
-############################################################################################################################
-#   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
-#   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
-#   Coispa Tecnologia & Ricerca - Stazione sperimentale per lo Studio delle Risorse del Mare                               #
-#   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
-#   January 2022                                                                                                           #
-############################################################################################################################
-
-# Check consistency of the length of smallest mature, comparing with literature
-
 if (FALSE){
-  ResultData = DataTC # tc # RoME::TC
-  year=2012
+  ResultData = read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/______ MEDITS DATA __OFFICIAL___/MEDBSsurvey/Demersal/TC_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
+  ResultData <- ResultData[ResultData$AREA == 18 & ResultData$YEAR == 2023, ]
+  year=2023
   MaturityParameters=RoME::Maturity_parameters
   TargetSpecies=RoME::DataTargetSpecies
-  wd <- tempdir()
-  suffix=NA
+  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
+  # suffix="smallest mature"
+  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   check_smallest_mature(ResultData,year,MaturityParameters=RoME::Maturity_parameters,TargetSpecies=RoME::DataTargetSpecies,wd,suffix)
-  }
+}
 
 
-
-check_smallest_mature<-function(ResultData,year,MaturityParameters=RoME::Maturity_parameters,TargetSpecies=RoME::DataTargetSpecies,wd,suffix){
-
-  Format="from_2012"
-  if (!file.exists(file.path(wd, "Logfiles"))){
+check_smallest_mature <- function(
+    ResultData,
+    year,
+    MaturityParameters = RoME::Maturity_parameters,
+    TargetSpecies = RoME::DataTargetSpecies,
+    wd,
+    suffix
+) {
+  if (!file.exists(file.path(wd, "Logfiles"))) {
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
   }
-  if (!exists("suffix")){
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
+
+  if (!exists("suffix")) {
+    suffix <- paste(as.character(Sys.Date()), format(Sys.time(), "_time_h%Hm%Ms%OS0"), sep = "")
   }
-  numberError = 0
-  Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
+
+  AREA <- unique(ResultData$AREA)[1]
+
+  # Define paths for log files
+  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
   if (!file.exists(Errors)){
     file.create(Errors)
   }
 
-  ### FILTERING DATA FOR THE SELECTED YEAR
-  arg <- "year"
-  if (!exists(arg)) {
-    stop(paste0("'", arg, "' argument should be provided"))
-  } else if (length(year) != 1) {
-    stop(paste0("only one value should be provided for '", arg, "' argument"))
-  } else if (is.na(year)) {
-    stop(paste0(arg, " argument should be a numeric value"))
-  }
+
+  ErrorsCSV <- file.path(
+    wd, "Logfiles",
+    paste("Check_Smallest_Mature_Logfile_GSA", AREA, "_Year", year, "_", suffix, ".csv", sep = "")
+  )
+
+  # Prepare CSV header
+  csv_header <- data.frame(
+    GSA = integer(),
+    Year = integer(),
+    Species = character(),
+    Sex = character(),
+    Haul = integer(),
+    Length_Class_mm = numeric(),
+    Threshold_mm = numeric(),
+    Literature_Threshold_mm = numeric(),
+    Reference = character(),
+    TYPE_OF_FILE = character(),
+    Type_of_Warning = character(),
+    stringsAsFactors = FALSE
+  )
+
+  write.table(
+    csv_header,
+    file = ErrorsCSV,
+    sep = ";",
+    row.names = FALSE,
+    col.names = TRUE
+  )
+
+  write(
+    paste("\n----------- check smallest mature individuals in TC -", year),
+    file = Errors,
+    append = TRUE
+  )
+
+  # Filter ResultData for the selected year
   ResultData <- ResultData[ResultData$YEAR == year, ]
-  ########################################
-  ResultData <- ResultData[!is.na(ResultData$LENGTH_CLASS),]
+  ResultData <- ResultData[!is.na(ResultData$LENGTH_CLASS), ]
 
+  if (nrow(ResultData) == 0) {
+    write("Empty TC data frame for the selected year.", file = Errors, append = TRUE)
+    return(TRUE)
+  }
 
-    write(paste("\n----------- check consistency of maturity stages", ResultData$TYPE_OF_FILE[1]," by means of the comparison with the lenght of smallest mature individuals in bibliography - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
-  ResultData$Species = paste(ResultData$GENUS,ResultData$SPECIES)
-  ResultData$Maturity = paste(as.character(ResultData$MATURITY),ifelse(is.na(ResultData$MATSUB),"",as.character(ResultData$MATSUB)), sep="")
+  # Prepare maturity table
+  mat_lmin <- MaturityParameters
+  mat_lmin$smallest_mature_individual_observed <- as.numeric(
+    mat_lmin$smallest_mature_individual_observed
+  )
+  mat_lmin <- mat_lmin[!is.na(mat_lmin$smallest_mature_individual_observed), ]
+  mat_lmin$Species <- as.character(mat_lmin$Species)
 
-    maturity_table = MaturityParameters
+  # Prepare species list
+  species_list <- TargetSpecies
+  species_list$FAUNISTIC_CATEGORY <- as.character(species_list$FAUNISTIC_CATEGORY)
 
-    species_list = TargetSpecies
-    mat_lmin = maturity_table[as.character(maturity_table$smallest_mature_individual_observed)!="n.a.",]
-    mat_lmin$Species <- as.character(mat_lmin$Species)
-    species_list$FAUNISTIC_CATEGORY <- as.character(species_list$FAUNISTIC_CATEGORY)
-    i <- "MULL BAR"
-  for (i in unique(mat_lmin$Species)){
-    cau_fau_temp =  species_list$FAUNISTIC_CATEGORY[paste(substring(species_list$SPECIES,1,4),substring(species_list$SPECIES,5,7)) == i]
-    mat_lmin_temp = mat_lmin[mat_lmin$Species == i,]
+  ResultData$Species <- paste(ResultData$GENUS, ResultData$SPECIES)
+  ResultData$Maturity <- paste(
+    as.character(ResultData$MATURITY),
+    ifelse(is.na(ResultData$MATSUB), "", as.character(ResultData$MATSUB)),
+    sep = ""
+  )
+
+  # Define immature codes
+  immature_codes <- c("0", "1", "2A")
+
+  warnings_list <- list()
+
+  # Loop over all species present in maturity parameters
+  for (i in unique(mat_lmin$Species)) {
+    cau_fau_temp <- species_list$FAUNISTIC_CATEGORY[
+      paste0(
+        substring(species_list$SPECIES, 1, 4),
+        substring(species_list$SPECIES, 5, 7)
+      ) == i
+    ]
+
+    mat_lmin_temp <- mat_lmin[mat_lmin$Species == i, ]
+
     for (j in 1:nrow(mat_lmin_temp)) {
-      Error_matrix = matrix(nrow=0, ncol=ncol(ResultData))
-      if (as.character(mat_lmin_temp$SEX[j]) == "C"){
-        ResultData_temp = ResultData[as.character(ResultData$Species) == as.character(mat_lmin_temp$Species[j]),]
-        mat_lmin_temp_sex = mat_lmin_temp[mat_lmin_temp$SEX == "C",]
+
+      # Select records for this species (and sex if not combined)
+      if (as.character(mat_lmin_temp$SEX[j]) == "C") {
+        ResultData_temp <- ResultData[
+          ResultData$Species == i,
+        ]
+        mat_lmin_temp_sex <- mat_lmin_temp[mat_lmin_temp$SEX == "C", ]
       } else {
-        ResultData_temp = ResultData[as.character(ResultData$Species) == as.character(mat_lmin_temp$Species[j]) & as.character(ResultData$SEX) == as.character(mat_lmin_temp$SEX[j]),]
-        mat_lmin_temp_sex = mat_lmin_temp[mat_lmin_temp$SEX == mat_lmin_temp$SEX[j],]
-      }
-      if ((as.character(cau_fau_temp)== "A"|(as.character(cau_fau_temp)== "Ao")) & as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1])!="n.a.") {
-        Error_matrix = ResultData_temp[((as.character(ResultData_temp$Maturity) != "0")|(as.character(ResultData_temp$Maturity) != "1")|(as.character(ResultData_temp$Maturity) != "2A")) & as.numeric(as.character(ResultData_temp$LENGTH_CLASS)) < as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))-0.1*as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))*10,]
-      } else if (as.character(cau_fau_temp)== "B"& as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1])!="n.a."){
-        Error_matrix = ResultData_temp[((as.character(ResultData_temp$Maturity) != "0" )| (as.character(ResultData_temp$Maturity) != "1")|(as.character(ResultData_temp$Maturity) != "2A")) & as.numeric(as.character(ResultData_temp$LENGTH_CLASS)) < as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))-0.1*as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))*10,]
-      } else if ( as.character(cau_fau_temp)== "C"& as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1])!="n.a.") {
-        Error_matrix = ResultData_temp[((as.character(ResultData_temp$Maturity) != "0" )| (as.character(ResultData_temp$Maturity) != "1")|(as.character(ResultData_temp$Maturity) != "2A"))& as.numeric(as.character(ResultData_temp$LENGTH_CLASS)) < as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))-0.1*as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))*10,]
-      } else if (( (as.character(cau_fau_temp)== "S")|(as.character(cau_fau_temp)== "Ae")) & as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1])!="n.a.") {
-        Error_matrix = ResultData_temp[(as.character(ResultData_temp$Maturity) != "0" |as.character(ResultData_temp$Maturity) != "1") & as.numeric(as.character(ResultData_temp$LENGTH_CLASS)) < as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))-0.1*as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))*10,]
+        ResultData_temp <- ResultData[
+          ResultData$Species == i &
+            ResultData$SEX == as.character(mat_lmin_temp$SEX[j]),
+        ]
+        mat_lmin_temp_sex <- mat_lmin_temp[
+          mat_lmin_temp$SEX == as.character(mat_lmin_temp$SEX[j]),
+        ]
       }
 
-      if (nrow(Error_matrix)!=0)  {
-        for (k in 1:nrow(Error_matrix)){
-          write(paste("Warning: Haul ",Error_matrix$HAUL_NUMBER[k],Error_matrix$Species[k],Error_matrix$SEX[k],"length",Error_matrix$LENGTH_CLASS[k],": specimen mature with size smaller than the smallest size reported in bibliography(",(as.numeric(as.character(mat_lmin_temp_sex$smallest_mature_individual_observed[1]))*10),").Please see Maturity_parameters.csv (folder 'Tables')"), file = Errors, append = TRUE)
-          print(i)
+      # Bibliographic threshold (cm) from MaturityParameters
+      literature_cm <- mat_lmin_temp_sex$smallest_mature_individual_observed[1]
+
+      # Convert thresholds to mm
+      literature_mm <- literature_cm * 10
+      threshold_mm <- (literature_cm - 0.1 * literature_cm) * 10
+
+      # Check for mature individuals below threshold
+      Error_matrix <- ResultData_temp[
+        !ResultData_temp$Maturity %in% immature_codes &
+          ResultData_temp$LENGTH_CLASS < threshold_mm,
+      ]
+
+      if (nrow(Error_matrix) != 0) {
+        for (k in 1:nrow(Error_matrix)) {
+          warnings_list[[length(warnings_list) + 1]] <- data.frame(
+            GSA = AREA,
+            Year = year,
+            Species = Error_matrix$Species[k],
+            Sex = Error_matrix$SEX[k],
+            Haul = Error_matrix$HAUL_NUMBER[k],
+            Length_Class_mm = Error_matrix$LENGTH_CLASS[k],
+            Threshold_mm = threshold_mm,
+            Literature_Threshold_mm = literature_mm,
+            Reference = mat_lmin_temp_sex$Reference[1],
+            TYPE_OF_FILE = Error_matrix$TYPE_OF_FILE[k],
+            Type_of_Warning = paste(
+              "Mature individual below bibliographic threshold of",
+              literature_mm, "mm",
+              "- threshold applied with 10% buffer =", round(threshold_mm, 1), "mm"
+            ),
+            stringsAsFactors = FALSE
+          )
         }
       }
     }
   }
 
-  if (numberError ==0) {
-    write(paste("Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC."), file = Errors, append = TRUE)
+  # Write results to CSV
+  if (length(warnings_list) > 0) {
+    warnings_df <- do.call(rbind, warnings_list)
+    warnings_df <- warnings_df[
+      order(warnings_df$Species, warnings_df$Haul, warnings_df$Sex),
+    ]
+
+    write.table(
+      warnings_df,
+      file = ErrorsCSV,
+      sep = ";",
+      row.names = FALSE,
+      col.names = FALSE,
+      append = TRUE
+    )
+
+    write(
+      paste(
+        nrow(warnings_df), "rows written to CSV file",
+        basename(ErrorsCSV),
+        "- records found with mature individuals below threshold."
+      ),
+      file = Errors,
+      append = TRUE
+    )
+  } else {
+    write(
+      "No inconsistencies detected. All maturity stages above bibliographic thresholds.",
+      file = Errors,
+      append = TRUE
+    )
   }
-#      if (file.exists(file.path(tempdir(), "Logfiles"))){
-#   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
-#   }
-#   if (file.exists(file.path(tempdir(), "Graphs"))){
-#   unlink(file.path(tempdir(),"Graphs"),recursive=T)
-#     }
-# 	if (file.exists(file.path(tempdir(), "files R-Sufi"))){
-#   unlink(file.path(tempdir(),"files R-Sufi"),recursive=T)
-#     }
-  if (numberError ==0) {
-    return(TRUE)
-  } else { return(FALSE) }
+
+  write(
+    paste("Attention: if you decide to change the maturity stages detected,",
+          "after the corrections, run again the code,",
+          "because you could have entered duplicated records in TC."),
+    file = Errors,
+    append = TRUE
+  )
+
+  return(TRUE)
 }

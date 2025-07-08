@@ -8,7 +8,7 @@
 
 # Start depth and end depth of each haul should be in the same stratum
 
-
+utils::globalVariables("stratification_scheme")
 
 if (FALSE){
   ResultData = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS\\ROU_Med&BS_MEDITS_TA(rev).csv",sep=";", header=TRUE)# RoME::TA

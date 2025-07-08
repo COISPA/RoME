@@ -167,4 +167,8 @@ Fixes 0.2.0
 
 4. the check_smallest_mature function was adapted to work with the updated DataTargetSpecies table
 
+5. check_smallest_mature: Improved handling of non-numeric values in Maturity_parameters and introduced a 10% buffer when checking lengths. Added a CSV output listing all records where mature individuals are smaller than reference sizes, including the threshold size and bibliographic references. The function has also been adapted to the new format of DataTargetSpecies.
 
+6. check_species_TBTC function improved with more robust data filtering checks, introduction of a new CSV output file for clearer results tracking, and streamlined log file content to reduce verbosity. The function has also been adapted to the new format of DataTargetSpecies.
+
+7. check_spawning_period now logs all maturity-stage consistency warnings into a dedicated CSV file rather than filling the .dat log with verbose messages, improving traceability and downstream analyses. The function robustly handles missing (NA) values in both maturity parameters and survey data to avoid false positives. It now separates warnings for immature individuals observed within the spawning period but above size thresholds, and for mature individuals found outside the spawning period, distinguishing whether they fall below bibliographic size limits. CSV outputs include comprehensive details such as spawning months, size thresholds, and the type of inconsistency detected. The function has been adapted to work with the updated DataTargetSpecies table.

@@ -13,7 +13,10 @@
 \source{http://www.fao.org/fileadmin/user_upload/faoweb/GFCM/Maps/GSAs_simplified.zip}
 \references{http://www.fao.org/gfcm/data/maps/gsas/en/}
 \examples{
-data(MedSea)
-plot(MedSea)
+\dontrun{
+  library(sp)
+  data(MedSea)
+  plot(MedSea)
+}
 }
 \keyword{datasets}
