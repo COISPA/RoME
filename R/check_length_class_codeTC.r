@@ -46,7 +46,7 @@ check_length_class_codeTC<-function(DataTC,Specieslist=RoME::TM_list,year, wd,su
   ResultData = DataTC
   write(paste("\n----------- check correctness of LENGTH_CLASSES_CODE in TC - ",ResultData$YEAR[1]), file = Errors, append = TRUE)
 
-  if (class(Specieslist) != "data.frame"){
+  if (!inherits(Specieslist, "data.frame")){
     if (all(is.na(Specieslist))){
       Specieslist = RoME::TM_list
     }

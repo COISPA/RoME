@@ -39,7 +39,7 @@ Some functions included in the 'RoME' library and used by \code{RoME} function n
 The function does not correct data, but it detects the errors, warning the user that there is the possibility of one or more errors, specifying the type of the error and easing the data correction. If parameter \code{verbose=TRUE} returns a series of text output in console to let the user to trace the state of the checks. All the output of the functions are stored in the user defined working directory  \code{wd} and in the sub-directory there resident. In the Lofile subfolder are stored the logfiles of each run of the function.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS 2011/principaledownload.htm}
-\author{I. Bitetto, W. Zupa}
+\author{W. Zupa,I. Bitetto}
 \examples{
 \donttest{
 wd <- tempdir()

@@ -11,7 +11,7 @@
 }
 \usage{
 check_length(DataTC, DataSpecies = NA, year, wd, suffix,
-  DataTargetSpecies = DataTargetSpecies)
+             DataTargetSpecies = RoME::DataTargetSpecies)
 }
 \arguments{
   \item{DataTC}{Biological data table (TC) formatted according to the
@@ -51,8 +51,7 @@ check_length(DataTC, DataSpecies = NA, year, wd, suffix,
   a CSV file in the working directory; if no issues are found, the CSV
   file remains empty apart from the header row.
 }
-\references{Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.
-\url{http://www.sibm.it/MEDITS%202011/principaledownload.htm}}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{W. Zupa, I. Bitetto}
 \examples{
   wd <- tempdir()
@@ -61,4 +60,3 @@ check_length(DataTC, DataSpecies = NA, year, wd, suffix,
   suffix <- "2020-03-05_time_h17m44s55"
   check_length(DataTC, DataSpecies = NA, year = 2007, wd, suffix)
 }
-\keyword{misc}

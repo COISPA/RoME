@@ -12,7 +12,7 @@ check_position_in_Med(DataTA, year, wd, suffix)
     \item{suffix}{Suffix string of the Logfile}
 }
 \details{The function uses the \code{haul_at_sea()} function to check whether the position of the haul is in the Mediterranean Sea area or falls on the land.}
-\value{The function returns a boolean value. It is FALSE in case one or more haul positions fall out of the Mediterranean Sea area defined by the shapefile{MedSea} included in the package.}
+\value{The function returns a boolean value. It is FALSE in case one or more haul positions fall out of the Mediterranean Sea area defined by the shapefile \emph{MedSea} included in the package.}
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{

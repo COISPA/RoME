@@ -48,7 +48,7 @@ check_individual_weightTC<- function (DataTC,LW=NA,year,wd,suffix, verbose=FALSE
 
   write(paste("\n----------- check consistency total weight in the haul in TC - ",TC$YEAR[1]), file = Errors, append = TRUE)
 
-  if (class(LW) != "data.frame"){
+  if (!inherits(LW, "data.frame")){
     if (is.na(LW)){
     if (verbose){
     message("a and b parameters extracted from RoMEBS LW table")
