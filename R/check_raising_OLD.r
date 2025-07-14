@@ -16,7 +16,7 @@ if (FALSE){
 }
 
 
-check_raising<-function(ResultDataTB,ResultDataTC,year,wd,suffix){
+check_raising_OLD<-function(ResultDataTB,ResultDataTC,year,wd,suffix){
 Format="from_2012"
 
 if (!file.exists(file.path(wd, "Logfiles"))){

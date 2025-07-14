@@ -8,6 +8,16 @@ check_dictionary <- function(
     wd,            # working directory for logs
     suffix         # character: suffix for logfile
 ) {
+
+
+  if (FALSE){
+    ResultData = ResultDataTA
+    Field
+    Values
+    year=yea
+    wd
+    suffix
+  }
   # --- Setup log directory and logfile ---
   log_dir <- file.path(wd, "Logfiles")
   if (!dir.exists(log_dir)) dir.create(log_dir, recursive = TRUE)
@@ -78,7 +88,7 @@ check_dictionary <- function(
   # --- Combine messages and write to log ---
   msgs <- c(msgs_na, msgs_empty, msgs_inv)
   if (length(msgs) == 0) msgs <- sprintf("No error occurred for field %s in %s", Field, tf)
-  writeLines(msgs, log_file, sep = "\n")
+  write(msgs,file = log_file, append = TRUE)
 
   # --- Return TRUE if no errors ---
   length(msgs) == 1 && grepl("^No error occurred", msgs)

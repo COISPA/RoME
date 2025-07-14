@@ -114,7 +114,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
   headers_without_error <- TRUE
   year_without_error <- TRUE
   class_without_error <- TRUE
-   TYPE_OF_FILE_without_error <- TRUE
+  TYPE_OF_FILE_without_error <- TRUE
   check.df <- data.frame(matrix(ncol=5,nrow=0))
   colnames(check.df) <- c("errors","check type","table","variable","year") # ,"warnings"
   yea <- NA
@@ -220,11 +220,15 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
   }
  ###########
 
+
   if (headers_without_error) {
+
+    write(paste("\n----------- check CLASS"), file = Errors, append = TRUE)
 
     ### CHECK CLASS
     ### TA
     table <- "TA"
+    write(paste("\n----------------- table ",table), file = Errors, append = TRUE)
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
@@ -241,6 +245,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
 
     ### TB
     table <- "TB"
+    write(paste("\n----------------- table ",table), file = Errors, append = TRUE)
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
@@ -258,6 +263,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
 
     ### TC
     table <- "TC"
+    write(paste("\n----------------- table ",table), file = Errors, append = TRUE)
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
@@ -277,6 +283,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
     if (!(all(is.na(TE)) & length(TE)==1))
     {
     table <- "TE"
+    write(paste("\n----------------- table ",table), file = Errors, append = TRUE)
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
@@ -296,6 +303,7 @@ RoMEcc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratification
     if (!(all(is.na(TL)) & length(TL)==1))
     {
     table <- "TL"
+    write(paste("\n----------------- table ",table), file = Errors, append = TRUE)
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
       if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
@@ -559,6 +567,8 @@ if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
        }
      }
 
+     write(paste("                ----------- check dictionary - ",yea), file = Errors, append = TRUE)
+     write(paste("TA:"), file = Errors, append = TRUE)
 #TA
 table <- "TA"
 checkName = "Check dictionary"
@@ -1050,7 +1060,8 @@ check_without_warnings <- check.list[[3]]
 
 
 #TB
-
+  write(paste("\n                ----------- check dictionary - ",yea), file = Errors, append = TRUE)
+  write(paste("TB:"), file = Errors, append = TRUE)
   checkName = "Check dictionary"
   table <- "TB"
   Field = "COUNTRY"
@@ -1213,6 +1224,8 @@ check_without_warnings <- check.list[[3]]
 
 
 #TC
+write(paste("\n                ----------- check dictionary - ",yea), file = Errors, append = TRUE)
+write(paste("TC:"), file = Errors, append = TRUE)
 checkName = "Check dictionary"
 table <- "TC"
 Field = "COUNTRY"
@@ -1415,6 +1428,8 @@ check_without_warnings <- check.list[[3]]
 #TE
 checkName = "Check dictionary"
 table <- "TE"
+write(paste("\n                ----------- check dictionary - ",yea), file = Errors, append = TRUE)
+write(paste("TE:"), file = Errors, append = TRUE)
   if (!(all(is.na(TE)) & length(TE)==1)){
   if (nrow(ResultDataTE)>0){
     Field = "COUNTRY"
@@ -1643,6 +1658,8 @@ table <- "TE"
 
   # TL
 table <- "TL"
+write(paste("\n                ----------- check dictionary - ",yea), file = Errors, append = TRUE)
+write(paste("TL:"), file = Errors, append = TRUE)
   if (!(all(is.na(TL)) & length(TL)==1)){
     if (nrow(ResultDataTL)>0){
       checkName = "Check dictionary"
@@ -1963,6 +1980,18 @@ checkName = "Check consistency of stratum code in TA"
     if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
     check_without_errors = check_stratum_code(ResultDataTA,year=yea,Strata=Stratification,wd,suffix)
   }
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
+
+
+checkName = "Check swept area"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_swept_area(ResultDataTA, year=yea, wd, suffix)
+}
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
 check.df <- check.list[[1]]

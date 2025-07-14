@@ -7,9 +7,21 @@ importFrom(grDevices, dev.off, tiff, pdf, dev.cur, dev.new, graphics.off, jpeg)
 importFrom(graphics, legend, par, text, mtext)
 importFrom(utils, read.csv, globalVariables, write.table)
 importFrom(stringr, str_extract, str_length)
-importFrom(ggplot2, aes, geom_point, geom_sf, ggplot, ggsave, ggtitle, theme,
-           element_blank, element_rect, element_text, scale_fill_manual)
+importFrom(ggplot2, aes, geom_point, geom_sf, ggplot, ggsave, ggtitle, theme, labs,
+           element_blank, geom_rect, element_rect, element_text, scale_fill_manual,
+           scale_fill_identity, theme_bw, coord_sf)
 importFrom(graphics, lines)
-importFrom(ggplot2, coord_sf)
+importFrom(ggrepel, geom_text_repel)
+importFrom(dplyr,
+           mutate,
+           across,
+           group_by,
+           summarise,
+           select,
+           inner_join,
+           filter,
+           n_distinct,
+           if_else,
+           tibble)
 import(rnaturalearthdata)
 import(maps)

@@ -22,4 +22,6 @@ Imports:
   rnaturalearthdata,
   zip,
   maps,
-  sp
+  sp,
+  dplyr,
+  ggrepel

@@ -1956,6 +1956,16 @@ check.df <- check.list[[1]]
 check_without_errors <- check.list[[2]]
 check_without_warnings <- check.list[[3]]
 
+checkName = "Check swept area"
+if (check_without_errors == TRUE) {
+  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  check_without_errors = check_swept_area(ResultDataTA, year=yea, wd, suffix)
+}
+if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
+check.list <- error.table(check.df,check_without_errors,check_without_warnings,checkName,table,Field,yea)
+check.df <- check.list[[1]]
+check_without_errors <- check.list[[2]]
+check_without_warnings <- check.list[[3]]
 
 
 checkName = "Check start quadrant and end quadrant TA"

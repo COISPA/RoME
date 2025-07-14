@@ -1651,6 +1651,25 @@ RoME <- function(TA, TB, TC, TE = NA, TL = NA, wd, suffix = NA, create_RSufi_fil
       stop_ <- printError(checkName, check_without_errors, stop_)
     }
 
+
+    checkName = "Check swept area"
+    if (check_without_errors == TRUE) {
+      if(verbose){
+        print(paste(checkName,Field,"in progress..."), quote = FALSE)
+      }
+      check_without_errors = check_swept_area(ResultDataTA, year=yea, wd, suffix)
+    }
+    if(verbose){
+      stop_ = printError_cc(checkName,check_without_errors, stop_)
+    }
+
+
+
+
+
+
+
+
     checkName <- "Check start quadrant and end quadrant TA"
     if (check_without_errors == TRUE) {
       if (verbose) {

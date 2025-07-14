@@ -178,3 +178,8 @@ Fixes 0.2.0
 9. check_length(): the internal per-row loop has been replaced with vectorized index computations (which() + match()), and all I/O is consolidated into single write.table() and write() calls. These changes preserve the original logic and output formats (including handling of missing, negative, and out-of-range classes with the updated DataTargetSpecies), while delivering a ≈66% reduction in the routine's execution time (e.g., from 2.77 s down to 0.93 s).
 
 10. Replaced all class(...) == checks with inherits(...) to improve code robustness and avoid R CMD check notes. Fixed documentation mismatchs, ensuring consistency between code default arguments and Rd files. Corrected a misplaced brace in the Rd documentation of check_position_in_Med(), resolving a note from R CMD check.
+
+11. NEW function: check_swept_area 
+
+12. updated function: check_raising with new checks inside 
+
