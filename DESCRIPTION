@@ -24,4 +24,5 @@ Imports:
   maps,
   sp,
   dplyr,
-  ggrepel
+  ggrepel,
+  magrittr

@@ -9,9 +9,10 @@ importFrom(utils, read.csv, globalVariables, write.table)
 importFrom(stringr, str_extract, str_length)
 importFrom(ggplot2, aes, geom_point, geom_sf, ggplot, ggsave, ggtitle, theme, labs,
            element_blank, geom_rect, element_rect, element_text, scale_fill_manual,
-           scale_fill_identity, theme_bw, coord_sf)
+           scale_fill_identity, theme_bw, coord_sf, geom_boxplot, facet_wrap, coord_flip)
 importFrom(graphics, lines)
 importFrom(ggrepel, geom_text_repel)
+importFrom(magrittr,"%>%")
 importFrom(dplyr,
            mutate,
            across,
@@ -22,6 +23,8 @@ importFrom(dplyr,
            filter,
            n_distinct,
            if_else,
-           tibble)
+           tibble,
+           all_of,
+           pull)
 import(rnaturalearthdata)
 import(maps)

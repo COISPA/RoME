@@ -18,7 +18,7 @@ if (FALSE){
 
 
 check_raising <- function(ResultDataTB, ResultDataTC, year, wd, suffix = NULL) {
-  suppressPackageStartupMessages(library(dplyr))
+  # suppressPackageStartupMessages(library(dplyr))
 
   # --------------------------- Logging setup ----------------------------------
   if (!dir.exists(file.path(wd, "Logfiles")))
