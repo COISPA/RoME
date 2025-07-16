@@ -20,12 +20,14 @@ importFrom(dplyr,
            summarise,
            select,
            inner_join,
+           anti_join,
            filter,
            n_distinct,
            if_else,
            tibble,
            all_of,
            pull,
-           arrange)
+           arrange,
+           n)
 import(rnaturalearthdata)
 import(maps)

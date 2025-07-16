@@ -1,7 +1,7 @@
 
 # RoME
 
-**Authors**: I. Bitetto, W. Zupa
+**Authors**: W. Zupa, I. Bitetto
 
 COISPA Tecnologia & Ricerca, Stazione Sperimentale per lo Studio delle
 Risorse del Mare

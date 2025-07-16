@@ -26,3 +26,6 @@ Imports:
   dplyr,
   ggrepel,
   magrittr
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown
+RoxygenNote: 7.3.2

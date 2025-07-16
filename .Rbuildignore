@@ -1,4 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 README.Rmd
-RoME_0.1.39.pdf
+RoME_0.2.1.pdf
+^doc$
+^Meta$
