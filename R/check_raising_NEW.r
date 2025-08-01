@@ -7,10 +7,10 @@
 ############################################################################################################################
 # Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
 if (FALSE){
-       ResultDataTB = RoME::TB
-       ResultDataTC = RoME::TC
-       ResultDataTC[1:3, "WEIGHT_OF_THE_FRACTION"] <- 50
-       year=2007
+       ResultDataTB = tb # oME::TB
+       ResultDataTC = tc #RoME::TC
+       # ResultDataTC[1:3, "WEIGHT_OF_THE_FRACTION"] <- 50
+       year=2023
        wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
        suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
        check_raising(ResultDataTB,ResultDataTC,year,wd,suffix)
@@ -40,7 +40,7 @@ check_raising <- function(ResultDataTB, ResultDataTC, year, wd, suffix = NULL) {
     mutate(across(c(WEIGHT_OF_THE_FRACTION, WEIGHT_OF_THE_SAMPLE_MEASURED), as.numeric)) %>%
     group_by(COUNTRY, YEAR, HAUL_NUMBER, GENUS, SPECIES) %>%
     summarise(n_subsamples = n_distinct(WEIGHT_OF_THE_FRACTION),
-              total_fraction = sum(WEIGHT_OF_THE_FRACTION, na.rm = TRUE),
+              total_fraction = sum(unique(WEIGHT_OF_THE_FRACTION), na.rm = TRUE),
               .groups = "drop")
 
   mismatch_weight <- ResultDataTB %>%

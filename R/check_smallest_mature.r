@@ -30,23 +30,23 @@ check_smallest_mature <- function(
   AREA <- unique(ResultData$AREA)[1]
 
   # Define paths for log files
-  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
-  if (!file.exists(Errors)){
+  Errors <- file.path(wd, "Logfiles", paste("Logfile_", suffix, ".dat", sep = ""))
+  if (!file.exists(Errors)) {
     file.create(Errors)
   }
-
 
   ErrorsCSV <- file.path(
     wd, "Logfiles",
     paste("Check_Smallest_Mature_Logfile_GSA", AREA, "_Year", year, "_", suffix, ".csv", sep = "")
   )
 
-  # Prepare CSV header
+  # Prepare CSV header (Maturity column added after Sex)
   csv_header <- data.frame(
     GSA = integer(),
     Year = integer(),
     Species = character(),
     Sex = character(),
+    Maturity = character(),          # NEW COLUMN
     Haul = integer(),
     Length_Class_mm = numeric(),
     Threshold_mm = numeric(),
@@ -100,7 +100,7 @@ check_smallest_mature <- function(
   )
 
   # Define immature codes
-  immature_codes <- c("0", "1", "2A")
+  immature_codes <- c("0", "0ND", "NDND", "1", "1ND", "2A")
 
   warnings_list <- list()
 
@@ -153,6 +153,7 @@ check_smallest_mature <- function(
             Year = year,
             Species = Error_matrix$Species[k],
             Sex = Error_matrix$SEX[k],
+            Maturity = Error_matrix$Maturity[k],       # NEW COLUMN VALUE
             Haul = Error_matrix$HAUL_NUMBER[k],
             Length_Class_mm = Error_matrix$LENGTH_CLASS[k],
             Threshold_mm = threshold_mm,
