@@ -2,36 +2,41 @@
 \alias{check_distance}
 \title{Check of distance consistency}
 \description{
-The function checks wherther there are inconsistencies between the DISTANCE field values and the computed distance.}
+The function checks whether there are inconsistencies between the \code{DISTANCE} field values in the TA table and the distances computed from the geographical coordinates of each haul.
+}
 \usage{
 check_distance(DataTA, year, wd, suffix)
 }
 \arguments{
-    \item{DataTA}{Haul data table according to MEDITS protocol (TA)}
-    \item{year}{reference year for the analysis}
-    \item{wd}{working directory path defined by the user}
-    \item{suffix}{Suffix string of the Logfile}
+  \item{DataTA}{Haul data table formatted according to the MEDITS protocol (TA table).}
+  \item{year}{Reference year for the analysis.}
+  \item{wd}{Working directory path defined by the user.}
+  \item{suffix}{Suffix string to uniquely identify the output logfile and plots.}
 }
-\details{The comparison between distance in TA and computed distance is performed with a tolerance of 30\%. The formula used to compute the distance from the start and end coordinates is:\cr
-\if{html}{\figure{distance01.png}{options: width="30\%"}}
-\if{latex}{\figure{distance01.png}}\cr
-where: \cr
-\if{html}{\figure{distance02.png}{options: width="45\%"}}
-\if{latex}{\figure{distance02.png}}\cr
-and
-\cr
-\if{html}{\figure{distance03.png}{options: width="25\%"}}
-\if{latex}{\figure{distance03.png}}\cr
-All the coordinates involved in the formulas above are in decimal degrees; the routine converts automatically the coordinates listed in TA using the package 'MEDITS'.
+\details{
+The comparison between the \code{DISTANCE} field and the distance computed from shooting and hauling coordinates is performed with a tolerance threshold of 30\%.
+
+The geographic distance is calculated using the function \code{distGeo()} from the \code{geosphere} package, which computes the shortest path (great-circle distance) between two points on the Earth's ellipsoid (WGS84) using coordinates in decimal degrees.
+
+Coordinates in the TA table are usually expressed in degrees and decimal minutes. These are automatically converted into decimal degrees using the internal function \code{MEDITS.to.dd()} before the computation.
 }
-\value{The function returns always TRUE because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks. The presence of inconsistencies between DISTANCE field and computed distance is reported in the logfile stored in the "Logfiles"" subdirectory of the "wd" user-defined directory. For the hauls with a computed distance quite different from the distance recorded in TA a plot is produced and stored in Graphs directory to allow an easier correction.
+\value{
+The function always returns \code{TRUE}. Its purpose is to generate warnings for hauls where the recorded \code{DISTANCE} differs significantly from the computed geographic distance.
+
+Warnings are saved in a logfile located in the \code{Logfiles} subdirectory of the specified working directory. Additionally, for hauls with discrepancies, graphical maps are generated and saved in the \code{Graphs} subdirectory to support visual inspection and correction.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
-\author{I. Bitetto, W. Zupa}
+\references{
+Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \cr
+\url{https://www.sibm.it/MEDITS 2011/principaledownload.htm} \cr
+
+Hijmans, R. J. (2019). \emph{geosphere: Spherical Trigonometry}. R package version 1.5-10. \cr
+\url{https://cran.r-project.org/package=geosphere}
+}
+\author{W. Zupa, I. Bitetto}
 \examples{
 wd <- tempdir()
-suffix="2020-03-05_time_h17m44s55"
-year=2007
-check_distance(RoME::TA,year,wd,suffix)
+suffix <- "2020-03-05_time_h17m44s55"
+year <- 2007
+check_distance(RoME::TA, year, wd, suffix)
 }
-\keyword{ warning }
+\keyword{quality-control}

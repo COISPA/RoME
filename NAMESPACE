@@ -29,5 +29,6 @@ importFrom(dplyr,
            pull,
            arrange,
            n)
+importFrom(geosphere, distGeo)
 import(rnaturalearthdata)
 import(maps)

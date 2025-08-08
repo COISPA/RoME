@@ -11,8 +11,11 @@
     #library(MEDITS)
     wd <- tempdir() # "D:\\Documents and Settings\\Utente\\Documenti\\GitHub\\RoME\\temp"
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    DataTA = ta # RoME::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";")
-    year=2015
+    DataTA = RoME::TA #read.csv("~/GitHub/RoME/data/TA_GSA18_1994-2018.csv", sep=";") # ta #
+    DataTA$SHOOTING_LATITUDE[1] <- DataTA$HAULING_LATITUDE[1]
+    # DataTA$HAULING_LATITUDE[2] <- DataTA$HAULING_LATITUDE[1]
+
+    year=2007
     #DataTA[1, "SHOOTING_LATITUDE" ] <- 435.11
     check_distance(DataTA,year,wd,suffix)
  }
@@ -59,17 +62,29 @@ check_distance<-function(DataTA,year, wd, suffix){
   ResultData=ResultData[ResultData$VALIDITY=="V",]
   ResultData=MEDITS.to.dd(ResultData)
 
-  i=1
-  for (i in 1:nrow(ResultData)){
-    ResultData$computed_distance[i]= dd.distance(ResultData[i,], unit = "m", verbose=FALSE)
-    if (is.nan(ResultData$computed_distance[i])) {
-      ResultData$computed_distance[i] = 0
-    }
+  ResultData$computed_distance <- mapply(function(lon1, lat1, lon2, lat2) {
+    d <- distGeo(c(lon1, lat1), c(lon2, lat2))
+    if (is.nan(d)) d <- 0
+    return(d)
+  },
+  ResultData$SHOOTING_LONGITUDE,
+  ResultData$SHOOTING_LATITUDE,
+  ResultData$HAULING_LONGITUDE,
+  ResultData$HAULING_LATITUDE
+  )
 
-    if (ResultData$computed_distance[i]==0 & ResultData$SHOOTING_LATITUDE[i] == ResultData$HAULING_LATITUDE[i]) {
-      write(paste("Warning: Haul",ResultData$HAUL_NUMBER[i],": the values of the SHOOTING and HAULING LATITUDE are the same. Please, check the consistency of the latitude values."), file = Errors, append = TRUE)
-    }
+  ResultData$computed_distance <- round(ResultData$computed_distance)
 
+  # CHECK: latitudine uguale e distanza nulla
+  idx_same_lat_zero_dist <- which(ResultData$computed_distance == 0 &
+                                    ResultData$SHOOTING_LATITUDE == ResultData$HAULING_LATITUDE)
+
+  if (length(idx_same_lat_zero_dist) > 0) {
+    for (i in idx_same_lat_zero_dist) {
+      write(paste("Warning: Haul", ResultData$HAUL_NUMBER[i],
+                  ": the values of the SHOOTING and HAULING LATITUDE are the same. Please, check the consistency of the latitude values."),
+            file = Errors, append = TRUE)
+    }
   }
 
   lx = (max(ResultData$SHOOTING_LONGITUDE)+0.1) - (min(ResultData$SHOOTING_LONGITUDE)-0.1)

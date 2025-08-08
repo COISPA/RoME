@@ -187,3 +187,8 @@ check_raising() has been rewritten to use native dplyr operations, which removes
 
 13. NEW function: plot_abundance()
 Introduces an automated routine that reads TA and TB tables, computes swept-area-standardised abundance indices (n/km^2) per haul and species, applies quality-control filters (swept area missing/zero, invalid totals, minimum number of hauls), and produces box-plots in chunks of maximum 36 species each. All images are saved to Graphs/Abundance and a detailed logfile is written to Logfiles/. 
+
+14. updated function: check_distance()
+Replaced the custom distance calculation with the function geosphere::distGeo() for computing geodesic distances between shooting and hauling coordinates.
+This modification avoids the issue of estimating zero distances when the same value is reported for both shooting and hauling longitude or latitude in a given haul.
+Computational efficiency was improved by vectorizing the distance computation using mapply() instead of a row-wise loop.
