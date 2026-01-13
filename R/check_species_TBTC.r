@@ -130,15 +130,15 @@ check_species_TBTC <- function(
             ResultTB$HAUL_NUMBER[j],
             "(year", year, ")"
           )
-          warning(warning_msg)
+          # warning(warning_msg)
 
           # Optionally write each warning to the log file:
           # Uncomment below if you want one warning per line in .dat
-          # write(
-          #   warning_msg,
-          #   file = Errors,
-          #   append = TRUE
-          # )
+          write(
+            warning_msg,
+            file = Errors,
+            append = TRUE
+          )
         }
       }
     }

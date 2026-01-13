@@ -1,10 +1,12 @@
 if (FALSE){
-  ResultData = read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/______ MEDITS DATA __OFFICIAL___/MEDBSsurvey/Demersal/TC_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
-  ResultData <- ResultData[ResultData$AREA == 18 & ResultData$YEAR == 2023, ]
-  year=2023
+  ResultData = read.table("~/__ DATI MEDITS AGGIORNATI __/_____MEDITS DATA/GSA18/2025/TC ALB-MON 2025.csv",sep=";",header=TRUE)
+  ResultData2 = read.table("~/__ DATI MEDITS AGGIORNATI __/_____MEDITS DATA/GSA18/2025/TE 2025.csv",sep=";",header=TRUE)
+
+  ResultData <- ResultData[ResultData$AREA == 18 & ResultData$YEAR == 2025, ]
+  year=2025
   MaturityParameters=RoME::Maturity_parameters
   TargetSpecies=RoME::DataTargetSpecies
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
+  wd <- "~/__ DATI MEDITS AGGIORNATI __/_____MEDITS DATA/GSA18/2025"
   # suffix="smallest mature"
   suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   check_smallest_mature(ResultData,year,MaturityParameters=RoME::Maturity_parameters,TargetSpecies=RoME::DataTargetSpecies,wd,suffix)
@@ -57,13 +59,15 @@ check_smallest_mature <- function(
     stringsAsFactors = FALSE
   )
 
-  write.table(
-    csv_header,
-    file = ErrorsCSV,
-    sep = ";",
-    row.names = FALSE,
-    col.names = TRUE
-  )
+  if (!file.exists(ErrorsCSV)) {
+    write.table(
+      csv_header,
+      file = ErrorsCSV,
+      sep = ";",
+      row.names = FALSE,
+      col.names = TRUE
+    )
+  }
 
   write(
     paste("\n----------- check smallest mature individuals in TC -", year),
