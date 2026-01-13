@@ -104,7 +104,7 @@ check_smallest_mature <- function(
   )
 
   # Define immature codes
-  immature_codes <- c("0", "0ND", "NDND", "1", "1ND", "2A")
+  immature_codes <- c("0", "0ND", "NDND", "1", "1ND", "2A", "1O", "0O")
 
   warnings_list <- list()
 

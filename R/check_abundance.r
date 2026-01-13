@@ -86,12 +86,12 @@ check_abundance <- function(ResultDataTA,
   if (nrow(bad_total) > 0) {
     for (ii in seq_len(nrow(bad_total))) {
       bt <- bad_total[ii, ]
-      msg <- sprintf("Error: Haul %s %s %s TOTAL_NUMBER_IN_THE_HAUL = %s (faunistic cat. %s) - removed from analysis.",
+      msg <- sprintf("Warning: Haul %s %s %s TOTAL_NUMBER_IN_THE_HAUL = %s (faunistic cat. %s) - removed from analysis.",
                      bt$HAUL_NUMBER, bt$GENUS, bt$SPECIES,
                      ifelse(is.na(bt$TOTAL_NUMBER_IN_THE_HAUL), "NA", bt$TOTAL_NUMBER_IN_THE_HAUL),
                      bt$FAUNISTIC_CATEGORY)
       write(msg, file = log_file, append = TRUE)
-      numberError <- numberError + 1
+      # numberError <- numberError + 1
     }
 
     idx <- anti_join(idx, bad_total, by = colnames(bad_total))
