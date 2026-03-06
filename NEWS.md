@@ -192,3 +192,8 @@ Introduces an automated routine that reads TA and TB tables, computes swept-area
 Replaced the custom distance calculation with the function geosphere::distGeo() for computing geodesic distances between shooting and hauling coordinates.
 This modification avoids the issue of estimating zero distances when the same value is reported for both shooting and hauling longitude or latitude in a given haul.
 Computational efficiency was improved by vectorizing the distance computation using mapply() instead of a row-wise loop.
+
+Fixes 0.2.1
+-----
+0. RDBFIS III Fixes 
+1. Included the stratification schema table used in the Black Sea, by Romania and Bulgaria, in the rana whek beam trawl survey: stratification_scheme_rapana.
