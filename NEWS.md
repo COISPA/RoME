@@ -197,3 +197,7 @@ Fixes 0.2.1
 -----
 0. RDBFIS III Fixes 
 1. Included the stratification schema table used in the Black Sea, by Romania and Bulgaria, in the rana whek beam trawl survey: stratification_scheme_rapana.
+
+Fixes 0.2.2 (26/03/2026)
+-----
+Improved check_spawning_period() by matching TA and TC records on both HAUL_NUMBER and COUNTRY, avoiding incorrect month assignments when haul numbers are shared across countries.
