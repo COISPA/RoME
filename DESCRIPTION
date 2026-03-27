@@ -26,7 +26,10 @@ Imports:
   dplyr,
   ggrepel,
   magrittr,
-  geosphere
+  geosphere,
+  shiny, 
+  shinyjs,
+  svDialogs
 VignetteBuilder: knitr
 Suggests: knitr, rmarkdown
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

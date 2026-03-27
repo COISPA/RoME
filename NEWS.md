@@ -201,3 +201,5 @@ Fixes 0.2.1
 Fixes 0.2.2 (26/03/2026)
 -----
 Improved check_spawning_period() by matching TA and TC records on both HAUL_NUMBER and COUNTRY, avoiding incorrect month assignments when haul numbers are shared across countries.
+
+Added an embedded Shiny application to the package: run_RoME_app(). It provides a graphical user interface for running RoME analyses directly from the package environment.
