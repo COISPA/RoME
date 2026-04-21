@@ -13,10 +13,12 @@
 \source{\url{https://www.fao.org/fileadmin/user_upload/faoweb/GFCM/Maps/GSAs_simplified.zip}}
 \references{\url{https://www.fao.org/gfcm/data/maps/gsas/en/}}
 \examples{
-\dontrun{
+\donttest{
   library(sp)
   data(MedSea)
   plot(MedSea)
 }
 }
 \keyword{datasets}
+
+

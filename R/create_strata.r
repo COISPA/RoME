@@ -47,3 +47,5 @@ create_strata<-function(Stratification=RoME::stratification_scheme,AREA,wd,save=
 
 }
 ###########################################################################################################################
+
+

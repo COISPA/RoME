@@ -12,7 +12,7 @@ The function checks the presence of 0 fields in the following haul data table (T
     }
 
 \value{The function returns a boolean value. It is FALSE in case 0 values are detected in the TA table's fields}
-\references{Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
+\references{Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{Isabella Bitetto [aut,cre] <bitetto@coispa.it>;
         Walter Zupa [aut, cre] <zupa@coispa.it>}
 \examples{
@@ -22,4 +22,6 @@ check_0_fieldsTA(RoME::TA,wd,suffix, year=2007)
 }
 
 \keyword{ error }
+
+
 

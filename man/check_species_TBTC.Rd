@@ -24,7 +24,7 @@ This function gives a warning message, thus the execution is not stopped when so
 The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 I. Bitetto, W. Zupa
@@ -38,3 +38,5 @@ ResultTC=RoME::TC
 check_species_TBTC(ResultTB,ResultTC,year,RoME::DataTargetSpecies,wd,suffix)
 }
 \keyword{cross-check TBTC}
+
+

@@ -15,7 +15,7 @@ check_hauls_TLTA(DataTA,DataTL,year,wd,suffix)
 }
 \details{The function checks whether all the hauls present in litter data table (TL) are included in the haul data table (TA). }
 \value{The function returns TRUE if no error occurs, while FALSE is returned when there are missing hauls in the TA table.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 \donttest{
@@ -28,3 +28,5 @@ check_hauls_TLTA(DataTA,DataTL,year,wd,suffix)
 }
 }
 \keyword{ error }
+
+

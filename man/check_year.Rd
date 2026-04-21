@@ -26,7 +26,7 @@ TA, TB and TC tables are mandatory while TE and TL could be used where available
 \value{
 The function returns FALSE when errors are detected in the YEAR field of the data tables.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()
@@ -38,3 +38,5 @@ The function returns FALSE when errors are detected in the YEAR field of the dat
 }
 
 \keyword{ error }
+
+

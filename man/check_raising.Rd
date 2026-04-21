@@ -29,9 +29,9 @@ The function executes \strong{five} independent validations:
 given haul/species in \code{TC}, the sum of
 \code{WEIGHT_OF_THE_FRACTION} must equal \code{TOTAL_WEIGHT_IN_THE_HAUL}
 recorded in \code{TB}.
-\item \emph{Raising factor} -- For each subsample the ratio \eqn{molt} given by \code{WEIGHT_OF_THE_FRACTION} / \code{WEIGHT_OF_THE_SAMPLE_MEASURED} must be \eqn{\ge 1}.
+\item \emph{Raising factor} -- For each subsample the ratio \eqn{molt}{molt} given by \code{WEIGHT_OF_THE_FRACTION} / \code{WEIGHT_OF_THE_SAMPLE_MEASURED} must be \eqn{\ge 1}{\ge 1}.
 \item \emph{Sex-specific numbers} -- For every combination
-haul \verb{*} species \verb{*} sex the raised total of individuals in \code{TC}
+haul \code{*} species \code{*} sex the raised total of individuals in \code{TC}
 must match \code{TB} columns \code{NB_OF_FEMALES}, \code{NB_OF_MALES}
 or \code{NB_OF_UNDETERMINED}.
 \item \emph{Total individuals (TC -> TB)} -- For every haul/species the sum of
@@ -63,17 +63,19 @@ notes during \command{R CMD check}:
 Logical scalar: \code{TRUE} if the dataset passes all checks, \code{FALSE}
 otherwise.
 }
-\author{I. Bitetto, W. Zupa, M. T. Spedicato -- rewrite by ChatGPT (July 2025)}
+\author{I. Bitetto, W. Zupa, M. T. Spedicato}
 \seealso{\code{\link[dplyr]{dplyr}} for the data-manipulation verbs used under
 the hood.}
 \examples{
-\dontrun{
+\donttest{
 
-TB and TC come from the RoME package demo data
+# TB and TC come from the RoME package demo data
 
 library(RoME)
 res <- check_raising(TB, TC, year = 2015, wd = tempdir())
 if (res) message("All checks passed!")
 }
 }
+
+
 

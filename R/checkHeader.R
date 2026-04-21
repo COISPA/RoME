@@ -188,3 +188,5 @@ checkHeader <- function(dataframe, template, wd, suffix)
   }
 
 }
+
+

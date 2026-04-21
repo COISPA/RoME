@@ -28,7 +28,7 @@ These fields are compared to the number of records present in TE by sex, length 
 \value{
 The function returns FALSE in case inconsistencies are detected in the individual biological data table (TE)
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 
@@ -40,3 +40,5 @@ The function returns FALSE in case inconsistencies are detected in the individua
 
 }
 \keyword{ error }
+
+

@@ -218,3 +218,5 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
 utils::globalVariables(c(
   "fill_color", "HAUL_NUMBER", "mean_depth", "swept_area_km2", "xmax", "xmin", "ymax", "ymin"
 ))
+
+

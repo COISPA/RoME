@@ -80,7 +80,7 @@ check_nb_per_sexTC <- function(DataTC,year,wd,suffix){
                             "SEX","Sum")
 
       write("The column nb per sex has been found empty, then it was computed automatically.", file = Errors, append = TRUE)
-      print("The column nb per sex has been found empty, then it was computed automatically and saved in the TC_file_with_computed_nb_per_sex.csv.Please, fill in the nb per sex field in the original file, using the file produced and run again the code.",quote=FALSE)
+      message("The column nb per sex has been found empty, then it was computed automatically and saved in the TC_file_with_computed_nb_per_sex.csv.Please, fill in the nb per sex field in the original file, using the file produced and run again the code.")
       k=1
       for (k in 1:nrow(table1)){
         Result[which(Result$GENUS==table1$GENUS[k] & Result$SPECIES==table1$SPECIES[k] & Result$HAUL_NUMBER==table1$HAUL_NUMBER[k] &
@@ -111,3 +111,5 @@ check_nb_per_sexTC <- function(DataTC,year,wd,suffix){
     return(FALSE)
     }
 }
+
+

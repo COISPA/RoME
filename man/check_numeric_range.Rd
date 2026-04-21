@@ -17,7 +17,7 @@ check_numeric_range(Data, Field, Values, year, wd, suffix)
 The function checks the consistence of the values contained in specific fields with the relative allowed range of values. The function allows to include exceptions to the allowed range of values for specific values. The check is performed on any of the "TX" data tables.
 }
 \value{The function returns TRUE if no error occurs, while FALSE is returned when inconsistencies are detected. The list of all the records in which the inconsistency is detected is reported in the logfile.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{W. Zupa}
 \examples{
     wd <- tempdir()
@@ -30,3 +30,5 @@ The function checks the consistence of the values contained in specific fields w
 }
 
 \keyword{ error }
+
+

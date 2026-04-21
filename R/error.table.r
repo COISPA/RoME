@@ -41,3 +41,5 @@ error.table <- function(check.df,check_without_errors,check_without_warnings,che
   check_without_warnings = TRUE
   return(list(check.df,check_without_errors,check_without_warnings))
 }
+
+

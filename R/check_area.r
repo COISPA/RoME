@@ -216,3 +216,5 @@ if (  (all(is.na(DataTE)) & length(DataTE)==1  ) & (all(is.na(DataTL)) & length(
     return(TRUE)
   } else { return(FALSE) }
 }
+
+

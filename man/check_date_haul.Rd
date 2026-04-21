@@ -13,7 +13,7 @@
 \details{The function check whether in one of the TX file allowed in Data argument there are date consistent with the one reported in the haul data table (TA).}
 \value{The function returns TRUE if no error occurs, while FALSE is returned when in the Date data frame there is one or more date not included in the TA tables.}
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 I. Bitetto, W. Zupa
@@ -28,3 +28,5 @@ I. Bitetto, W. Zupa
 }
 
 \keyword{error}
+
+

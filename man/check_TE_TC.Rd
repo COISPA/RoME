@@ -21,7 +21,7 @@ This function gives an error message, thus the execution is  stopped if in TE ar
 The function returns TRUE if there is no error, while FALSE if there is one or more errors.The run, in case of error, thus, is stopped.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 I. Bitetto, W. Zupa
@@ -35,3 +35,5 @@ year=2012
 check_TE_TC(tc,te,year,wd,suffix)
 }
 \keyword{cross-check TETC}
+
+

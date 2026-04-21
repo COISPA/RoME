@@ -20,7 +20,7 @@ For each individual is calculated the estimated weight according to length-weigh
 \value{
 If for at least one record the difference between observed and estimated individual weight is greater than 20\% a warning is given in Logfile.dat and a table named TE_with_estimated_weights.csv is automatically produced in order to allow the user to easily eventually detect the errors. For all the records the percentage difference between observed and estimated weight is reported.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 \donttest{
@@ -31,3 +31,5 @@ If for at least one record the difference between observed and estimated individ
     }
 }
 \keyword{ warning }
+
+

@@ -14,13 +14,16 @@ printError(funname,check_without_errors, stop_)
 \item{stop_}{TRUE if the 'RoME' function has to stop, FALSE if the run should continue}
 }
 \value{
-Description of the error is reported in the logfile and/or in the console.
+The function updates the `stop_` value and returns it as a logical value.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
-\dontrun{
-printError(funname,check_without_errors, stop_)
+\donttest{
+# Usage example (conceptual):
+# printError("check_abundance", FALSE, FALSE)
 }
 }
 \keyword{error}
+
+

@@ -17,7 +17,7 @@ Check between duration of the haul and distance (tolerance of 15\%). The functio
 \value{
 The function generates warning messages in the logfile and returns always TRUE.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd=tempdir()
@@ -25,3 +25,5 @@ suffix="2020-03-05_time_h17m44s55"
 check_consistencyTA_distance(RoME::TA,year=2012,wd,suffix)
 }
 \keyword{error}
+
+

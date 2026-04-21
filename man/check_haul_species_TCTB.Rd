@@ -18,7 +18,7 @@ check_haul_species_TCTB(DataTB, DataTC, year, wd, suffix)
 \value{
 If a species present in the TC table (biological data table) is not reported in the TB (catch data table) an error message is reported in the logfile and a "Critical_errors" file is saved in the working directory reporting details on the errors.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd <- tempdir()
@@ -27,3 +27,5 @@ year=2008
 check_haul_species_TCTB(RoME::TB, RoME::TC, year, wd, suffix)
 }
 \keyword{ warning }
+
+

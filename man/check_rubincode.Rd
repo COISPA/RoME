@@ -20,7 +20,7 @@ The checks execution is stopped if any mismatching record was found.}
 The function returns always TRUE if used to check TB tables, indicating in the logfile the species codes not present in TM list. If unexpected rubin codes are detected in both TC and TE tables an error (FALSE value) is reported in the logfile, interrupting the function running.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 I. Bitetto, W. Zupa
@@ -41,3 +41,5 @@ check_rubincode(TC,year,TM_list,wd,suffix)
 }
 \keyword{rubincode}
 \keyword{TM list}
+
+

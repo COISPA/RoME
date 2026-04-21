@@ -137,7 +137,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
          if (headers$class[c] %in% c("interger","numeric") & (class(table[,c])!=headers$class[c])) {
            class(table[,c]) <- headers$class[c]
            if (verbose) {
-             print(paste0("- class modified: ",headers$RDBFIS,"\n"))
+             message(paste0("- class modified: ",headers$RDBFIS,"\n"))
            }
          }
        }
@@ -163,7 +163,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
         if (headers$class[c] %in% c("interger","numeric") & (class(table[,c])!=headers$class[c])) {
           class(table[,c]) <- headers$class[c]
           if (verbose) {
-            print(paste0("- class modified: ",headers$RDBFIS,"\n"))
+            message(paste0("- class modified: ",headers$RDBFIS,"\n"))
           }
         }
       }
@@ -189,7 +189,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
         if (headers$class[c] %in% c("interger","numeric") & (class(table[,c])!=headers$class[c])) {
           class(table[,c]) <- headers$class[c]
           if (verbose) {
-            print(paste0("- class modified: ",headers$RDBFIS,"\n"))
+            message(paste0("- class modified: ",headers$RDBFIS,"\n"))
           }
         }
       }
@@ -216,7 +216,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
         if (headers$class[c] %in% c("interger","numeric") & (class(table[,c])!=headers$class[c])) {
           class(table[,c]) <- headers$class[c]
           if (verbose) {
-            print(paste0("- class modified: ",headers$RDBFIS,"\n"))
+            message(paste0("- class modified: ",headers$RDBFIS,"\n"))
           }
         }
       }
@@ -249,7 +249,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
         if (headers$class[c] %in% c("interger","numeric") & (class(table[,c])!=headers$class[c])) {
           class(table[,c]) <- headers$class[c]
           if (verbose) {
-            print(paste0("- class modified: ",headers$RDBFIS,"\n"))
+            message(paste0("- class modified: ",headers$RDBFIS,"\n"))
           }
         }
       }
@@ -261,3 +261,7 @@ headers.conversion <- function(table,type,verbose=FALSE) {
 
   return(table)
 }
+
+
+
+

@@ -116,3 +116,5 @@ check_stratum<-function(ResultData,year,wd,suffix){
     return(TRUE)
   } else { return(FALSE) }
 }
+
+

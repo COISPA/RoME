@@ -17,7 +17,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   {
     traits=read.csv(file=traitsString,sep=";",header=TRUE)
   }else{
-    print(paste("File: ",traitsString, "NOT found" ))
+    message(paste("File: ",traitsString, "NOT found" ))
   }
 
 
@@ -26,7 +26,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   {
     tailles=read.csv(file=taillesString,sep=";",header=TRUE)
   }else{
-    print(paste("File: ",taillesString, "NOT found" ))
+    message(paste("File: ",taillesString, "NOT found" ))
   }
 
 
@@ -35,7 +35,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
   {
     captures=read.csv(file=capturesString,sep=";",header=TRUE)
   }else{
-    print(paste("File: ",capturesString, "NOT found"))
+    message(paste("File: ",capturesString, "NOT found"))
   }
 
   Year_start=as.numeric(Year_start)
@@ -50,7 +50,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
       traits2=read.csv(file=traits2String,sep=";")
       traits=rbind(traits,traits2)
     }else{
-      print(paste("File: ",traits2String, "NOT found"))
+      message(paste("File: ",traits2String, "NOT found"))
     }
 
 
@@ -60,7 +60,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
       tailles2=read.csv(file=tailles2String,sep=";")
       tailles=rbind(tailles,tailles2)
     }else{
-      print(paste("File: ",tailles2String, "NOT found"))
+      message(paste("File: ",tailles2String, "NOT found"))
     }
 
 
@@ -70,7 +70,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
       captures2=read.csv(file=captures2String,sep=";")
       captures=rbind(captures,captures2)
     }else{
-      print(paste("File: ",captures2String, "NOT found"))
+      message(paste("File: ",captures2String, "NOT found"))
     }
 
 
@@ -83,7 +83,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
     write.table(tailles,file=file.path(wd,"files R-Sufi",paste("taille_GSA",AREA,"_",Year_start,"-",Year_end,".csv",sep="")),sep=";",row.names=FALSE)
   }, error = function(e)
     {
-    print(e)
+    message(e)
   })
 
   #unlink(file.path(tempdir(),"Logfiles"),recursive=T)
@@ -94,3 +94,7 @@ RSufi_files<-function(Year_start,Year_end,AREA,wd){
 #     }
 
   }
+
+
+
+

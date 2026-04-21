@@ -18,7 +18,7 @@ RSufi_files(Year_start,Year_end,AREA,wd)
 The function saves automatically in the files R-Sufi folder the 4 global files, with suffix of the year range and GSA.}
 \references{
 Rochet M. J., V. M. Trenkel, J. A. Bertrand & J.-C. Poulard, 2004. R routines for survey based fisheries population and community indicators (R-SUFI). Ifremer, Nantes. Limited distribution.
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 TA = RoME::TA
@@ -36,3 +36,5 @@ create_strata(Stratification,"10",wd,save=TRUE)
 }
 \keyword{R-sufi}
 \keyword{global files}
+
+

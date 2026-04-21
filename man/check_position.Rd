@@ -12,7 +12,7 @@
 \details{
 The haul position maps are saved in the Graph directory allocated in the user defined wd directory.}
 \value{The function generate three maps of the haul position that are stored in the Graph folder allocated in the user defined wd directory}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd <- tempdir()
@@ -23,3 +23,5 @@ check_position(RoME::TA,year,wd,suffix)
 
 \keyword{ warning }
 \keyword{ plot }
+
+

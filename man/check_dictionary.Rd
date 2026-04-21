@@ -13,7 +13,7 @@
 }
 \details{The function checks the consistence of the contained in specific fields with the relative allowed values. The check is performed on the hauls data table (TA), the catch data table (TB), the biological data table (TC) and the individual biological data (TE).}
 \value{The function returns TRUE if no error occurs, while FALSE is returned when there are differences between the field values and the reference dictionaries. In the logfile is reported the list of all the records in which the inconsistency is detected.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()
@@ -26,3 +26,5 @@
 }
 
 \keyword{ error }
+
+

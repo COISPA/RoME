@@ -101,3 +101,5 @@ suppressWarnings(  haul_on_land <- haul_at_sea(ResultData,year, seas=RoME::MedSe
   } else { return(FALSE) }
 
 }
+
+

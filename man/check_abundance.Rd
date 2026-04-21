@@ -5,7 +5,7 @@
 This function reads matching MEDITS \code{TA} (haul metadata) and
 \code{TB} (catch numbers) tables for a single survey year, computes the swept
 area for each haul, derives haul-level abundance indices expressed as
-individuals per km\(^2\), and produces one or more box-plots that summarise the
+individuals per \eqn{km^2}{km^2}, and produces one or more box-plots that summarise the
 distribution of those indices by species.  The plots are written to the folder
 \file{<wd>/Graphs/Abundance/} and a logfile is produced under
 \file{<wd>/Logfiles/} with a summary of any quality-control issues
@@ -50,11 +50,13 @@ Logical scalar (\code{TRUE} if no errors, \code{FALSE} otherwise).
 }
 \author{W. Zupa.}
 \examples{
-\dontrun{
+\donttest{
 wd <- tempdir()
 check_abundance(ResultDataTA = RoME::TA,
-               ResultDataTA = RoME::TB,
+               ResultDataTB = RoME::TB,
                year = 2007,
                wd   = wd)
 }
 }
+
+

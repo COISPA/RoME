@@ -19,7 +19,7 @@ This check uses the temperature range 10-30 Celsius degrees to provide quantitat
 The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 I. Bitetto, W. Zupa
@@ -32,3 +32,5 @@ suffix="2020-03-05_time_h17m44s55"
 check_temperature(TA,year,wd,suffix)
 }
 \keyword{temperature}
+
+

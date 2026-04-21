@@ -34,13 +34,12 @@ A logical value:
 \details{
 This function performs multiple validation steps on TA-format data for MEDITS hauls. It verifies that certain key columns contain numeric values and checks for missing or empty entries in critical fields such as \code{WING_OPENING} and \code{DISTANCE}.
 
-For each haul, it calculates the mean depth as the average of \code{SHOOTING_DEPTH} and \code{HAULING_DEPTH}, and estimates the swept area in square kilometers using the formula \eqn{(WING\_OPENING / 10) * DISTANCE / 10^6}. Any inconsistencies or errors encountered during these checks are written to a logfile stored in the \code{Logfiles} folder.
+For each haul, it calculates the mean depth as the average of \code{SHOOTING_DEPTH} and \code{HAULING_DEPTH}, and estimates the swept area in square kilometers using the formula \eqn{(WING\_OPENING / 10) \times DISTANCE / 10^6}{(WING_OPENING / 10) * DISTANCE / 10^6}. Any inconsistencies or errors encountered during these checks are written to a logfile stored in the \code{Logfiles} folder.
 If the data contains valid entries, the function generates and saves a scatter plot showing the swept area against mean depth. The plot includes a background shading to visually separate the depth range 0-200 meters from deeper strata, assisting in the interpretation of data distribution across depth zones.
 All output files are organized within subfolders named \code{Logfiles} and \code{Graphs} under the specified working directory.
 }
 \examples{
-# Example usage (pseudo-code, requires actual data):
-
+\donttest{
 # Define working directory
 wd <- tempdir()
 
@@ -50,6 +49,9 @@ ResultDataTA <- RoME::TA
 # Filter for specific area if needed
 ResultDataTA <- ResultDataTA[ResultDataTA$AREA == 18, ]
 
-# Run the check for year 2025
+# Run the check for year 2005
 check_swept_area(ResultDataTA, year = 2005, wd = wd, suffix = NULL)
 }
+}
+
+

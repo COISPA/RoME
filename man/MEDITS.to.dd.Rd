@@ -22,3 +22,5 @@ The function returns the data frame of the TA table with the coordinates express
 % R documentation directory.
 \keyword{coordinates}% use one of  RShowDoc("KEYWORDS")
 \keyword{TA}% __ONLY ONE__ keyword per line
+
+

@@ -40,3 +40,5 @@ dd.distance(TA.dd, unit="km", verbose=FALSE)
 
 \keyword{coordinates}
 \keyword{TA}
+
+

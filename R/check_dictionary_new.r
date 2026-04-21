@@ -93,3 +93,5 @@ check_dictionary <- function(
   # --- Return TRUE if no errors ---
   length(msgs) == 1 && grepl("^No error occurred", msgs)
 }
+
+

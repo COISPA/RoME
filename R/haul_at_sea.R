@@ -72,3 +72,5 @@ haul_at_sea <- function(DataTA, year, seas=RoME::MedSea, verbose=TRUE) {
   }
   return(results)
 }
+
+

@@ -51,7 +51,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
   table <- "TA"
   checkName = "Check Headers TA"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,table, "in progress..."))}
     check_without_errors =   checkHeader(TA,"TA",wd,suffix)
     if (headers_without_error){
        headers_without_error <- check_without_errors
@@ -67,7 +67,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
   table <- "TB"
   checkName = "Check Headers TB"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,table, "in progress..."))}
     check_without_errors =   checkHeader(TB,"TB",wd,suffix)
     if (headers_without_error){
       headers_without_error <- check_without_errors
@@ -83,7 +83,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
   table <- "TC"
   checkName = "Check Headers TC"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,table, "in progress..."))}
     check_without_errors =   checkHeader(TC,"TC",wd,suffix)
     if (headers_without_error){
       headers_without_error <- check_without_errors
@@ -106,7 +106,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TE"
     checkName = "Check Headers TE"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   checkHeader(TE,"TE",wd,suffix)
       if (headers_without_error){
         headers_without_error <- check_without_errors
@@ -126,7 +126,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TL"
     checkName = "Check Headers TL"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   checkHeader(TL,"TL",wd,suffix)
       if (headers_without_error){
         headers_without_error <- check_without_errors
@@ -148,7 +148,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TA"
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   check_class(data=TA,tab="TA",wd=wd,suffix=suffix)
       if (class_without_error){
         class_without_error <- check_without_errors
@@ -164,7 +164,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TB"
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   check_class(data=TB,tab="TB",wd=wd,suffix=suffix)
       if (class_without_error){
         class_without_error <- check_without_errors
@@ -181,7 +181,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TC"
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   check_class(data=TC,tab="TC",wd=wd,suffix=suffix)
       if (class_without_error){
         class_without_error <- check_without_errors
@@ -200,7 +200,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TE"
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   check_class(data=TE,tab="TE",wd=wd,suffix=suffix)
       if (class_without_error){
         class_without_error <- check_without_errors
@@ -219,7 +219,7 @@ RoMEBScc <- function(TA,TB,TC,TE=NA,TL=NA,wd,suffix=NA,verbose=TRUE,Stratificati
     table <- "TL"
     checkName = "Check CLASS"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,table, "in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,table, "in progress..."))}
       check_without_errors =   check_class(data=TL,tab="TL",wd=wd,suffix=suffix)
       if (class_without_error){
         class_without_error <- check_without_errors
@@ -242,7 +242,7 @@ table <- "ALL"
 
 checkName = "Check YEAR"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName, "in progress..."))}
    check_without_errors = check_year(TA, TB, TC, TE, TL, years, wd, Errors)
    year_without_error <- check_without_errors
 }
@@ -256,7 +256,7 @@ if (check_without_errors == TRUE) {
 if (year_without_error){
   checkName = "Check TYPE_OF_FILE"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName, "in progress..."))}
    check_without_errors = check_type(TA, TB, TC, TE, TL, years, wd, Errors)
    TYPE_OF_FILE_without_error <- check_without_errors
 }
@@ -275,12 +275,12 @@ if (class_without_error & year_without_error & TYPE_OF_FILE_without_error){
 yea <- years[1]
 for (yea in years) {
 
-  cat(paste0("\n########################"))
-  cat(paste0("\n###       ",yea,"       ###"))
-  cat(paste0("\n########################"))
+  if(verbose) cat(paste0("\n########################"))
+  if(verbose) cat(paste0("\n###       ",yea,"       ###"))
+  if(verbose) cat(paste0("\n########################"))
 
 if (check_without_errors == TRUE & verbose==TRUE) {
-print(paste("Checking year ",yea ),quote=F)
+message(paste("Checking year ",yea ))
 }
 
 #------------------
@@ -308,7 +308,7 @@ print(paste("Checking year ",yea ),quote=F)
 table <- "TA"
 checkName = "Check identical record TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_identical_records(Data=ResultDataTA, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -320,7 +320,7 @@ if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 table <- "TB"
 checkName= "Check identical record TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_identical_records(Data=ResultDataTB,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -332,7 +332,7 @@ if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 table <- "TC"
 checkName = "Check identical record TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_identical_records(Data=ResultDataTC,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -347,7 +347,7 @@ if (!(all(is.na(TE)) & length(TE)==1))
   if (nrow(ResultDataTE)>0){
   checkName = "Check identical record TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_identical_records(Data=ResultDataTE,year=yea,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -364,7 +364,7 @@ if (!(all(is.na(TL)) & length(TL)==1))
   if (nrow(ResultDataTL)>0){
   checkName = "Check identical record TL"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_identical_records(Data=ResultDataTL,year=yea,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -381,7 +381,7 @@ if (!(all(is.na(TL)) & length(TL)==1))
 table <- "TA"
 checkName = "Check quasi-identical record in TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName, "in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName, "in progress..."))}
    check_without_errors = check_quasiidentical_records(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -393,7 +393,7 @@ if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 table <- "TB"
 checkName = "Check quasi-identical record in TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
    check_without_errors = check_quasiidentical_records(ResultDataTB,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -406,7 +406,7 @@ if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
 table <- "TC"
 checkName = "Check quasi-identical record in TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_quasiidentical_records(ResultDataTC,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -421,7 +421,7 @@ if (!(all(is.na(TE)) & length(TE)==1))
   if (nrow(ResultDataTE)>0){
     checkName = "Check quasi-identical record in TE"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_quasiidentical_records(ResultDataTE,year=yea,wd,suffix)
     }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -438,7 +438,7 @@ if (!(all(is.na(TL)) & length(TL)==1))
   if (nrow(ResultDataTL)>0){
     checkName = "Check quasi-identical record in TL"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_quasiidentical_records(ResultDataTL,year=yea,wd,suffix)
     }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -456,7 +456,7 @@ if (!(all(is.na(TL)) & length(TL)==1))
 table <- "ALL"
 checkName = "Check consistency of area TA, TB, TC, TE, TL"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = suppressWarnings(check_area(ResultDataTA, ResultDataTB, ResultDataTC, ResultDataTE, ResultDataTL, year=yea, wd, suffix))
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -486,7 +486,7 @@ checkName = "Check dictionary"
 Field = "COUNTRY"
 Values = as.character(unique(Stratification$COUNTRY))
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -501,7 +501,7 @@ checkName = "Check dictionary"
 Field = "AREA"
 Values = as.character(unique(Stratification$GSA))
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -514,7 +514,7 @@ if (check_without_errors == TRUE) {
      Field = "GEAR"
      Values = c("GOC73","TRAWL","BOTTR","OTB")
      if (check_without_errors == TRUE) {
-       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+       if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
      if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -527,7 +527,7 @@ if (check_without_errors == TRUE) {
      Field = "RIGGING"
      Values = c("GC73","TRW")
      if (check_without_errors == TRUE) {
-       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+       if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
      if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -540,7 +540,7 @@ if (check_without_errors == TRUE) {
      Field = "DOORS"
      Values = c("WHS8","WHS0","TRW","ND","W2")
      if (check_without_errors == TRUE) {
-       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+       if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
      if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -553,7 +553,7 @@ if (check_without_errors == TRUE) {
      Field = "MONTH"
      Values = seq(1,12,1)
      if (check_without_errors == TRUE) {
-       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+       if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
      if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -566,7 +566,7 @@ if (check_without_errors == TRUE) {
      Field = "DAY"
      Values = seq(1,31,1)
      if (check_without_errors == TRUE) {
-       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+       if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
      if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -578,7 +578,7 @@ if (check_without_errors == TRUE) {
      Field = "HAUL_NUMBER"
      Values = seq(1,999,1)
      if (check_without_errors == TRUE) {
-       if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+       if(verbose){message(paste(checkName,Field,"in progress..."))}
        check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
      }
      if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -591,7 +591,7 @@ if (check_without_errors == TRUE) {
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -604,7 +604,7 @@ check_without_warnings <- check.list[[3]]
 Field = "PART_OF_THE_CODEND"
 Values = c("A","M","P","S")
 if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -617,7 +617,7 @@ check_without_warnings <- check.list[[3]]
 Field = "SHOOTING_TIME"
 Values = time # seq(0,2400,1)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -630,7 +630,7 @@ check_without_warnings <- check.list[[3]]
 Field = "SHOOTING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -644,7 +644,7 @@ checkName = "Check numeric range"
 Field = "SHOOTING_LATITUDE"
 Values = c(4086,4730)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -657,7 +657,7 @@ check_without_warnings <- check.list[[3]]
 Field = "SHOOTING_LONGITUDE"
 Values = c(2740,4180)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -670,7 +670,7 @@ checkName = "Check dictionary"
 Field = "SHOOTING_DEPTH"
 Values = c(0:100)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -683,7 +683,7 @@ check_without_warnings <- check.list[[3]]
 Field = "HAULING_QUADRANT"
 Values = c("1", "3", "5", "7")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -696,7 +696,7 @@ checkName = "Check numeric range"
 Field = "HAULING_LATITUDE"
 Values = c(4086,4730)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -709,7 +709,7 @@ check_without_warnings <- check.list[[3]]
 Field = "HAULING_LONGITUDE"
 Values = c(2740, 4180)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -723,7 +723,7 @@ checkName = "Check dictionary"
 Field = "HAULING_TIME"
 Values = time # seq(0,2400,1)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -736,7 +736,7 @@ check_without_warnings <- check.list[[3]]
 Field = "HAULING_DEPTH"
 Values = c(0,10:800)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -749,7 +749,7 @@ check_without_warnings <- check.list[[3]]
 Field = "HAUL_DURATION"
 Values = c(5:90)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -762,7 +762,7 @@ check_without_warnings <- check.list[[3]]
 Field = "VALIDITY"
 Values = c("V","I")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -775,7 +775,7 @@ check_without_warnings <- check.list[[3]]
 Field = "COURSE"
 Values = c("R","N")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -788,7 +788,7 @@ check_without_warnings <- check.list[[3]]
 Field = "DISTANCE"
 Values = c(1000:9999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -801,7 +801,7 @@ check_without_warnings <- check.list[[3]]
 Field = "VERTICAL_OPENING"
 Values = c(-1, 10:100)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -814,7 +814,7 @@ check_without_warnings <- check.list[[3]]
 Field = "WING_OPENING"
 Values = c(50:250)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -827,7 +827,7 @@ check_without_warnings <- check.list[[3]]
 Field = "GEOMETRICAL_PRECISION"
 Values = c("M","E")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -840,7 +840,7 @@ check_without_warnings <- check.list[[3]]
   Field = "MEASURING_SYSTEM"
   Values = c("VA","SO","XA","SA","SI","CT","CD","SB",NA)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -854,7 +854,7 @@ check_without_warnings <- check.list[[3]]
   Field = "RECORDED_SPECIES"
   Values = seq(0,4,1)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -868,7 +868,7 @@ check_without_warnings <- check.list[[3]]
   Field = "WARP_LENGTH"
   Values = c(-1,seq(100,2200,1))
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -881,7 +881,7 @@ check_without_warnings <- check.list[[3]]
   Field = "WARP_DIAMETER"
   Values = seq(10,30,1)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -894,7 +894,7 @@ check_without_warnings <- check.list[[3]]
   Field = "OBSERVATIONS"
   Values = seq(0,9,1)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -908,7 +908,7 @@ check_without_warnings <- check.list[[3]]
   Field = "BOTTOM_TEMPERATURE_BEGINNING"
   Values = c(0,30)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -921,7 +921,7 @@ check_without_warnings <- check.list[[3]]
   Field = "BOTTOM_TEMPERATURE_END"
   Values = c(0,30)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -934,7 +934,7 @@ check_without_warnings <- check.list[[3]]
   Field = "BOTTOM_SALINITY_BEGINNING"
   Values = c(0,50)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -947,7 +947,7 @@ check_without_warnings <- check.list[[3]]
   Field = "BOTTOM_SALINITY_END"
   Values = c(0,50)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_numeric_range(Data = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -966,7 +966,7 @@ check_without_warnings <- check.list[[3]]
   Field = "COUNTRY"
   Values = as.character(unique(Stratification$COUNTRY))
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -979,7 +979,7 @@ check_without_warnings <- check.list[[3]]
   Field = "AREA"
   Values = as.character(unique(Stratification$GSA))
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTA, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -992,7 +992,7 @@ check_without_warnings <- check.list[[3]]
   Field = "MONTH"
   Values = seq(1,12,1)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1005,7 +1005,7 @@ check_without_warnings <- check.list[[3]]
   Field = "DAY"
   Values = seq(1,31,1)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1018,7 +1018,7 @@ check_without_warnings <- check.list[[3]]
   Field = "HAUL_NUMBER"
   Values = seq(1,999,1)
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,Field,"in progress..."))}
     check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1031,7 +1031,7 @@ check_without_warnings <- check.list[[3]]
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1045,7 +1045,7 @@ check_without_warnings <- check.list[[3]]
 Field = "PART_OF_THE_CODEND"
 Values = c("A", "M", "P", "S")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1059,7 +1059,7 @@ checkName = "Check numeric range"
 Field = "TOTAL_WEIGHT_IN_THE_HAUL"
 Values = c(0,9999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1072,7 +1072,7 @@ check_without_warnings <- check.list[[3]]
 Field = "TOTAL_NUMBER_IN_THE_HAUL"
 Values = c(0,9999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1085,7 +1085,7 @@ check_without_warnings <- check.list[[3]]
 Field = "NB_OF_FEMALES"
 Values = c(0,9999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1098,7 +1098,7 @@ check_without_warnings <- check.list[[3]]
 Field = "NB_OF_MALES"
 Values = c(0,9999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1111,7 +1111,7 @@ check_without_warnings <- check.list[[3]]
 Field = "NB_OF_UNDETERMINED"
 Values = c(0,9999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTB, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1128,7 +1128,7 @@ table <- "TC"
 Field = "COUNTRY"
 Values = as.character(unique(Stratification$COUNTRY))
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1141,7 +1141,7 @@ check_without_warnings <- check.list[[3]]
 Field = "AREA"
 Values = as.character(unique(Stratification$GSA))
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1154,7 +1154,7 @@ check_without_warnings <- check.list[[3]]
 Field = "MONTH"
 Values = seq(1,12,1)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1167,7 +1167,7 @@ check_without_warnings <- check.list[[3]]
 Field = "DAY"
 Values = seq(1,31,1)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1180,7 +1180,7 @@ check_without_warnings <- check.list[[3]]
 Field = "HAUL_NUMBER"
 Values = seq(1,999,1)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1193,7 +1193,7 @@ check_without_warnings <- check.list[[3]]
 Field = "CODEND_CLOSING"
 Values = c("S","C")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1206,7 +1206,7 @@ check_without_warnings <- check.list[[3]]
 Field = "PART_OF_THE_CODEND"
 Values = c("A", "M", "P", "S")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1219,7 +1219,7 @@ check_without_warnings <- check.list[[3]]
 Field = "LENGTH_CLASSES_CODE"
 Values = c("m", "0", "1")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1233,7 +1233,7 @@ checkName = "Check numeric range"
 Field = "WEIGHT_OF_THE_FRACTION"
 Values = c(0,999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1246,7 +1246,7 @@ check_without_warnings <- check.list[[3]]
 Field = "WEIGHT_OF_THE_SAMPLE_MEASURED"
 Values = c(0,999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1259,7 +1259,7 @@ check_without_warnings <- check.list[[3]]
 Field = "NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED"
 Values = c(0,999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1272,7 +1272,7 @@ check_without_warnings <- check.list[[3]]
 Field = "NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE"
 Values = c(0,999999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_numeric_range(Data = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1286,7 +1286,7 @@ checkName = "Check dictionary"
 Field = "SEX"
 Values = c("M", "F", "I", "N")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1299,7 +1299,7 @@ check_without_warnings <- check.list[[3]]
 Field = "LENGTH_CLASS"
 Values = c(1:9999)
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1312,7 +1312,7 @@ check_without_warnings <- check.list[[3]]
 Field = "MATURITY"
 Values = c(0:4,"ND")
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_dictionary(ResultData = ResultDataTC, Field, Values, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1330,7 +1330,7 @@ table <- "TE"
     Field = "COUNTRY"
     Values = as.character(unique(Stratification$COUNTRY))
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1343,7 +1343,7 @@ table <- "TE"
     Field = "AREA"
     Values = as.character(unique(Stratification$GSA))
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1356,7 +1356,7 @@ table <- "TE"
     Field = "MONTH"
     Values = seq(1,12,1)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1369,7 +1369,7 @@ table <- "TE"
     Field = "DAY"
     Values = seq(1,31,1)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1382,7 +1382,7 @@ table <- "TE"
     Field = "HAUL_NUMBER"
     Values = seq(1,999,1)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1395,7 +1395,7 @@ table <- "TE"
     Field = "LENGTH_CLASSES_CODE"
     Values = c("0","m","1")
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1408,7 +1408,7 @@ table <- "TE"
     Field = "SEX"
     Values = c("M", "F", "I", "N")
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1422,7 +1422,7 @@ table <- "TE"
     Field = "NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_OTOLITH"
     Values = c(0,999999)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_numeric_range(Data = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1435,7 +1435,7 @@ table <- "TE"
     Field = "NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_WEIGHT"
     Values = c(1,999999)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_numeric_range(Data = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1448,7 +1448,7 @@ table <- "TE"
     Field = "NO_PER_SEX_MEASURED_IN_SUB_SAMPLE_FOR_AGEING"
     Values = c(0,999999)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_numeric_range(Data = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1461,7 +1461,7 @@ table <- "TE"
     Field = "RECORD_NUMBER"
     Values = c(0,100000)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_numeric_range(Data = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1476,7 +1476,7 @@ table <- "TE"
     Field = "LENGTH_CLASS"
     Values = c(1:9999)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1489,7 +1489,7 @@ table <- "TE"
     Field = "MATURITY"
     Values = c(0:4)
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1502,7 +1502,7 @@ table <- "TE"
     Field = "MATSUB"
     Values = c("A","B","C","D","E","O")
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1514,7 +1514,7 @@ table <- "TE"
     Field = "OTOLITH_SAMPLED"
     Values = c("Y","N","NR")
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1527,7 +1527,7 @@ table <- "TE"
     Field = "OTOLITH_READ"
     Values = c("Y","N","NR")
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1539,7 +1539,7 @@ table <- "TE"
     Field = "AGE"
     Values = c(paste(as.character(seq(-1,99,1)),".0",sep=""),round(seq(-1,99,0.1),1),"UR","NR")
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,Field,"in progress..."))}
       check_without_errors = check_dictionary(ResultData = ResultDataTE, Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1559,7 +1559,7 @@ table <- "TL"
       Field = "COUNTRY"
       Values = as.character(unique(Stratification$COUNTRY))
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1572,7 +1572,7 @@ table <- "TL"
       Field = "AREA"
       Values = as.character(unique(Stratification$GSA))
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1585,7 +1585,7 @@ table <- "TL"
       Field = "MONTH"
       Values = seq(1,12,1)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1599,7 +1599,7 @@ table <- "TL"
       Field = "DAY"
       Values = seq(1,31,1)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1612,7 +1612,7 @@ table <- "TL"
       Field = "HAUL_NUMBER"
       Values = seq(1,999,1)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_dictionary(ResultData = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1626,7 +1626,7 @@ table <- "TL"
       Field = "TOTAL_WEIGHT_IN_THE_CATEGORY_HAUL"
       Values = c(0,9999999)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_numeric_range(Data = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1641,7 +1641,7 @@ table <- "TL"
       Field = "TOTAL_NUMBER_IN_THE_CATEGORY_HAUL"
       Values = c(0,9999999)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_numeric_range(Data = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1655,7 +1655,7 @@ table <- "TL"
       Field = "TOTAL_WEIGHT_IN_THE_SUB-CATEGORY_HAUL"
       Values = c(0,9999999)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_numeric_range(Data = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1669,7 +1669,7 @@ table <- "TL"
       Field = "TOTAL_NUMBER_IN_THE_SUB-CATEGORY_HAUL"
       Values = c(0,9999999)
       if (check_without_errors == TRUE) {
-        if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+        if(verbose){message(paste(checkName,Field,"in progress..."))}
         check_without_errors = check_numeric_range(Data = ResultDataTL, Field, Values, year=yea, wd, suffix)
       }
       if(verbose){stop_ = printError_cc(paste(checkName,Field),check_without_errors, stop_)}
@@ -1691,7 +1691,7 @@ Field <- NA
 table <- "TA"
 checkName = "Check no empty fields TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_no_empty_fields(ResultDataTA,year=yea, wd, suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1705,7 +1705,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TB"
 checkName =  "Check no empty fields TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_no_empty_fields(ResultDataTB, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1718,7 +1718,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TC"
 checkName = "Check no empty fields TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_no_empty_fields(ResultDataTC,year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1733,7 +1733,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
    if (nrow(ResultDataTE)>0){
   checkName = "Check no empty fields TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_no_empty_fields(ResultDataTE, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1750,7 +1750,7 @@ if (!(all(is.na(TL)) & length(TL)==1)) {
   if (nrow(ResultDataTL)>0){
     checkName = "Check no empty fields TL"
     if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_no_empty_fields(ResultDataTL, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1767,7 +1767,7 @@ table <- "TA"
 
 checkName = "Check 0 fields TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_0_fieldsTA(ResultDataTA,wd,suffix, year=yea)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1780,7 +1780,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check dm TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_dm(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1793,7 +1793,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency between duration and time TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_consistencyTA_duration(ResultDataTA, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1805,7 +1805,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency between distance and duration of the haul TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_consistencyTA_distance(ResultDataTA,year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1818,7 +1818,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of the hauls coordinates with the distance (difference not greater than 30%)"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_distance(ResultDataTA,year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1831,7 +1831,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of bridles length TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_bridles_length(ResultDataTA, year=yea, wd, suffix)
 }
 if(verbose){stop_ =printError_cc(checkName,check_without_errors, stop_)}
@@ -1844,7 +1844,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check difference between start depth and end depth (not greater than 20%) in TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_depth(ResultDataTA, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1857,7 +1857,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check start depth and end depth in the same stratum TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_stratum(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1870,7 +1870,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of stratum code in TA"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_stratum_code(ResultDataTA,year=yea,Strata=Stratification,wd,suffix)
   }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1881,7 +1881,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check swept area"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,Field,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,Field,"in progress..."))}
   check_without_errors = check_swept_area(ResultDataTA, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1893,7 +1893,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check start quadrant and end quadrant TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_quadrant(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1906,7 +1906,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check uniqueness of valid hauls TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_unique_valid_haul(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ =printError_cc(checkName,check_without_errors, stop_)}
@@ -1919,7 +1919,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Visual check of the haul positions"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_position(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1932,7 +1932,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Relation between shooting depth and warp length, and between warp length and wing opening"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   graphs_TA(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1945,7 +1945,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check if the coordinates are in the Mediterranean or Black Sea"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_position_in_Med(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1958,7 +1958,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check on temperature by haul"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_temperature(ResultDataTA,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1973,7 +1973,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TB"
 checkName = "Check correctness of species codes TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_rubincode(ResultDataTB,year=yea,TMlist=Ref_list,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1986,7 +1986,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of NB_TOTAL and number per sex TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_nbtotTB(ResultDataTB,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -1999,7 +1999,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check presence of NB_TOTAL and number per sex TB for species G1"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_nm_TB(ResultDataTB, year=yea,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2011,7 +2011,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency between not null weight and not null total number"
 if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_weight_tot_nb(ResultDataTB,year=yea,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2024,7 +2024,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of weight and number TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_weight(ResultDataTB,year=yea,DataTargetSpecies=RoME::DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2039,7 +2039,7 @@ graphics.off()
 table <- "TC"
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_rubincode(ResultDataTC,year=yea,TMlist=Ref_list,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2052,7 +2052,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check correctness of LENGTH_CLASSES_CODE TC"
 if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_length_class_codeTC(ResultDataTC,Specieslist=Ref_list,year=yea, wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2065,7 +2065,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of length classes TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_length(ResultDataTC,DataSpecies=NA,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2078,7 +2078,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check correctness of number per sex in TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_nb_per_sexTC(ResultDataTC,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2090,7 +2090,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of maturity stages TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_mat_stages(ResultDataTC,year=yea, wd, suffix, stages=stages_list)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2103,7 +2103,7 @@ if (check_without_errors == TRUE) {
 
 checkName = "Check sub-sampling"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_subsampling(ResultDataTC,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2116,7 +2116,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_smallest_mature(ResultDataTC,year=yea,MaturityParameters=Maturity,TargetSpecies=DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2129,7 +2129,7 @@ check_without_warnings <- check.list[[3]]
 
 # checkName = "Check consistency of sex TC by means of spawning period"
 # if (check_without_errors == TRUE) {
-#   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#   if(verbose){message(paste(checkName,"in progress..."))}
 #   check_without_errors = check_spawning_period(ResultDataTA,ResultDataTC,year=yea,Maturity_parameters=Maturity,DataTargetSpecies=DataTargetSpecies,wd,suffix)
 # }
 #   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2142,7 +2142,7 @@ check_without_warnings <- check.list[[3]]
 
 # checkName = "Check consistency of sex data TC by means of sex-inversion size"
 # if (check_without_errors == TRUE) {
-#   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#   if(verbose){message(paste(checkName,"in progress..."))}
 #   check_without_errors = check_sex_inversion(ResultDataTC,Maturity_parameters,wd,suffix)
 # }
 #   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2155,7 +2155,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check consistency of length distribution TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_step_length_distr(ResultDataTC,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2168,7 +2168,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check total weight in the haul in TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_individual_weightTC(ResultDataTC,LW=ab_parameters,year=yea,wd,suffix, verbose=FALSE)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2181,7 +2181,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check correctness of species codes TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_rubincode(ResultDataTC,year=yea,TMlist=Ref_list,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2194,7 +2194,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check presence of lengths for G1 and G2 Medits species in TC"
 if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_G1_G2(ResultDataTC, year=yea, wd, suffix)
   }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2209,7 +2209,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TB-TA"
 checkName = "Check presence in TB of TA hauls"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_hauls_TATB(ResultDataTA,ResultDataTB,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2222,7 +2222,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TA-TB"
 checkName = "Check presence in TA of TB hauls"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_hauls_TBTA(ResultDataTA,ResultDataTB,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2235,7 +2235,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TC-TB"
 checkName = "Check presence in TC of TB target species"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_species_TBTC(ResultDataTB,ResultDataTC,year=yea,DataSpecies=DataTargetSpecies,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2248,7 +2248,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TB-TC"
 checkName = "Check presence in TB of TC species"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_haul_species_TCTB(ResultDataTB,ResultDataTC,year=yea,wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2261,7 +2261,7 @@ check_without_warnings <- check.list[[3]]
 
 checkName = "Check correctness of the number per sex in TB in case of sub-sampling in TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_raising(ResultDataTB,ResultDataTC,year=yea,wd,suffix)
 }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2274,7 +2274,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TA-TB"
 checkName = "Check on date by haul TB"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_date_haul(ResultDataTA, ResultDataTB, year=yea, wd, suffix)
 }
 if(verbose){stop_ =printError_cc(checkName,check_without_errors, stop_)}
@@ -2287,7 +2287,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TA-TC"
 checkName = "Check on date by haul TC"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_date_haul(ResultDataTA, ResultDataTC, year=yea, wd, suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2305,7 +2305,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   table <- "TA-TE"
   checkName = "Check on date by haul TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_date_haul(ResultDataTA,ResultDataTE, year=yea,wd,suffix)
   }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2318,7 +2318,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   table <- "TE"
   checkName = "Check consistency of maturity stages TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_mat_stages(ResultDataTE,year=yea, wd, suffix, stages = stages_list)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2332,7 +2332,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   table <- "TC-TE"
   checkName = "Cross check on number between TC and TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_TE_TC(ResultDataTC,ResultDataTE,year=yea,wd,suffix)
   }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2344,7 +2344,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   table <- "TE"
   checkName = "Check consistency of maturity stages TE by the comparison with the length of smallest mature individuals reported in bibliography"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_smallest_mature(ResultDataTE,year=yea,MaturityParameters=Maturity,TargetSpecies=DataTargetSpecies,wd,suffix)
   }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2356,7 +2356,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   # table <- "TA-TE"
   # checkName = "Check consistency of maturity stages in TE by means of spawning period"
   # if (check_without_errors == TRUE) {
-  #   if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  #   if(verbose){message(paste(checkName,"in progress..."))}
   #   check_without_errors = check_spawning_period(ResultDataTA,ResultDataTE,year=yea,Maturity_parameters=Maturity,DataTargetSpecies=DataTargetSpecies,wd,suffix)
   # }
   #   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2368,7 +2368,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   table <- "TE"
   checkName = "Check individual weight in TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_individual_weightTE(ResultDataTE,LW=ab_parameters,year=yea,wd,suffix,verbose=FALSE)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2381,7 +2381,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
 
   checkName = "Check correctness of species codes TE"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_rubincode(ResultDataTE,year=yea,TMlist=Ref_list,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2394,7 +2394,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
 
   checkName = "Check consistency TE check-fields"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_nb_TE(ResultDataTE,year=yea,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2407,7 +2407,7 @@ if (!(all(is.na(TE)) & length(TE)==1)) {
   table <- "TC-TE"
   checkName = "Summary individual data sampling"
   if (check_without_errors == TRUE) {
-    if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+    if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = scheme_individual_data(DataTC=ResultDataTC,DataTE=ResultDataTE,year=yea,wd,suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2431,7 +2431,7 @@ checkName = "Check allowed values for category on Litter data"
 Field = "LITTER_CATEGORY"
 Values = c("L0","L1","L2","L3","L4","L5","L6","L7","L8","L9")
 if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, year=yea, wd, suffix)
     }
       if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2448,7 +2448,7 @@ Values = c("0","A","B","C","D","E","F","G","H","I","J","a","b","c","d","e","f","
 colnames(ResultDataTL)[10]="LITTER_SUB-CATEGORY"
 
 if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_dictionary(ResultData=ResultDataTL,Field, Values, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2461,7 +2461,7 @@ Field <- NA
 
 checkName = "Check correctness of associations between category and sub-category on Litter data"
 if (check_without_errors == TRUE) {
-      if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+      if(verbose){message(paste(checkName,"in progress..."))}
       check_without_errors = check_associations_category_TL(ResultDataTL,assTL, year=yea, wd, suffix)
     }
     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2474,7 +2474,7 @@ check_without_warnings <- check.list[[3]]
 
 # checkName = "Check if the number is always filled in on Litter data"
 # if (check_without_errors == TRUE) {
-#       if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+#       if(verbose){message(paste(checkName,"in progress..."))}
 #       check_without_errors = check_no_empty_fields(ResultDataTL,year=yea,wd,suffix)
 #     }
 #     if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2487,7 +2487,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TA-TL"
 checkName = "Check if the hauls in TL are present in TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_hauls_TLTA(ResultDataTA,ResultDataTL,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2501,7 +2501,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TA-TL"
 checkName = "Check if the hauls in TA are present in TL"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
   check_without_errors = check_hauls_TATL(ResultDataTA,ResultDataTL,year=yea,wd,suffix)
 }
 if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2514,7 +2514,7 @@ check_without_warnings <- check.list[[3]]
 table <- "TA-TL"
 checkName = "Check if the date in TL is consistent with TA"
 if (check_without_errors == TRUE) {
-  if(verbose){print(paste(checkName,"in progress..."), quote = FALSE)}
+  if(verbose){message(paste(checkName,"in progress..."))}
     check_without_errors = check_date_haul(ResultDataTA, ResultDataTL, year=yea, wd, suffix)
   }
   if(verbose){stop_ = printError_cc(checkName,check_without_errors, stop_)}
@@ -2529,7 +2529,7 @@ check_without_warnings <- check.list[[3]]
 
 
 if (!stop_) {
-  if(verbose){print("All the checks have been performed!",quote=FALSE)}
+  if(verbose){message("All the checks have been performed!")}
 }
 
 
@@ -2553,7 +2553,7 @@ if (!stop_) {
 #       create_length(ResultDataTC,year=yea,DataSpecies=Ref_list,wd,save=TRUE)
 #     }
 #
-#   print(paste("R-Sufi files have been created for the ",yea, "and the GSA selected! They have been stored in files R-Sufi directory."),quote=FALSE)
+#   message(paste("R-Sufi files have been created for the ",yea, "and the GSA selected! They have been stored in files R-Sufi directory."))
 # }
 
 
@@ -2577,7 +2577,7 @@ if (!stop_) {
   #     warning("One or both variables Year_start and Year_end not declared")
   #   } else {
   #     RSufi_files(Year_start,Year_end,AREA,wd)
-  #     print("R-Sufi files have been created for the Years and the GSA selected! They have been stored in files R-Sufi directory.",quote=FALSE)
+  #     message("R-Sufi files have been created for the Years and the GSA selected! They have been stored in files R-Sufi directory.")
   #   }
   # }
   # -------------------------------------------------------
@@ -2617,4 +2617,7 @@ write.table(check.df, file.path(wd, paste0("ERRORS_summary_",suffix,".csv")), se
 return(check.df)
 
 } # funzione RoME
+
+
+
 

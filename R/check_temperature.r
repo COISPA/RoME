@@ -178,3 +178,5 @@ if (nrow(temps[!is.na(temps$BOTTOM_TEMPERATURE_END),]) > minTemp ){
   } else { return(FALSE) }
 
 }
+
+

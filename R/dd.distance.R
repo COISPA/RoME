@@ -24,3 +24,5 @@ dd.distance<-function(data, unit = "m", verbose=TRUE)  {
       }
   return(dist)
 }
+
+

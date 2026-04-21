@@ -24,7 +24,7 @@ The checks always returns TRUES generating warning messages in the logfile if an
 The function always returns TRUE reporting the presence of quasi-identical records in the logfile.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 I. Bitetto, W. Zupa
@@ -47,3 +47,5 @@ check_quasiidentical_records(TC,year,wd,suffix)
 
 }
 \keyword{quasi-identical}
+
+

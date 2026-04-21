@@ -240,3 +240,5 @@ colnames(Matrix)=c("TYPE_OF_FILE", "AREA", "VESSEL", "YEAR","x")
 
 return(TRUE) # check_without_errors
 }
+
+

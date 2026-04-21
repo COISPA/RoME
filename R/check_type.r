@@ -74,3 +74,5 @@ check_type <- function(TA, TB, TC,TE,TL, years, wd, Errors){
   }
 
 }
+
+
