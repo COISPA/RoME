@@ -1,2 +1,0 @@
-"0","d$time <- paste(d$date,d$hour)"
-"0","d$time <- strptime (d$time,""%d/%m/%Y %H:%M:%S"")"

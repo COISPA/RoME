@@ -1,6 +1,0 @@
-"0","```r
-perm <- ggplot(data=VIM_perm, aes(x=name, y= perm_values)) + 
-        geom_bar(stat=\"identity\", color=\"darkgreen\", fill=\"darkgreen\")  
-
-perm
-```"

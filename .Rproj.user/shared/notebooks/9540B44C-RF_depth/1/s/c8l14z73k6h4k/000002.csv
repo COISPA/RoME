@@ -1,3 +1,0 @@
-"0","g1 <- ggplot(data=d, aes(x= hours, y= depth)) +"
-"0","  geom_point() "
-"0","g1 "

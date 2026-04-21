@@ -1,3 +1,0 @@
-"0","```r
-SSerr<- sum((tes$depth-pred_test)^2)
-```"
