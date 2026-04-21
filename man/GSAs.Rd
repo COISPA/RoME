@@ -14,10 +14,10 @@
 }
 
 \source{
-http://www.fao.org/gfcm/data/maps/gsas/en/
+\url{https://www.fao.org/gfcm/data/maps/gsas/en/}
 }
 \references{
-http://www.fao.org/gfcm/data/maps/gsas/en/}
+\url{https://www.fao.org/gfcm/data/maps/gsas/en/}}
 \examples{
 data(GSAs)
 str(GSAs)

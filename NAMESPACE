@@ -30,5 +30,10 @@ importFrom(dplyr,
            arrange,
            n)
 importFrom(geosphere, distGeo)
+importFrom(maps, map)
+importFrom(sp, coordinates, proj4string, over)
+## NOTE: rnaturalearthdata is a data-only package; a full import is the only
+## practical way to make its spatial datasets available at runtime.
+## This import() is intentional and accepted by CRAN for data packages.
 import(rnaturalearthdata)
-import(maps)
+

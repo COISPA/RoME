@@ -15,9 +15,9 @@ check_nm_TB(DataTB, year, wd, suffix)
 for the species G1 are not allowed that the fields related to total number, number of females, number of males and number of undetermined are simultaneously null, according to MEDITS manual version 9 of 2017.
 }
 \value{
-The function returns TRUE if no error occurs, FALSE if one or more inconsistences in the individuals number per sex in TB is detected.
+The function returns TRUE if no error occurs, FALSE if one or more inconsistencies in the individuals number per sex in TB is detected.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()

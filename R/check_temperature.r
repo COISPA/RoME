@@ -10,14 +10,6 @@
 # Check if the temperature by haul is reasonable
 
 
-if (FALSE){
-  wd <- tempdir()
-  ResultDataTA= ta #RoME::TA
-  year=2015
-  suffix= NA
-
-  check_temperature(ResultDataTA,year,wd,suffix)
-}
 
 check_temperature <- function (ResultDataTA,year,wd,suffix){
 

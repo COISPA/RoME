@@ -10,14 +10,6 @@
 
 create_length<-function(ResultData,year,DataSpecies=RoME::TM_list,wd,save=TRUE){
 
-if (FALSE){
-  ResultData = RoME::TC
-  year=2012
-  DataSpecies=RoME::TM_list
-  wd <- tempdir()
-  save=FALSE
-  create_length(Result,year,DataSpecies,wd,save=FALSE)
-}
 
   #if (is.na(DataSpecies)){
    # DataSpecies=RoME::TM_list

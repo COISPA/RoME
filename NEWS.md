@@ -1,13 +1,39 @@
-NEWS
-================
-Walter Zupa - COISPA
-05/06/2024
+# RoME News
 
-Fixes 0.1.1
------
-1. "windows" was eliminated from NAMESPACE;
-2. The spelling of GSAs, (7:102, 7:427), MEDITS (3:45, 7:80, 7:148, 7:216, 7:320, 7:449), RoME (7:270, 7:388) is verified and its correctness is confirmed;
-3. The time for running examples is due to the number of functions involved in the package.
+# RoME 0.2.3 (2026-04-21)
+
+* CRAN submission compliance updates:
+  * Refactored `DESCRIPTION`: Updated Authors@R format, added Language field, and moved `shinyjs` and `svDialogs` to `Suggests`.
+  * Updated `.Rd` documentation: Fixed unclosed `\references{}` brackets, resolved 'Invalid URL' checks, corrected syntax errors, and removed typos across all manual files.
+  * Replaced `packageVersion()` with `meta$Version` in `inst/CITATION` for compatibility when the package is not yet installed.
+  * Ensured strict adherence to CRAN repository policies regarding files written outside of `tempdir()`.
+* Bug fixes and robustness improvements:
+  * Fixed a critical crash in `check_individual_weightTE()` caused by missing `LENGTH_CLASSES_CODE` values (handled `NA` and added safety checks).
+  * Resolved a logic error in the plotting routine of `check_individual_weightTE()` where incorrect length-weight parameters were applied due to an index bug.
+  * Added robustness to plotting functions to skip species/sex combinations with no valid data points.
+
+# RoME 0.2.2 (2026-03-26)
+
+* Improved `check_spawning_period()`: TA and TC records are now matched on
+  both `HAUL_NUMBER` and `COUNTRY`, avoiding incorrect month assignments
+  when haul numbers are shared across countries.
+* Added `run_RoME_app()`: launches an embedded Shiny graphical user interface
+  for running RoME analyses directly from the package environment.
+
+# RoME 0.2.1
+
+* Included the stratification schema table used in the Black Sea (Romania and
+  Bulgaria) for the rapana whelk beam trawl survey: `stratification_scheme_rapana`.
+
+# RoME 0.2.0
+
+* RDBFIS III revision. Major improvements to `check_weight()`,
+  `check_length()`, `check_individual_weightTC()`, `check_smallest_mature()`,
+  `check_species_TBTC()`, `check_spawning_period()`, `check_dictionary()`,
+  and `check_raising()`. New functions: `check_swept_area()` and
+  `plot_abundance()`. Updated `check_distance()` to use `geosphere::distGeo()`.
+
+# RoME 0.1.x -- Historical fixes
 
 Fixes 0.1.2
 -----
@@ -46,7 +72,7 @@ Fixes 0.1.9
 
 Fixes 0.1.10
 -----
-1. Addressed the ploblem of nested temporary directories in Linux.
+1. Addressed the problem of nested temporary directories in Linux.
 
 Fixes 0.1.11
 -----
@@ -67,7 +93,7 @@ Fixes 0.1.14
 Fixes 0.1.15
 -----
 1. Revision of Documentation Rd files following the .
-2. Recision of contributors description in Documentation file
+2. Revision of contributors description in Documentation file
 
 Fixes 0.1.16
 -----
@@ -177,7 +203,7 @@ Fixes 0.2.0
 
 9. check_length(): the internal per-row loop has been replaced with vectorized index computations (which() + match()), and all I/O is consolidated into single write.table() and write() calls. These changes preserve the original logic and output formats (including handling of missing, negative, and out-of-range classes with the updated DataTargetSpecies), while delivering a around 66% reduction in the routine's execution time (e.g., from 2.77 s down to 0.93 s).
 
-10. Replaced all class(...) == checks with inherits(...) to improve code robustness and avoid R CMD check notes. Fixed documentation mismatchs, ensuring consistency between code default arguments and Rd files. Corrected a misplaced brace in the Rd documentation of check_position_in_Med(), resolving a note from R CMD check.
+10. Replaced all class(...) == checks with inherits(...) to improve code robustness and avoid R CMD check notes. Fixed documentation mismatches, ensuring consistency between code default arguments and Rd files. Corrected a misplaced brace in the Rd documentation of check_position_in_Med(), resolving a note from R CMD check.
 
 11. NEW function: check_swept_area 
 the function checks the key swept-area field used later to standardise abundance indices. It scans the TA file for the chosen year, flags and removes any haul whose wing opening, distance or depth is missing, non-numeric or would lead to an impossible swept-area value, and logs each problem haul in detail. By doing this before abundance calculations begin, the function ensures that every density estimate rests on a solid, verifiable swept-area input.
@@ -196,7 +222,7 @@ Computational efficiency was improved by vectorizing the distance computation us
 Fixes 0.2.1
 -----
 0. RDBFIS III Fixes 
-1. Included the stratification schema table used in the Black Sea, by Romania and Bulgaria, in the rana whek beam trawl survey: stratification_scheme_rapana.
+1. Included the stratification schema table used in the Black Sea, by Romania and Bulgaria, in the rana whelk beam trawl survey: stratification_scheme_rapana.
 
 Fixes 0.2.2 (26/03/2026)
 -----

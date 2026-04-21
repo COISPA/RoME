@@ -15,10 +15,10 @@ allowed values for SHOOTING_TIME and HAULING_TIME
 The integer values vector is used to check the correctness of SHOOTING_TIME and HAULING_TIME.
 }
 \source{
-Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{http://www.sibm.it/MEDITS 2011/principaledownload.htm}{http://www.sibm.it/MEDITS 2011/principaledownload.htm}
+Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \references{
-Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{http://www.sibm.it/MEDITS 2011/principaledownload.htm}{http://www.sibm.it/MEDITS 2011/principaledownload.htm}
+Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \examples{
 data(time)

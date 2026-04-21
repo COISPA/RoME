@@ -9,16 +9,6 @@
 
 # Check if weights and numbers in TB are consistent
 
-if (FALSE){
-    wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
-    ResultDataTB = RoME::TB # RoME::TB
-    ResultDataTB <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\______ MEDITS DATA __OFFICIAL___\\MEDBSsurvey\\Demersal\\TB_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
-    ResultDataTB <- ResultDataTB[ResultDataTB$AREA==18, ]
-    year=2015
-    DataTargetSpecies <- RoME::DataTargetSpecies
-    suffix="Check_Weight"
-    check_weight(ResultDataTB, year, DataTargetSpecies, wd, suffix)
-  }
 
 
 ############################################################################################################################
@@ -29,15 +19,6 @@ if (FALSE){
 #   Modified: July 2025                                                                                                    #
 ############################################################################################################################
 
-if (FALSE){
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
-  ResultDataTB <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\______ MEDITS DATA __OFFICIAL___\\MEDBSsurvey\\Demersal\\TB_MEDITS_FORMAT_2025.csv", sep=";", header=TRUE)
-  ResultDataTB <- ResultDataTB[ResultDataTB$AREA == 18, ]
-  year <- 2015
-  DataTargetSpecies <- read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\data\\pesi_medi_per_specie.csv", sep=";", header=TRUE)
-  suffix <- "Check_Weight"
-  check_weight(ResultDataTB, year, DataTargetSpecies, wd, suffix)
-}
 
 check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpecies, wd, suffix) {
 

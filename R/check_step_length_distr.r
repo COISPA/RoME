@@ -11,14 +11,6 @@
 # Check if LENGTH_CLASS measures are correct
 
 
-if (FALSE){
-  ResultData = tc #RoME::TC
-  tc[83,"LENGTH_CLASS"] <- 100.3
-  year=2015
-  wd <- tempdir()
-  suffix=NA
-  check_step_length_distr(ResultData,year,wd,suffix)
-}
 
 
 

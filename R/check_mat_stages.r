@@ -8,28 +8,6 @@
 # Check if maturity stages in TC are consistent according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
 
-if (FALSE){
-  # library(RoME)
-  ## Dal laptop
-  # Data = read.table("D:\\COISPA\\RoME_RDBFIS\\data\\TC GSA18 2017-2020.csv", sep=";",header=TRUE)
-  # wd <- "D:\\COISPA\\RoME_RDBFIS\\check_RoME\\Logfiles"
-
-  # dal fisso
-  # Data = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TC GSA18 2017-2020.csv", sep=";",header=TRUE)
-
-  Data = tc # read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TE GSA18 2017-2020.csv", sep=";",header=TRUE)
-  Data[102,"MATURITY"] <- "Ae"
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\check_RoME\\Logfiles"
-  # stages <- read.csv("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/RDB/RoME_RDBFIS/data/TC_TE_maturity.csv", sep=";")
-
-
-  suffix= "pippo"
-  year=2015
-
-    # DataTargetSpecies=RoME::DataTargetSpecies
-    # DataSpecies=RoME::TM_list
-  check_mat_stages(Data, year, wd, suffix, stages)
-}
 
 
 

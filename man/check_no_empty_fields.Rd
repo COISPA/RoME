@@ -17,7 +17,7 @@ The routine uses all the table format (TX) defined by the MEDITS protocol.
 \value{
 The function returns TRUE if no error occurs, while FALSE is returned when there is one or more empty record in the given TX table.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()

@@ -9,14 +9,6 @@
 
 # Check if, in case of sub-sampling in TC, the number per sex in TB is raised correctly
 
-if (FALSE){
-  ResultTC = tc #RoME::TC
-  year=2015
-  wd <- tempdir()
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-
-  check_subsampling(ResultDataTC,year,wd,suffix)
-}
 
 
 check_subsampling<-function(ResultTC,year,wd,suffix){

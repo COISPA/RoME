@@ -1,18 +1,3 @@
-if (FALSE){
-  ResultData = read.table("~/__ DATI MEDITS AGGIORNATI __/_____MEDITS DATA/GSA18/2025/TC ALB-MON 2025.csv",sep=";",header=TRUE)
-  ResultData2 = read.table("~/__ DATI MEDITS AGGIORNATI __/_____MEDITS DATA/GSA18/2025/TE 2025.csv",sep=";",header=TRUE)
-
-  ResultData <- ResultData[ResultData$AREA == 18 & ResultData$YEAR == 2025, ]
-  year=2025
-  MaturityParameters=RoME::Maturity_parameters
-  TargetSpecies=RoME::DataTargetSpecies
-  wd <- "~/__ DATI MEDITS AGGIORNATI __/_____MEDITS DATA/GSA18/2025"
-  # suffix="smallest mature"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  check_smallest_mature(ResultData,year,MaturityParameters=RoME::Maturity_parameters,TargetSpecies=RoME::DataTargetSpecies,wd,suffix)
-}
-
-
 check_smallest_mature <- function(
     ResultData,
     year,

@@ -8,17 +8,17 @@ Check species of TC in TB
 check_haul_species_TCTB(DataTB, DataTC, year, wd, suffix)
 }
 \arguments{
-    \item{DataTB}{chatch data table according to MEDITS protocol (TB)}
+    \item{DataTB}{catch data table according to MEDITS protocol (TB)}
     \item{DataTC}{Biological data table according to MEDITS protocol (TC)}
     \item{year}{reference year for the analysis}
     \item{wd}{working directory path defined by the user}
     \item{suffix}{Suffix string of the Logfile}
 }
-\details{The function returns a worning message in the logfile.}
+\details{The function returns a warning message in the logfile.}
 \value{
 If a species present in the TC table (biological data table) is not reported in the TB (catch data table) an error message is reported in the logfile and a "Critical_errors" file is saved in the working directory reporting details on the errors.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd <- tempdir()

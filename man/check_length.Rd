@@ -51,7 +51,7 @@ check_length(DataTC, DataSpecies = NA, year, wd, suffix,
   a CSV file in the working directory; if no issues are found, the CSV
   file remains empty apart from the header row.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{W. Zupa, I. Bitetto}
 \examples{
   wd <- tempdir()

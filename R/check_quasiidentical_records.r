@@ -8,14 +8,6 @@
 
 
 # Check quasi-identical records
-if (FALSE){
-    Result = RoME::TA
-    # Result = RoME::TB
-    wd <- tempdir()
-    year=2007
-    suffix= NA # "C:\\Users\\walte\\Documents\\GitHub\\RoME\\data TEST Neglia" # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    # check_quasiidentical_records(Result,year,wd,suffix)
-}
 
 check_quasiidentical_records<-function(Result,year,wd,suffix){
 

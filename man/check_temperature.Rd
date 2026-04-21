@@ -14,12 +14,12 @@ check_temperature(ResultDataTA,year,wd,suffix)
 \item{suffix}{Suffix string of the Logfile.}
 }
 \details{
-This check uses the temperature range 10-30 Celsius degrees to provide quantitative warning and a plot, automatically stored in Graphs, for a qualitative inspection  of tha temperature data respectto depth. }
+This check uses the temperature range 10-30 Celsius degrees to provide quantitative warning and a plot, automatically stored in Graphs, for a qualitative inspection  of that temperature data respect to depth. }
 \value{
 The function returns always TRUE, because the outcome of the function is a warning that does not lock the execution of the 'RoME' checks. The presence of inconsistencies in the data is reported in the logfile stored in the "Logfiles" subdirectory of the "wd" user-defined directory.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 I. Bitetto, W. Zupa

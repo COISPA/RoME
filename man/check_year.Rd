@@ -4,7 +4,7 @@
 Consistency check of YEAR field
 }
 \description{
-THe function check if the currect value for YEAR field is reported in each data table. This is a global function that runs with the data frames not filtered by year.
+The function check if the correct value for YEAR field is reported in each data table. This is a global function that runs with the data frames not filtered by year.
 }
 \usage{
 check_year(TA, TB, TC, TE, TL, years, wd, Errors)
@@ -26,7 +26,7 @@ TA, TB and TC tables are mandatory while TE and TL could be used where available
 \value{
 The function returns FALSE when errors are detected in the YEAR field of the data tables.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()

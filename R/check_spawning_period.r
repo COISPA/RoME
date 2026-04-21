@@ -1,17 +1,5 @@
 # Check maturity stages using spawning season
 
-if (FALSE){
-  ResultDataTC = read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/______ MEDITS DATA __OFFICIAL___/MEDBSsurvey/Demersal/TC_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
-  ResultDataTA = read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/______ MEDITS DATA __OFFICIAL___/MEDBSsurvey/Demersal/TA_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
-  ResultDataTC <- ResultDataTC[ResultDataTC$AREA == 17, ]
-  ResultDataTA <- ResultDataTA[ResultDataTA$AREA == 17, ]
-  year=1999
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
-  suffix="NA"
-  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  check_spawning_period(ResultDataTA,ResultDataTC,year,Maturity_parameters=Maturity_parameters,DataTargetSpecies=DataTargetSpecies,wd,suffix)
-}
 
 check_spawning_period <- function(
     ResultDataTA,

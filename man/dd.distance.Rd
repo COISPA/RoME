@@ -23,7 +23,7 @@ give verbose output reporting in the output the selected measure unit of the dis
 }
 }
 \details{
-The TA file should be populated with coordinates in dicimal degrees format.
+The TA file should be populated with coordinates in decimal degrees format.
 }
 \value{
 The function returns the vector of the distances expressed in the selected measure unit.

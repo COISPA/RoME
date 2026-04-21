@@ -12,7 +12,7 @@
 }
 \details{The function check the presence of the TA (haul data table) hauls in the TB (catch data table)}
 \value{The function returns TRUE if no error occurs, while FALSE is returned when an inconsistency is detected between haul and catch tables.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 \donttest{

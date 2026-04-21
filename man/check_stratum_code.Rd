@@ -22,7 +22,7 @@ The function returns always TRUE, because the outcome of the function is a warni
 }
 \references{
 For the definition of the strata, please refer to:
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 I. Bitetto, W. Zupa

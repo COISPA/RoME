@@ -18,7 +18,7 @@ create_catch(ResultDataTB,year,wd,save=TRUE)
 The function saves by default in the files R-Sufi folder the table capt in.csv format, with suffix of the year and GSA. If save parameter is FALSE the function returns the data frame as output.}
 \references{
 Rochet M. J., V. M. Trenkel, J. A. Bertrand & J.-C. Poulard, 2004. R routines for survey based fisheries population and community indicators (R-SUFI). Ifremer, Nantes. Limited distribution.
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 TB = RoME::TB

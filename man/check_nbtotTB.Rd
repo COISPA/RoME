@@ -13,9 +13,9 @@
 The function checks that the total number of individuals is consistent with the sum of the individuals per sex
 }
 \value{
-The function returns TRUE if no error occurs, FALSE if one or more inconsistences in the individuals number is detected.
+The function returns TRUE if no error occurs, FALSE if one or more inconsistencies in the individuals number is detected.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()

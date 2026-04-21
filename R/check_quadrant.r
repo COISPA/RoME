@@ -7,13 +7,6 @@
 ############################################################################################################################
 
 # Check if the haul start in the same quadrant
-if (FALSE){
-    ResultDataTA = RoME::TA
-    wd <- tempdir()
-    suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-    year=2007
-    # check_quadrant(ResultDataTA,year,wd,suffix)
-}
 
 
 check_quadrant<-function(ResultDataTA,year,wd,suffix){

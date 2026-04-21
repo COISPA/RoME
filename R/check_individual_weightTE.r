@@ -6,21 +6,6 @@
 #   January 2022                                                                                                           #
 ############################################################################################################################
 # Check if weight in TE are consistent with length-weight relationship
-if (FALSE) {
-  # library(RoME)
-  wd <- tempdir()
-  suffix <- NA # paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  year <- 2024
-
-  DataTE <- te # RoME::TE # read.csv("~/GitHub/RoME/data/TE_2012-2018 _GSA18.csv", sep=";")
-  SPECIES <- NA
-  SEX <- NA
-  AREA <- NA
-  a <- NA
-  b <- NA
-  verbose <- FALSE
-  check_individual_weightTE(DataTE = TE, LW = ab_parameters, year, wd = wd, suffix = suffix, verbose = TRUE)
-}
 
 check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose = FALSE) {
   oldpar <- par(no.readonly = TRUE)
@@ -104,21 +89,29 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
     if (nrow(ab) != 0) {
       A <- ab$a[1]
       B <- ab$b[1]
-      if (as.character(TE$LENGTH_CLASSES_CODE[i]) == "m") {
+      # Handling NA or unexpected values in LENGTH_CLASSES_CODE
+      if (is.na(TE$LENGTH_CLASSES_CODE[i])) {
+         # skip calculation if code is missing
+      } else if (as.character(TE$LENGTH_CLASSES_CODE[i]) == "m") {
         mean_length <- TE$LENGTH_CLASS[i] + 0.5
       } else if (as.character(TE$LENGTH_CLASSES_CODE[i]) == "0") { # step: 0.5 cm
         mean_length <- (TE$LENGTH_CLASS[i] + 2.5) / 10
       } else if (as.character(TE$LENGTH_CLASSES_CODE[i]) == "1") { # step: 1 cm
         mean_length <- (TE$LENGTH_CLASS[i] + 5) / 10
+      } else {
+        # skip calculation for other codes
       }
-      mean_weight <- A * mean_length^B
 
-      TE$mean_length[i] <- mean_length
-      TE$mean_weight[i] <- mean_weight # estimated weight
-      TE$perc_diff[i] <- (as.numeric(as.character(TE$INDIVIDUAL_WEIGHT[i])) - TE$mean_weight[i]) / as.numeric(as.character(TE$mean_weight[i])) * 100
+      if (!is.na(TE$LENGTH_CLASSES_CODE[i]) && as.character(TE$LENGTH_CLASSES_CODE[i]) %in% c("m", "0", "1")) {
+        mean_weight <- A * mean_length^B
 
-      if (abs(TE$perc_diff[i]) > 20) {
-        numberError <- numberError + 1
+        TE$mean_length[i] <- mean_length
+        TE$mean_weight[i] <- mean_weight # estimated weight
+        TE$perc_diff[i] <- (as.numeric(as.character(TE$INDIVIDUAL_WEIGHT[i])) - TE$mean_weight[i]) / as.numeric(as.character(TE$mean_weight[i])) * 100
+
+        if (!is.na(TE$perc_diff[i]) && abs(TE$perc_diff[i]) > 20) {
+          numberError <- numberError + 1
+        }
       }
     }
   }
@@ -136,11 +129,13 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
     sex="M"
     for (sex in c("M", "F", "I", "N")) {
       TE_temp <- TE[paste(TE$GENUS, TE$SPECIES) == species_to_plot[ii] & as.character(TE$SEX) == sex, ]
+      TE_temp <- TE_temp[!is.na(TE_temp$mean_length), ]
       if (nrow(TE_temp) != 0) {
 
-          ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i])) & (LW$AREA==TE$AREA[1]), ]
-        if (nrow(ab)==0) {
-          ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i]))  , ] #
+        # Use species_to_plot[ii] and loop variable sex instead of stale index i
+        ab <- LW[(LW$SPECIES == species_to_plot[ii]) & (as.character(LW$SEX) == sex) & (LW$AREA == TE$AREA[1]), ]
+        if (nrow(ab) == 0) {
+          ab <- LW[(LW$SPECIES == species_to_plot[ii]) & (as.character(LW$SEX) == sex), ] #
         }
 
         if (nrow(ab) != 0) {
@@ -149,7 +144,7 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
         }
         xx <- as.numeric(as.character(unique(TE_temp$mean_length[order(as.numeric(as.character(TE_temp$mean_length)))])))
         yy <- A * xx^B
-        if (as.character(TE_temp$LENGTH_CLASSES_CODE[1]) == "m") {
+        if (!is.na(TE_temp$LENGTH_CLASSES_CODE[1]) && as.character(TE_temp$LENGTH_CLASSES_CODE[1]) == "m") {
           plot(as.numeric(as.character(TE_temp$mean_length)), as.numeric(as.character(TE_temp$INDIVIDUAL_WEIGHT)), main = paste("Length-weight relationship ", paste(TE_temp$GENUS[1], TE_temp$SPECIES[1]), " ", sex, " - ", TE_temp$YEAR[1]), xlab = "length (mm)", ylab = "weight (g)")
         } else {
           plot(as.numeric(as.character(TE_temp$mean_length)), as.numeric(as.character(TE_temp$INDIVIDUAL_WEIGHT)), main = paste("Length-weight relationship ", paste(TE_temp$GENUS[1], TE_temp$SPECIES[1]), " ", sex, " - ", TE_temp$YEAR[1]), xlab = "length (cm)", ylab = "weight (g)")

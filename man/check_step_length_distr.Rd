@@ -18,7 +18,7 @@ According to the MEDITS protocol, Fishes and cephalopods length measurement must
 \value{
 The function returns TRUE if no error occurs, while FALSE is returned when the step is not correctly used. In the logfile is reported the list of all the records in which the inconsistency is detected.}
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 I. Bitetto, W. Zupa

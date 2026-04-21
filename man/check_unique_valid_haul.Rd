@@ -17,9 +17,9 @@ check_unique_valid_haul(ResultDataTA,year,wd,suffix)
 This function produce an error, stopping the check procedure to avoid cascade errors.
 }
 \value{
-The function returns TRUE if no error occurs, while FALSE is returned when there is more than one valide hauls. In the logfile is reported the list of all the records in which the inconsistency is detected.}
+The function returns TRUE if no error occurs, while FALSE is returned when there is more than one valid hauls. In the logfile is reported the list of all the records in which the inconsistency is detected.}
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 I. Bitetto, W. Zupa

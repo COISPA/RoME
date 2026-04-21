@@ -26,9 +26,9 @@ this function verify the consistency of the check-fields:
 These fields are compared to the number of records present in TE by sex, length class and haul.
 }
 \value{
-The function returns FALSE in case incosistances are detected in the individual biological data table (TE)
+The function returns FALSE in case inconsistencies are detected in the individual biological data table (TE)
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 

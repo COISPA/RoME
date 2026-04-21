@@ -12,12 +12,6 @@
 
 create_catch<-function(ResultDataTB,year,wd,save=TRUE){
 
-if (FALSE){
-  Result = RoME::TB
-  year=2012
-  wd <- tempdir()
-  create_catch(Result,year,wd,save=FALSE)
-}
 
   if (!file.exists(file.path(wd,"files R-Sufi"))){
     dir.create(file.path(wd, "files R-Sufi"), showWarnings = FALSE)

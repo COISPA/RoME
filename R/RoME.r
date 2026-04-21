@@ -1,29 +1,4 @@
-
-
 # TEST INIZIALIZING --------------------------------------------------------
-if (FALSE) {
-  library(RoME)
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\check_RoME\\files_to_checks" # tempdir()
-  suffix <- NA
-  TA <- DataTA # read.table(file = paste(wd, "\\TA.csv", sep = ""), sep = ";", header = T) # RoME::TA
-  TB <- DataTB # read.table(file = paste(wd, "\\TB.csv", sep = ""), sep = ";", header = T) # RoME::TB
-  TC <- DataTC # read.table(file = paste(wd, "\\TC.csv", sep = ""), sep = ";", header = T) # RoME::TC
-  TE <- NA # read.table(file=paste(wd, "\\TE.csv",sep=""), sep=";", header=T)
-  TL <- NA # read.table(file=paste(wd, "\\TL.csv",sep=""), sep=";", header=T) # RoME::TL
-  verbose <- TRUE
-  create_RSufi_files <- TRUE
-  create_global_RSufi_files <- TRUE
-  Year_start <- 2012
-  Year_end <- 2012
-
-  # TB$TYPE_OF_FILE <- as.character(TB$TYPE_OF_FILE)
-  # TB$TYPE_OF_FILE[1] <- "TC"
-
-  RoME(TA = RoME::TA, TB = TB, TC = TC, TE = TE, TL = TL, wd = wd, suffix = NA, create_RSufi_files = TRUE, create_global_RSufi_files = TRUE, Year_start = 1994, Year_end = 2020, verbose = TRUE)
-
-  RoME(TA = DataTA, TB = DataTB, TC = DataTC, TE = TE, TL = TL, wd = wd, suffix = NA, create_RSufi_files = TRUE, create_global_RSufi_files = TRUE, Year_start = 1994, Year_end = 2020, verbose = TRUE)
-
-}
 # TEST END --------------------------------------------------------
 
 

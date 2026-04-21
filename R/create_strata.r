@@ -9,12 +9,6 @@
 
 # strates.csv
 
-if (FALSE){
-  Stratification=RoME::stratification_scheme
-  wd <- tempdir()
-  AREA = 18
-  create_strata(Stratification,"18",wd,save=TRUE)
-}
 
 
 create_strata<-function(Stratification=RoME::stratification_scheme,AREA,wd,save=TRUE){

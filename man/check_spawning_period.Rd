@@ -40,7 +40,7 @@ Warnings are written both to a .dat logfile and to a CSV file for easier downstr
 The function always returns \code{TRUE}, as it is designed to produce warnings rather than halt execution of further routines in the \code{RoME} package.
 }
 \references{
-Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{http://www.sibm.it/MEDITS2011/principaledownload.htm}
+Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \author{
 W. Zupa, I. Bitetto

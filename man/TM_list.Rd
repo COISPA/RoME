@@ -14,9 +14,9 @@ The present list is destined to code the marine species encountered in the Medit
     \item{\code{N.}}{a numeric vector}
     \item{\code{MeditsCode}}{a factor with levels of species codes in the RUBIN format (see MEDITS manual)}
     \item{\code{Scientific.Name.................................................valid}}{a factor with levels of the scientific names of the species}
-    \item{\code{Authorship}}{a factor with levels of the authorship of the inforformation}
-    \item{\code{Source}}{a factor with levels sources of the inforformation}
-    \item{\code{Reference}}{a factor with levels of the bibliografic references}
+    \item{\code{Authorship}}{a factor with levels of the authorship of the information}
+    \item{\code{Source}}{a factor with levels sources of the information}
+    \item{\code{Reference}}{a factor with levels of the bibliographic references}
     \item{\code{Remarks}}{a factor with levels the reported remarks}
     \item{\code{CATFAU}}{a factor with levels of the faunistic categories of the species}
     \item{\code{CODLON}}{a factor with CODLON that represents the Length classes code: m = 1 mm; 0 = 0,5 cm; 1 = 1 cm.}
@@ -29,7 +29,7 @@ The present list is destined to code the marine species encountered in the Medit
 MEDITS MEDITS-Handbook, Version n. 9 (2017)
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \examples{
 data(TM_list)

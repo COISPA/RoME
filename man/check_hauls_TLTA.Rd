@@ -13,9 +13,9 @@ check_hauls_TLTA(DataTA,DataTL,year,wd,suffix)
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
-\details{The function checks whether all the hauls peresent in litter data table (TL) are included in the haul data table (TA). }
+\details{The function checks whether all the hauls present in litter data table (TL) are included in the haul data table (TA). }
 \value{The function returns TRUE if no error occurs, while FALSE is returned when there are missing hauls in the TA table.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 \donttest{

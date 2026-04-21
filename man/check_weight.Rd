@@ -75,7 +75,7 @@ The function operates in two phases:
 This function always returns \code{TRUE}. The purpose of the function is to perform checks and report inconsistencies, but it does not interrupt the execution of other routines in the \code{RoME} package.
 }
 \references{
-Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 W. Zupa, I. Bitetto

@@ -9,17 +9,6 @@
 
 # Check about the consistency of the number of individuals by length, sex and stage between TC and TE
 
-if (FALSE){
-  # ResultDataTC = RoME::TC
-  # ResultDataTE = RoME::TE
-  ResultDataTC = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TC GSA18 2017-2020.csv", sep=";",header=TRUE)
-  ResultDataTE = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\data\\TE GSA18 2017-2020.csv", sep=";",header=TRUE)
-  year=2017
-  wd = "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB\\RoME_RDBFIS\\check_RoME\\Logfiles"
-  suffix= NA
-
-  check_TE_TC(ResultDataTC,ResultDataTC,year,wd,suffix)
-}
 
 check_TE_TC <- function (ResultDataTC,ResultDataTE,year,wd,suffix){
 

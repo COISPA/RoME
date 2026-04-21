@@ -13,7 +13,7 @@ check_consistencyTA_duration(DataTA, year, wd, suffix)
 }
 \details{The DURATION, SHOOTING_TIME and HAULING_TIME fields have to be consistent}
 \value{The function returns a boolean value. It is FALSE in case one or more durations in the TA table are not consistent with the differences between HAULING_TIME and SHOOTING_TIME.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd <- tempdir()

@@ -20,7 +20,7 @@ The function uses biological data and individual biological data to produce a ta
 This check has as output a table (automatically saved in the wd user defined directory) named \code{sampling_individual_measures.csv} where for each species are stored the number of length measurements, individual weights and number of otoliths taken by length class. This table is useful to the user to evaluate the coverage of the individual measurements collections in order to verify if the sampling is in line with the protocol and to understand how eventually improve the sampling procedure.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 I. Bitetto, W. Zupa

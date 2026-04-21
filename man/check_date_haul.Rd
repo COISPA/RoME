@@ -10,10 +10,10 @@
   \item{wd}{working directory path defined by the user}
   \item{suffix}{Suffix string of the Logfile}
 }
-\details{The function check whethe in one of the TX file allowed in Data argument there are date consistent with the one reported in the haul data table (TA).}
+\details{The function check whether in one of the TX file allowed in Data argument there are date consistent with the one reported in the haul data table (TA).}
 \value{The function returns TRUE if no error occurs, while FALSE is returned when in the Date data frame there is one or more date not included in the TA tables.}
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm
 }
 \author{
 I. Bitetto, W. Zupa

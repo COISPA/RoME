@@ -7,11 +7,11 @@
 \format{The shapefile is derived from the GFCM's Geographical subareas (GSAs) shapefile}
 \details{Polygon shapefile describing the GFCM's Geographical subareas (GSAs) compressed with the \code{xz} type of compression.
 \cr
-\if{html}{\figure{MedSeamap.png}{options: width="70\%"}}
+\if{html}{\figure{MedSeamap.png}{options: width="400"}}
 \if{latex}{\figure{MedSeamap.png}}\cr
 }
-\source{http://www.fao.org/fileadmin/user_upload/faoweb/GFCM/Maps/GSAs_simplified.zip}
-\references{http://www.fao.org/gfcm/data/maps/gsas/en/}
+\source{\url{https://www.fao.org/fileadmin/user_upload/faoweb/GFCM/Maps/GSAs_simplified.zip}}
+\references{\url{https://www.fao.org/gfcm/data/maps/gsas/en/}}
 \examples{
 \dontrun{
   library(sp)

@@ -7,11 +7,6 @@
 ############################################################################################################################
 # all years R-Sufi files
 
-if (FALSE){
-
-  wd <- "C:/Users/Utente/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME/temp"
-  RSufi_files(1994,1994,"18",wd)
-}
 
 
 

@@ -4,7 +4,7 @@
 Consistency check of TYPE_OF_FILE field
 }
 \description{
-The function checks if the currect value for TYPE_OF_FILE field is reported in each data table. This is a global function that runs with the data frames not filtered by year.
+The function checks if the correct value for TYPE_OF_FILE field is reported in each data table. This is a global function that runs with the data frames not filtered by year.
 }
 \usage{
 check_type(TA, TB, TC, TE, TL, years, wd, Errors)
@@ -22,7 +22,7 @@ check_type(TA, TB, TC, TE, TL, years, wd, Errors)
 }
 \details{TA, TB and TC tables are mandatory while TE and TL could be used where available (otherwise use NA value).}
 \value{The function returns FALSE when errors are detected in the TYPE_OF_FILE field of the data tables.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 

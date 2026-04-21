@@ -10,13 +10,6 @@
 
 utils::globalVariables("stratification_scheme")
 
-if (FALSE){
-  ResultData = read.table("D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS\\ROU_Med&BS_MEDITS_TA(rev).csv",sep=";", header=TRUE)# RoME::TA
-  wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\QualiTrain\\Task 2\\Data\\MEDITS"
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  year=2019
-  check_stratum(ResultData,year,wd,suffix)
-}
 
 
 check_stratum<-function(ResultData,year,wd,suffix){

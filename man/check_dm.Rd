@@ -17,7 +17,7 @@ check_dm(DataTA, year, wd, suffix)
 }
 \details{The value ranges defined in the INSTRUCTION MANUAL VERSION 9 MEDITS (2017) for wing and vertical opening expressed in dm are respectively 50 - 250 and 10 - 100.}
 \value{The function returns an error in case wing values are out of the allowed ranges, while it returns warnings in case vertical opening values are out of the allowed ranges and in case wing opening and vertical opening values are not integer numbers.}
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd=tempdir()

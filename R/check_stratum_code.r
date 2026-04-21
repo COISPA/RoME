@@ -8,15 +8,6 @@
 
 # Check if the stratum code in TA (or TT) is consistent with the stratification code table
 
-if (FALSE){
-  ResultDataTA = ta # RoME::TA
-  year=2019
-  ResultDataTA$NUMBER_OF_THE_STRATUM[1] <- "pippo"
-  # wd <- tempdir()
-  suffix= NA
-
-  check_stratum_code(ResultDataTA,year,Strata=RoME::stratification_scheme,wd,suffix)
-}
 
 check_stratum_code <- function (ResultDataTA,year,Strata=RoME::stratification_scheme,wd,suffix){
   # stratification_scheme=Strata

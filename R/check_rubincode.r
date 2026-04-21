@@ -7,14 +7,6 @@
 ############################################################################################################################
 # Check if all the species codes are correct according to INSTRUCTION MANUAL VERSION 9 MEDITS 2017
 
-if (FALSE){
-  ResultData = RoME::TB[RoME::TB$YEAR==2012 ,]
-  # ResultData$SPECIES[28]  <- "ZZZ"
-  wd <- tempdir()
-  suffix= NA
-  year=2012
-  check_rubincode(ResultData,year,TMlist=TM_list,wd,suffix)
-  }
 
 
 check_rubincode<-function(ResultData,year,TMlist=RoME::TM_list,wd,suffix){

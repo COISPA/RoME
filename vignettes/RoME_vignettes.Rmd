@@ -40,10 +40,16 @@ logfiles of each run of the function.
 
 ## Installation
 
-You can install the released version of *RoME* package from GitHub with:
+You can install the released version of *RoME* from CRAN with:
 
-```{r}
-# library(remotes)
+```{r, eval=FALSE}
+install.packages("RoME")
+```
+
+Or install the development version from GitHub with:
+
+```{r, eval=FALSE}
+# install.packages("remotes")
 # remotes::install_git("https://github.com/COISPA/RoME")
 ```
 
@@ -51,33 +57,42 @@ You can install the released version of *RoME* package from GitHub with:
 ## References
 
 Anonymus. 2017. MEDITS-Handbook. Version n.9. MEDITS Working Group. 106
-pp.[https://www.sibm.it/MEDITS
-2011/principaledownload.htm](https://www.sibm.it/MEDITS%202011/principaledownload.htm)
+pp. <https://www.sibm.it/MEDITS%202011/principaledownload.htm>
 
 ## Use of RoME function
 
-```{r}
+The following example shows the typical usage of the `RoME()` function.
+Note that the function writes output files to the working directory `wd`.
+
+```{r, eval=FALSE}
 library(RoME)
 wd <- tempdir()
-suffix=NA
-DataTA = data.frame(RoME::TA[RoME::TA$YEAR==2012 ,])
-DataTB = data.frame(RoME::TB[RoME::TB$YEAR==2012 ,])
-DataTC = data.frame(RoME::TC[RoME::TC$YEAR==2012 ,])
-DataTE = NA
-DataTL = NA
-RoME(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix, verbose=TRUE)
+suffix <- NA
+DataTA <- data.frame(RoME::TA[RoME::TA$YEAR == 2012, ])
+DataTB <- data.frame(RoME::TB[RoME::TB$YEAR == 2012, ])
+DataTC <- data.frame(RoME::TC[RoME::TC$YEAR == 2012, ])
+DataTE <- NA
+DataTL <- NA
+RoME(DataTA, DataTB, DataTC, DataTE, DataTL, wd, suffix, verbose = TRUE)
 ```
 
 ## Use of RoMEcc function
 
-```{r}
+```{r, eval=FALSE}
 wd <- tempdir()
-suffix=NA
-DataTA = data.frame(RoME::TA[RoME::TA$YEAR==2012 ,])
-DataTB = data.frame(RoME::TB[RoME::TB$YEAR==2012 ,])
-DataTC = data.frame(RoME::TC[RoME::TC$YEAR==2012 ,])
-DataTE = NA
-DataTL = NA
-RoMEcc(DataTA, DataTB,DataTC,DataTE,DataTL, wd, suffix, verbose=TRUE)
+suffix <- NA
+DataTA <- data.frame(RoME::TA[RoME::TA$YEAR == 2012, ])
+DataTB <- data.frame(RoME::TB[RoME::TB$YEAR == 2012, ])
+DataTC <- data.frame(RoME::TC[RoME::TC$YEAR == 2012, ])
+DataTE <- NA
+DataTL <- NA
+RoMEcc(DataTA, DataTB, DataTC, DataTE, DataTL, wd, suffix, verbose = TRUE)
 ```
 
+## Graphical interface
+
+To launch the embedded Shiny application:
+
+```{r, eval=FALSE}
+run_RoME_app()
+```

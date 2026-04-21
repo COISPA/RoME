@@ -9,16 +9,6 @@
 # Among hauls with the same code only one must be valid
 
 
-if (FALSE){
-  ResultDataTA <-  RoME::TA
-  year=2012
-  wd <- tempdir()
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  #load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_unique_valid_haul(ResultDataTA,year,wd,suffix)
-}
 
 
 check_unique_valid_haul<-function(ResultDataTA,year,wd,suffix){

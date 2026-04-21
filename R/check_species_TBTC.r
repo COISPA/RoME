@@ -1,17 +1,5 @@
 # Check if all the target species in TB are present in TC
 
-if (FALSE){
-  ResultTC = RoME::TC
-  ResultTB = RoME::TB
-  year=2010
-  wd <- tempdir()
-  DataSpecies=RoME::DataTargetSpecies
-  suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
-  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//DataTargetSpecies.rda")
-  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//Maturity_parameters.rda")
-  # load("C:/Users/Bitetto Isabella/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/Rome/ROME//RoME//data//TM_list.rda")
-  check_species_TBTC(ResultTB,ResultTC,year,DataSpecies,wd,suffix)
-  }
 
 check_species_TBTC <- function(
     ResultTB,

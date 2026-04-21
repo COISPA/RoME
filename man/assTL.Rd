@@ -19,10 +19,10 @@ List of the allowed association between categories and subcategories in litter d
 The table is used to check the correctness of the categories/sub-categories associations in litter data tables (TL).
 }
 \source{
-Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{http://www.sibm.it/MEDITS 2011/principaledownload.htm}{http://www.sibm.it/MEDITS 2011/principaledownload.htm}
+Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \references{
-Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{http://www.sibm.it/MEDITS 2011/principaledownload.htm}{http://www.sibm.it/MEDITS 2011/principaledownload.htm}
+Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \href{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 }
 \examples{
 data(assTL)

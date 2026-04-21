@@ -9,14 +9,6 @@
 
 check_weight_tot_nb<-function(ResultDataTB,year,wd,suffix){
 
-if (FALSE){
-  wd <- tempdir()
-  ResultDataTB = tb # RoME::TB
-  year=2015
-  suffix=NA
-  check_weight_tot_nb(ResultDataTB,year,wd,suffix)
-
-}
 
    oldpar <- par() # no.readonly = TRUE
    on.exit(suppressWarnings(par(oldpar)))

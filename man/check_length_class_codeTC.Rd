@@ -16,7 +16,7 @@ The function checks whether the LENGTH_CLASS_CODE by species are consistent with
 \value{
 If the LENGTH_CLASS_CODE in TC table (biological data table) are not consistent with CODLON field in Specieslist dataset (or TM_list if Specieslist is NA) an error is returned. In case a LENGTH_CLASS_CODE is not reported for the given species no check is done and the function returns a warning message.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. http://www.sibm.it/MEDITS 2011/principaledownload.htm}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
 \author{I. Bitetto, W. Zupa}
 \examples{
 \dontrun{

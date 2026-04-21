@@ -5,7 +5,7 @@
 #   If you have any comments or suggestions please contact the following e-mail address: bitetto@coispa.it, zupa@coispa.it #
 #   January 2022                                                                                                           #
 ############################################################################################################################
-# Check corretness of association between category and sub-category in TL consistent according to INSTRUCTION MANUAL VERSION 9
+# Check correctness of association between category and sub-category in TL consistent according to INSTRUCTION MANUAL VERSION 9
 # MEDITS 2017
 
 check_associations_category_TL<-function(DataTL,assTL, year, wd, suffix){

@@ -1,0 +1,12 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "RoME: R Code to Perform Multiple Checks on MEDITS Survey Data",
+  author   = c(
+    person("Walter", "Zupa"),
+    person("Isabella", "Bitetto"),
+    person("Maria Teresa", "Spedicato")
+  ),
+  year     = "2024",
+  note     = paste0("R package version ", meta$Version),
+  url      = "https://github.com/COISPA/RoME"
+)
