@@ -160,7 +160,8 @@ check_position<-function(DataTA,year,wd,suffix){
   ggsave(file.path(wd,"Graphs",paste("End_position ", ResultData$YEAR[1], " AREA ",ResultData$AREA[1],".jpeg",sep="")),width=img_width, height=img_height,dpi = 300, units="in")
   write("Check of hauls position: see the graphs automatically generated in Graphs directory", file = Errors, append = TRUE)
 
-  options(warn=-1)
+
+
 
 
   # if (file.exists(file.path(tempdir(), "Logfiles"))){

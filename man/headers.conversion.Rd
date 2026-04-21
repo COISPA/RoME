@@ -22,5 +22,3 @@ Headers conversion for MEDITS tables
 \details{
 The functions allow to convert headers of table coming from RDBFIS data base to the MEDITS format expected from RoME package
 }
-
-

@@ -69,10 +69,11 @@ the hood.}
 \examples{
 \donttest{
 
-# TB and TC come from the RoME package demo data
+# The following datasets come from the 'RoME' package demo data
+DataTB <- RoME::TB
+DataTC <- RoME::TC
 
-library(RoME)
-res <- check_raising(TB, TC, year = 2015, wd = tempdir())
+res <- check_raising(DataTB, DataTC, year = 2015, wd = tempdir())
 if (res) message("All checks passed!")
 }
 }

@@ -6,8 +6,9 @@
 \usage{
 run_RoME_app()
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Launches the embedded Shiny application included in the package.
 }
-
-

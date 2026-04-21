@@ -168,7 +168,6 @@ check_distance<-function(DataTA,year, wd, suffix){
 
   # on.exit(suppressWarnings(par(oldpar)))
   on.exit(c(par(mfrow=old_par$mfrow,mar=old_par$mar,fin=old_par$fin,mai=old_par$mai,omi=old_par$omi),options(warn=oldoptions)))  # , unlink(paste0(normalizePath(tempdir()), "/", dir(tempdir())), recursive = TRUE)
-  options(warn=-1)
 
 #   if (file.exists(file.path(tempdir(), "Logfiles"))){
 #   unlink(file.path(tempdir(),"Logfiles"),recursive=T)
