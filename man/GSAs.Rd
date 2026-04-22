@@ -23,6 +23,7 @@ data(GSAs)
 str(GSAs)
 head(GSAs)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

@@ -22,6 +22,7 @@
 data(mat_stages)
 str(mat_stages)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

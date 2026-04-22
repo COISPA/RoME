@@ -24,7 +24,7 @@ The function check whether the haul position falls in the polygon \code{seas} de
 The function returns the list of the hauls out of the \code{seas} polygon. In case only starting haul positions are out of the sea's area a data frame is returned. If both starting and end positions are out of the polygon an object of class \code{list} is returned.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
-\author{I. Bitetto, W. Zupa}
+\author{W. Zupa, I. Bitetto}
 \examples{
 TA = RoME::TA
 year = 2012

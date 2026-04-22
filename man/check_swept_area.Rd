@@ -53,5 +53,6 @@ ResultDataTA <- ResultDataTA[ResultDataTA$AREA == 18, ]
 check_swept_area(ResultDataTA, year = 2005, wd = wd, suffix = NULL)
 }
 }
+\author{W. Zupa}
 
 

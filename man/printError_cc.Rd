@@ -17,12 +17,9 @@ printError_cc(funname,check_without_errors, stop_)
 The function updates the `stop_` value and returns it as a logical value.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
-\author{I. Bitetto, W. Zupa}
+\author{W. Zupa, I. Bitetto}
 \examples{
-\donttest{
-# Usage example (conceptual):
-# printError_cc("check_abundance", FALSE, FALSE)
-}
+printError_cc("check_abundance", FALSE, FALSE)
 }
 \keyword{error}
 

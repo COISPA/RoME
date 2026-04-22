@@ -27,6 +27,6 @@ The function generate the summary table of the errors detected by the \code{RoME
 The output of the function is the data frame \code{check.df} updated with the result of the check.
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
-\author{I. Bitetto, W. Zupa}
+\author{W. Zupa, I. Bitetto}
 
 

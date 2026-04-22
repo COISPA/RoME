@@ -3,5 +3,6 @@
 \docType{data}
 \alias{TA}
 \description{TA table}
+\author{W. Zupa}
 
 

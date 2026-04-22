@@ -32,6 +32,7 @@
 \examples{
 data(list_g1_g2)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

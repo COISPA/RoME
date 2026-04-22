@@ -20,7 +20,7 @@ The function generate 2 graphs for qualitative controls.}
 Two graphs are stored in the Graphs folder in the wd user defined directory
 }
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
-\author{I. Bitetto, W. Zupa}
+\author{W. Zupa, I. Bitetto}
 \examples{
 TA = RoME::TA
 year = 2012

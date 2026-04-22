@@ -1,28 +1,20 @@
 ## Test environments
 
-- Local Windows 11, R 4.4.x
-- win-builder (R-release, R-devel): `devtools::check_win_devel()`
-- R-hub: `rhub::check_for_cran()`
+- Local Windows 10, R 4.5.1
+- win-builder (R-devel): `devtools::check_win_devel()`
+- R-hub (v2): linux, macos, windows, fedora
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-## Notes
+## Resubmission summary
 
-- **NOTE: `import(rnaturalearthdata)`** — `rnaturalearthdata` is a data-only
-  package. A full `import()` is the only practical way to make its spatial
-  datasets available at runtime. This is a known and accepted pattern for
-  data packages on CRAN.
-
-- **NOTE: examples with `\donttest{}`** — Several check functions write output
-  files to disk and require more than 5 seconds to run. These are wrapped in
-  `\donttest{}` as recommended in the Writing R Extensions manual.
-
-- **NOTE: `svDialogs` in Suggests** — `svDialogs` is only used inside
-  `inst/shiny/RoMEApp/app.r` to open a native OS directory picker within the
-  Shiny interface. It is listed in `Suggests` because it is only needed when
-  the Shiny app is launched interactively by the user.
+This version addresses all feedback from the CRAN reviewer:
+- Reduced title length to < 65 characters and removed the redundant "R Code to" prefix.
+- Removed single quotes around acronyms (MEDITS, TA, TB, TC, TE, TL, TX) in the DESCRIPTION file.
+- Changed 'Shiny' to 'shiny' (lowercase) to match package case-sensitivity.
+- Fixed examples in `printError.Rd` and `printError_cc.Rd` by uncommenting the code as requested.
 
 ## Downstream dependencies
 

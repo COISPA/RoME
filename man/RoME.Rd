@@ -1,7 +1,6 @@
 \name{RoME}
 \alias{RoME}
-\title{
-R code to perform multiple checks on MEDITS Survey data (TA, TB, TC, TE and TL files)}
+\title{Multiple Checks on MEDITS Trawl Survey Data}
 \description{
 The function calls all the functions built in the package in an ordered way to perform a complete quality check of TX data available. The check is performed simultaneously on the files that can contain also data of more than one year.}
 \usage{

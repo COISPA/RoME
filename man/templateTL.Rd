@@ -33,6 +33,7 @@ Template of the Litter data table (TL) as defined in the MEDITS protocol
 \examples{
 \donttest{data(templateTL)}
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

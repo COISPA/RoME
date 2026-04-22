@@ -19,6 +19,7 @@
   plot(MedSea)
 }
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

@@ -23,6 +23,7 @@ Table of the length-weight relationship coefficients a and b.}
 data(LW)
 str(LW)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

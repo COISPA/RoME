@@ -42,6 +42,7 @@ Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \ur
 \examples{
 \donttest{data(templateTB)}
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

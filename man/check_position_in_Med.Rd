@@ -14,7 +14,7 @@ check_position_in_Med(DataTA, year, wd, suffix)
 \details{The function uses the \code{haul_at_sea()} function to check whether the position of the haul is in the Mediterranean Sea area or falls on the land.}
 \value{The function returns a boolean value. It is FALSE in case one or more haul positions fall out of the Mediterranean Sea area defined by the shapefile \emph{MedSea} included in the package.}
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
-\author{I. Bitetto, W. Zupa}
+\author{W. Zupa, I. Bitetto}
 \examples{
     wd <- tempdir()
     suffix="2020-03-05_time h17m44s55"

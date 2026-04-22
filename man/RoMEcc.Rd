@@ -1,7 +1,6 @@
 \name{RoMEcc}
 \alias{RoMEcc}
-\title{
-R code to perform multiple checks on MEDITS Survey data (TA, TB, TC, TE and TL files) - continuous checks}
+\title{Continuous Quality Checks on MEDITS Trawl Survey Data}
 \description{
 The function calls all the functions included in the package in an ordered way to perform a complete quality check of TX data available. The check is performed simultaneously on the files that can contain also data of more than one year. Unlike the \code{RoME} function, \code{RoMEcc} does not stop at the first detected error, allowing user to correct data. Instead, it checks all the data and returns a report on the errors found, as well as compiling a detailed log file.}
 \usage{

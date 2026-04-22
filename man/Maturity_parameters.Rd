@@ -29,6 +29,7 @@ Literature and others}
 \examples{
 data(Maturity_parameters)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

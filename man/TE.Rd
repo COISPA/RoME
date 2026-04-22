@@ -3,5 +3,6 @@
 \docType{data}
 \alias{TE}
 \description{TE table}
+\author{W. Zupa}
 
 

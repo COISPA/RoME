@@ -63,7 +63,7 @@ notes during \command{R CMD check}:
 Logical scalar: \code{TRUE} if the dataset passes all checks, \code{FALSE}
 otherwise.
 }
-\author{I. Bitetto, W. Zupa, M. T. Spedicato}
+\author{W. Zupa, I. Bitetto, M. T. Spedicato}
 \seealso{\code{\link[dplyr]{dplyr}} for the data-manipulation verbs used under
 the hood.}
 \examples{

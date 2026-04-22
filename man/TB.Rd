@@ -3,5 +3,6 @@
 \docType{data}
 \alias{TB}
 \description{TB table}
+\author{W. Zupa}
 
 

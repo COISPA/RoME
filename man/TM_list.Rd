@@ -36,6 +36,7 @@ data(TM_list)
 str(TM_list)
 head(TM_list)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

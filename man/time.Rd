@@ -24,6 +24,7 @@ Anonymus (2017) "MEDITS-Handbook. Version n. 9. MEDITS Working Group" \url{https
 data(time)
 str(time)
 }
+\author{W. Zupa}
 \keyword{datasets}
 
 

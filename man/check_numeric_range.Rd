@@ -18,7 +18,6 @@ The function checks the consistence of the values contained in specific fields w
 }
 \value{The function returns TRUE if no error occurs, while FALSE is returned when inconsistencies are detected. The list of all the records in which the inconsistency is detected is reported in the logfile.}
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
-\author{W. Zupa}
 \examples{
     wd <- tempdir()
     suffix="2020-03-05_time_h17m44s55"
@@ -29,6 +28,7 @@ The function checks the consistence of the values contained in specific fields w
     check_numeric_range(Data, Field, Values, year, wd, suffix)
 }
 
+\author{W. Zupa}
 \keyword{ error }
 
 

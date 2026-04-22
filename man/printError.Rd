@@ -19,10 +19,7 @@ The function updates the `stop_` value and returns it as a logical value.
 \references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
 \author{I. Bitetto, W. Zupa}
 \examples{
-\donttest{
-# Usage example (conceptual):
-# printError("check_abundance", FALSE, FALSE)
-}
+printError("check_abundance", FALSE, FALSE)
 }
 \keyword{error}
 
