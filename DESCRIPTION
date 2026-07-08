@@ -1,7 +1,7 @@
 Package: RoME
 Type: Package
 Title: Multiple Checks on MEDITS Trawl Survey Data
-Version: 0.2.3
+Version: 0.2.4
 Authors@R: c(
     person("Walter", "Zupa", email = "zupa@fondazionecoispa.org",
            role = c("aut", "cre")),
