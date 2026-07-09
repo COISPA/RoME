@@ -35,7 +35,6 @@ check_identical_records<-function(Data,year,wd,suffix){
   if (!exists("suffix")){
     suffix=paste(as.character(Sys.Date()),format(Sys.time(), "_time_h%Hm%Ms%OS0"),sep="")
   }
-  numberError = 0
   Errors <- file.path(wd,"Logfiles",paste("Logfile_",suffix,".dat",sep=""))
   if (!file.exists(Errors)){
     file.create(Errors)
@@ -90,7 +89,7 @@ check_identical_records<-function(Data,year,wd,suffix){
 
     if (length(Err)!=0){
       for (j in 1:length(Err)){
-        write(paste("Haul ",Err[j],": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        write(paste("Error: Haul ",Err[j],": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
       }
     }   else {
       write(paste("No error occurred"), file = Errors, append = TRUE)
@@ -125,7 +124,7 @@ check_identical_records<-function(Data,year,wd,suffix){
     Err=cbind(Matrix$HAUL_NUMBER[Err],as.character(Matrix$GENUS[Err]),as.character(Matrix$SPECIES[Err]))
     if (nrow(Err)!=0){
       for (j in 1:nrow(Err)){
-        write(paste("Haul",Err[j,1],Err[j,2],Err[j,3],": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+        write(paste("Error: Haul",Err[j,1],Err[j,2],Err[j,3],": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
       }
     } else {
       write(paste("No error occurred"), file = Errors, append = TRUE)
@@ -162,7 +161,8 @@ check_identical_records<-function(Data,year,wd,suffix){
     if (length(Err)!=0){
       for (j in 1:length(Err)){
         m=Matrix[Err[j],]
-        write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)}
+        write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+      }
     }   else {
       write(paste("No error occurred"), file = Errors, append = TRUE)
       check_without_errors = TRUE
@@ -197,7 +197,8 @@ check_identical_records<-function(Data,year,wd,suffix){
     if (length(Err)!=0){
       for (j in 1:length(Err)){
         m=Matrix[Err[j],]
-        write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)}
+        write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+      }
     }   else {
       write(paste("No error occurred"), file = Errors, append = TRUE)
       check_without_errors = TRUE
@@ -255,22 +256,21 @@ check_identical_records<-function(Data,year,wd,suffix){
         m=Matrix[Err[j],]
 
         if (Result$TYPE_OF_FILE[1] == "TA"){
-          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         }
         if (Result$TYPE_OF_FILE[1] == "TB"){
-          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX),": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX),": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         }
         if (Result$TYPE_OF_FILE[1] == "TC"){
-          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         }
         if (Result$TYPE_OF_FILE[1] == "TE"){
-          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ", species ",  as.character(m$GENUS), as.character(m$SPECIES), ", sex", as.character(m$SEX) ,as.character(m$MATURITY), as.character(m$MATSUB),", length", m$LENGTH_CLASS, ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         }
         if (Result$TYPE_OF_FILE[1] == "TL"){
-          write(paste("Haul" , as.character(m$HAUL_NUMBER) , ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
+          write(paste("Error: Haul" , as.character(m$HAUL_NUMBER) , ": identical records in", Matrix$TYPE_OF_FILE[1]), file = Errors, append = TRUE)
         }
-
-        }
+      }
     }   else {
       write(paste("No error occurred"), file = Errors, append = TRUE)
       check_without_errors = TRUE

@@ -8,14 +8,11 @@
 
 0 errors | 0 warnings | 0 notes
 
-## Resubmission summary
+## Update summary
 
-This version addresses all feedback from the CRAN reviewer:
-- Reduced title length to < 65 characters and removed the redundant "R Code to" prefix.
-- Removed single quotes around acronyms (MEDITS, TA, TB, TC, TE, TL, TX) in the DESCRIPTION file.
-- Changed 'Shiny' to 'shiny' (lowercase) to match package case-sensitivity.
-- Fixed examples in `printError.Rd` and `printError_cc.Rd` by uncommenting the code as requested.
+- System-wide standardization of validation checks to explicitly prefix log messages with "Error: " or "Warning: ".
+- Fixed a bug in `check_weight_tot_nb()` that caused a crash when processing records with an empty or `NA` `FAUNISTIC_CATEGORY`.
 
 ## Downstream dependencies
 
-This is a new submission. There are no downstream dependencies to check.
+There are no downstream dependencies to check.

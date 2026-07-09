@@ -3,6 +3,7 @@
 # RoME 0.2.4 (2026-07-08)
 
 * Fixed a bug in `check_weight_tot_nb()` that caused a crash ("missing value where TRUE/FALSE needed") when processing records with an empty or `NA` `FAUNISTIC_CATEGORY`. The function now gracefully handles these cases and emits a specific warning.
+* System-wide standardization of validation checks to explicitly prefix log messages with "Error: " or "Warning: " for clearer parsing and debugging of data inconsistencies.
 
 # RoME 0.2.3 (2026-04-21)
 

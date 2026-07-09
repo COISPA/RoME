@@ -38,7 +38,7 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
   DataTE <- DataTE[DataTE$YEAR == year, ]
   ########################################
 
-  TE <- DataTE[!is.na(DataTE$AREA),]
+  TE <- DataTE[!is.na(DataTE$AREA), ]
   TE <- TE[!is.na(TE$LENGTH_CLASS), ]
 
   write(paste("\n----------- check consistency individual weights in TE - ", TE$YEAR[1]), file = Errors, append = TRUE)
@@ -55,7 +55,7 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
 
   for (spe in species) {
     if ((spe %in% G1[, 1])) {
-      write(paste("For G1 species the individual weight in TE is mandatory. Please check,", spe), file = Errors, append = TRUE)
+      write(paste("Error: For G1 species the individual weight in TE is mandatory. Please check,", spe), file = Errors, append = TRUE)
       numberError_ <- numberError_ + 1
     }
   }
@@ -78,11 +78,10 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
 
   i <- 1
   for (i in 1:nrow(TE)) {
+    ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i])) & (LW$AREA == TE$AREA[1]), ] #
 
-    ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i])) & (LW$AREA==TE$AREA[1]), ] #
-
-    if (nrow(ab)==0) {
-      ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i]))  , ] #
+    if (nrow(ab) == 0) {
+      ab <- LW[(LW$SPECIES == paste(TE$GENUS[i], TE$SPECIES[i])) & (as.character(LW$SEX) == as.character(TE$SEX[i])), ] #
     }
 
 
@@ -91,7 +90,7 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
       B <- ab$b[1]
       # Handling NA or unexpected values in LENGTH_CLASSES_CODE
       if (is.na(TE$LENGTH_CLASSES_CODE[i])) {
-         # skip calculation if code is missing
+        # skip calculation if code is missing
       } else if (as.character(TE$LENGTH_CLASSES_CODE[i]) == "m") {
         mean_length <- TE$LENGTH_CLASS[i] + 0.5
       } else if (as.character(TE$LENGTH_CLASSES_CODE[i]) == "0") { # step: 0.5 cm
@@ -122,16 +121,15 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
     TE_temp1 <- TE[paste(TE$GENUS, TE$SPECIES) == species_to_plot[ii], ]
     if (nrow(TE_temp1) != 0) {
       # tiff(filename = file.path(wd, "Graphs", paste("check_individual_weight_", species_to_plot[ii], "_", TE$YEAR[1], ".tif", sep = "")), width = 8, height = 8, bg = "white", units = "in", res = 300, compression = "lzw", pointsize = 1 / 300)
-	  jpeg(filename = file.path(wd, "Graphs", paste("check_individual_weight_", species_to_plot[ii], "_", TE$YEAR[1], ".jpeg", sep = "")), width = 8, height = 8, bg = "white", units = "in", res = 200, quality=80)
+      jpeg(filename = file.path(wd, "Graphs", paste("check_individual_weight_", species_to_plot[ii], "_", TE$YEAR[1], ".jpeg", sep = "")), width = 8, height = 8, bg = "white", units = "in", res = 200, quality = 80)
       par(mfrow = c(3, 1))
     }
 
-    sex="M"
+    sex <- "M"
     for (sex in c("M", "F", "I", "N")) {
       TE_temp <- TE[paste(TE$GENUS, TE$SPECIES) == species_to_plot[ii] & as.character(TE$SEX) == sex, ]
       TE_temp <- TE_temp[!is.na(TE_temp$mean_length), ]
       if (nrow(TE_temp) != 0) {
-
         # Use species_to_plot[ii] and loop variable sex instead of stale index i
         ab <- LW[(LW$SPECIES == species_to_plot[ii]) & (as.character(LW$SEX) == sex) & (LW$AREA == TE$AREA[1]), ]
         if (nrow(ab) == 0) {
@@ -183,5 +181,3 @@ check_individual_weightTE <- function(DataTE, LW = NA, year, wd, suffix, verbose
     return(FALSE)
   }
 }
-
-

@@ -45,12 +45,12 @@
 
 
 check_length <- function(
-    DataTC,
-    DataSpecies = NA,
-    year,
-    wd,
-    suffix,
-    DataTargetSpecies = RoME::DataTargetSpecies
+  DataTC,
+  DataSpecies = NA,
+  year,
+  wd,
+  suffix,
+  DataTargetSpecies = RoME::DataTargetSpecies
 ) {
   # Select internal reference if DataSpecies is NA
   if (length(DataSpecies) == 1 && is.na(DataSpecies)) {
@@ -69,17 +69,19 @@ check_length <- function(
   AREA <- unique(DataTC$AREA)[1]
   csv_file <- file.path(
     log_dir,
-    paste0("Check_Length_Classes_Logfile_GSA", AREA,
-           "_Year", year, "_", suffix, ".csv")
+    paste0(
+      "Check_Length_Classes_Logfile_GSA", AREA,
+      "_Year", year, "_", suffix, ".csv"
+    )
   )
 
   # Write CSV header
   header <- data.frame(
-    GSA=integer(), Year=integer(), Species=character(), Sex=character(),
-    Haul=integer(), Length_Class=numeric(), LMIN01=numeric(), LMAX99=numeric(),
-    TYPE_OF_FILE=character(), Type_of_Warning=character(), stringsAsFactors=FALSE
+    GSA = integer(), Year = integer(), Species = character(), Sex = character(),
+    Haul = integer(), Length_Class = numeric(), LMIN01 = numeric(), LMAX99 = numeric(),
+    TYPE_OF_FILE = character(), Type_of_Warning = character(), stringsAsFactors = FALSE
   )
-  write.table(header, file=csv_file, sep=";", row.names=FALSE, col.names=TRUE)
+  write.table(header, file = csv_file, sep = ";", row.names = FALSE, col.names = TRUE)
 
   # Filter and prepare data
   if (length(year) != 1 || is.na(year)) {
@@ -92,7 +94,8 @@ check_length <- function(
     return(TRUE)
   }
   write(paste0("\n----------- check consistency of length classes TC - ", year),
-        file=log_file, append=TRUE)
+    file = log_file, append = TRUE
+  )
 
   # Prepare reference limits
   ref <- DataSpecies[!is.na(DataSpecies$obs_in_TC) & DataSpecies$obs_in_TC > 50, ]
@@ -105,8 +108,8 @@ check_length <- function(
   missing_idx <- which(is.na(df$LENGTH_CLASS) | df$LENGTH_CLASS == "")
   neg_idx <- which(!is.na(df$LENGTH_CLASS) & df$LENGTH_CLASS < 0)
   valid_ref <- which(!is.na(LMIN) & !is.na(LMAX))
-  out_idx <- valid_ref[ df$LENGTH_CLASS[valid_ref] < LMIN[valid_ref] |
-                          df$LENGTH_CLASS[valid_ref] > LMAX[valid_ref] ]
+  out_idx <- valid_ref[df$LENGTH_CLASS[valid_ref] < LMIN[valid_ref] |
+    df$LENGTH_CLASS[valid_ref] > LMAX[valid_ref]]
 
   # Build warning data frame only if there are any indices
   warn_idx <- c(missing_idx, neg_idx, out_idx)
@@ -140,8 +143,10 @@ check_length <- function(
       append = TRUE
     )
     write(
-      paste0(nrow(warn_df), " rows written to CSV file ", basename(csv_file),
-             " - possible inconsistencies detected."),
+      paste0(
+        "Warning: ", nrow(warn_df), " rows written to CSV file ", basename(csv_file),
+        " - possible inconsistencies detected."
+      ),
       file = log_file,
       append = TRUE
     )
@@ -156,6 +161,3 @@ check_length <- function(
 
   return(TRUE)
 }
-
-
-

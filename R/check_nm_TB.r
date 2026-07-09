@@ -48,7 +48,6 @@ check_nm_TB <- function(DataTB, year, wd, suffix) {
   write(paste("\n----------- check presence of number of individuals for species G1 - ", TB$YEAR[1]), file = Errors, append = TRUE)
 
   if (year >= 2012) {
-
     # SELECTION OF SPECIES G1
     TB <- TB[(as.character(TB$FAUNISTIC_CATEGORY) == "Ae") |
       (as.character(TB$GENUS) == "MERL" & as.character(TB$SPECIES) == "MERL") |
@@ -61,14 +60,13 @@ check_nm_TB <- function(DataTB, year, wd, suffix) {
       (as.character(TB$GENUS) == "PAPE" & as.character(TB$SPECIES) == "LON"), ]
 
     if (nrow(TB) > 0) {
-      TB$num_sum <- rowSums(TB[, c("TOTAL_NUMBER_IN_THE_HAUL", "NB_OF_FEMALES", "NB_OF_MALES", "NB_OF_UNDETERMINED")],na.rm=TRUE)
+      TB$num_sum <- rowSums(TB[, c("TOTAL_NUMBER_IN_THE_HAUL", "NB_OF_FEMALES", "NB_OF_MALES", "NB_OF_UNDETERMINED")], na.rm = TRUE)
 
       i <- 1
       for (i in 1:nrow(TB)) {
-        if (TB$num_sum[i]==0) {
-
-            write(paste("Haul", TB$HAUL_NUMBER[i], TB$GENUS[i], TB$SPECIES[i], "for the fields related to numbers of individuals, the value 0 is not allowed from 2012 for species G1"), file = Errors, append = TRUE)
-            numberError <- numberError + 1
+        if (TB$num_sum[i] == 0) {
+          write(paste("Error: Haul", TB$HAUL_NUMBER[i], TB$GENUS[i], TB$SPECIES[i], "for the fields related to numbers of individuals, the value 0 is not allowed from 2012 for species G1"), file = Errors, append = TRUE)
+          numberError <- numberError + 1
         }
       }
     } # nrow>0
@@ -95,5 +93,3 @@ check_nm_TB <- function(DataTB, year, wd, suffix) {
     return(FALSE)
   }
 }
-
-

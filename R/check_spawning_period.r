@@ -2,14 +2,14 @@
 
 
 check_spawning_period <- function(
-    ResultDataTA,
-    ResultDataTC,
-    year,
-    Maturity_parameters = Maturity_parameters,
-    DataTargetSpecies = DataTargetSpecies,
-    wd,
-    suffix) {
-
+  ResultDataTA,
+  ResultDataTC,
+  year,
+  Maturity_parameters = Maturity_parameters,
+  DataTargetSpecies = DataTargetSpecies,
+  wd,
+  suffix
+) {
   # Safety
   if (!file.exists(file.path(wd, "Logfiles"))) {
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
@@ -66,10 +66,12 @@ check_spawning_period <- function(
   }
 
   write(
-    paste("\n----------- Check consistency of maturity stages in",
-          unique(ResultDataTC$TYPE_OF_FILE),
-          "using spawning season info -",
-          year),
+    paste(
+      "\n----------- Check consistency of maturity stages in",
+      unique(ResultDataTC$TYPE_OF_FILE),
+      "using spawning season info -",
+      year
+    ),
     file = Errors,
     append = TRUE
   )
@@ -93,7 +95,6 @@ check_spawning_period <- function(
 
   # Loop over species
   for (i in unique(ResultDataTC$Species)) {
-
     ResultData_temp <- ResultDataTC[ResultDataTC$Species == i, ]
 
     cau_fau_temp <- species_list$FAUNISTIC_CATEGORY[
@@ -104,7 +105,6 @@ check_spawning_period <- function(
     ]
 
     for (j in 1:nrow(ResultData_temp)) {
-
       maturity_minitable <- maturity_table[
         as.character(maturity_table$Species) == i &
           as.character(maturity_table$SEX) == as.character(ResultData_temp$SEX[j]),
@@ -112,22 +112,19 @@ check_spawning_period <- function(
 
       month <- ResultDataTA[
         ResultDataTA$HAUL_NUMBER == ResultData_temp$HAUL_NUMBER[j] &
-        ResultDataTA$COUNTRY == ResultData_temp$COUNTRY[j],
+          ResultDataTA$COUNTRY == ResultData_temp$COUNTRY[j],
         "MONTH"
       ]
 
       if (nrow(maturity_minitable) != 0 && length(month) > 0 && !is.na(month)) {
-
         Start <- maturity_minitable$Start_reproductive_season[1]
         End <- maturity_minitable$End_reproductive_season[1]
 
         # Check NA
         if (!is.na(Start) && !is.na(End)) {
-
           max_L50_value <- maturity_minitable$max_L50[1]
 
           if (!is.na(max_L50_value)) {
-
             threshold <- (max_L50_value + 0.2 * max_L50_value) * 10
 
             # Determine condition for spawning period
@@ -141,7 +138,7 @@ check_spawning_period <- function(
             if (is_in_spawning) {
               if (
                 (as.character(ResultData_temp$Maturity[j]) %in% c("0", "1", "2A")) &&
-                as.numeric(ResultData_temp$LENGTH_CLASS[j]) > threshold
+                  as.numeric(ResultData_temp$LENGTH_CLASS[j]) > threshold
               ) {
                 # Warning: immature during spawning and large
                 warnings_list[[length(warnings_list) + 1]] <- data.frame(
@@ -174,9 +171,7 @@ check_spawning_period <- function(
     ]
 
     if (nrow(maturity_sp_table) != 0) {
-
       for (sex in 1:nrow(maturity_sp_table)) {
-
         sm_val <- maturity_sp_table$smallest_mature_individual_observed[sex]
         sm_val_num <- NA
         if (!is.na(sm_val) && sm_val != "n.a.") {
@@ -196,8 +191,7 @@ check_spawning_period <- function(
         ResultData_temp2 <- ResultData_temp2[!is.na(ResultData_temp2$LENGTH_CLASS), ]
 
         # Only mature stages
-        mature_codes <- switch(
-          as.character(cau_fau_temp),
+        mature_codes <- switch(as.character(cau_fau_temp),
           "Ao" = "3",
           "B"  = c("2D", "2"),
           "C"  = c("3A", "3"),
@@ -206,21 +200,17 @@ check_spawning_period <- function(
         )
 
         if (length(mature_codes) > 0) {
-
           ResultData_temp2 <- ResultData_temp2[
             as.character(ResultData_temp2$Maturity) %in% mature_codes,
           ]
         }
 
         if (nrow(ResultData_temp2) > 0) {
-
           Start_temp <- maturity_sp_table$Start_reproductive_season[sex]
           End_temp <- maturity_sp_table$End_reproductive_season[sex]
 
           if (!is.na(Start_temp) && !is.na(End_temp)) {
-
             for (k in 1:nrow(ResultData_temp2)) {
-
               month_temp <- ResultDataTA[
                 ResultDataTA$HAUL_NUMBER == ResultData_temp2$HAUL_NUMBER[k],
                 "MONTH"
@@ -233,7 +223,6 @@ check_spawning_period <- function(
               }
 
               if (length(month_temp) > 0 && is_outside_spawning) {
-
                 len <- as.numeric(ResultData_temp2$LENGTH_CLASS[k])
 
                 # Two types of warning:
@@ -252,12 +241,11 @@ check_spawning_period <- function(
                     Month_of_Catch = month_temp,
                     Threshold_mm = round(sm_val_num - 0.1 * sm_val_num, 2),
                     Warning_Type = paste(
-                      "Mature individual outside spawning period smaller than smallest mature specimen (",
+                      "Warning: Mature individual outside spawning period smaller than smallest mature specimen (",
                       round(sm_val_num - 0.1 * sm_val_num, 2), " mm )."
                     ),
                     stringsAsFactors = FALSE
                   )
-
                 } else {
                   # Mature specimen outside spawning but above threshold
                   warnings_list[[length(warnings_list) + 1]] <- data.frame(
@@ -273,7 +261,7 @@ check_spawning_period <- function(
                     Month_of_Catch = month_temp,
                     Threshold_mm = ifelse(is.na(sm_val_num), NA, round(sm_val_num - 0.1 * sm_val_num, 2)),
                     Warning_Type = paste(
-                      "Mature individual outside spawning period."
+                      "Warning: Mature individual outside spawning period."
                     ),
                     stringsAsFactors = FALSE
                   )
@@ -301,8 +289,10 @@ check_spawning_period <- function(
       append = TRUE
     )
     write(
-      paste(nrow(warnings_df),
-            "warnings written to CSV file:", basename(ErrorsCSV)),
+      paste(
+        nrow(warnings_df),
+        "warnings written to CSV file:", basename(ErrorsCSV)
+      ),
       file = Errors,
       append = TRUE
     )
@@ -322,5 +312,3 @@ check_spawning_period <- function(
 
   return(TRUE)
 }
-
-

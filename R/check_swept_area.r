@@ -1,10 +1,9 @@
 check_swept_area <- function(ResultDataTA, year, wd, suffix) {
-
-  if(FALSE){
+  if (FALSE) {
     wd <- "D:\\OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L\\RDB3\\test"
-    ResultDataTA <- read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/______ MEDITS DATA __OFFICIAL___/MEDBSsurvey/Demersal/TA_MEDITS_FORMAT_2025.csv",sep=";",header=TRUE)
-    ResultDataTA <- ResultDataTA[ResultDataTA$AREA ==18, ]
-    ResultDataTA[1,"DISTANCE"] <- NA
+    ResultDataTA <- read.table("D:/OneDrive - Coispa Tecnologia & Ricerca S.C.A.R.L/______ MEDITS DATA __OFFICIAL___/MEDBSsurvey/Demersal/TA_MEDITS_FORMAT_2025.csv", sep = ";", header = TRUE)
+    ResultDataTA <- ResultDataTA[ResultDataTA$AREA == 18, ]
+    ResultDataTA[1, "DISTANCE"] <- NA
     year <- 2005
     suffix <- NA
 
@@ -52,14 +51,16 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
 
   for (col in cols_to_check) {
     invalid_rows <- which(!is.na(Dataset[[col]]) &
-                            suppressWarnings(is.na(as.numeric(Dataset[[col]]))))
+      suppressWarnings(is.na(as.numeric(Dataset[[col]]))))
 
     if (length(invalid_rows) > 0) {
       for (i in invalid_rows) {
         write(
-          paste("ERROR: Haul", Dataset$HAUL_NUMBER[i],
-                ": non-numeric value '", Dataset[[col]][i],
-                "' found in column", col, "in", Dataset$TYPE_OF_FILE[i]),
+          paste(
+            "Error: Haul", Dataset$HAUL_NUMBER[i],
+            ": non-numeric value '", Dataset[[col]][i],
+            "' found in column", col, "in", Dataset$TYPE_OF_FILE[i]
+          ),
           file = Errors,
           append = TRUE
         )
@@ -93,7 +94,7 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
     na.results <- Dataset[is.na(Dataset$DISTANCE), ]
 
     msg <- paste(
-      "ERROR: Haul", na.results$HAUL_NUMBER,
+      "Error: Haul", na.results$HAUL_NUMBER,
       ": empty or NA value in 'DISTANCE' in",
       na.results$TYPE_OF_FILE
     )
@@ -117,9 +118,11 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
   if (nrow(invalid_rows) > 0) {
     for (i in seq_len(nrow(invalid_rows))) {
       write(
-        paste("ERROR: Haul", invalid_rows$HAUL_NUMBER[i],
-              ": swept area cannot be estimated or is negative.",
-              "Computed value:", invalid_rows$swept_area_km2[i]),
+        paste(
+          "Error: Haul", invalid_rows$HAUL_NUMBER[i],
+          ": swept area cannot be estimated or is negative.",
+          "Computed value:", invalid_rows$swept_area_km2[i]
+        ),
         file = Errors,
         append = TRUE
       )
@@ -128,9 +131,11 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
   }
 
   # Prepare data for plotting, removing NA rows
-  plot_data <- Dataset[!is.na(Dataset$swept_area_km2) &
-                         !is.na(Dataset$mean_depth),
-                       c("HAUL_NUMBER", "mean_depth", "swept_area_km2")]
+  plot_data <- Dataset[
+    !is.na(Dataset$swept_area_km2) &
+      !is.na(Dataset$mean_depth),
+    c("HAUL_NUMBER", "mean_depth", "swept_area_km2")
+  ]
 
   # Plot anyway if there are data left
   if (nrow(plot_data) > 0) {
@@ -140,7 +145,7 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
     )
 
 
-    max_depth <- min(max(plot_data$mean_depth, na.rm = TRUE), 1000)+ min(max(plot_data$mean_depth, na.rm = TRUE), 1000)*0.05
+    max_depth <- min(max(plot_data$mean_depth, na.rm = TRUE), 1000) + min(max(plot_data$mean_depth, na.rm = TRUE), 1000) * 0.05
 
     # Crea un dataframe con le due bande rettangolari
     rect_data <- tibble(
@@ -148,7 +153,7 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
       xmax = c(200, max_depth),
       ymin = -Inf,
       ymax = Inf,
-      fill_color = c("#e0f3f8", "#abd9e9")  # colori tenui a tua scelta
+      fill_color = c("#e0f3f8", "#abd9e9") # colori tenui a tua scelta
     )
 
     # Costruisci il plot
@@ -177,10 +182,10 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
           point.padding = 0.002,
           segment.color = NA
         ) +
-        scale_fill_identity() +  # usa i colori definiti così come sono
+        scale_fill_identity() + # usa i colori definiti così come sono
         labs(
           x = "Mean Depth (m)",
-          y = bquote("Swept area (km"^2*")"),
+          y = bquote("Swept area (km"^2 * ")"),
           title = paste("Swept Area vs Depth - Year", year)
         ) +
         # coord_cartesian(xlim = c(0, 1000)) +
@@ -198,8 +203,7 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
       units = "in",
       dpi = 150,
       device = "jpeg"
-    )
-    )
+    ))
     write("Warning: Check the plot of swept area vs depth. It has been saved in the Graphs folder.", file = Errors, append = TRUE)
   } else {
     write("Plot not generated: no valid data after removing NAs.", file = Errors, append = TRUE)
@@ -218,5 +222,3 @@ check_swept_area <- function(ResultDataTA, year, wd, suffix) {
 utils::globalVariables(c(
   "fill_color", "HAUL_NUMBER", "mean_depth", "swept_area_km2", "xmax", "xmin", "ymax", "ymin"
 ))
-
-

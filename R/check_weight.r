@@ -10,7 +10,6 @@
 # Check if weights and numbers in TB are consistent
 
 
-
 ############################################################################################################################
 #   RoME: R code to perform multiple checks on MEDITS Survey data (TA, TB, TC and TE files)                                #
 #   Authors: I. Bitetto, W. Zupa, M.T. Spedicato                                                                           #
@@ -21,7 +20,6 @@
 
 
 check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpecies, wd, suffix) {
-
   oldpar <- par()
   on.exit(suppressWarnings(par(oldpar)))
 
@@ -40,8 +38,8 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
   ResultDataTB <- ResultDataTB[ResultDataTB$YEAR == year, ]
   AREA <- unique(ResultDataTB$AREA)[1]
 
-  Errors <- file.path(wd,"Logfiles",paste("Logfile_", suffix ,".dat",sep=""))
-  if (!file.exists(Errors)){
+  Errors <- file.path(wd, "Logfiles", paste("Logfile_", suffix, ".dat", sep = ""))
+  if (!file.exists(Errors)) {
     file.create(Errors)
   }
 
@@ -86,7 +84,6 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
   ResultData$mean_weight <- round(ResultData$TOTAL_WEIGHT_IN_THE_HAUL / ResultData$TOTAL_NUMBER_IN_THE_HAUL, 3)
 
   if (nrow(ResultData) > 0) {
-
     present <- aggregate(Result$GENUS, by = list(Result$GENUS, Result$SPECIES), FUN = "length")
     colnames(present) <- c("GENUS", "SPECIES", "occurrence")
     present$species <- paste(present$GENUS, present$SPECIES, sep = "")
@@ -98,7 +95,6 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
     species_list <- sort(unique(ResultData$species))
 
     for (spec in species_list) {
-
       # subset per specie
       species_data <- ResultData[ResultData$species == spec & !is.infinite(ResultData$mean_weight), ]
       FoundInTable <- Weight[Weight$SPECIES == spec, ]
@@ -108,8 +104,7 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
       if (nrow(FoundInTable) != 0) {
         for (j in 1:nrow(species_data)) {
           if (species_data$mean_weight[j] < FoundInTable$WMIN05[1] |
-              species_data$mean_weight[j] > FoundInTable$WMAX95[1]) {
-
+            species_data$mean_weight[j] > FoundInTable$WMAX95[1]) {
             # write(
             #   paste(
             #     "Warning: Haul", species_data$HAUL_NUMBER[j],
@@ -148,7 +143,6 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
 
     # Write warnings to CSV file sorted
     if (length(warnings_list) > 0) {
-
       # Convert the list of warning rows into a single data frame
       warnings_df <- do.call(rbind, warnings_list)
 
@@ -168,6 +162,7 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
       # Write a summary message into the .dat file indicating how many rows were written
       write(
         paste(
+          "Warning: ",
           nrow(warnings_df), "rows written to CSV file",
           basename(ErrorsCSV),
           "- species with mean weights outside reference ranges."
@@ -175,9 +170,7 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
         file = Errors,
         append = TRUE
       )
-
     } else {
-
       # Write a message indicating no outliers were found
       write("No outliers detected. All mean weights within reference ranges.", file = Errors, append = TRUE)
     }
@@ -192,13 +185,16 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
       nb_sheets <- ceiling(x / m)
 
       for (i in 1:nb_sheets) {
-
         from_idx <- (6 * i - 5)
         to_idx <- min(6 * i, nrow(present_true))
 
-        jpeg(filename = file.path(wd, "Graphs",
-                                  paste("check_mean_weight_GSA", AREA, "_", year, "_", i, ".jpeg", sep = "")),
-             width = 12, height = 8, units = "in", res = 150, quality = 75)
+        jpeg(
+          filename = file.path(
+            wd, "Graphs",
+            paste("check_mean_weight_GSA", AREA, "_", year, "_", i, ".jpeg", sep = "")
+          ),
+          width = 12, height = 8, units = "in", res = 150, quality = 75
+        )
 
         par(
           mfrow = c(3, 2),
@@ -215,11 +211,12 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
 
           if (length(X) != 0) {
             plot(X, Y,
-                 main = paste(species_name, "-", year),
-                 xlab = "HAUL number",
-                 ylab = "mean weight",
-                 type = "b",
-                 pch = ".")
+              main = paste(species_name, "-", year),
+              xlab = "HAUL number",
+              ylab = "mean weight",
+              type = "b",
+              pch = "."
+            )
             text(X, Y, labels = xlabels)
           }
         }
@@ -261,6 +258,3 @@ check_weight <- function(ResultDataTB, year, DataTargetSpecies = DataTargetSpeci
 
 
 ###############################################################################
-
-
-

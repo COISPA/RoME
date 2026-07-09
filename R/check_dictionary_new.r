@@ -50,7 +50,7 @@ check_dictionary <- function(
     na_idx <- which(is.na(all_vals))
     if (length(na_idx) > 0) {
       msgs_na <- sprintf(
-        "Haul %s: value not allowed for %s in %s (actual: NA)",
+        "Error: Haul %s: value not allowed for %s in %s (actual: NA)",
         df$HAUL_NUMBER[na_idx], Field, tf
       )
     }
@@ -61,11 +61,11 @@ check_dictionary <- function(
   msgs_empty <- character()
   if (length(empty_idx) > 0) {
     msgs_empty <- switch(tf,
-                         TA = sprintf("Haul %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], Field, tf),
-                         TB = sprintf("Haul %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], Field, tf),
-                         TC = sprintf("Haul %s %s %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], df$SEX[empty_idx], df$LENGTH_CLASS[empty_idx], Field, tf),
-                         TE = sprintf("Haul %s %s %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], df$SEX[empty_idx], df$LENGTH_CLASS[empty_idx], Field, tf),
-                         TL = sprintf("Haul %s %s %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], df$SEX[empty_idx], df$LENGTH_CLASS[empty_idx], Field, tf),
+                         TA = sprintf("Error: Haul %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], Field, tf),
+                         TB = sprintf("Error: Haul %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], Field, tf),
+                         TC = sprintf("Error: Haul %s %s %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], df$SEX[empty_idx], df$LENGTH_CLASS[empty_idx], Field, tf),
+                         TE = sprintf("Error: Haul %s %s %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], df$SEX[empty_idx], df$LENGTH_CLASS[empty_idx], Field, tf),
+                         TL = sprintf("Error: Haul %s %s %s %s %s: the field %s is empty in %s", df$HAUL_NUMBER[empty_idx], df$GENUS[empty_idx], df$SPECIES[empty_idx], df$SEX[empty_idx], df$LENGTH_CLASS[empty_idx], Field, tf),
                          character()
     )
   }
@@ -76,11 +76,11 @@ check_dictionary <- function(
   msgs_inv <- character()
   if (length(inv_idx) > 0) {
     msgs_inv <- switch(tf,
-                       TA = sprintf("Haul %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], all_vals[inv_idx], Field, tf),
-                       TB = sprintf("Haul %s %s %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], df$GENUS[inv_idx], df$SPECIES[inv_idx], all_vals[inv_idx], Field, tf),
-                       TC = sprintf("Haul %s %s %s %s %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], df$GENUS[inv_idx], df$SPECIES[inv_idx], df$SEX[inv_idx], df$LENGTH_CLASS[inv_idx], all_vals[inv_idx], Field, tf),
-                       TE = sprintf("Haul %s %s %s %s %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], df$GENUS[inv_idx], df$SPECIES[inv_idx], df$SEX[inv_idx], df$LENGTH_CLASS[inv_idx], all_vals[inv_idx], Field, tf),
-                       TL = sprintf("Haul %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], all_vals[inv_idx], Field, tf),
+                       TA = sprintf("Error: Haul %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], all_vals[inv_idx], Field, tf),
+                       TB = sprintf("Error: Haul %s %s %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], df$GENUS[inv_idx], df$SPECIES[inv_idx], all_vals[inv_idx], Field, tf),
+                       TC = sprintf("Error: Haul %s %s %s %s %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], df$GENUS[inv_idx], df$SPECIES[inv_idx], df$SEX[inv_idx], df$LENGTH_CLASS[inv_idx], all_vals[inv_idx], Field, tf),
+                       TE = sprintf("Error: Haul %s %s %s %s %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], df$GENUS[inv_idx], df$SPECIES[inv_idx], df$SEX[inv_idx], df$LENGTH_CLASS[inv_idx], all_vals[inv_idx], Field, tf),
+                       TL = sprintf("Error: Haul %s: value '%s' not allowed for %s in %s", df$HAUL_NUMBER[inv_idx], all_vals[inv_idx], Field, tf),
                        character()
     )
   }

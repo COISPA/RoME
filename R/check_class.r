@@ -1,7 +1,4 @@
-
-
 check_class <- function(data, tab, suffix, wd) {
-
   # Create log folder if it doesn't exist
   if (!file.exists(file.path(wd, "Logfiles"))) {
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
@@ -34,7 +31,6 @@ check_class <- function(data, tab, suffix, wd) {
   ncols <- ncol(data)
 
   if (ncols == ncol(template)) {
-
     # Load classes table from package
     classes <- RoME::classes
 
@@ -53,7 +49,7 @@ check_class <- function(data, tab, suffix, wd) {
       if (!is.na(index)) {
         if (!is.numeric(data[[col_name]])) {
           msg <- paste(
-            "The class (", class(data[[col_name]]),
+            "Error: The class (", class(data[[col_name]]),
             ") of column ", col_name,
             " in ", tab,
             " is inconsistent with the expected one (", numerics[index, "type"], ")"
@@ -103,5 +99,3 @@ check_class <- function(data, tab, suffix, wd) {
     return(FALSE)
   }
 }
-
-

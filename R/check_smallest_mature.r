@@ -1,10 +1,10 @@
 check_smallest_mature <- function(
-    ResultData,
-    year,
-    MaturityParameters = RoME::Maturity_parameters,
-    TargetSpecies = RoME::DataTargetSpecies,
-    wd,
-    suffix
+  ResultData,
+  year,
+  MaturityParameters = RoME::Maturity_parameters,
+  TargetSpecies = RoME::DataTargetSpecies,
+  wd,
+  suffix
 ) {
   if (!file.exists(file.path(wd, "Logfiles"))) {
     dir.create(file.path(wd, "Logfiles"), recursive = TRUE, showWarnings = FALSE)
@@ -33,7 +33,7 @@ check_smallest_mature <- function(
     Year = integer(),
     Species = character(),
     Sex = character(),
-    Maturity = character(),          # NEW COLUMN
+    Maturity = character(), # NEW COLUMN
     Haul = integer(),
     Length_Class_mm = numeric(),
     Threshold_mm = numeric(),
@@ -105,7 +105,6 @@ check_smallest_mature <- function(
     mat_lmin_temp <- mat_lmin[mat_lmin$Species == i, ]
 
     for (j in 1:nrow(mat_lmin_temp)) {
-
       # Select records for this species (and sex if not combined)
       if (as.character(mat_lmin_temp$SEX[j]) == "C") {
         ResultData_temp <- ResultData[
@@ -142,7 +141,7 @@ check_smallest_mature <- function(
             Year = year,
             Species = Error_matrix$Species[k],
             Sex = Error_matrix$SEX[k],
-            Maturity = Error_matrix$Maturity[k],       # NEW COLUMN VALUE
+            Maturity = Error_matrix$Maturity[k], # NEW COLUMN VALUE
             Haul = Error_matrix$HAUL_NUMBER[k],
             Length_Class_mm = Error_matrix$LENGTH_CLASS[k],
             Threshold_mm = threshold_mm,
@@ -179,6 +178,7 @@ check_smallest_mature <- function(
 
     write(
       paste(
+        "Warning: ",
         nrow(warnings_df), "rows written to CSV file",
         basename(ErrorsCSV),
         "- records found with mature individuals below threshold."
@@ -195,14 +195,14 @@ check_smallest_mature <- function(
   }
 
   write(
-    paste("Attention: if you decide to change the maturity stages detected,",
-          "after the corrections, run again the code,",
-          "because you could have entered duplicated records in TC."),
+    paste(
+      "Attention: if you decide to change the maturity stages detected,",
+      "after the corrections, run again the code,",
+      "because you could have entered duplicated records in TC."
+    ),
     file = Errors,
     append = TRUE
   )
 
   return(TRUE)
 }
-
-
