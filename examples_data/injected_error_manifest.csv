@@ -1,0 +1,7 @@
+table;year;haul;field;reference_value;injected_value;description
+TB;2020;1;TOTAL_NUMBER_IN_THE_HAUL;22;29;Catch total inconsistent with sex counts
+TA;2021;5;HAULING_DEPTH;112;252;Large haul-end depth inconsistency
+TC;2020;5;LENGTH_CLASS;145;-50;Negative length
+TB;2022;8;NB_OF_MALES;14;20;Sex count inconsistency
+TC;2024;5;LENGTH_CLASS;125;2750;Implausible length
+TC;2021;3;WEIGHT_OF_THE_SAMPLE_MEASURED;560.51;448.408;"MERL/MER: incorrect measured fraction weight; raising factor is no longer 2, causing mismatch with sex totals and catch abundance in TB"

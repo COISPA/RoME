@@ -75,7 +75,7 @@ check_smallest_mature(ResultData, year, MaturityParameters, TargetSpecies,
   checks and log potential issues, but it does not interrupt the execution
   of other routines in the \code{RoME} package.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.}
 \author{W. Zupa,  I. Bitetto}
 \examples{
   wd <- tempdir()

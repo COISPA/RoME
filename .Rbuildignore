@@ -14,6 +14,6 @@
 ^cran-comments\.md$
 ^doc$
 ^Meta$
-
+^examples_data$
 
 ^CRAN-SUBMISSION$

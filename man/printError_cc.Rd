@@ -16,7 +16,7 @@ printError_cc(funname,check_without_errors, stop_)
 \value{
 The function updates the `stop_` value and returns it as a logical value.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.}
 \author{W. Zupa, I. Bitetto}
 \examples{
 printError_cc("check_abundance", FALSE, FALSE)

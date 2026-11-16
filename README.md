@@ -39,9 +39,7 @@ remotes::install_git("https://github.com/COISPA/RoME")
 
 ## References
 
-Anonymus. 2017. MEDITS-Handbook. Version n.9. MEDITS Working Group. 106
-pp.[https://www.sibm.it/MEDITS
-2011/principaledownload.htm](https://www.sibm.it/MEDITS%202011/principaledownload.htm)
+Anonymus. 2017. MEDITS-Handbook. Version n.9. MEDITS Working Group. 106 pp.
 
 ## Use of RoME function
 

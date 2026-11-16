@@ -4,9 +4,12 @@ bibentry(
   author   = c(
     person("Walter", "Zupa"),
     person("Isabella", "Bitetto"),
-    person("Maria Teresa", "Spedicato")
+    person("Maria Teresa", "Spedicato"),
+    person("Loredana", "Casciaro"),
+    person("Cosmidano", "Neglia")
   ),
-  year     = "2024",
+  year     = "2026",
   note     = paste0("R package version ", meta$Version),
-  url      = "https://github.com/COISPA/RoME"
+  doi      = "10.5281/zenodo.14886919",
+  url      = "https://doi.org/10.5281/zenodo.14886919"
 )

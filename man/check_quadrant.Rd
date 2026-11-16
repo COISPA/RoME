@@ -23,7 +23,7 @@ The function returns always TRUE, because the outcome of the function is a warni
 }
 \references{
 For the definition of the quadrants, please refer to:
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.
 }
 \author{
 I. Bitetto, W. Zupa

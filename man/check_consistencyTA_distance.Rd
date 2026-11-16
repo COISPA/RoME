@@ -17,7 +17,7 @@ Check between duration of the haul and distance (tolerance of 15\%). The functio
 \value{
 The function generates warning messages in the logfile and returns always TRUE.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.}
 \author{I. Bitetto, W. Zupa}
 \examples{
 wd=tempdir()

@@ -61,7 +61,7 @@ See Medits handbook.
 The dataframe is empty and it is to be used to verify the correctness of headers.
 }
 \references{
-Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}
+Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.
 }
 \examples{
 \donttest{data(templateTA)}

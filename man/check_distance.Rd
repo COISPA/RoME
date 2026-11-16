@@ -26,8 +26,7 @@ The function always returns \code{TRUE}. Its purpose is to generate warnings for
 Warnings are saved in a logfile located in the \code{Logfiles} subdirectory of the specified working directory. Additionally, for hauls with discrepancies, graphical maps are generated and saved in the \code{Graphs} subdirectory to support visual inspection and correction.
 }
 \references{
-Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \cr
-\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm} \cr
+Anonymous. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp. \cr \cr
 
 Hijmans, R. J. (2019). \emph{geosphere: Spherical Trigonometry}. R package version 1.5-10. \cr
 \url{https://cran.r-project.org/package=geosphere}

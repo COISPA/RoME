@@ -17,7 +17,7 @@ for the species G1 are not allowed that the fields related to total number, numb
 \value{
 The function returns TRUE if no error occurs, FALSE if one or more inconsistencies in the individuals number per sex in TB is detected.
 }
-\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.\url{https://www.sibm.it/MEDITS\%202011/principaledownload.htm}}
+\references{Anonymus. 2017. MEDITS-Handbook. Version n. 9. MEDITS Working Group. 106 pp.}
 \author{I. Bitetto, W. Zupa}
 \examples{
     wd <- tempdir()
