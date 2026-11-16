@@ -1,7 +1,10 @@
 table;year;haul;field;reference_value;injected_value;description
-TB;2020;1;TOTAL_NUMBER_IN_THE_HAUL;22;29;Catch total inconsistent with sex counts
-TA;2021;5;HAULING_DEPTH;112;252;Large haul-end depth inconsistency
-TC;2020;5;LENGTH_CLASS;145;-50;Negative length
-TB;2022;8;NB_OF_MALES;14;20;Sex count inconsistency
-TC;2024;5;LENGTH_CLASS;125;2750;Implausible length
+TB;2020;1;TOTAL_NUMBER_IN_THE_HAUL;22.0;29.0;Catch total inconsistent with sex counts
+TA;2021;5;HAULING_DEPTH;112.0;252.0;Large haul-end depth inconsistency
+TC;2020;5;LENGTH_CLASS;145.0;-50.0;Negative length
+TB;2022;8;NB_OF_MALES;14.0;20.0;Sex count inconsistency
+TC;2024;5;LENGTH_CLASS;125.0;2750.0;Implausible length
 TC;2021;3;WEIGHT_OF_THE_SAMPLE_MEASURED;560.51;448.408;"MERL/MER: incorrect measured fraction weight; raising factor is no longer 2, causing mismatch with sex totals and catch abundance in TB"
+TA;2024;8;HAULING_LATITUDE;4023.6;4020.73;Hauling point moved to double original geographic shooting-hauling separation
+TA;2024;8;HAULING_LONGITUDE;1841.44;1841.32;Hauling point moved to double original geographic shooting-hauling separation
+TA;2024;8;DISTANCE;5315.0;10630.0;Declared tow distance doubled with coordinate separation
