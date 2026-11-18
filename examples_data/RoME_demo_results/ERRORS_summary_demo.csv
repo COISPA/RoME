@@ -1,0 +1,584 @@
+"errors";"check type";"table";"variable";"year"
+"";"Check Headers";"TA";NA;NA
+"";"Check Headers";"TB";NA;NA
+"";"Check Headers";"TC";NA;NA
+"";"Check CLASS";"TA";NA;NA
+"";"Check CLASS";"TB";NA;NA
+"";"Check CLASS";"TC";NA;NA
+"";"Check YEAR";"ALL";NA;NA
+"";"Check TYPE_OF_FILE";"ALL";NA;NA
+"";"Check identical record TA";"TA";NA;2020
+"";"Check identical record TB";"TB";NA;2020
+"";"Check identical record TC";"TC";NA;2020
+"";"Check quasi-identical record in TA";"TA";NA;2020
+"";"Check quasi-identical record in TB";"TB";NA;2020
+"";"Check quasi-identical record in TC";"TC";NA;2020
+"";"Check consistency of area TA, TB, TC, TE, TL";"ALL";NA;2020
+"";"Check dictionary";"TA";"COUNTRY";2020
+"";"Check dictionary";"TA";"AREA";2020
+"";"Check dictionary";"TA";"GEAR";2020
+"";"Check dictionary";"TA";"RIGGING";2020
+"";"Check dictionary";"TA";"DOORS";2020
+"";"Check dictionary";"TA";"MONTH";2020
+"";"Check dictionary";"TA";"DAY";2020
+"";"Check dictionary";"TA";"HAUL_NUMBER";2020
+"";"Check dictionary";"TA";"CODEND_CLOSING";2020
+"";"Check dictionary";"TA";"PART_OF_THE_CODEND";2020
+"";"Check dictionary";"TA";"SHOOTING_TIME";2020
+"";"Check dictionary";"TA";"SHOOTING_QUADRANT";2020
+"";"Check numeric range";"TA";"SHOOTING_LATITUDE";2020
+"";"Check numeric range";"TA";"SHOOTING_LONGITUDE";2020
+"";"Check dictionary";"TA";"SHOOTING_DEPTH";2020
+"";"Check dictionary";"TA";"HAULING_QUADRANT";2020
+"";"Check numeric range";"TA";"HAULING_LATITUDE";2020
+"";"Check numeric range";"TA";"HAULING_LONGITUDE";2020
+"";"Check dictionary";"TA";"HAULING_TIME";2020
+"";"Check dictionary";"TA";"HAULING_DEPTH";2020
+"";"Check dictionary";"TA";"HAUL_DURATION";2020
+"";"Check dictionary";"TA";"VALIDITY";2020
+"";"Check dictionary";"TA";"COURSE";2020
+"";"Check dictionary";"TA";"DISTANCE";2020
+"";"Check dictionary";"TA";"VERTICAL_OPENING";2020
+"";"Check dictionary";"TA";"WING_OPENING";2020
+"";"Check dictionary";"TA";"GEOMETRICAL_PRECISION";2020
+"";"Check dictionary";"TA";"MEASURING_SYSTEM";2020
+"";"Check dictionary";"TA";"MEASURING_SYSTEM_SALINITY";2020
+"";"Check dictionary";"TA";"RECORDED_SPECIES";2020
+"";"Check dictionary";"TA";"WARP_LENGTH";2020
+"";"Check dictionary";"TA";"WARP_DIAMETER";2020
+"";"Check dictionary";"TA";"OBSERVATIONS";2020
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_BEGINNING";2020
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_END";2020
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_BEGINNING";2020
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_END";2020
+"";"Check dictionary";"TB";"COUNTRY";2020
+"";"Check dictionary";"TB";"AREA";2020
+"";"Check dictionary";"TB";"MONTH";2020
+"";"Check dictionary";"TB";"DAY";2020
+"";"Check dictionary";"TB";"HAUL_NUMBER";2020
+"";"Check dictionary";"TB";"CODEND_CLOSING";2020
+"";"Check dictionary";"TB";"PART_OF_THE_CODEND";2020
+"";"Check numeric range";"TB";"TOTAL_WEIGHT_IN_THE_HAUL";2020
+"";"Check numeric range";"TB";"TOTAL_NUMBER_IN_THE_HAUL";2020
+"";"Check numeric range";"TB";"NB_OF_FEMALES";2020
+"";"Check numeric range";"TB";"NB_OF_MALES";2020
+"";"Check numeric range";"TB";"NB_OF_UNDETERMINED";2020
+"";"Check dictionary";"TC";"COUNTRY";2020
+"";"Check dictionary";"TC";"AREA";2020
+"";"Check dictionary";"TC";"MONTH";2020
+"";"Check dictionary";"TC";"DAY";2020
+"";"Check dictionary";"TC";"HAUL_NUMBER";2020
+"";"Check dictionary";"TC";"CODEND_CLOSING";2020
+"";"Check dictionary";"TC";"PART_OF_THE_CODEND";2020
+"";"Check dictionary";"TC";"LENGTH_CLASSES_CODE";2020
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_FRACTION";2020
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_SAMPLE_MEASURED";2020
+"";"Check numeric range";"TC";"NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED";2020
+"";"Check numeric range";"TC";"NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE";2020
+"";"Check dictionary";"TC";"SEX";2020
+"X";"Check dictionary";"TC";"LENGTH_CLASS";2020
+"";"Check dictionary";"TC";"MATURITY";2020
+"";"Check no empty fields TA";"TA";NA;2020
+"";"Check no empty fields TB";"TB";NA;2020
+"";"Check no empty fields TC";"TC";NA;2020
+"";"Check 0 fields TA";"TA";NA;2020
+"";"Check dm TA";"TA";NA;2020
+"";"Check consistency between duration and time TA";"TA";NA;2020
+"";"Check consistency between distance and duration of the haul TA";"TA";NA;2020
+"";"Check consistency of the hauls coordinates with the distance (difference not greater than 30%)";"TA";NA;2020
+"";"Check consistency of bridles length TA";"TA";NA;2020
+"";"Check difference between start depth and end depth (not greater than 20%) in TA";"TA";NA;2020
+"";"Check start depth and end depth in the same stratum TA";"TA";NA;2020
+"";"Check consistency of stratum code in TA";"TA";NA;2020
+"";"Check swept area";"TA";NA;2020
+"";"Check start quadrant and end quadrant TA";"TA";NA;2020
+"";"Check uniqueness of valid hauls TA";"TA";NA;2020
+"";"Visual check of the haul positions";"TA";NA;2020
+"";"Relation between shooting depth and warp length, and between warp length and wing opening";"TA";NA;2020
+"";"Check if the coordinates are in the Mediterranean or Black Sea";"TA";NA;2020
+"";"Check on temperature by haul";"TA";NA;2020
+"";"Check correctness of species codes TB";"TB";NA;2020
+"X";"Check consistency of NB_TOTAL and number per sex TB";"TB";NA;2020
+"";"Check presence of NB_TOTAL and number per sex TB for species G1";"TB";NA;2020
+"";"Check consistency between not null weight and not null total number";"TB";NA;2020
+"";"Check consistency of weight and number TB";"TB";NA;2020
+"";"Check correctness of species codes TC";"TC";NA;2020
+"";"Check correctness of LENGTH_CLASSES_CODE TC";"TC";NA;2020
+"";"Check consistency of length classes TC";"TC";NA;2020
+"";"Check correctness of number per sex in TC";"TC";NA;2020
+"";"Check consistency of maturity stages TC";"TC";NA;2020
+"";"Check sub-sampling";"TC";NA;2020
+"";"Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography";"TC";NA;2020
+"";"Check consistency of sex TC by means of spawning period";"TC";NA;2020
+"";"Check consistency of length distribution TC";"TC";NA;2020
+"";"Check total weight in the haul in TC";"TC";NA;2020
+"";"Check correctness of species codes TC";"TC";NA;2020
+"";"Check presence of lengths for G1 and G2 Medits species in TC";"TC";NA;2020
+"";"Check presence in TB of TA hauls";"TB-TA";NA;2020
+"";"Check presence in TA of TB hauls";"TA-TB";NA;2020
+"";"Check abundance";"TA-TB";NA;2020
+"";"Check presence in TC of TB target species";"TC-TB";NA;2020
+"";"Check presence in TB of TC species";"TB-TC";NA;2020
+"X";"Check correctness of the number per sex in TB in case of sub-sampling in TC";"TB-TC";NA;2020
+"";"Check on date by haul TB";"TA-TB";NA;2020
+"";"Check on date by haul TC";"TA-TC";NA;2020
+"";"Check identical record TA";"TA";NA;2021
+"";"Check identical record TB";"TB";NA;2021
+"";"Check identical record TC";"TC";NA;2021
+"";"Check quasi-identical record in TA";"TA";NA;2021
+"";"Check quasi-identical record in TB";"TB";NA;2021
+"";"Check quasi-identical record in TC";"TC";NA;2021
+"";"Check consistency of area TA, TB, TC, TE, TL";"ALL";NA;2021
+"";"Check dictionary";"TA";"COUNTRY";2021
+"";"Check dictionary";"TA";"AREA";2021
+"";"Check dictionary";"TA";"GEAR";2021
+"";"Check dictionary";"TA";"RIGGING";2021
+"";"Check dictionary";"TA";"DOORS";2021
+"";"Check dictionary";"TA";"MONTH";2021
+"";"Check dictionary";"TA";"DAY";2021
+"";"Check dictionary";"TA";"HAUL_NUMBER";2021
+"";"Check dictionary";"TA";"CODEND_CLOSING";2021
+"";"Check dictionary";"TA";"PART_OF_THE_CODEND";2021
+"";"Check dictionary";"TA";"SHOOTING_TIME";2021
+"";"Check dictionary";"TA";"SHOOTING_QUADRANT";2021
+"";"Check numeric range";"TA";"SHOOTING_LATITUDE";2021
+"";"Check numeric range";"TA";"SHOOTING_LONGITUDE";2021
+"";"Check dictionary";"TA";"SHOOTING_DEPTH";2021
+"";"Check dictionary";"TA";"HAULING_QUADRANT";2021
+"";"Check numeric range";"TA";"HAULING_LATITUDE";2021
+"";"Check numeric range";"TA";"HAULING_LONGITUDE";2021
+"";"Check dictionary";"TA";"HAULING_TIME";2021
+"";"Check dictionary";"TA";"HAULING_DEPTH";2021
+"";"Check dictionary";"TA";"HAUL_DURATION";2021
+"";"Check dictionary";"TA";"VALIDITY";2021
+"";"Check dictionary";"TA";"COURSE";2021
+"";"Check dictionary";"TA";"DISTANCE";2021
+"";"Check dictionary";"TA";"VERTICAL_OPENING";2021
+"";"Check dictionary";"TA";"WING_OPENING";2021
+"";"Check dictionary";"TA";"GEOMETRICAL_PRECISION";2021
+"";"Check dictionary";"TA";"MEASURING_SYSTEM";2021
+"";"Check dictionary";"TA";"MEASURING_SYSTEM_SALINITY";2021
+"";"Check dictionary";"TA";"RECORDED_SPECIES";2021
+"";"Check dictionary";"TA";"WARP_LENGTH";2021
+"";"Check dictionary";"TA";"WARP_DIAMETER";2021
+"";"Check dictionary";"TA";"OBSERVATIONS";2021
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_BEGINNING";2021
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_END";2021
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_BEGINNING";2021
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_END";2021
+"";"Check dictionary";"TB";"COUNTRY";2021
+"";"Check dictionary";"TB";"AREA";2021
+"";"Check dictionary";"TB";"MONTH";2021
+"";"Check dictionary";"TB";"DAY";2021
+"";"Check dictionary";"TB";"HAUL_NUMBER";2021
+"";"Check dictionary";"TB";"CODEND_CLOSING";2021
+"";"Check dictionary";"TB";"PART_OF_THE_CODEND";2021
+"";"Check numeric range";"TB";"TOTAL_WEIGHT_IN_THE_HAUL";2021
+"";"Check numeric range";"TB";"TOTAL_NUMBER_IN_THE_HAUL";2021
+"";"Check numeric range";"TB";"NB_OF_FEMALES";2021
+"";"Check numeric range";"TB";"NB_OF_MALES";2021
+"";"Check numeric range";"TB";"NB_OF_UNDETERMINED";2021
+"";"Check dictionary";"TC";"COUNTRY";2021
+"";"Check dictionary";"TC";"AREA";2021
+"";"Check dictionary";"TC";"MONTH";2021
+"";"Check dictionary";"TC";"DAY";2021
+"";"Check dictionary";"TC";"HAUL_NUMBER";2021
+"";"Check dictionary";"TC";"CODEND_CLOSING";2021
+"";"Check dictionary";"TC";"PART_OF_THE_CODEND";2021
+"";"Check dictionary";"TC";"LENGTH_CLASSES_CODE";2021
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_FRACTION";2021
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_SAMPLE_MEASURED";2021
+"";"Check numeric range";"TC";"NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED";2021
+"";"Check numeric range";"TC";"NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE";2021
+"";"Check dictionary";"TC";"SEX";2021
+"";"Check dictionary";"TC";"LENGTH_CLASS";2021
+"";"Check dictionary";"TC";"MATURITY";2021
+"";"Check no empty fields TA";"TA";NA;2021
+"";"Check no empty fields TB";"TB";NA;2021
+"";"Check no empty fields TC";"TC";NA;2021
+"";"Check 0 fields TA";"TA";NA;2021
+"";"Check dm TA";"TA";NA;2021
+"";"Check consistency between duration and time TA";"TA";NA;2021
+"";"Check consistency between distance and duration of the haul TA";"TA";NA;2021
+"";"Check consistency of the hauls coordinates with the distance (difference not greater than 30%)";"TA";NA;2021
+"";"Check consistency of bridles length TA";"TA";NA;2021
+"";"Check difference between start depth and end depth (not greater than 20%) in TA";"TA";NA;2021
+"";"Check start depth and end depth in the same stratum TA";"TA";NA;2021
+"";"Check consistency of stratum code in TA";"TA";NA;2021
+"";"Check swept area";"TA";NA;2021
+"";"Check start quadrant and end quadrant TA";"TA";NA;2021
+"";"Check uniqueness of valid hauls TA";"TA";NA;2021
+"";"Visual check of the haul positions";"TA";NA;2021
+"";"Relation between shooting depth and warp length, and between warp length and wing opening";"TA";NA;2021
+"";"Check if the coordinates are in the Mediterranean or Black Sea";"TA";NA;2021
+"";"Check on temperature by haul";"TA";NA;2021
+"";"Check correctness of species codes TB";"TB";NA;2021
+"";"Check consistency of NB_TOTAL and number per sex TB";"TB";NA;2021
+"";"Check presence of NB_TOTAL and number per sex TB for species G1";"TB";NA;2021
+"";"Check consistency between not null weight and not null total number";"TB";NA;2021
+"";"Check consistency of weight and number TB";"TB";NA;2021
+"";"Check correctness of species codes TC";"TC";NA;2021
+"";"Check correctness of LENGTH_CLASSES_CODE TC";"TC";NA;2021
+"";"Check consistency of length classes TC";"TC";NA;2021
+"";"Check correctness of number per sex in TC";"TC";NA;2021
+"";"Check consistency of maturity stages TC";"TC";NA;2021
+"";"Check sub-sampling";"TC";NA;2021
+"";"Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography";"TC";NA;2021
+"";"Check consistency of sex TC by means of spawning period";"TC";NA;2021
+"";"Check consistency of length distribution TC";"TC";NA;2021
+"";"Check total weight in the haul in TC";"TC";NA;2021
+"";"Check correctness of species codes TC";"TC";NA;2021
+"";"Check presence of lengths for G1 and G2 Medits species in TC";"TC";NA;2021
+"";"Check presence in TB of TA hauls";"TB-TA";NA;2021
+"";"Check presence in TA of TB hauls";"TA-TB";NA;2021
+"";"Check abundance";"TA-TB";NA;2021
+"";"Check presence in TC of TB target species";"TC-TB";NA;2021
+"";"Check presence in TB of TC species";"TB-TC";NA;2021
+"X";"Check correctness of the number per sex in TB in case of sub-sampling in TC";"TB-TC";NA;2021
+"";"Check on date by haul TB";"TA-TB";NA;2021
+"";"Check on date by haul TC";"TA-TC";NA;2021
+"";"Check identical record TA";"TA";NA;2022
+"";"Check identical record TB";"TB";NA;2022
+"";"Check identical record TC";"TC";NA;2022
+"";"Check quasi-identical record in TA";"TA";NA;2022
+"";"Check quasi-identical record in TB";"TB";NA;2022
+"";"Check quasi-identical record in TC";"TC";NA;2022
+"";"Check consistency of area TA, TB, TC, TE, TL";"ALL";NA;2022
+"";"Check dictionary";"TA";"COUNTRY";2022
+"";"Check dictionary";"TA";"AREA";2022
+"";"Check dictionary";"TA";"GEAR";2022
+"";"Check dictionary";"TA";"RIGGING";2022
+"";"Check dictionary";"TA";"DOORS";2022
+"";"Check dictionary";"TA";"MONTH";2022
+"";"Check dictionary";"TA";"DAY";2022
+"";"Check dictionary";"TA";"HAUL_NUMBER";2022
+"";"Check dictionary";"TA";"CODEND_CLOSING";2022
+"";"Check dictionary";"TA";"PART_OF_THE_CODEND";2022
+"";"Check dictionary";"TA";"SHOOTING_TIME";2022
+"";"Check dictionary";"TA";"SHOOTING_QUADRANT";2022
+"";"Check numeric range";"TA";"SHOOTING_LATITUDE";2022
+"";"Check numeric range";"TA";"SHOOTING_LONGITUDE";2022
+"";"Check dictionary";"TA";"SHOOTING_DEPTH";2022
+"";"Check dictionary";"TA";"HAULING_QUADRANT";2022
+"";"Check numeric range";"TA";"HAULING_LATITUDE";2022
+"";"Check numeric range";"TA";"HAULING_LONGITUDE";2022
+"";"Check dictionary";"TA";"HAULING_TIME";2022
+"";"Check dictionary";"TA";"HAULING_DEPTH";2022
+"";"Check dictionary";"TA";"HAUL_DURATION";2022
+"";"Check dictionary";"TA";"VALIDITY";2022
+"";"Check dictionary";"TA";"COURSE";2022
+"";"Check dictionary";"TA";"DISTANCE";2022
+"";"Check dictionary";"TA";"VERTICAL_OPENING";2022
+"";"Check dictionary";"TA";"WING_OPENING";2022
+"";"Check dictionary";"TA";"GEOMETRICAL_PRECISION";2022
+"";"Check dictionary";"TA";"MEASURING_SYSTEM";2022
+"";"Check dictionary";"TA";"MEASURING_SYSTEM_SALINITY";2022
+"";"Check dictionary";"TA";"RECORDED_SPECIES";2022
+"";"Check dictionary";"TA";"WARP_LENGTH";2022
+"";"Check dictionary";"TA";"WARP_DIAMETER";2022
+"";"Check dictionary";"TA";"OBSERVATIONS";2022
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_BEGINNING";2022
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_END";2022
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_BEGINNING";2022
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_END";2022
+"";"Check dictionary";"TB";"COUNTRY";2022
+"";"Check dictionary";"TB";"AREA";2022
+"";"Check dictionary";"TB";"MONTH";2022
+"";"Check dictionary";"TB";"DAY";2022
+"";"Check dictionary";"TB";"HAUL_NUMBER";2022
+"";"Check dictionary";"TB";"CODEND_CLOSING";2022
+"";"Check dictionary";"TB";"PART_OF_THE_CODEND";2022
+"";"Check numeric range";"TB";"TOTAL_WEIGHT_IN_THE_HAUL";2022
+"";"Check numeric range";"TB";"TOTAL_NUMBER_IN_THE_HAUL";2022
+"";"Check numeric range";"TB";"NB_OF_FEMALES";2022
+"";"Check numeric range";"TB";"NB_OF_MALES";2022
+"";"Check numeric range";"TB";"NB_OF_UNDETERMINED";2022
+"";"Check dictionary";"TC";"COUNTRY";2022
+"";"Check dictionary";"TC";"AREA";2022
+"";"Check dictionary";"TC";"MONTH";2022
+"";"Check dictionary";"TC";"DAY";2022
+"";"Check dictionary";"TC";"HAUL_NUMBER";2022
+"";"Check dictionary";"TC";"CODEND_CLOSING";2022
+"";"Check dictionary";"TC";"PART_OF_THE_CODEND";2022
+"";"Check dictionary";"TC";"LENGTH_CLASSES_CODE";2022
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_FRACTION";2022
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_SAMPLE_MEASURED";2022
+"";"Check numeric range";"TC";"NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED";2022
+"";"Check numeric range";"TC";"NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE";2022
+"";"Check dictionary";"TC";"SEX";2022
+"";"Check dictionary";"TC";"LENGTH_CLASS";2022
+"";"Check dictionary";"TC";"MATURITY";2022
+"";"Check no empty fields TA";"TA";NA;2022
+"";"Check no empty fields TB";"TB";NA;2022
+"";"Check no empty fields TC";"TC";NA;2022
+"";"Check 0 fields TA";"TA";NA;2022
+"";"Check dm TA";"TA";NA;2022
+"";"Check consistency between duration and time TA";"TA";NA;2022
+"";"Check consistency between distance and duration of the haul TA";"TA";NA;2022
+"";"Check consistency of the hauls coordinates with the distance (difference not greater than 30%)";"TA";NA;2022
+"";"Check consistency of bridles length TA";"TA";NA;2022
+"";"Check difference between start depth and end depth (not greater than 20%) in TA";"TA";NA;2022
+"";"Check start depth and end depth in the same stratum TA";"TA";NA;2022
+"";"Check consistency of stratum code in TA";"TA";NA;2022
+"";"Check swept area";"TA";NA;2022
+"";"Check start quadrant and end quadrant TA";"TA";NA;2022
+"";"Check uniqueness of valid hauls TA";"TA";NA;2022
+"";"Visual check of the haul positions";"TA";NA;2022
+"";"Relation between shooting depth and warp length, and between warp length and wing opening";"TA";NA;2022
+"";"Check if the coordinates are in the Mediterranean or Black Sea";"TA";NA;2022
+"";"Check on temperature by haul";"TA";NA;2022
+"";"Check correctness of species codes TB";"TB";NA;2022
+"X";"Check consistency of NB_TOTAL and number per sex TB";"TB";NA;2022
+"";"Check presence of NB_TOTAL and number per sex TB for species G1";"TB";NA;2022
+"";"Check consistency between not null weight and not null total number";"TB";NA;2022
+"";"Check consistency of weight and number TB";"TB";NA;2022
+"";"Check correctness of species codes TC";"TC";NA;2022
+"";"Check correctness of LENGTH_CLASSES_CODE TC";"TC";NA;2022
+"";"Check consistency of length classes TC";"TC";NA;2022
+"";"Check correctness of number per sex in TC";"TC";NA;2022
+"";"Check consistency of maturity stages TC";"TC";NA;2022
+"";"Check sub-sampling";"TC";NA;2022
+"";"Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography";"TC";NA;2022
+"";"Check consistency of sex TC by means of spawning period";"TC";NA;2022
+"";"Check consistency of length distribution TC";"TC";NA;2022
+"";"Check total weight in the haul in TC";"TC";NA;2022
+"";"Check correctness of species codes TC";"TC";NA;2022
+"";"Check presence of lengths for G1 and G2 Medits species in TC";"TC";NA;2022
+"";"Check presence in TB of TA hauls";"TB-TA";NA;2022
+"";"Check presence in TA of TB hauls";"TA-TB";NA;2022
+"";"Check abundance";"TA-TB";NA;2022
+"";"Check presence in TC of TB target species";"TC-TB";NA;2022
+"";"Check presence in TB of TC species";"TB-TC";NA;2022
+"X";"Check correctness of the number per sex in TB in case of sub-sampling in TC";"TB-TC";NA;2022
+"";"Check on date by haul TB";"TA-TB";NA;2022
+"";"Check on date by haul TC";"TA-TC";NA;2022
+"";"Check identical record TA";"TA";NA;2023
+"";"Check identical record TB";"TB";NA;2023
+"";"Check identical record TC";"TC";NA;2023
+"";"Check quasi-identical record in TA";"TA";NA;2023
+"";"Check quasi-identical record in TB";"TB";NA;2023
+"";"Check quasi-identical record in TC";"TC";NA;2023
+"";"Check consistency of area TA, TB, TC, TE, TL";"ALL";NA;2023
+"";"Check dictionary";"TA";"COUNTRY";2023
+"";"Check dictionary";"TA";"AREA";2023
+"";"Check dictionary";"TA";"GEAR";2023
+"";"Check dictionary";"TA";"RIGGING";2023
+"";"Check dictionary";"TA";"DOORS";2023
+"";"Check dictionary";"TA";"MONTH";2023
+"";"Check dictionary";"TA";"DAY";2023
+"";"Check dictionary";"TA";"HAUL_NUMBER";2023
+"";"Check dictionary";"TA";"CODEND_CLOSING";2023
+"";"Check dictionary";"TA";"PART_OF_THE_CODEND";2023
+"";"Check dictionary";"TA";"SHOOTING_TIME";2023
+"";"Check dictionary";"TA";"SHOOTING_QUADRANT";2023
+"";"Check numeric range";"TA";"SHOOTING_LATITUDE";2023
+"";"Check numeric range";"TA";"SHOOTING_LONGITUDE";2023
+"";"Check dictionary";"TA";"SHOOTING_DEPTH";2023
+"";"Check dictionary";"TA";"HAULING_QUADRANT";2023
+"";"Check numeric range";"TA";"HAULING_LATITUDE";2023
+"";"Check numeric range";"TA";"HAULING_LONGITUDE";2023
+"";"Check dictionary";"TA";"HAULING_TIME";2023
+"";"Check dictionary";"TA";"HAULING_DEPTH";2023
+"";"Check dictionary";"TA";"HAUL_DURATION";2023
+"";"Check dictionary";"TA";"VALIDITY";2023
+"";"Check dictionary";"TA";"COURSE";2023
+"";"Check dictionary";"TA";"DISTANCE";2023
+"";"Check dictionary";"TA";"VERTICAL_OPENING";2023
+"";"Check dictionary";"TA";"WING_OPENING";2023
+"";"Check dictionary";"TA";"GEOMETRICAL_PRECISION";2023
+"";"Check dictionary";"TA";"MEASURING_SYSTEM";2023
+"";"Check dictionary";"TA";"MEASURING_SYSTEM_SALINITY";2023
+"";"Check dictionary";"TA";"RECORDED_SPECIES";2023
+"";"Check dictionary";"TA";"WARP_LENGTH";2023
+"";"Check dictionary";"TA";"WARP_DIAMETER";2023
+"";"Check dictionary";"TA";"OBSERVATIONS";2023
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_BEGINNING";2023
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_END";2023
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_BEGINNING";2023
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_END";2023
+"";"Check dictionary";"TB";"COUNTRY";2023
+"";"Check dictionary";"TB";"AREA";2023
+"";"Check dictionary";"TB";"MONTH";2023
+"";"Check dictionary";"TB";"DAY";2023
+"";"Check dictionary";"TB";"HAUL_NUMBER";2023
+"";"Check dictionary";"TB";"CODEND_CLOSING";2023
+"";"Check dictionary";"TB";"PART_OF_THE_CODEND";2023
+"";"Check numeric range";"TB";"TOTAL_WEIGHT_IN_THE_HAUL";2023
+"";"Check numeric range";"TB";"TOTAL_NUMBER_IN_THE_HAUL";2023
+"";"Check numeric range";"TB";"NB_OF_FEMALES";2023
+"";"Check numeric range";"TB";"NB_OF_MALES";2023
+"";"Check numeric range";"TB";"NB_OF_UNDETERMINED";2023
+"";"Check dictionary";"TC";"COUNTRY";2023
+"";"Check dictionary";"TC";"AREA";2023
+"";"Check dictionary";"TC";"MONTH";2023
+"";"Check dictionary";"TC";"DAY";2023
+"";"Check dictionary";"TC";"HAUL_NUMBER";2023
+"";"Check dictionary";"TC";"CODEND_CLOSING";2023
+"";"Check dictionary";"TC";"PART_OF_THE_CODEND";2023
+"";"Check dictionary";"TC";"LENGTH_CLASSES_CODE";2023
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_FRACTION";2023
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_SAMPLE_MEASURED";2023
+"";"Check numeric range";"TC";"NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED";2023
+"";"Check numeric range";"TC";"NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE";2023
+"";"Check dictionary";"TC";"SEX";2023
+"";"Check dictionary";"TC";"LENGTH_CLASS";2023
+"";"Check dictionary";"TC";"MATURITY";2023
+"";"Check no empty fields TA";"TA";NA;2023
+"";"Check no empty fields TB";"TB";NA;2023
+"";"Check no empty fields TC";"TC";NA;2023
+"";"Check 0 fields TA";"TA";NA;2023
+"";"Check dm TA";"TA";NA;2023
+"";"Check consistency between duration and time TA";"TA";NA;2023
+"";"Check consistency between distance and duration of the haul TA";"TA";NA;2023
+"";"Check consistency of the hauls coordinates with the distance (difference not greater than 30%)";"TA";NA;2023
+"";"Check consistency of bridles length TA";"TA";NA;2023
+"";"Check difference between start depth and end depth (not greater than 20%) in TA";"TA";NA;2023
+"";"Check start depth and end depth in the same stratum TA";"TA";NA;2023
+"";"Check consistency of stratum code in TA";"TA";NA;2023
+"";"Check swept area";"TA";NA;2023
+"";"Check start quadrant and end quadrant TA";"TA";NA;2023
+"";"Check uniqueness of valid hauls TA";"TA";NA;2023
+"";"Visual check of the haul positions";"TA";NA;2023
+"";"Relation between shooting depth and warp length, and between warp length and wing opening";"TA";NA;2023
+"";"Check if the coordinates are in the Mediterranean or Black Sea";"TA";NA;2023
+"";"Check on temperature by haul";"TA";NA;2023
+"";"Check correctness of species codes TB";"TB";NA;2023
+"";"Check consistency of NB_TOTAL and number per sex TB";"TB";NA;2023
+"";"Check presence of NB_TOTAL and number per sex TB for species G1";"TB";NA;2023
+"";"Check consistency between not null weight and not null total number";"TB";NA;2023
+"";"Check consistency of weight and number TB";"TB";NA;2023
+"";"Check correctness of species codes TC";"TC";NA;2023
+"";"Check correctness of LENGTH_CLASSES_CODE TC";"TC";NA;2023
+"";"Check consistency of length classes TC";"TC";NA;2023
+"";"Check correctness of number per sex in TC";"TC";NA;2023
+"";"Check consistency of maturity stages TC";"TC";NA;2023
+"";"Check sub-sampling";"TC";NA;2023
+"";"Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography";"TC";NA;2023
+"";"Check consistency of sex TC by means of spawning period";"TC";NA;2023
+"";"Check consistency of length distribution TC";"TC";NA;2023
+"";"Check total weight in the haul in TC";"TC";NA;2023
+"";"Check correctness of species codes TC";"TC";NA;2023
+"";"Check presence of lengths for G1 and G2 Medits species in TC";"TC";NA;2023
+"";"Check presence in TB of TA hauls";"TB-TA";NA;2023
+"";"Check presence in TA of TB hauls";"TA-TB";NA;2023
+"";"Check abundance";"TA-TB";NA;2023
+"";"Check presence in TC of TB target species";"TC-TB";NA;2023
+"";"Check presence in TB of TC species";"TB-TC";NA;2023
+"";"Check correctness of the number per sex in TB in case of sub-sampling in TC";"TB-TC";NA;2023
+"";"Check on date by haul TB";"TA-TB";NA;2023
+"";"Check on date by haul TC";"TA-TC";NA;2023
+"";"Check identical record TA";"TA";NA;2024
+"";"Check identical record TB";"TB";NA;2024
+"";"Check identical record TC";"TC";NA;2024
+"";"Check quasi-identical record in TA";"TA";NA;2024
+"";"Check quasi-identical record in TB";"TB";NA;2024
+"";"Check quasi-identical record in TC";"TC";NA;2024
+"";"Check consistency of area TA, TB, TC, TE, TL";"ALL";NA;2024
+"";"Check dictionary";"TA";"COUNTRY";2024
+"";"Check dictionary";"TA";"AREA";2024
+"";"Check dictionary";"TA";"GEAR";2024
+"";"Check dictionary";"TA";"RIGGING";2024
+"";"Check dictionary";"TA";"DOORS";2024
+"";"Check dictionary";"TA";"MONTH";2024
+"";"Check dictionary";"TA";"DAY";2024
+"";"Check dictionary";"TA";"HAUL_NUMBER";2024
+"";"Check dictionary";"TA";"CODEND_CLOSING";2024
+"";"Check dictionary";"TA";"PART_OF_THE_CODEND";2024
+"";"Check dictionary";"TA";"SHOOTING_TIME";2024
+"";"Check dictionary";"TA";"SHOOTING_QUADRANT";2024
+"";"Check numeric range";"TA";"SHOOTING_LATITUDE";2024
+"";"Check numeric range";"TA";"SHOOTING_LONGITUDE";2024
+"";"Check dictionary";"TA";"SHOOTING_DEPTH";2024
+"";"Check dictionary";"TA";"HAULING_QUADRANT";2024
+"";"Check numeric range";"TA";"HAULING_LATITUDE";2024
+"";"Check numeric range";"TA";"HAULING_LONGITUDE";2024
+"";"Check dictionary";"TA";"HAULING_TIME";2024
+"";"Check dictionary";"TA";"HAULING_DEPTH";2024
+"";"Check dictionary";"TA";"HAUL_DURATION";2024
+"";"Check dictionary";"TA";"VALIDITY";2024
+"";"Check dictionary";"TA";"COURSE";2024
+"X";"Check dictionary";"TA";"DISTANCE";2024
+"";"Check dictionary";"TA";"VERTICAL_OPENING";2024
+"";"Check dictionary";"TA";"WING_OPENING";2024
+"";"Check dictionary";"TA";"GEOMETRICAL_PRECISION";2024
+"";"Check dictionary";"TA";"MEASURING_SYSTEM";2024
+"";"Check dictionary";"TA";"MEASURING_SYSTEM_SALINITY";2024
+"";"Check dictionary";"TA";"RECORDED_SPECIES";2024
+"";"Check dictionary";"TA";"WARP_LENGTH";2024
+"";"Check dictionary";"TA";"WARP_DIAMETER";2024
+"";"Check dictionary";"TA";"OBSERVATIONS";2024
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_BEGINNING";2024
+"";"Check numeric range";"TA";"BOTTOM_TEMPERATURE_END";2024
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_BEGINNING";2024
+"";"Check numeric range";"TA";"BOTTOM_SALINITY_END";2024
+"";"Check dictionary";"TB";"COUNTRY";2024
+"";"Check dictionary";"TB";"AREA";2024
+"";"Check dictionary";"TB";"MONTH";2024
+"";"Check dictionary";"TB";"DAY";2024
+"";"Check dictionary";"TB";"HAUL_NUMBER";2024
+"";"Check dictionary";"TB";"CODEND_CLOSING";2024
+"";"Check dictionary";"TB";"PART_OF_THE_CODEND";2024
+"";"Check numeric range";"TB";"TOTAL_WEIGHT_IN_THE_HAUL";2024
+"";"Check numeric range";"TB";"TOTAL_NUMBER_IN_THE_HAUL";2024
+"";"Check numeric range";"TB";"NB_OF_FEMALES";2024
+"";"Check numeric range";"TB";"NB_OF_MALES";2024
+"";"Check numeric range";"TB";"NB_OF_UNDETERMINED";2024
+"";"Check dictionary";"TC";"COUNTRY";2024
+"";"Check dictionary";"TC";"AREA";2024
+"";"Check dictionary";"TC";"MONTH";2024
+"";"Check dictionary";"TC";"DAY";2024
+"";"Check dictionary";"TC";"HAUL_NUMBER";2024
+"";"Check dictionary";"TC";"CODEND_CLOSING";2024
+"";"Check dictionary";"TC";"PART_OF_THE_CODEND";2024
+"";"Check dictionary";"TC";"LENGTH_CLASSES_CODE";2024
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_FRACTION";2024
+"";"Check numeric range";"TC";"WEIGHT_OF_THE_SAMPLE_MEASURED";2024
+"";"Check numeric range";"TC";"NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED";2024
+"";"Check numeric range";"TC";"NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE";2024
+"";"Check dictionary";"TC";"SEX";2024
+"";"Check dictionary";"TC";"LENGTH_CLASS";2024
+"";"Check dictionary";"TC";"MATURITY";2024
+"";"Check no empty fields TA";"TA";NA;2024
+"";"Check no empty fields TB";"TB";NA;2024
+"";"Check no empty fields TC";"TC";NA;2024
+"";"Check 0 fields TA";"TA";NA;2024
+"";"Check dm TA";"TA";NA;2024
+"";"Check consistency between duration and time TA";"TA";NA;2024
+"";"Check consistency between distance and duration of the haul TA";"TA";NA;2024
+"";"Check consistency of the hauls coordinates with the distance (difference not greater than 30%)";"TA";NA;2024
+"";"Check consistency of bridles length TA";"TA";NA;2024
+"";"Check difference between start depth and end depth (not greater than 20%) in TA";"TA";NA;2024
+"";"Check start depth and end depth in the same stratum TA";"TA";NA;2024
+"";"Check consistency of stratum code in TA";"TA";NA;2024
+"";"Check swept area";"TA";NA;2024
+"";"Check start quadrant and end quadrant TA";"TA";NA;2024
+"";"Check uniqueness of valid hauls TA";"TA";NA;2024
+"";"Visual check of the haul positions";"TA";NA;2024
+"";"Relation between shooting depth and warp length, and between warp length and wing opening";"TA";NA;2024
+"";"Check if the coordinates are in the Mediterranean or Black Sea";"TA";NA;2024
+"";"Check on temperature by haul";"TA";NA;2024
+"";"Check correctness of species codes TB";"TB";NA;2024
+"";"Check consistency of NB_TOTAL and number per sex TB";"TB";NA;2024
+"";"Check presence of NB_TOTAL and number per sex TB for species G1";"TB";NA;2024
+"";"Check consistency between not null weight and not null total number";"TB";NA;2024
+"";"Check consistency of weight and number TB";"TB";NA;2024
+"";"Check correctness of species codes TC";"TC";NA;2024
+"";"Check correctness of LENGTH_CLASSES_CODE TC";"TC";NA;2024
+"";"Check consistency of length classes TC";"TC";NA;2024
+"";"Check correctness of number per sex in TC";"TC";NA;2024
+"";"Check consistency of maturity stages TC";"TC";NA;2024
+"";"Check sub-sampling";"TC";NA;2024
+"";"Check consistency of maturity stages TC by the comparison with the length of smallest mature individuals reported in bibliography";"TC";NA;2024
+"";"Check consistency of sex TC by means of spawning period";"TC";NA;2024
+"";"Check consistency of length distribution TC";"TC";NA;2024
+"";"Check total weight in the haul in TC";"TC";NA;2024
+"";"Check correctness of species codes TC";"TC";NA;2024
+"";"Check presence of lengths for G1 and G2 Medits species in TC";"TC";NA;2024
+"";"Check presence in TB of TA hauls";"TB-TA";NA;2024
+"";"Check presence in TA of TB hauls";"TA-TB";NA;2024
+"";"Check abundance";"TA-TB";NA;2024
+"";"Check presence in TC of TB target species";"TC-TB";NA;2024
+"";"Check presence in TB of TC species";"TB-TC";NA;2024
+"";"Check correctness of the number per sex in TB in case of sub-sampling in TC";"TB-TC";NA;2024
+"";"Check on date by haul TB";"TA-TB";NA;2024
+"";"Check on date by haul TC";"TA-TC";NA;2024

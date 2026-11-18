@@ -1,0 +1,3 @@
+"GSA";"Year";"Species";"Sex";"Haul";"Length_Class";"LMIN01";"LMAX99";"TYPE_OF_FILE";"Type_of_Warning"
+18;2020;"MULLBAR";"M";5;-50;NA;NA;"TC";"Negative LENGTH_CLASS"
+18;2020;"MULLBAR";"M";5;-50;70;225;"TC";"LENGTH_CLASS out of reference range"

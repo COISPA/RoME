@@ -1,0 +1,1833 @@
+
+ Wed Nov 18 10:17:11 2026
+-------------------------------------------------------------
+
+              CHECK RESULTS
+              
+-------------------------------------------------------------
+
+----------- check of HEADERS
+No error occurred
+
+----------- check of HEADERS
+No error occurred
+
+----------- check of HEADERS
+No error occurred
+
+----------- check CLASS
+
+----------------- table  TA
+No error occurred
+
+----------------- table  TB
+No error occurred
+
+----------------- table  TC
+No error occurred
+
+----------- check on YEAR field 
+No error occurred
+
+----------- check on TYPE_OF_FILE field 
+No error occurred
+
+----------- check identical records -  2020
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+                ----------- check quasi identical records -  2020
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+----------- check consistency of area in TX -  2020
+No error occurred
+                ----------- check dictionary -  2020
+TA:
+
+----------- check dictionary for field: COUNTRY - 2020
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: AREA - 2020
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: GEAR - 2020
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2020
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2020
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: MONTH - 2020
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: DAY - 2020
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: HAUL_NUMBER - 2020
+No error occurred for field HAUL_NUMBER in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2020
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2020
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2020
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2020
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check range of values for field: SHOOTING_LATITUDE - 2020
+No error occurred for field SHOOTING_LATITUDE in TA
+
+----------- check range of values for field: SHOOTING_LONGITUDE - 2020
+No error occurred for field SHOOTING_LONGITUDE in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2020
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2020
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check range of values for field: HAULING_LATITUDE - 2020
+No error occurred for field HAULING_LATITUDE in TA
+
+----------- check range of values for field: HAULING_LONGITUDE - 2020
+No error occurred for field HAULING_LONGITUDE in TA
+
+----------- check dictionary for field: HAULING_TIME - 2020
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2020
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: HAUL_DURATION - 2020
+No error occurred for field HAUL_DURATION in TA
+
+----------- check dictionary for field: VALIDITY - 2020
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2020
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: DISTANCE - 2020
+No error occurred for field DISTANCE in TA
+
+----------- check dictionary for field: VERTICAL_OPENING - 2020
+No error occurred for field VERTICAL_OPENING in TA
+
+----------- check dictionary for field: WING_OPENING - 2020
+No error occurred for field WING_OPENING in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2020
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2020
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM_SALINITY - 2020
+No error occurred for field MEASURING_SYSTEM_SALINITY in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2020
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2020
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2020
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2020
+No error occurred for field OBSERVATIONS in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_BEGINNING - 2020
+No error occurred for field BOTTOM_TEMPERATURE_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_END - 2020
+No error occurred for field BOTTOM_TEMPERATURE_END in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_BEGINNING - 2020
+No error occurred for field BOTTOM_SALINITY_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_END - 2020
+No error occurred for field BOTTOM_SALINITY_END in TA
+
+                ----------- check dictionary -  2020
+TB:
+
+----------- check dictionary for field: COUNTRY - 2020
+No error occurred for field COUNTRY in TB
+
+----------- check dictionary for field: AREA - 2020
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: MONTH - 2020
+No error occurred for field MONTH in TB
+
+----------- check dictionary for field: DAY - 2020
+No error occurred for field DAY in TB
+
+----------- check dictionary for field: HAUL_NUMBER - 2020
+No error occurred for field HAUL_NUMBER in TB
+
+----------- check dictionary for field: CODEND_CLOSING - 2020
+No error occurred for field CODEND_CLOSING in TB
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2020
+No error occurred for field PART_OF_THE_CODEND in TB
+
+----------- check range of values for field: TOTAL_WEIGHT_IN_THE_HAUL - 2020
+No error occurred for field TOTAL_WEIGHT_IN_THE_HAUL in TB
+
+----------- check range of values for field: TOTAL_NUMBER_IN_THE_HAUL - 2020
+No error occurred for field TOTAL_NUMBER_IN_THE_HAUL in TB
+
+----------- check range of values for field: NB_OF_FEMALES - 2020
+No error occurred for field NB_OF_FEMALES in TB
+
+----------- check range of values for field: NB_OF_MALES - 2020
+No error occurred for field NB_OF_MALES in TB
+
+----------- check range of values for field: NB_OF_UNDETERMINED - 2020
+No error occurred for field NB_OF_UNDETERMINED in TB
+
+                ----------- check dictionary -  2020
+TC:
+
+----------- check dictionary for field: COUNTRY - 2020
+No error occurred for field COUNTRY in TC
+
+----------- check dictionary for field: AREA - 2020
+No error occurred for field AREA in TC
+
+----------- check dictionary for field: MONTH - 2020
+No error occurred for field MONTH in TC
+
+----------- check dictionary for field: DAY - 2020
+No error occurred for field DAY in TC
+
+----------- check dictionary for field: HAUL_NUMBER - 2020
+No error occurred for field HAUL_NUMBER in TC
+
+----------- check dictionary for field: CODEND_CLOSING - 2020
+No error occurred for field CODEND_CLOSING in TC
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2020
+No error occurred for field PART_OF_THE_CODEND in TC
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2020
+No error occurred for field LENGTH_CLASSES_CODE in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_FRACTION - 2020
+No error occurred for field WEIGHT_OF_THE_FRACTION in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_SAMPLE_MEASURED - 2020
+No error occurred for field WEIGHT_OF_THE_SAMPLE_MEASURED in TC
+
+----------- check range of values for field: NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED - 2020
+No error occurred for field NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED in TC
+
+----------- check range of values for field: NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE - 2020
+No error occurred for field NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE in TC
+
+----------- check dictionary for field: SEX - 2020
+No error occurred for field SEX in TC
+
+----------- check dictionary for field: LENGTH_CLASS - 2020
+Error: Haul 5 MULL BAR M -50: value '-50' not allowed for LENGTH_CLASS in TC
+
+----------- check dictionary for field: MATURITY - 2020
+No error occurred for field MATURITY in TC
+
+                ----------- check dictionary -  2020
+TE:
+
+                ----------- check dictionary -  2020
+TL:
+
+----------- check no empty fields
+TA -  2020
+No error occurred
+TB-  2020
+No error occurred
+TC-  2020
+No error occurred
+
+----------- check 0 fields TA
+No error occurred
+
+----------- check dm TA -  2020
+No error occurred
+
+----------- check consistency between duration and time TA -  2020
+No error occurred
+
+----------- check consistency between duration and distance TA -  2020
+No error occurred
+
+----------- check consistency of the hauls coordinates with the distance -  2020
+Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the jpeg files in Graphs directory
+No error occurred
+
+----------- check consistency of bridles length TA -  2020
+No error occurred
+
+----------- check difference between start depth and end depth (not greater than 20%) TA  - 2020
+Warning: Haul 7 difference between start depth 379 and end depth 503 greater than 20% in TA
+No error occurred
+
+----------- check start depth and end depth in the same stratum TA -  2020
+Warning: Haul 7  starts in the stratum 4 ( 379 m ) and finishes in the stratum 5 ( 503 m ) in TA
+No error occurred
+
+----------- check correctness of stratum code -  2020
+No error occurred
+
+----------- check swept area -  2020
+Warning: Check the plot of swept area vs depth. It has been saved in the Graphs folder.
+No error occurred
+
+----------- check start quadrant and end quadrant TA -  2020
+No error occurred
+
+----------- check uniqueness of valid hauls TA -  2020
+No error occurred
+Check of hauls position: see the graphs automatically generated in Graphs directory
+Qualitative check TA: see the graphs automatically generated in Graphs directory
+
+----------- check if the hauls positions are in Mediterranean  or Black Sea -  2020
+No error occurred
+
+----------- check temperature -  2020
+Temperature check: see the graphs automatically generated in Graphs directory
+No error occurred
+
+----------- check correctness of species codes in TB -  2020
+No error occurred
+
+----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB -  2020
+Error: Haul 1 MERL MER : NB_TOTAL doesn't equal NB_F+NB_M+NB_I TB
+
+----------- check presence of number of individuals for species G1 -  2020
+No error occurred
+
+              ----------- check consistency between not null weight and not null total number in TB -  2020
+No error occurred
+
+----------- check consistency of weight and number TB -  2020
+No outliers detected. All mean weights within reference ranges.
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2020
+No error occurred
+
+----------- check correctness of LENGTH_CLASSES_CODE in TC -  2020
+No error occurred
+
+----------- check consistency of length classes TC - 2020
+Warning: 2 rows written to CSV file Check_Length_Classes_Logfile_GSA18_Year2020_demo.csv - possible inconsistencies detected.
+
+----------- check consistency of number per sex in TC -  2020
+No error occurred
+ ----------- check consistency of maturity stages in  TC - 2020
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2020
+No error occurred
+
+----------- check smallest mature individuals in TC - 2020
+No inconsistencies detected. All maturity stages above bibliographic thresholds.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- Check consistency of maturity stages in TC using spawning season info - 2020
+8 warnings written to CSV file: Check_SpawningPeriod_Logfile_GSA18_Year2020_demo.csv
+Attention: if you change maturity stages after corrections, rerun the check because you might introduce duplicates in TC.
+
+----------- check consistency of length distribution TC -  2020
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2020
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2020
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2020
+No error occurred
+
+----------- check presence in TB of TA hauls -  2020
+No error occurred
+
+----------- check presence in TA of TB hauls -  2020
+No error occurred
+
+----------- Boxplot of Abundances - Year 2020
+Saved plot: Abundance_2020_plot01.jpeg
+No errors detected.
+
+----------- check presence in TC of TB target species - 2020
+Check completed for year 2020 - No errors detected.
+
+----------- check presence in TB of TC species -  2020
+No error occurred
+
+----------- CHECK RAISING - Year 2020
+Error: Haul 1 ITA MERL MER TOTAL_NUMBER_IN_THE_HAUL in TB (29) not consistent with raised total (22) in TC
+Error: Haul 1 ITA MERL MER TOTAL_NUMBER_IN_THE_HAUL in TB (29) not equal to the sum of sexes (22) in TB
+
+----------- check correctness of date by haul in TB -  2020
+No error occurred
+
+----------- check correctness of date by haul in TC -  2020
+No error occurred
+
+----------- check identical records -  2021
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+                ----------- check quasi identical records -  2021
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+----------- check consistency of area in TX -  2021
+No error occurred
+                ----------- check dictionary -  2021
+TA:
+
+----------- check dictionary for field: COUNTRY - 2021
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: AREA - 2021
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: GEAR - 2021
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2021
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2021
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: MONTH - 2021
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: DAY - 2021
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: HAUL_NUMBER - 2021
+No error occurred for field HAUL_NUMBER in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2021
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2021
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2021
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2021
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check range of values for field: SHOOTING_LATITUDE - 2021
+No error occurred for field SHOOTING_LATITUDE in TA
+
+----------- check range of values for field: SHOOTING_LONGITUDE - 2021
+No error occurred for field SHOOTING_LONGITUDE in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2021
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2021
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check range of values for field: HAULING_LATITUDE - 2021
+No error occurred for field HAULING_LATITUDE in TA
+
+----------- check range of values for field: HAULING_LONGITUDE - 2021
+No error occurred for field HAULING_LONGITUDE in TA
+
+----------- check dictionary for field: HAULING_TIME - 2021
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2021
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: HAUL_DURATION - 2021
+No error occurred for field HAUL_DURATION in TA
+
+----------- check dictionary for field: VALIDITY - 2021
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2021
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: DISTANCE - 2021
+No error occurred for field DISTANCE in TA
+
+----------- check dictionary for field: VERTICAL_OPENING - 2021
+No error occurred for field VERTICAL_OPENING in TA
+
+----------- check dictionary for field: WING_OPENING - 2021
+No error occurred for field WING_OPENING in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2021
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2021
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM_SALINITY - 2021
+No error occurred for field MEASURING_SYSTEM_SALINITY in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2021
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2021
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2021
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2021
+No error occurred for field OBSERVATIONS in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_BEGINNING - 2021
+No error occurred for field BOTTOM_TEMPERATURE_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_END - 2021
+No error occurred for field BOTTOM_TEMPERATURE_END in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_BEGINNING - 2021
+No error occurred for field BOTTOM_SALINITY_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_END - 2021
+No error occurred for field BOTTOM_SALINITY_END in TA
+
+                ----------- check dictionary -  2021
+TB:
+
+----------- check dictionary for field: COUNTRY - 2021
+No error occurred for field COUNTRY in TB
+
+----------- check dictionary for field: AREA - 2021
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: MONTH - 2021
+No error occurred for field MONTH in TB
+
+----------- check dictionary for field: DAY - 2021
+No error occurred for field DAY in TB
+
+----------- check dictionary for field: HAUL_NUMBER - 2021
+No error occurred for field HAUL_NUMBER in TB
+
+----------- check dictionary for field: CODEND_CLOSING - 2021
+No error occurred for field CODEND_CLOSING in TB
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2021
+No error occurred for field PART_OF_THE_CODEND in TB
+
+----------- check range of values for field: TOTAL_WEIGHT_IN_THE_HAUL - 2021
+No error occurred for field TOTAL_WEIGHT_IN_THE_HAUL in TB
+
+----------- check range of values for field: TOTAL_NUMBER_IN_THE_HAUL - 2021
+No error occurred for field TOTAL_NUMBER_IN_THE_HAUL in TB
+
+----------- check range of values for field: NB_OF_FEMALES - 2021
+No error occurred for field NB_OF_FEMALES in TB
+
+----------- check range of values for field: NB_OF_MALES - 2021
+No error occurred for field NB_OF_MALES in TB
+
+----------- check range of values for field: NB_OF_UNDETERMINED - 2021
+No error occurred for field NB_OF_UNDETERMINED in TB
+
+                ----------- check dictionary -  2021
+TC:
+
+----------- check dictionary for field: COUNTRY - 2021
+No error occurred for field COUNTRY in TC
+
+----------- check dictionary for field: AREA - 2021
+No error occurred for field AREA in TC
+
+----------- check dictionary for field: MONTH - 2021
+No error occurred for field MONTH in TC
+
+----------- check dictionary for field: DAY - 2021
+No error occurred for field DAY in TC
+
+----------- check dictionary for field: HAUL_NUMBER - 2021
+No error occurred for field HAUL_NUMBER in TC
+
+----------- check dictionary for field: CODEND_CLOSING - 2021
+No error occurred for field CODEND_CLOSING in TC
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2021
+No error occurred for field PART_OF_THE_CODEND in TC
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2021
+No error occurred for field LENGTH_CLASSES_CODE in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_FRACTION - 2021
+No error occurred for field WEIGHT_OF_THE_FRACTION in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_SAMPLE_MEASURED - 2021
+No error occurred for field WEIGHT_OF_THE_SAMPLE_MEASURED in TC
+
+----------- check range of values for field: NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED - 2021
+No error occurred for field NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED in TC
+
+----------- check range of values for field: NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE - 2021
+No error occurred for field NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE in TC
+
+----------- check dictionary for field: SEX - 2021
+No error occurred for field SEX in TC
+
+----------- check dictionary for field: LENGTH_CLASS - 2021
+No error occurred for field LENGTH_CLASS in TC
+
+----------- check dictionary for field: MATURITY - 2021
+No error occurred for field MATURITY in TC
+
+                ----------- check dictionary -  2021
+TE:
+
+                ----------- check dictionary -  2021
+TL:
+
+----------- check no empty fields
+TA -  2021
+No error occurred
+TB-  2021
+No error occurred
+TC-  2021
+No error occurred
+
+----------- check 0 fields TA
+No error occurred
+
+----------- check dm TA -  2021
+No error occurred
+
+----------- check consistency between duration and time TA -  2021
+No error occurred
+
+----------- check consistency between duration and distance TA -  2021
+No error occurred
+
+----------- check consistency of the hauls coordinates with the distance -  2021
+Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the jpeg files in Graphs directory
+No error occurred
+
+----------- check consistency of bridles length TA -  2021
+No error occurred
+
+----------- check difference between start depth and end depth (not greater than 20%) TA  - 2021
+Warning: Haul 2 difference between start depth 29 and end depth 35 greater than 20% in TA
+Warning: Haul 5 difference between start depth 112 and end depth 252 greater than 20% in TA
+No error occurred
+
+----------- check start depth and end depth in the same stratum TA -  2021
+Warning: Haul 5  starts in the stratum 3 ( 112 m ) and finishes in the stratum 4 ( 252 m ) in TA
+No error occurred
+
+----------- check correctness of stratum code -  2021
+No error occurred
+
+----------- check swept area -  2021
+Warning: Check the plot of swept area vs depth. It has been saved in the Graphs folder.
+No error occurred
+
+----------- check start quadrant and end quadrant TA -  2021
+No error occurred
+
+----------- check uniqueness of valid hauls TA -  2021
+No error occurred
+Check of hauls position: see the graphs automatically generated in Graphs directory
+Qualitative check TA: see the graphs automatically generated in Graphs directory
+
+----------- check if the hauls positions are in Mediterranean  or Black Sea -  2021
+No error occurred
+
+----------- check temperature -  2021
+Temperature check: see the graphs automatically generated in Graphs directory
+No error occurred
+
+----------- check correctness of species codes in TB -  2021
+No error occurred
+
+----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB -  2021
+No error occurred
+
+----------- check presence of number of individuals for species G1 -  2021
+No error occurred
+
+              ----------- check consistency between not null weight and not null total number in TB -  2021
+No error occurred
+
+----------- check consistency of weight and number TB -  2021
+No outliers detected. All mean weights within reference ranges.
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2021
+No error occurred
+
+----------- check correctness of LENGTH_CLASSES_CODE in TC -  2021
+No error occurred
+
+----------- check consistency of length classes TC - 2021
+No inconsistencies detected. All length classes within expected ranges.
+
+----------- check consistency of number per sex in TC -  2021
+No error occurred
+ ----------- check consistency of maturity stages in  TC - 2021
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2021
+No error occurred
+
+----------- check smallest mature individuals in TC - 2021
+No inconsistencies detected. All maturity stages above bibliographic thresholds.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- Check consistency of maturity stages in TC using spawning season info - 2021
+8 warnings written to CSV file: Check_SpawningPeriod_Logfile_GSA18_Year2021_demo.csv
+Attention: if you change maturity stages after corrections, rerun the check because you might introduce duplicates in TC.
+
+----------- check consistency of length distribution TC -  2021
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2021
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2021
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2021
+No error occurred
+
+----------- check presence in TB of TA hauls -  2021
+No error occurred
+
+----------- check presence in TA of TB hauls -  2021
+No error occurred
+
+----------- Boxplot of Abundances - Year 2021
+Saved plot: Abundance_2021_plot01.jpeg
+No errors detected.
+
+----------- check presence in TC of TB target species - 2021
+Check completed for year 2021 - No errors detected.
+
+----------- check presence in TB of TC species -  2021
+No error occurred
+
+----------- CHECK RAISING - Year 2021
+Error: Haul 3 ITA MERL MER NUMBER_OF_FEMALES in TB (14) not consistent with raised total (18) in TC
+Error: Haul 3 ITA MERL MER NUMBER_OF_MALES in TB (10) not consistent with raised total (13) in TC
+Error: Haul 3 ITA MERL MER TOTAL_NUMBER_IN_THE_HAUL in TB (24) not consistent with raised total (30) in TC
+
+----------- check correctness of date by haul in TB -  2021
+No error occurred
+
+----------- check correctness of date by haul in TC -  2021
+No error occurred
+
+----------- check identical records -  2022
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+                ----------- check quasi identical records -  2022
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+----------- check consistency of area in TX -  2022
+No error occurred
+                ----------- check dictionary -  2022
+TA:
+
+----------- check dictionary for field: COUNTRY - 2022
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: AREA - 2022
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: GEAR - 2022
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2022
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2022
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: MONTH - 2022
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: DAY - 2022
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: HAUL_NUMBER - 2022
+No error occurred for field HAUL_NUMBER in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2022
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2022
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2022
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2022
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check range of values for field: SHOOTING_LATITUDE - 2022
+No error occurred for field SHOOTING_LATITUDE in TA
+
+----------- check range of values for field: SHOOTING_LONGITUDE - 2022
+No error occurred for field SHOOTING_LONGITUDE in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2022
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2022
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check range of values for field: HAULING_LATITUDE - 2022
+No error occurred for field HAULING_LATITUDE in TA
+
+----------- check range of values for field: HAULING_LONGITUDE - 2022
+No error occurred for field HAULING_LONGITUDE in TA
+
+----------- check dictionary for field: HAULING_TIME - 2022
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2022
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: HAUL_DURATION - 2022
+No error occurred for field HAUL_DURATION in TA
+
+----------- check dictionary for field: VALIDITY - 2022
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2022
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: DISTANCE - 2022
+No error occurred for field DISTANCE in TA
+
+----------- check dictionary for field: VERTICAL_OPENING - 2022
+No error occurred for field VERTICAL_OPENING in TA
+
+----------- check dictionary for field: WING_OPENING - 2022
+No error occurred for field WING_OPENING in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2022
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2022
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM_SALINITY - 2022
+No error occurred for field MEASURING_SYSTEM_SALINITY in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2022
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2022
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2022
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2022
+No error occurred for field OBSERVATIONS in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_BEGINNING - 2022
+No error occurred for field BOTTOM_TEMPERATURE_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_END - 2022
+No error occurred for field BOTTOM_TEMPERATURE_END in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_BEGINNING - 2022
+No error occurred for field BOTTOM_SALINITY_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_END - 2022
+No error occurred for field BOTTOM_SALINITY_END in TA
+
+                ----------- check dictionary -  2022
+TB:
+
+----------- check dictionary for field: COUNTRY - 2022
+No error occurred for field COUNTRY in TB
+
+----------- check dictionary for field: AREA - 2022
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: MONTH - 2022
+No error occurred for field MONTH in TB
+
+----------- check dictionary for field: DAY - 2022
+No error occurred for field DAY in TB
+
+----------- check dictionary for field: HAUL_NUMBER - 2022
+No error occurred for field HAUL_NUMBER in TB
+
+----------- check dictionary for field: CODEND_CLOSING - 2022
+No error occurred for field CODEND_CLOSING in TB
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2022
+No error occurred for field PART_OF_THE_CODEND in TB
+
+----------- check range of values for field: TOTAL_WEIGHT_IN_THE_HAUL - 2022
+No error occurred for field TOTAL_WEIGHT_IN_THE_HAUL in TB
+
+----------- check range of values for field: TOTAL_NUMBER_IN_THE_HAUL - 2022
+No error occurred for field TOTAL_NUMBER_IN_THE_HAUL in TB
+
+----------- check range of values for field: NB_OF_FEMALES - 2022
+No error occurred for field NB_OF_FEMALES in TB
+
+----------- check range of values for field: NB_OF_MALES - 2022
+No error occurred for field NB_OF_MALES in TB
+
+----------- check range of values for field: NB_OF_UNDETERMINED - 2022
+No error occurred for field NB_OF_UNDETERMINED in TB
+
+                ----------- check dictionary -  2022
+TC:
+
+----------- check dictionary for field: COUNTRY - 2022
+No error occurred for field COUNTRY in TC
+
+----------- check dictionary for field: AREA - 2022
+No error occurred for field AREA in TC
+
+----------- check dictionary for field: MONTH - 2022
+No error occurred for field MONTH in TC
+
+----------- check dictionary for field: DAY - 2022
+No error occurred for field DAY in TC
+
+----------- check dictionary for field: HAUL_NUMBER - 2022
+No error occurred for field HAUL_NUMBER in TC
+
+----------- check dictionary for field: CODEND_CLOSING - 2022
+No error occurred for field CODEND_CLOSING in TC
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2022
+No error occurred for field PART_OF_THE_CODEND in TC
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2022
+No error occurred for field LENGTH_CLASSES_CODE in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_FRACTION - 2022
+No error occurred for field WEIGHT_OF_THE_FRACTION in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_SAMPLE_MEASURED - 2022
+No error occurred for field WEIGHT_OF_THE_SAMPLE_MEASURED in TC
+
+----------- check range of values for field: NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED - 2022
+No error occurred for field NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED in TC
+
+----------- check range of values for field: NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE - 2022
+No error occurred for field NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE in TC
+
+----------- check dictionary for field: SEX - 2022
+No error occurred for field SEX in TC
+
+----------- check dictionary for field: LENGTH_CLASS - 2022
+No error occurred for field LENGTH_CLASS in TC
+
+----------- check dictionary for field: MATURITY - 2022
+No error occurred for field MATURITY in TC
+
+                ----------- check dictionary -  2022
+TE:
+
+                ----------- check dictionary -  2022
+TL:
+
+----------- check no empty fields
+TA -  2022
+No error occurred
+TB-  2022
+No error occurred
+TC-  2022
+No error occurred
+
+----------- check 0 fields TA
+No error occurred
+
+----------- check dm TA -  2022
+No error occurred
+
+----------- check consistency between duration and time TA -  2022
+No error occurred
+
+----------- check consistency between duration and distance TA -  2022
+No error occurred
+
+----------- check consistency of the hauls coordinates with the distance -  2022
+Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the jpeg files in Graphs directory
+No error occurred
+
+----------- check consistency of bridles length TA -  2022
+No error occurred
+
+----------- check difference between start depth and end depth (not greater than 20%) TA  - 2022
+No error occurred
+
+----------- check start depth and end depth in the same stratum TA -  2022
+No error occurred
+
+----------- check correctness of stratum code -  2022
+No error occurred
+
+----------- check swept area -  2022
+Warning: Check the plot of swept area vs depth. It has been saved in the Graphs folder.
+No error occurred
+
+----------- check start quadrant and end quadrant TA -  2022
+No error occurred
+
+----------- check uniqueness of valid hauls TA -  2022
+No error occurred
+Check of hauls position: see the graphs automatically generated in Graphs directory
+Qualitative check TA: see the graphs automatically generated in Graphs directory
+
+----------- check if the hauls positions are in Mediterranean  or Black Sea -  2022
+No error occurred
+
+----------- check temperature -  2022
+Temperature check: see the graphs automatically generated in Graphs directory
+No error occurred
+
+----------- check correctness of species codes in TB -  2022
+No error occurred
+
+----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB -  2022
+Error: Haul 8 ILLE COI : NB_TOTAL doesn't equal NB_F+NB_M+NB_I TB
+
+----------- check presence of number of individuals for species G1 -  2022
+No error occurred
+
+              ----------- check consistency between not null weight and not null total number in TB -  2022
+No error occurred
+
+----------- check consistency of weight and number TB -  2022
+No outliers detected. All mean weights within reference ranges.
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2022
+No error occurred
+
+----------- check correctness of LENGTH_CLASSES_CODE in TC -  2022
+No error occurred
+
+----------- check consistency of length classes TC - 2022
+No inconsistencies detected. All length classes within expected ranges.
+
+----------- check consistency of number per sex in TC -  2022
+No error occurred
+ ----------- check consistency of maturity stages in  TC - 2022
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2022
+No error occurred
+
+----------- check smallest mature individuals in TC - 2022
+No inconsistencies detected. All maturity stages above bibliographic thresholds.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- Check consistency of maturity stages in TC using spawning season info - 2022
+8 warnings written to CSV file: Check_SpawningPeriod_Logfile_GSA18_Year2022_demo.csv
+Attention: if you change maturity stages after corrections, rerun the check because you might introduce duplicates in TC.
+
+----------- check consistency of length distribution TC -  2022
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2022
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2022
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2022
+No error occurred
+
+----------- check presence in TB of TA hauls -  2022
+No error occurred
+
+----------- check presence in TA of TB hauls -  2022
+No error occurred
+
+----------- Boxplot of Abundances - Year 2022
+Saved plot: Abundance_2022_plot01.jpeg
+No errors detected.
+
+----------- check presence in TC of TB target species - 2022
+Check completed for year 2022 - No errors detected.
+
+----------- check presence in TB of TC species -  2022
+No error occurred
+
+----------- CHECK RAISING - Year 2022
+Error: Haul 8 ITA ILLE COI NUMBER_OF_MALES in TB (20) not consistent with raised total (14) in TC
+Error: Haul 8 ITA ILLE COI TOTAL_NUMBER_IN_THE_HAUL in TB (24) not equal to the sum of sexes (30) in TB
+
+----------- check correctness of date by haul in TB -  2022
+No error occurred
+
+----------- check correctness of date by haul in TC -  2022
+No error occurred
+
+----------- check identical records -  2023
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+                ----------- check quasi identical records -  2023
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+----------- check consistency of area in TX -  2023
+No error occurred
+                ----------- check dictionary -  2023
+TA:
+
+----------- check dictionary for field: COUNTRY - 2023
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: AREA - 2023
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: GEAR - 2023
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2023
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2023
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: MONTH - 2023
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: DAY - 2023
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: HAUL_NUMBER - 2023
+No error occurred for field HAUL_NUMBER in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2023
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2023
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2023
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2023
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check range of values for field: SHOOTING_LATITUDE - 2023
+No error occurred for field SHOOTING_LATITUDE in TA
+
+----------- check range of values for field: SHOOTING_LONGITUDE - 2023
+No error occurred for field SHOOTING_LONGITUDE in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2023
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2023
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check range of values for field: HAULING_LATITUDE - 2023
+No error occurred for field HAULING_LATITUDE in TA
+
+----------- check range of values for field: HAULING_LONGITUDE - 2023
+No error occurred for field HAULING_LONGITUDE in TA
+
+----------- check dictionary for field: HAULING_TIME - 2023
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2023
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: HAUL_DURATION - 2023
+No error occurred for field HAUL_DURATION in TA
+
+----------- check dictionary for field: VALIDITY - 2023
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2023
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: DISTANCE - 2023
+No error occurred for field DISTANCE in TA
+
+----------- check dictionary for field: VERTICAL_OPENING - 2023
+No error occurred for field VERTICAL_OPENING in TA
+
+----------- check dictionary for field: WING_OPENING - 2023
+No error occurred for field WING_OPENING in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2023
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2023
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM_SALINITY - 2023
+No error occurred for field MEASURING_SYSTEM_SALINITY in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2023
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2023
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2023
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2023
+No error occurred for field OBSERVATIONS in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_BEGINNING - 2023
+No error occurred for field BOTTOM_TEMPERATURE_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_END - 2023
+No error occurred for field BOTTOM_TEMPERATURE_END in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_BEGINNING - 2023
+No error occurred for field BOTTOM_SALINITY_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_END - 2023
+No error occurred for field BOTTOM_SALINITY_END in TA
+
+                ----------- check dictionary -  2023
+TB:
+
+----------- check dictionary for field: COUNTRY - 2023
+No error occurred for field COUNTRY in TB
+
+----------- check dictionary for field: AREA - 2023
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: MONTH - 2023
+No error occurred for field MONTH in TB
+
+----------- check dictionary for field: DAY - 2023
+No error occurred for field DAY in TB
+
+----------- check dictionary for field: HAUL_NUMBER - 2023
+No error occurred for field HAUL_NUMBER in TB
+
+----------- check dictionary for field: CODEND_CLOSING - 2023
+No error occurred for field CODEND_CLOSING in TB
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2023
+No error occurred for field PART_OF_THE_CODEND in TB
+
+----------- check range of values for field: TOTAL_WEIGHT_IN_THE_HAUL - 2023
+No error occurred for field TOTAL_WEIGHT_IN_THE_HAUL in TB
+
+----------- check range of values for field: TOTAL_NUMBER_IN_THE_HAUL - 2023
+No error occurred for field TOTAL_NUMBER_IN_THE_HAUL in TB
+
+----------- check range of values for field: NB_OF_FEMALES - 2023
+No error occurred for field NB_OF_FEMALES in TB
+
+----------- check range of values for field: NB_OF_MALES - 2023
+No error occurred for field NB_OF_MALES in TB
+
+----------- check range of values for field: NB_OF_UNDETERMINED - 2023
+No error occurred for field NB_OF_UNDETERMINED in TB
+
+                ----------- check dictionary -  2023
+TC:
+
+----------- check dictionary for field: COUNTRY - 2023
+No error occurred for field COUNTRY in TC
+
+----------- check dictionary for field: AREA - 2023
+No error occurred for field AREA in TC
+
+----------- check dictionary for field: MONTH - 2023
+No error occurred for field MONTH in TC
+
+----------- check dictionary for field: DAY - 2023
+No error occurred for field DAY in TC
+
+----------- check dictionary for field: HAUL_NUMBER - 2023
+No error occurred for field HAUL_NUMBER in TC
+
+----------- check dictionary for field: CODEND_CLOSING - 2023
+No error occurred for field CODEND_CLOSING in TC
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2023
+No error occurred for field PART_OF_THE_CODEND in TC
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2023
+No error occurred for field LENGTH_CLASSES_CODE in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_FRACTION - 2023
+No error occurred for field WEIGHT_OF_THE_FRACTION in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_SAMPLE_MEASURED - 2023
+No error occurred for field WEIGHT_OF_THE_SAMPLE_MEASURED in TC
+
+----------- check range of values for field: NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED - 2023
+No error occurred for field NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED in TC
+
+----------- check range of values for field: NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE - 2023
+No error occurred for field NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE in TC
+
+----------- check dictionary for field: SEX - 2023
+No error occurred for field SEX in TC
+
+----------- check dictionary for field: LENGTH_CLASS - 2023
+No error occurred for field LENGTH_CLASS in TC
+
+----------- check dictionary for field: MATURITY - 2023
+No error occurred for field MATURITY in TC
+
+                ----------- check dictionary -  2023
+TE:
+
+                ----------- check dictionary -  2023
+TL:
+
+----------- check no empty fields
+TA -  2023
+No error occurred
+TB-  2023
+No error occurred
+TC-  2023
+No error occurred
+
+----------- check 0 fields TA
+No error occurred
+
+----------- check dm TA -  2023
+No error occurred
+
+----------- check consistency between duration and time TA -  2023
+No error occurred
+
+----------- check consistency between duration and distance TA -  2023
+No error occurred
+
+----------- check consistency of the hauls coordinates with the distance -  2023
+Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the jpeg files in Graphs directory
+No error occurred
+
+----------- check consistency of bridles length TA -  2023
+No error occurred
+
+----------- check difference between start depth and end depth (not greater than 20%) TA  - 2023
+No error occurred
+
+----------- check start depth and end depth in the same stratum TA -  2023
+No error occurred
+
+----------- check correctness of stratum code -  2023
+No error occurred
+
+----------- check swept area -  2023
+Warning: Check the plot of swept area vs depth. It has been saved in the Graphs folder.
+No error occurred
+
+----------- check start quadrant and end quadrant TA -  2023
+No error occurred
+
+----------- check uniqueness of valid hauls TA -  2023
+No error occurred
+Check of hauls position: see the graphs automatically generated in Graphs directory
+Qualitative check TA: see the graphs automatically generated in Graphs directory
+
+----------- check if the hauls positions are in Mediterranean  or Black Sea -  2023
+No error occurred
+
+----------- check temperature -  2023
+Temperature check: see the graphs automatically generated in Graphs directory
+No error occurred
+
+----------- check correctness of species codes in TB -  2023
+No error occurred
+
+----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB -  2023
+No error occurred
+
+----------- check presence of number of individuals for species G1 -  2023
+No error occurred
+
+              ----------- check consistency between not null weight and not null total number in TB -  2023
+No error occurred
+
+----------- check consistency of weight and number TB -  2023
+No outliers detected. All mean weights within reference ranges.
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2023
+No error occurred
+
+----------- check correctness of LENGTH_CLASSES_CODE in TC -  2023
+No error occurred
+
+----------- check consistency of length classes TC - 2023
+No inconsistencies detected. All length classes within expected ranges.
+
+----------- check consistency of number per sex in TC -  2023
+No error occurred
+ ----------- check consistency of maturity stages in  TC - 2023
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2023
+No error occurred
+
+----------- check smallest mature individuals in TC - 2023
+No inconsistencies detected. All maturity stages above bibliographic thresholds.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- Check consistency of maturity stages in TC using spawning season info - 2023
+8 warnings written to CSV file: Check_SpawningPeriod_Logfile_GSA18_Year2023_demo.csv
+Attention: if you change maturity stages after corrections, rerun the check because you might introduce duplicates in TC.
+
+----------- check consistency of length distribution TC -  2023
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2023
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2023
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2023
+No error occurred
+
+----------- check presence in TB of TA hauls -  2023
+No error occurred
+
+----------- check presence in TA of TB hauls -  2023
+No error occurred
+
+----------- Boxplot of Abundances - Year 2023
+Saved plot: Abundance_2023_plot01.jpeg
+No errors detected.
+
+----------- check presence in TC of TB target species - 2023
+Check completed for year 2023 - No errors detected.
+
+----------- check presence in TB of TC species -  2023
+No error occurred
+
+----------- CHECK RAISING - Year 2023
+No error occurred
+
+----------- check correctness of date by haul in TB -  2023
+No error occurred
+
+----------- check correctness of date by haul in TC -  2023
+No error occurred
+
+----------- check identical records -  2024
+TA: 
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+                ----------- check quasi identical records -  2024
+TA:
+No error occurred
+TB:
+No error occurred
+TC:
+No error occurred
+
+----------- check consistency of area in TX -  2024
+No error occurred
+                ----------- check dictionary -  2024
+TA:
+
+----------- check dictionary for field: COUNTRY - 2024
+No error occurred for field COUNTRY in TA
+
+----------- check dictionary for field: AREA - 2024
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: GEAR - 2024
+No error occurred for field GEAR in TA
+
+----------- check dictionary for field: RIGGING - 2024
+No error occurred for field RIGGING in TA
+
+----------- check dictionary for field: DOORS - 2024
+No error occurred for field DOORS in TA
+
+----------- check dictionary for field: MONTH - 2024
+No error occurred for field MONTH in TA
+
+----------- check dictionary for field: DAY - 2024
+No error occurred for field DAY in TA
+
+----------- check dictionary for field: HAUL_NUMBER - 2024
+No error occurred for field HAUL_NUMBER in TA
+
+----------- check dictionary for field: CODEND_CLOSING - 2024
+No error occurred for field CODEND_CLOSING in TA
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2024
+No error occurred for field PART_OF_THE_CODEND in TA
+
+----------- check dictionary for field: SHOOTING_TIME - 2024
+No error occurred for field SHOOTING_TIME in TA
+
+----------- check dictionary for field: SHOOTING_QUADRANT - 2024
+No error occurred for field SHOOTING_QUADRANT in TA
+
+----------- check range of values for field: SHOOTING_LATITUDE - 2024
+No error occurred for field SHOOTING_LATITUDE in TA
+
+----------- check range of values for field: SHOOTING_LONGITUDE - 2024
+No error occurred for field SHOOTING_LONGITUDE in TA
+
+----------- check dictionary for field: SHOOTING_DEPTH - 2024
+No error occurred for field SHOOTING_DEPTH in TA
+
+----------- check dictionary for field: HAULING_QUADRANT - 2024
+No error occurred for field HAULING_QUADRANT in TA
+
+----------- check range of values for field: HAULING_LATITUDE - 2024
+No error occurred for field HAULING_LATITUDE in TA
+
+----------- check range of values for field: HAULING_LONGITUDE - 2024
+No error occurred for field HAULING_LONGITUDE in TA
+
+----------- check dictionary for field: HAULING_TIME - 2024
+No error occurred for field HAULING_TIME in TA
+
+----------- check dictionary for field: HAULING_DEPTH - 2024
+No error occurred for field HAULING_DEPTH in TA
+
+----------- check dictionary for field: HAUL_DURATION - 2024
+No error occurred for field HAUL_DURATION in TA
+
+----------- check dictionary for field: VALIDITY - 2024
+No error occurred for field VALIDITY in TA
+
+----------- check dictionary for field: COURSE - 2024
+No error occurred for field COURSE in TA
+
+----------- check dictionary for field: DISTANCE - 2024
+Error: Haul 8: value '10630' not allowed for DISTANCE in TA
+
+----------- check dictionary for field: VERTICAL_OPENING - 2024
+No error occurred for field VERTICAL_OPENING in TA
+
+----------- check dictionary for field: WING_OPENING - 2024
+No error occurred for field WING_OPENING in TA
+
+----------- check dictionary for field: GEOMETRICAL_PRECISION - 2024
+No error occurred for field GEOMETRICAL_PRECISION in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM - 2024
+No error occurred for field MEASURING_SYSTEM in TA
+
+----------- check dictionary for field: MEASURING_SYSTEM_SALINITY - 2024
+No error occurred for field MEASURING_SYSTEM_SALINITY in TA
+
+----------- check dictionary for field: RECORDED_SPECIES - 2024
+No error occurred for field RECORDED_SPECIES in TA
+
+----------- check dictionary for field: WARP_LENGTH - 2024
+No error occurred for field WARP_LENGTH in TA
+
+----------- check dictionary for field: WARP_DIAMETER - 2024
+No error occurred for field WARP_DIAMETER in TA
+
+----------- check dictionary for field: OBSERVATIONS - 2024
+No error occurred for field OBSERVATIONS in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_BEGINNING - 2024
+No error occurred for field BOTTOM_TEMPERATURE_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_TEMPERATURE_END - 2024
+No error occurred for field BOTTOM_TEMPERATURE_END in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_BEGINNING - 2024
+No error occurred for field BOTTOM_SALINITY_BEGINNING in TA
+
+----------- check range of values for field: BOTTOM_SALINITY_END - 2024
+No error occurred for field BOTTOM_SALINITY_END in TA
+
+                ----------- check dictionary -  2024
+TB:
+
+----------- check dictionary for field: COUNTRY - 2024
+No error occurred for field COUNTRY in TB
+
+----------- check dictionary for field: AREA - 2024
+No error occurred for field AREA in TA
+
+----------- check dictionary for field: MONTH - 2024
+No error occurred for field MONTH in TB
+
+----------- check dictionary for field: DAY - 2024
+No error occurred for field DAY in TB
+
+----------- check dictionary for field: HAUL_NUMBER - 2024
+No error occurred for field HAUL_NUMBER in TB
+
+----------- check dictionary for field: CODEND_CLOSING - 2024
+No error occurred for field CODEND_CLOSING in TB
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2024
+No error occurred for field PART_OF_THE_CODEND in TB
+
+----------- check range of values for field: TOTAL_WEIGHT_IN_THE_HAUL - 2024
+No error occurred for field TOTAL_WEIGHT_IN_THE_HAUL in TB
+
+----------- check range of values for field: TOTAL_NUMBER_IN_THE_HAUL - 2024
+No error occurred for field TOTAL_NUMBER_IN_THE_HAUL in TB
+
+----------- check range of values for field: NB_OF_FEMALES - 2024
+No error occurred for field NB_OF_FEMALES in TB
+
+----------- check range of values for field: NB_OF_MALES - 2024
+No error occurred for field NB_OF_MALES in TB
+
+----------- check range of values for field: NB_OF_UNDETERMINED - 2024
+No error occurred for field NB_OF_UNDETERMINED in TB
+
+                ----------- check dictionary -  2024
+TC:
+
+----------- check dictionary for field: COUNTRY - 2024
+No error occurred for field COUNTRY in TC
+
+----------- check dictionary for field: AREA - 2024
+No error occurred for field AREA in TC
+
+----------- check dictionary for field: MONTH - 2024
+No error occurred for field MONTH in TC
+
+----------- check dictionary for field: DAY - 2024
+No error occurred for field DAY in TC
+
+----------- check dictionary for field: HAUL_NUMBER - 2024
+No error occurred for field HAUL_NUMBER in TC
+
+----------- check dictionary for field: CODEND_CLOSING - 2024
+No error occurred for field CODEND_CLOSING in TC
+
+----------- check dictionary for field: PART_OF_THE_CODEND - 2024
+No error occurred for field PART_OF_THE_CODEND in TC
+
+----------- check dictionary for field: LENGTH_CLASSES_CODE - 2024
+No error occurred for field LENGTH_CLASSES_CODE in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_FRACTION - 2024
+No error occurred for field WEIGHT_OF_THE_FRACTION in TC
+
+----------- check range of values for field: WEIGHT_OF_THE_SAMPLE_MEASURED - 2024
+No error occurred for field WEIGHT_OF_THE_SAMPLE_MEASURED in TC
+
+----------- check range of values for field: NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED - 2024
+No error occurred for field NO_OF_INDIVIDUAL_OF_THE_ABOVE_SEX_MEASURED in TC
+
+----------- check range of values for field: NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE - 2024
+No error occurred for field NUMBER_OF_INDIVIDUALS_IN_THE_LENGTH_CLASS_AND_MATURITY_STAGE in TC
+
+----------- check dictionary for field: SEX - 2024
+No error occurred for field SEX in TC
+
+----------- check dictionary for field: LENGTH_CLASS - 2024
+No error occurred for field LENGTH_CLASS in TC
+
+----------- check dictionary for field: MATURITY - 2024
+No error occurred for field MATURITY in TC
+
+                ----------- check dictionary -  2024
+TE:
+
+                ----------- check dictionary -  2024
+TL:
+
+----------- check no empty fields
+TA -  2024
+No error occurred
+TB-  2024
+No error occurred
+TC-  2024
+No error occurred
+
+----------- check 0 fields TA
+No error occurred
+
+----------- check dm TA -  2024
+No error occurred
+
+----------- check consistency between duration and time TA -  2024
+No error occurred
+
+----------- check consistency between duration and distance TA -  2024
+Warning: in haul 8 distance measure 10630 inconsistent with the duration of the haul ( 60 min )
+No error occurred
+
+----------- check consistency of the hauls coordinates with the distance -  2024
+Some of the hauls coordinates may be inconsistent with the computed distance. For a visual check, look at the jpeg files in Graphs directory
+No error occurred
+
+----------- check consistency of bridles length TA -  2024
+No error occurred
+
+----------- check difference between start depth and end depth (not greater than 20%) TA  - 2024
+No error occurred
+
+----------- check start depth and end depth in the same stratum TA -  2024
+No error occurred
+
+----------- check correctness of stratum code -  2024
+No error occurred
+
+----------- check swept area -  2024
+Warning: Check the plot of swept area vs depth. It has been saved in the Graphs folder.
+No error occurred
+
+----------- check start quadrant and end quadrant TA -  2024
+No error occurred
+
+----------- check uniqueness of valid hauls TA -  2024
+No error occurred
+Check of hauls position: see the graphs automatically generated in Graphs directory
+Qualitative check TA: see the graphs automatically generated in Graphs directory
+
+----------- check if the hauls positions are in Mediterranean  or Black Sea -  2024
+No error occurred
+
+----------- check temperature -  2024
+Temperature check: see the graphs automatically generated in Graphs directory
+No error occurred
+
+----------- check correctness of species codes in TB -  2024
+No error occurred
+
+----------- check consistency of TOTAL_NUMBER_IN_THE_HAUL and number per sex in TB -  2024
+No error occurred
+
+----------- check presence of number of individuals for species G1 -  2024
+No error occurred
+
+              ----------- check consistency between not null weight and not null total number in TB -  2024
+No error occurred
+
+----------- check consistency of weight and number TB -  2024
+No outliers detected. All mean weights within reference ranges.
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2024
+No error occurred
+
+----------- check correctness of LENGTH_CLASSES_CODE in TC -  2024
+No error occurred
+
+----------- check consistency of length classes TC - 2024
+Warning: 1 rows written to CSV file Check_Length_Classes_Logfile_GSA18_Year2024_demo.csv - possible inconsistencies detected.
+
+----------- check consistency of number per sex in TC -  2024
+No error occurred
+ ----------- check consistency of maturity stages in  TC - 2024
+No error occurred
+
+----------- check correctness of the number per sex in TB in case of sub-sampling in TC -  2024
+No error occurred
+
+----------- check smallest mature individuals in TC - 2024
+No inconsistencies detected. All maturity stages above bibliographic thresholds.
+Attention: if you decide to change the maturity stages detected, after the corrections, run again the code, because you could have entered duplicated records in TC.
+
+----------- Check consistency of maturity stages in TC using spawning season info - 2024
+8 warnings written to CSV file: Check_SpawningPeriod_Logfile_GSA18_Year2024_demo.csv
+Attention: if you change maturity stages after corrections, rerun the check because you might introduce duplicates in TC.
+
+----------- check consistency of length distribution TC -  2024
+No error occurred
+
+----------- check consistency total weight in the haul in TC -  2024
+No error occurred
+
+----------- check correctness of species codes in -  TC - 2024
+No error occurred
+
+----------- check presence of lengths for G1 and G2 species in TC -  2024
+No error occurred
+
+----------- check presence in TB of TA hauls -  2024
+No error occurred
+
+----------- check presence in TA of TB hauls -  2024
+No error occurred
+
+----------- Boxplot of Abundances - Year 2024
+Saved plot: Abundance_2024_plot01.jpeg
+No errors detected.
+
+----------- check presence in TC of TB target species - 2024
+Check completed for year 2024 - No errors detected.
+
+----------- check presence in TB of TC species -  2024
+No error occurred
+
+----------- CHECK RAISING - Year 2024
+No error occurred
+
+----------- check correctness of date by haul in TB -  2024
+No error occurred
+
+----------- check correctness of date by haul in TC -  2024
+No error occurred
